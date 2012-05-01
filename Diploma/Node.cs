@@ -34,6 +34,8 @@ namespace Diploma
             Type = nodeType;
             ScreenPosition = new Point(screenPosX, screenPosY);
             RealPosition = new Point(realPosX, realPosY);
+
+            ConnectedNodes = new List<Node>();
         }
 
         public List<Node> ConnectedNodes;

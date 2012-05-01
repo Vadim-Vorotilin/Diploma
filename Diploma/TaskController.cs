@@ -16,25 +16,37 @@ namespace Diploma
 
         public static Pen ConnectionsPen = new Pen(Color.Black, 2.0f);
 
+        public static Color ClearColor = Color.White;
+
         public static List<Node> Nodes = new List<Node>();
 
-        public static Graphics GraphicsForDraw;
+        private static Graphics graphicsForDraw;
+        public static Graphics GraphicsForDraw
+        {
+            set 
+            { 
+                graphicsForDraw = value; 
+                graphicsForDraw.Clear(ClearColor); 
+            }
+        }
 
         public static void AddNodeAtScreen (Node.NodeType nodeType, int posX, int posY)
         {
             Node newNode = new Node(nodeType, posX, posY, posX, posY);
-            DrawNode(GraphicsForDraw, newNode);
+            DrawNode(graphicsForDraw, newNode);
 
             Nodes.Add(newNode);
         }
 
         public static void DrawNodes ()
         {
-            DrawNodes(GraphicsForDraw);
+            DrawNodes(graphicsForDraw);
         }
 
         public static void DrawNodes (Graphics g)
         {
+            g.Clear(ClearColor);
+
             foreach (Node node in Nodes)
             {
                 DrawNode(g, node);
