@@ -7,5 +7,6 @@ namespace Diploma
 {
     public static class TaskController
     {
+
     }
 }
