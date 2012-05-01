@@ -1,6 +1,6 @@
 ﻿namespace Diploma
 {
-    partial class Form1
+    partial class GraphForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // GraphForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(645, 382);
+            this.Name = "GraphForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.GraphForm_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GraphForm_MouseClick);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
