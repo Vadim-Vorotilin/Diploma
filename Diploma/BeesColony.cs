@@ -29,8 +29,6 @@ namespace Diploma
         {
             Prices = new double[depotsCount * ClustersCount + consumersCount, depotsCount * ClustersCount + consumersCount];
 
-            //string[,] output = new string[depotsCount * ClustersCount + consumersCount, depotsCount * ClustersCount + consumersCount];
-
             for (int i = 0; i != Prices.GetLength(0); i++)
             {
                 for (int j = 0; j != Prices.GetLength(0); j++)
@@ -38,39 +36,21 @@ namespace Diploma
                     if (i < depotsCount * ClustersCount && j < depotsCount * ClustersCount)
                     {
                         Prices[i, j] = double.PositiveInfinity;
-                        //output[i, j] = "oo";
                     }
                     else if (i < depotsCount * ClustersCount)
                     {
                         Prices[i, j] = GetDistance(nodes[i / ClustersCount], nodes[j - ((ClustersCount - 1) * depotsCount)]);
-                        //output[i, j] = String.Format("{0}->{1}", i / ClustersCount, j - ((ClustersCount - 1) * depotsCount));
                     }
                     else if (j < depotsCount * ClustersCount)
                     {
                         Prices[i, j] = GetDistance(nodes[i - ((ClustersCount - 1) * depotsCount)], nodes[j / ClustersCount]);
-                        //output[i, j] = String.Format("{0}->{1}", i - ((ClustersCount - 1) * depotsCount), j / ClustersCount);
                     }
                     else
                     {
                         Prices[i, j] = GetDistance(nodes[i - ((ClustersCount - 1) * depotsCount)], nodes[j - ((ClustersCount - 1) * depotsCount)]);
-                        //output[i, j] = String.Format("{0}->{1}", i - ((ClustersCount - 1) * depotsCount), j - ((ClustersCount - 1) * depotsCount));
                     }
                 }
             }
-
-            //string finalOutput = "";
-
-            //for (int i = 0; i != Prices.GetLength(0); i++)
-            //{
-            //    for (int j = 0; j != Prices.GetLength(0); j++)
-            //    {
-            //        finalOutput += output[i, j] + " ";
-            //    }
-
-            //    finalOutput += "\n";
-            //}
-
-            //System.Windows.Forms.MessageBox.Show(finalOutput);
         }
 
         private double GetDistance (Node node1, Node node2)
