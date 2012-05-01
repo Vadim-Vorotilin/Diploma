@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BeesColony.cs" />
     <Compile Include="GraphForm.cs">
       <SubType>Form</SubType>
     </Compile>

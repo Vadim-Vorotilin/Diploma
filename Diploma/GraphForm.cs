@@ -60,5 +60,14 @@ namespace Diploma
 
             isAddingNode = !isAddingNode;
         }
+
+        private void button_CreateColony_MouseClick(object sender, MouseEventArgs e)
+        {
+            BeesColony colony = new BeesColony();
+            colony.ClustersCount = 2;
+
+            colony.SetNodes(TaskController.Nodes);
+            colony.GeneratePricesByPositions();
+        }
     }
 }
