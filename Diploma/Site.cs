@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Diploma
 {
-    public class Site
+    public class Site : IComparable
     {
         private int[] nodesSequence;
 
@@ -91,6 +91,13 @@ namespace Diploma
             var temp = arr[i1];
             arr[i1] = arr[i2];
             arr[i2] = temp;
+        }
+
+        public int CompareTo (object obj)
+        {
+            Site site = obj as Site;
+
+            return Price.CompareTo(site.Price);
         }
     }
 }
