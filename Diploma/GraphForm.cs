@@ -96,6 +96,17 @@ namespace Diploma
         private void button_Iteration_Click(object sender, EventArgs e)
         {
             TaskController.Colony.Iteration();
+            TaskController.Colony.DrawNodes();
+        }
+
+        private void button_Iterate_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i != numericUpDown_IterationsCount.Value; i++)
+            {
+                TaskController.Colony.Iteration();
+            }
+
+            TaskController.Colony.DrawNodes();
         }
     }
 }

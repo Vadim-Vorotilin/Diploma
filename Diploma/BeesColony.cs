@@ -101,7 +101,10 @@ namespace Diploma
                 while (sites[i].GoToBestNeighbour(NeighboursForGoodSites))
                 {}
             }
+        }
 
+        public void DrawNodes ()
+        {
             for (int i = 0; i != nodes.Count; i++)
             {
                 nodes[i].ConnectedNodes = new List<Node>();
