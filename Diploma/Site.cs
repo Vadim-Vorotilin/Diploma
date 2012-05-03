@@ -34,6 +34,12 @@ namespace Diploma
             GenerateSequence(depotsCount, clustersCount, consumersCount);
         }
 
+        public Site (Site site)
+        {
+            this.prices = site.prices.Clone() as int[,];
+            this.nodesSequence = site.prices.Clone() as int[];
+        }
+
         private void GenerateSequence (int depotsCount, int clustersCount, int consumersCount)
         {
             List<int> orderedSequence = new List<int>();
@@ -65,7 +71,7 @@ namespace Diploma
             }
         }
 
-        public static void Invert (int[] arr, int i1, int i2)
+        private static void Invert (int[] arr, int i1, int i2)
         {
             int end_ = ((i1 + Math.Abs(i1 - i2)/2 + 1)%arr.Length >= 0
                             ? (i1 + Math.Abs(i1 - i2)/2 + 1)%arr.Length
@@ -91,6 +97,30 @@ namespace Diploma
             var temp = arr[i1];
             arr[i1] = arr[i2];
             arr[i2] = temp;
+        }
+
+        public void InvertRandomPartOfNodesSequence ()
+        {
+            Random rnd = new Random();
+
+            int i1 = rnd.Next(nodesSequence.Length);
+            int i2;
+
+            do
+            {
+                i2 = rnd.Next(nodesSequence.Length);
+            } while (i1 == i2);
+
+            Invert(nodesSequence, i1, i2);
+        }
+
+        private Site GetNeighbour ()
+        {
+            Site result = new Site(this);
+
+            result.InvertRandomPartOfNodesSequence();
+
+            return result;
         }
 
         public int CompareTo (object obj)
