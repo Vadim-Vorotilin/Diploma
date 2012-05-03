@@ -37,6 +37,7 @@
             this.radioButton_isDepot = new System.Windows.Forms.RadioButton();
             this.button_CreateColony = new System.Windows.Forms.Button();
             this.panel_Drawing = new System.Windows.Forms.Panel();
+            this.button_Iteration = new System.Windows.Forms.Button();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
             this.groupBox_NodeType.SuspendLayout();
@@ -64,6 +65,7 @@
             this.flowLayoutPanel_Tools.Controls.Add(this.button_AddNode);
             this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_NodeType);
             this.flowLayoutPanel_Tools.Controls.Add(this.button_CreateColony);
+            this.flowLayoutPanel_Tools.Controls.Add(this.button_Iteration);
             this.flowLayoutPanel_Tools.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Tools.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(730, 3);
@@ -106,22 +108,22 @@
             // radioButton_isConsumer
             // 
             this.radioButton_isConsumer.AutoSize = true;
+            this.radioButton_isConsumer.Checked = true;
             this.radioButton_isConsumer.Location = new System.Drawing.Point(7, 43);
             this.radioButton_isConsumer.Name = "radioButton_isConsumer";
             this.radioButton_isConsumer.Size = new System.Drawing.Size(72, 17);
             this.radioButton_isConsumer.TabIndex = 1;
+            this.radioButton_isConsumer.TabStop = true;
             this.radioButton_isConsumer.Text = "Consumer";
             this.radioButton_isConsumer.UseVisualStyleBackColor = true;
             // 
             // radioButton_isDepot
             // 
             this.radioButton_isDepot.AutoSize = true;
-            this.radioButton_isDepot.Checked = true;
             this.radioButton_isDepot.Location = new System.Drawing.Point(7, 20);
             this.radioButton_isDepot.Name = "radioButton_isDepot";
             this.radioButton_isDepot.Size = new System.Drawing.Size(54, 17);
             this.radioButton_isDepot.TabIndex = 0;
-            this.radioButton_isDepot.TabStop = true;
             this.radioButton_isDepot.Text = "Depot";
             this.radioButton_isDepot.UseVisualStyleBackColor = true;
             // 
@@ -143,6 +145,16 @@
             this.panel_Drawing.Size = new System.Drawing.Size(721, 446);
             this.panel_Drawing.TabIndex = 1;
             this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
+            // 
+            // button_Iteration
+            // 
+            this.button_Iteration.Location = new System.Drawing.Point(3, 162);
+            this.button_Iteration.Name = "button_Iteration";
+            this.button_Iteration.Size = new System.Drawing.Size(116, 23);
+            this.button_Iteration.TabIndex = 4;
+            this.button_Iteration.Text = "Iteration";
+            this.button_Iteration.UseVisualStyleBackColor = true;
+            this.button_Iteration.Click += new System.EventHandler(this.button_Iteration_Click);
             // 
             // GraphForm
             // 
@@ -173,6 +185,7 @@
         private System.Windows.Forms.RadioButton radioButton_isDepot;
         private System.Windows.Forms.Button button_AddNode;
         private System.Windows.Forms.Button button_CreateColony;
+        private System.Windows.Forms.Button button_Iteration;
 
     }
 }

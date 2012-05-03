@@ -9,7 +9,12 @@ namespace Diploma
     {
         private int[] nodesSequence;
 
-        private int[,] prices;
+        public int[] NodesSequence
+        {
+            get { return nodesSequence; }
+        }
+
+        private double[,] prices;
 
         private double Price
         {
@@ -28,7 +33,7 @@ namespace Diploma
             }
         }
 
-        public Site (int[,] prices, int depotsCount, int clustersCount, int consumersCount)
+        public Site (double[,] prices, int depotsCount, int clustersCount, int consumersCount)
         {
             this.prices = prices;
             GenerateSequence(depotsCount, clustersCount, consumersCount);
@@ -36,8 +41,8 @@ namespace Diploma
 
         public Site (Site site)
         {
-            this.prices = site.prices.Clone() as int[,];
-            this.nodesSequence = site.prices.Clone() as int[];
+            this.prices = site.prices.Clone() as double[,];
+            this.nodesSequence = site.nodesSequence.Clone() as int[];
         }
 
         private void GenerateSequence (int depotsCount, int clustersCount, int consumersCount)
@@ -59,11 +64,9 @@ namespace Diploma
 
             nodesSequence = new int[depotsCount*clustersCount + consumersCount];
 
-            Random rnd = new Random();
-
             for (int i = 0; i != nodesSequence.Length; i++)
             {
-                int index = rnd.Next(orderedSequence.Count);
+                int index = TaskController.Rnd.Next(orderedSequence.Count);
 
                 nodesSequence[i] = orderedSequence[index];
 
@@ -101,14 +104,12 @@ namespace Diploma
 
         public void InvertRandomPartOfNodesSequence ()
         {
-            Random rnd = new Random();
-
-            int i1 = rnd.Next(nodesSequence.Length);
+            int i1 = TaskController.Rnd.Next(nodesSequence.Length);
             int i2;
 
             do
             {
-                i2 = rnd.Next(nodesSequence.Length);
+                i2 = TaskController.Rnd.Next(nodesSequence.Length);
             } while (i1 == i2);
 
             Invert(nodesSequence, i1, i2);
@@ -123,11 +124,55 @@ namespace Diploma
             return result;
         }
 
+        private void GoToNeighbour (Site site)
+        {
+            nodesSequence = site.NodesSequence.Clone() as int[];
+        }
+
+        private List<Site> GenerateNeighbours (int count)
+        {
+            List<Site> result = new List<Site>();
+
+            for (int i = 0; i != count; i++)
+            {
+                result.Add(GetNeighbour());
+            }
+
+            return result;
+        }
+
+        public bool GoToBestNeighbour (int countOfNeightbours)
+        {
+            List<Site> neighbours = GenerateNeighbours(countOfNeightbours);
+
+            neighbours.Sort();
+
+            if (neighbours[0].Price < this.Price)
+            {
+                GoToNeighbour(neighbours[0]);
+                return true;
+            }
+
+            return false;
+        }
+
         public int CompareTo (object obj)
         {
             Site site = obj as Site;
 
             return Price.CompareTo(site.Price);
+        }
+
+        public override string ToString()
+        {
+            string sequence = "{";
+
+            for (int i = 0; i != nodesSequence.Length; i++)
+            {
+                sequence += nodesSequence[i] + (i != nodesSequence.Length - 1 ? " " : "}");
+            }
+
+            return string.Format("{0}. Price: {1}", sequence, Price);
         }
     }
 }

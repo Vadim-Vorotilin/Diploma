@@ -30,6 +30,10 @@ namespace Diploma
             }
         }
 
+        public static BeesColony Colony;
+
+        public static Random Rnd = new Random();
+
         public static void AddNodeAtScreen (Node.NodeType nodeType, int posX, int posY)
         {
             Node newNode = new Node(nodeType, posX, posY, posX, posY);
@@ -49,12 +53,15 @@ namespace Diploma
 
             foreach (Node node in Nodes)
             {
-                DrawNode(g, node);
-
                 foreach (Node connectedNode in node.ConnectedNodes)
                 {
                     g.DrawLine(ConnectionsPen, (int)node.ScreenPosition.x, (int)node.ScreenPosition.y, (int)connectedNode.ScreenPosition.x, (int)connectedNode.ScreenPosition.y);
                 }
+            }
+
+            foreach (Node node in Nodes)
+            {
+                DrawNode(g, node);
             }
         }
 
@@ -63,7 +70,7 @@ namespace Diploma
             switch (node.Type)
             {
                 case Node.NodeType.Consumer:
-                    g.FillEllipse(ConsumerBrush, (int)node.ScreenPosition.x, (int)node.ScreenPosition.y, ConsumerSize, ConsumerSize);
+                    g.FillEllipse(ConsumerBrush, (int)(node.ScreenPosition.x - ConsumerSize / 2.0), (int)(node.ScreenPosition.y - ConsumerSize / 2.0), ConsumerSize, ConsumerSize);
                     break;
 
                 case Node.NodeType.Depot:
