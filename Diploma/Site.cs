@@ -28,7 +28,7 @@ namespace Diploma
             }
         }
 
-        public Site (int [,] prices, int depotsCount, int clustersCount, int consumersCount)
+        public Site (int[,] prices, int depotsCount, int clustersCount, int consumersCount)
         {
             this.prices = prices;
             GenerateSequence(depotsCount, clustersCount, consumersCount);
@@ -51,7 +51,7 @@ namespace Diploma
                 orderedSequence.Add(i);
             }
 
-            nodesSequence = new int[depotsCount * clustersCount + consumersCount];
+            nodesSequence = new int[depotsCount*clustersCount + consumersCount];
 
             Random rnd = new Random();
 
@@ -63,6 +63,34 @@ namespace Diploma
 
                 orderedSequence.RemoveAt(index);
             }
+        }
+
+        public static void Invert (int[] arr, int i1, int i2)
+        {
+            int end_ = ((i1 + Math.Abs(i1 - i2)/2 + 1)%arr.Length >= 0
+                            ? (i1 + Math.Abs(i1 - i2)/2 + 1)%arr.Length
+                            : (i1 + Math.Abs(i1 - i2)/2 + 1)%arr.Length + arr.Length);
+
+
+            for (int i = i1; i != end_; i++)
+            {
+                int i1_ = (i%arr.Length >= 0 ? i%arr.Length : i%arr.Length + arr.Length);
+
+                if (i1_ == end_) break;
+
+                int i2_ = ((i1 + i2 - i)%arr.Length >= 0
+                               ? (i1 + i2 - i)%arr.Length
+                               : (i1 + i2 - i)%arr.Length + arr.Length);
+
+                Interchange(arr, i1_, i2_);
+            }
+        }
+
+        private static void Interchange (int[] arr, int i1, int i2)
+        {
+            var temp = arr[i1];
+            arr[i1] = arr[i2];
+            arr[i2] = temp;
         }
     }
 }

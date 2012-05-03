@@ -31,12 +31,12 @@
             this.tableLayoutPanel_Main = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel_Tools = new System.Windows.Forms.FlowLayoutPanel();
             this.button_Redraw = new System.Windows.Forms.Button();
-            this.panel_Drawing = new System.Windows.Forms.Panel();
-            this.groupBox_NodeType = new System.Windows.Forms.GroupBox();
-            this.radioButton_isDepot = new System.Windows.Forms.RadioButton();
-            this.radioButton_isConsumer = new System.Windows.Forms.RadioButton();
             this.button_AddNode = new System.Windows.Forms.Button();
+            this.groupBox_NodeType = new System.Windows.Forms.GroupBox();
+            this.radioButton_isConsumer = new System.Windows.Forms.RadioButton();
+            this.radioButton_isDepot = new System.Windows.Forms.RadioButton();
             this.button_CreateColony = new System.Windows.Forms.Button();
+            this.panel_Drawing = new System.Windows.Forms.Panel();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
             this.groupBox_NodeType.SuspendLayout();
@@ -81,14 +81,16 @@
             this.button_Redraw.UseVisualStyleBackColor = true;
             this.button_Redraw.Click += new System.EventHandler(this.button_Redraw_Click);
             // 
-            // panel_Drawing
+            // button_AddNode
             // 
-            this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
-            this.panel_Drawing.Name = "panel_Drawing";
-            this.panel_Drawing.Size = new System.Drawing.Size(721, 446);
-            this.panel_Drawing.TabIndex = 1;
-            this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
+            this.button_AddNode.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button_AddNode.Location = new System.Drawing.Point(3, 32);
+            this.button_AddNode.Name = "button_AddNode";
+            this.button_AddNode.Size = new System.Drawing.Size(116, 23);
+            this.button_AddNode.TabIndex = 2;
+            this.button_AddNode.Text = "Add node";
+            this.button_AddNode.UseVisualStyleBackColor = true;
+            this.button_AddNode.Click += new System.EventHandler(this.button_AddNode_Click);
             // 
             // groupBox_NodeType
             // 
@@ -100,6 +102,16 @@
             this.groupBox_NodeType.TabIndex = 1;
             this.groupBox_NodeType.TabStop = false;
             this.groupBox_NodeType.Text = "Node type";
+            // 
+            // radioButton_isConsumer
+            // 
+            this.radioButton_isConsumer.AutoSize = true;
+            this.radioButton_isConsumer.Location = new System.Drawing.Point(7, 43);
+            this.radioButton_isConsumer.Name = "radioButton_isConsumer";
+            this.radioButton_isConsumer.Size = new System.Drawing.Size(72, 17);
+            this.radioButton_isConsumer.TabIndex = 1;
+            this.radioButton_isConsumer.Text = "Consumer";
+            this.radioButton_isConsumer.UseVisualStyleBackColor = true;
             // 
             // radioButton_isDepot
             // 
@@ -113,27 +125,6 @@
             this.radioButton_isDepot.Text = "Depot";
             this.radioButton_isDepot.UseVisualStyleBackColor = true;
             // 
-            // radioButton_isConsumer
-            // 
-            this.radioButton_isConsumer.AutoSize = true;
-            this.radioButton_isConsumer.Location = new System.Drawing.Point(7, 43);
-            this.radioButton_isConsumer.Name = "radioButton_isConsumer";
-            this.radioButton_isConsumer.Size = new System.Drawing.Size(72, 17);
-            this.radioButton_isConsumer.TabIndex = 1;
-            this.radioButton_isConsumer.Text = "Consumer";
-            this.radioButton_isConsumer.UseVisualStyleBackColor = true;
-            // 
-            // button_AddNode
-            // 
-            this.button_AddNode.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button_AddNode.Location = new System.Drawing.Point(3, 32);
-            this.button_AddNode.Name = "button_AddNode";
-            this.button_AddNode.Size = new System.Drawing.Size(116, 23);
-            this.button_AddNode.TabIndex = 2;
-            this.button_AddNode.Text = "Add node";
-            this.button_AddNode.UseVisualStyleBackColor = true;
-            this.button_AddNode.Click += new System.EventHandler(this.button_AddNode_Click);
-            // 
             // button_CreateColony
             // 
             this.button_CreateColony.Location = new System.Drawing.Point(3, 133);
@@ -143,6 +134,15 @@
             this.button_CreateColony.Text = "Create colony";
             this.button_CreateColony.UseVisualStyleBackColor = true;
             this.button_CreateColony.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button_CreateColony_MouseClick);
+            // 
+            // panel_Drawing
+            // 
+            this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
+            this.panel_Drawing.Name = "panel_Drawing";
+            this.panel_Drawing.Size = new System.Drawing.Size(721, 446);
+            this.panel_Drawing.TabIndex = 1;
+            this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
             // 
             // GraphForm
             // 
