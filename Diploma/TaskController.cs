@@ -12,7 +12,7 @@ namespace Diploma
         public static int ConsumerSize = 7;
 
         public static Brush DepotBrush = new SolidBrush(Color.Blue);
-        public static int DepotSize = 10;
+        public static int DepotSize = 12;
 
         public static Pen ConnectionsPen = new Pen(Color.Black, 2.0f);
 

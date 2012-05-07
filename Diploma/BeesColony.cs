@@ -23,8 +23,6 @@ namespace Diploma
         private List<Node> nodes;
         public int ClustersCount;
 
-        private double[,] prices;
-
         private int depotsCount;
         private int consumersCount;
 
@@ -57,7 +55,7 @@ namespace Diploma
 
             for (int i = 0; i != ScoutsCount; i++)
             {
-                sites.Add(new Site(nodes, depotsCount, ClustersCount, consumersCount));
+                sites.Add(new Site(nodes, depotsCount, consumersCount, ClustersCount));
             }
         }
 
@@ -75,6 +73,11 @@ namespace Diploma
             {
                 while (sites[i].GoToBestNeighbour(NeighboursForGoodSites))
                 {}
+            }
+
+            for (int i = GoodSitesCount; i != ScoutsCount; i++)
+            {
+                sites[i] = new Site(nodes, depotsCount, consumersCount, ClustersCount);
             }
         }
 
