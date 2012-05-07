@@ -79,7 +79,7 @@ namespace Diploma
         {
             TaskController.Colony = new BeesColony();
 
-            TaskController.Colony.ClustersCount = 2;
+            TaskController.Colony.ClustersCount = 3;
 
             TaskController.Colony.ScoutsCount = 5;
             TaskController.Colony.GoodSitesCount = 3;

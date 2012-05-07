@@ -101,6 +101,11 @@ namespace Diploma
                 while (sites[i].GoToBestNeighbour(NeighboursForGoodSites))
                 {}
             }
+
+            for (int i = GoodSitesCount; i != ScoutsCount; i++)
+            {
+                sites[i] = new Site(prices, depotsCount, ClustersCount, consumersCount);
+            }
         }
 
         public void DrawNodes ()
