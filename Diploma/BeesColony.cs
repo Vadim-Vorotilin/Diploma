@@ -28,31 +28,6 @@ namespace Diploma
         private int depotsCount;
         private int consumersCount;
 
-        public void GeneratePricesByPositions ()
-        {
-            prices = new double[depotsCount + consumersCount, depotsCount + consumersCount];
-
-            for (int i = 0; i != prices.GetLength(0); i++)
-            {
-                for (int j = 0; j != prices.GetLength(0); j++)
-                {
-                    if (i < depotsCount && j < depotsCount)
-                    {
-                        prices[i, j] = double.PositiveInfinity;
-                    }
-                    else
-                    {
-                        prices[i, j] = GetDistance(nodes[i], nodes[j]);
-                    }
-                }
-            }
-        }
-
-        private double GetDistance (Node node1, Node node2)
-        {
-            return Math.Sqrt(Math.Pow(node1.RealPosition.x - node2.RealPosition.x, 2) + Math.Pow(node1.RealPosition.y - node2.RealPosition.y, 2));
-        }
-
         public void SetNodes (List<Node> nodesForSet)
         {
             nodes = new List<Node>();
@@ -82,7 +57,7 @@ namespace Diploma
 
             for (int i = 0; i != ScoutsCount; i++)
             {
-                sites.Add(new Site(prices, depotsCount, ClustersCount, consumersCount));
+                sites.Add(new Site(nodes, depotsCount, ClustersCount, consumersCount));
             }
         }
 

@@ -88,7 +88,7 @@ namespace Diploma
             TaskController.Colony.NeighboursForBestSites = 3;
 
             TaskController.Colony.SetNodes(TaskController.Nodes);
-            TaskController.Colony.GeneratePricesByPositions();
+            //TaskController.Colony.GeneratePricesByPositions();
 
             TaskController.Colony.CreateSites();
         }

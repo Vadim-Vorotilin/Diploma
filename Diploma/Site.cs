@@ -15,6 +15,10 @@ namespace Diploma
         }
 
         private double[,] prices;
+        private Node[] nodes;
+
+        private int depotsCount;
+        private int consumersCount;
 
         private double Price
         {
@@ -33,9 +37,43 @@ namespace Diploma
             }
         }
 
-        public Site (double[,] prices, int depotsCount, int clustersCount, int consumersCount)
+        private static double GetDistance(Node node1, Node node2)
+        {
+            return Math.Sqrt(Math.Pow(node1.RealPosition.x - node2.RealPosition.x, 2) + Math.Pow(node1.RealPosition.y - node2.RealPosition.y, 2));
+        }
+
+        private static double[,] GeneratePricesByPositions(List<Node> nodes, int depotsCount, int consumersCount)
+        {
+            double[,] prices = new double[depotsCount + consumersCount, depotsCount + consumersCount];
+
+            for (int i = 0; i != prices.GetLength(0); i++)
+            {
+                for (int j = 0; j != prices.GetLength(0); j++)
+                {
+                    if (i < depotsCount && j < depotsCount)
+                    {
+                        prices[i, j] = double.PositiveInfinity;
+                    }
+                    else
+                    {
+                        prices[i, j] = GetDistance(nodes[i], nodes[j]);
+                    }
+                }
+            }
+
+            return prices;
+        }
+
+        public Site(List<Node> nodes, int depotsCount, int consumersCount, int clustersCount)
+            : this(GeneratePricesByPositions(nodes, depotsCount, consumersCount), depotsCount, consumersCount, clustersCount)
+        {
+        }
+
+        public Site (double[,] prices, int depotsCount, int consumersCount, int clustersCount)
         {
             this.prices = prices;
+            this.depotsCount = depotsCount;
+            this.consumersCount = consumersCount;
             GenerateSequence(depotsCount, clustersCount, consumersCount);
         }
 
