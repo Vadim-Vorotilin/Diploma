@@ -36,11 +36,25 @@ namespace Diploma
             {
                 if (radioButton_isConsumer.Checked)
                 {
-                    TaskController.AddNodeAtScreen(Node.NodeType.Consumer, e.X, e.Y);
+                    if (e.Button == MouseButtons.Left)
+                    {
+                        TaskController.AddNodeAtScreen(Node.NodeType.Consumer, e.X, e.Y);
+                    }
+                    else if (e.Button == MouseButtons.Right)
+                    {
+                        TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y);
+                    }
                 }
                 else if (radioButton_isDepot.Checked)
                 {
-                    TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y);                    
+                    if (e.Button == MouseButtons.Left)
+                    {
+                        TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y);
+                    }
+                    else if (e.Button == MouseButtons.Right)
+                    {
+                        TaskController.AddNodeAtScreen(Node.NodeType.Consumer, e.X, e.Y);
+                    }
                 }
             }
         }
@@ -63,11 +77,36 @@ namespace Diploma
 
         private void button_CreateColony_MouseClick(object sender, MouseEventArgs e)
         {
-            BeesColony colony = new BeesColony();
-            colony.ClustersCount = 2;
+            TaskController.Colony = new BeesColony();
 
-            colony.SetNodes(TaskController.Nodes);
-            colony.GeneratePricesByPositions();
+            TaskController.Colony.ClustersCount = 2;
+
+            TaskController.Colony.ScoutsCount = 5;
+            TaskController.Colony.GoodSitesCount = 3;
+            TaskController.Colony.BestSitesCount = 1;
+            TaskController.Colony.NeighboursForGoodSites = 2;
+            TaskController.Colony.NeighboursForBestSites = 3;
+
+            TaskController.Colony.SetNodes(TaskController.Nodes);
+            TaskController.Colony.GeneratePricesByPositions();
+
+            TaskController.Colony.CreateSites();
+        }
+
+        private void button_Iteration_Click(object sender, EventArgs e)
+        {
+            TaskController.Colony.Iteration();
+            TaskController.Colony.DrawNodes();
+        }
+
+        private void button_Iterate_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i != numericUpDown_IterationsCount.Value; i++)
+            {
+                TaskController.Colony.Iteration();
+            }
+
+            TaskController.Colony.DrawNodes();
         }
     }
 }

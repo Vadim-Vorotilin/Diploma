@@ -17,37 +17,32 @@ namespace Diploma
         public int GoodSitesCount;
         public int BestSitesCount;
 
+        public int NeighboursForGoodSites;
+        public int NeighboursForBestSites;
+
         private List<Node> nodes;
         public int ClustersCount;
 
-        public double[,] Prices;
+        private double[,] prices;
 
         private int depotsCount;
         private int consumersCount;
 
         public void GeneratePricesByPositions ()
         {
-            Prices = new double[depotsCount * ClustersCount + consumersCount, depotsCount * ClustersCount + consumersCount];
+            prices = new double[depotsCount + consumersCount, depotsCount + consumersCount];
 
-            for (int i = 0; i != Prices.GetLength(0); i++)
+            for (int i = 0; i != prices.GetLength(0); i++)
             {
-                for (int j = 0; j != Prices.GetLength(0); j++)
+                for (int j = 0; j != prices.GetLength(0); j++)
                 {
-                    if (i < depotsCount * ClustersCount && j < depotsCount * ClustersCount)
+                    if (i < depotsCount && j < depotsCount)
                     {
-                        Prices[i, j] = double.PositiveInfinity;
-                    }
-                    else if (i < depotsCount * ClustersCount)
-                    {
-                        Prices[i, j] = GetDistance(nodes[i / ClustersCount], nodes[j - ((ClustersCount - 1) * depotsCount)]);
-                    }
-                    else if (j < depotsCount * ClustersCount)
-                    {
-                        Prices[i, j] = GetDistance(nodes[i - ((ClustersCount - 1) * depotsCount)], nodes[j / ClustersCount]);
+                        prices[i, j] = double.PositiveInfinity;
                     }
                     else
                     {
-                        Prices[i, j] = GetDistance(nodes[i - ((ClustersCount - 1) * depotsCount)], nodes[j - ((ClustersCount - 1) * depotsCount)]);
+                        prices[i, j] = GetDistance(nodes[i], nodes[j]);
                     }
                 }
             }
@@ -77,6 +72,54 @@ namespace Diploma
             nodes.AddRange(consumers.ToList());
 
             consumersCount = consumers.ToList().Count;
+        }
+
+        private List<Site> sites; 
+
+        public void CreateSites ()
+        {
+            sites = new List<Site>();
+
+            for (int i = 0; i != ScoutsCount; i++)
+            {
+                sites.Add(new Site(prices, depotsCount, ClustersCount, consumersCount));
+            }
+        }
+
+        public void Iteration ()
+        {
+            sites.Sort();
+
+            for (int i = 0; i != BestSitesCount; i++)
+            {
+                while (sites[i].GoToBestNeighbour(NeighboursForBestSites)) 
+                {}
+            }
+
+            for (int i = BestSitesCount; i != GoodSitesCount; i++)
+            {
+                while (sites[i].GoToBestNeighbour(NeighboursForGoodSites))
+                {}
+            }
+        }
+
+        public void DrawNodes ()
+        {
+            for (int i = 0; i != nodes.Count; i++)
+            {
+                nodes[i].ConnectedNodes = new List<Node>();
+            }
+
+            for (int i = 0; i != sites[0].NodesSequence.Length - 1; i++)
+            {
+                nodes[sites[0].NodesSequence[i]].ConnectedNodes.Add(nodes[sites[0].NodesSequence[i + 1]]);
+            }
+
+            nodes[sites[0].NodesSequence[sites[0].NodesSequence.Length - 1]].ConnectedNodes.Add(nodes[sites[0].NodesSequence[0]]);
+
+            TaskController.Nodes = this.nodes;
+
+            TaskController.DrawNodes();
         }
     }
 }

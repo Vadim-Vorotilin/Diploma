@@ -5,4 +5,5 @@ obj
 # mstest test results
 TestResults
 /_ReSharper.Diploma
+/Diploma.6.0.ReSharper.user
 /Diploma.sln.DotSettings.user
