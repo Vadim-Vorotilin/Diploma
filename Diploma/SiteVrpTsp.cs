@@ -173,13 +173,6 @@ namespace Diploma
             nodesSequence = siteVrpTsp.NodesSequence.Clone() as int[];
         }
 
-        public override int CompareTo (object obj)
-        {
-            SiteVrpTsp site = obj as SiteVrpTsp;
-
-            return Price.CompareTo(site.Price);
-        }
-
         public override string ToString()
         {
             string sequence = "{";

@@ -9,8 +9,6 @@ namespace Diploma
     {
         protected abstract double Price { get; }
 
-        public abstract int CompareTo (object obj);
-
         protected abstract void GoToNeighbour(Site site);
 
         protected abstract Site GetNeighbour();
@@ -42,6 +40,12 @@ namespace Diploma
             }
 
             return false;
+        }
+
+        public int CompareTo(object obj)
+        {
+            Site site = obj as Site;
+            return Price.CompareTo(site.Price);
         }
     }
 }

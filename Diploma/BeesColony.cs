@@ -10,8 +10,12 @@ namespace Diploma
         public enum ProblemType
         {
             TSP,
-            VRP
+            VRP,
+            VRP_TSP,
+            CLUSTERIZATION
         }
+
+        public ProblemType Problem;
 
         public int ScoutsCount;
         public int GoodSitesCount;
@@ -47,7 +51,20 @@ namespace Diploma
             consumersCount = consumers.ToList().Count;
         }
 
-        private List<Site> sites; 
+        private List<Site> sites;
+
+        private Site CreateNewSite ()
+        {
+            switch (Problem)
+            {
+                case ProblemType.VRP_TSP:
+                    return new SiteVrpTsp(nodes, depotsCount, consumersCount, ClustersCount);
+                case ProblemType.CLUSTERIZATION:
+                    return null;
+                default:
+                    return null;
+            }
+        }
 
         public void CreateSites ()
         {
@@ -55,7 +72,7 @@ namespace Diploma
 
             for (int i = 0; i != ScoutsCount; i++)
             {
-                sites.Add(new SiteVrpTsp(nodes, depotsCount, consumersCount, ClustersCount));
+                sites.Add(CreateNewSite());
             }
         }
 
@@ -77,7 +94,7 @@ namespace Diploma
 
             for (int i = GoodSitesCount; i != ScoutsCount; i++)
             {
-                sites[i] = new SiteVrpTsp(nodes, depotsCount, consumersCount, ClustersCount);
+                sites[i] = CreateNewSite();
             }
         }
 
