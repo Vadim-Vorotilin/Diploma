@@ -43,6 +43,13 @@ namespace Diploma
 
         protected override void PrepareToDraw()
         {
+            DrawingNodes = new List<Node>();
+
+            foreach (Node node in Nodes)
+            {
+                DrawingNodes.Add(node);
+            }
+
             for (int i = 0; i != Nodes.Count; i++)
             {
                 Nodes[i].ConnectedNodes = new List<Node>();

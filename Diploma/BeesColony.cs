@@ -12,7 +12,7 @@ namespace Diploma
             TSP,
             VRP,
             VRP_TSP,
-            CLUSTERIZATION
+            CLUSTERING
         }
 
         public ProblemType Problem;
@@ -59,8 +59,8 @@ namespace Diploma
             {
                 case ProblemType.VRP_TSP:
                     return new SiteVrpTsp(nodes, depotsCount, consumersCount, ClustersCount);
-                case ProblemType.CLUSTERIZATION:
-                    return null;
+                case ProblemType.CLUSTERING:
+                    return new SiteClustering(nodes, ClustersCount);
                 default:
                     return null;
             }

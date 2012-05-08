@@ -14,6 +14,9 @@ namespace Diploma
         public static Brush DepotBrush = new SolidBrush(Color.Blue);
         public static int DepotSize = 12;
 
+        public static Brush AuxiliaryBrush = new SolidBrush(Color.Green);
+        public static int AuxiliarySize = 9;
+        
         public static Pen ConnectionsPen = new Pen(Color.Black, 2.0f);
 
         public static Color ClearColor = Color.White;
@@ -36,7 +39,7 @@ namespace Diploma
 
         public static void AddNodeAtScreen (Node.NodeType nodeType, int posX, int posY)
         {
-            Node newNode = new Node(nodeType, posX, posY, posX, posY);
+            Node newNode = new Node(Nodes.Count, nodeType, posX, posY, posX, posY);
             DrawNode(graphicsForDraw, newNode);
 
             Nodes.Add(newNode);
@@ -75,6 +78,10 @@ namespace Diploma
 
                 case Node.NodeType.Depot:
                     g.FillRectangle(DepotBrush, (int)(node.ScreenPosition.x - DepotSize / 2.0), (int)(node.ScreenPosition.y - DepotSize / 2.0), DepotSize, DepotSize);
+                    break;
+
+                case Node.NodeType.Auxiliary:
+                    g.FillEllipse(AuxiliaryBrush, (int)(node.ScreenPosition.x - AuxiliarySize / 2.0), (int)(node.ScreenPosition.y - AuxiliarySize / 2.0), AuxiliarySize, AuxiliarySize);
                     break;
             }
         }

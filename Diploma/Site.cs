@@ -8,6 +8,7 @@ namespace Diploma
     public abstract class Site : IComparable
     {
         protected List<Node> Nodes;
+        protected List<Node> DrawingNodes;
 
         protected Site (List<Node> nodes)
         {
@@ -60,7 +61,7 @@ namespace Diploma
         {
             PrepareToDraw();
 
-            TaskController.Nodes = this.Nodes;
+            TaskController.Nodes = this.DrawingNodes;
 
             TaskController.DrawNodes(); 
         }
