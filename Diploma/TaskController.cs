@@ -35,7 +35,7 @@ namespace Diploma
             }
         }
 
-        public static BeesColony Colony;
+        public static Algorithm Algorithm;
 
         public static Random Rnd = new Random();
 
@@ -95,6 +95,44 @@ namespace Diploma
                     g.FillEllipse(AuxiliaryBrush, (int)(node.ScreenPosition.x - AuxiliarySize / 2.0), (int)(node.ScreenPosition.y - AuxiliarySize / 2.0), AuxiliarySize, AuxiliarySize);
                     break;
             }
+        }
+
+        public static void StartBeesAlgorithm(BeesColony.ProblemType problemType, int clustersCount, int scoutsCount, 
+            int goodSitesCount, int bestSitesCount, int neighboursForGoodSites, int neighboursForBestSites)
+        {
+            BeesColony colony = new BeesColony();
+
+            colony.Problem = problemType;
+            colony.ClustersCount = clustersCount;
+
+            colony.ScoutsCount = scoutsCount;
+            colony.GoodSitesCount = goodSitesCount;
+            colony.BestSitesCount = bestSitesCount;
+            colony.NeighboursForGoodSites = neighboursForGoodSites;
+            colony.NeighboursForBestSites = neighboursForBestSites;
+
+            colony.SetNodes(Nodes);
+
+            colony.CreateSites();
+
+            SetAlgorithm(colony);
+        }
+
+        public static void StartKMeansAlgorithm(int clustersCount)
+        {
+            KMeans kMeans = new KMeans(Nodes, clustersCount);
+
+            SetAlgorithm(kMeans);
+        }
+
+        private static void SetAlgorithm(Algorithm algorithm)
+        {
+            foreach (Node node in Nodes)
+            {
+                node.ConnectedNodes.Clear();
+            }
+
+            Algorithm = algorithm;
         }
 
         public static void CreateNewModel()

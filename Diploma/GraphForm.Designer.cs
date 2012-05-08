@@ -35,6 +35,12 @@
             this.groupBox_NodeType = new System.Windows.Forms.GroupBox();
             this.radioButton_isConsumer = new System.Windows.Forms.RadioButton();
             this.radioButton_isDepot = new System.Windows.Forms.RadioButton();
+            this.groupBox_Algorithm = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel_Algorithm = new System.Windows.Forms.FlowLayoutPanel();
+            this.label_ClustersCount = new System.Windows.Forms.Label();
+            this.numericUpDown_ClustersCount = new System.Windows.Forms.NumericUpDown();
+            this.label_Algorithm = new System.Windows.Forms.Label();
+            this.comboBox_AlgorithmType = new System.Windows.Forms.ComboBox();
             this.button_StartAlgorithm = new System.Windows.Forms.Button();
             this.button_Iteration = new System.Windows.Forms.Button();
             this.numericUpDown_IterationsCount = new System.Windows.Forms.NumericUpDown();
@@ -43,26 +49,27 @@
             this.menuStrip_MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.saveModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveModelAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.groupBox_Algorithm = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
             this.groupBox_NodeType.SuspendLayout();
+            this.groupBox_Algorithm.SuspendLayout();
+            this.flowLayoutPanel_Algorithm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClustersCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IterationsCount)).BeginInit();
             this.menuStrip_MainMenu.SuspendLayout();
-            this.groupBox_Algorithm.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_Main
             // 
             this.tableLayoutPanel_Main.ColumnCount = 2;
             this.tableLayoutPanel_Main.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_Main.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134F));
+            this.tableLayoutPanel_Main.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
             this.tableLayoutPanel_Main.Controls.Add(this.flowLayoutPanel_Tools, 1, 0);
             this.tableLayoutPanel_Main.Controls.Add(this.panel_Drawing, 0, 0);
             this.tableLayoutPanel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -82,16 +89,16 @@
             this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_Algorithm);
             this.flowLayoutPanel_Tools.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Tools.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(791, 3);
+            this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(777, 3);
             this.flowLayoutPanel_Tools.Name = "flowLayoutPanel_Tools";
-            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(128, 422);
+            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(142, 422);
             this.flowLayoutPanel_Tools.TabIndex = 0;
             // 
             // button_Redraw
             // 
             this.button_Redraw.Location = new System.Drawing.Point(3, 3);
             this.button_Redraw.Name = "button_Redraw";
-            this.button_Redraw.Size = new System.Drawing.Size(116, 23);
+            this.button_Redraw.Size = new System.Drawing.Size(130, 23);
             this.button_Redraw.TabIndex = 0;
             this.button_Redraw.Text = "Redraw";
             this.button_Redraw.UseVisualStyleBackColor = true;
@@ -102,7 +109,7 @@
             this.button_AddNode.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button_AddNode.Location = new System.Drawing.Point(3, 32);
             this.button_AddNode.Name = "button_AddNode";
-            this.button_AddNode.Size = new System.Drawing.Size(116, 23);
+            this.button_AddNode.Size = new System.Drawing.Size(130, 23);
             this.button_AddNode.TabIndex = 2;
             this.button_AddNode.Text = "Add node";
             this.button_AddNode.UseVisualStyleBackColor = true;
@@ -114,7 +121,7 @@
             this.groupBox_NodeType.Controls.Add(this.radioButton_isDepot);
             this.groupBox_NodeType.Location = new System.Drawing.Point(3, 61);
             this.groupBox_NodeType.Name = "groupBox_NodeType";
-            this.groupBox_NodeType.Size = new System.Drawing.Size(116, 66);
+            this.groupBox_NodeType.Size = new System.Drawing.Size(130, 66);
             this.groupBox_NodeType.TabIndex = 1;
             this.groupBox_NodeType.TabStop = false;
             this.groupBox_NodeType.Text = "Node type";
@@ -141,11 +148,85 @@
             this.radioButton_isDepot.Text = "Depot";
             this.radioButton_isDepot.UseVisualStyleBackColor = true;
             // 
+            // groupBox_Algorithm
+            // 
+            this.groupBox_Algorithm.Controls.Add(this.flowLayoutPanel_Algorithm);
+            this.groupBox_Algorithm.Location = new System.Drawing.Point(3, 133);
+            this.groupBox_Algorithm.Name = "groupBox_Algorithm";
+            this.groupBox_Algorithm.Size = new System.Drawing.Size(130, 214);
+            this.groupBox_Algorithm.TabIndex = 7;
+            this.groupBox_Algorithm.TabStop = false;
+            this.groupBox_Algorithm.Text = "Algorithm";
+            // 
+            // flowLayoutPanel_Algorithm
+            // 
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.label_ClustersCount);
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.numericUpDown_ClustersCount);
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.label_Algorithm);
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.comboBox_AlgorithmType);
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.button_StartAlgorithm);
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.button_Iteration);
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.numericUpDown_IterationsCount);
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.button_Iterate);
+            this.flowLayoutPanel_Algorithm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel_Algorithm.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel_Algorithm.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel_Algorithm.Name = "flowLayoutPanel_Algorithm";
+            this.flowLayoutPanel_Algorithm.Size = new System.Drawing.Size(124, 195);
+            this.flowLayoutPanel_Algorithm.TabIndex = 8;
+            // 
+            // label_ClustersCount
+            // 
+            this.label_ClustersCount.AutoSize = true;
+            this.label_ClustersCount.Location = new System.Drawing.Point(3, 0);
+            this.label_ClustersCount.Name = "label_ClustersCount";
+            this.label_ClustersCount.Size = new System.Drawing.Size(74, 13);
+            this.label_ClustersCount.TabIndex = 8;
+            this.label_ClustersCount.Text = "Clusters count";
+            // 
+            // numericUpDown_ClustersCount
+            // 
+            this.numericUpDown_ClustersCount.Location = new System.Drawing.Point(3, 16);
+            this.numericUpDown_ClustersCount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_ClustersCount.Name = "numericUpDown_ClustersCount";
+            this.numericUpDown_ClustersCount.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown_ClustersCount.TabIndex = 9;
+            this.numericUpDown_ClustersCount.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // label_Algorithm
+            // 
+            this.label_Algorithm.AutoSize = true;
+            this.label_Algorithm.Location = new System.Drawing.Point(3, 39);
+            this.label_Algorithm.Name = "label_Algorithm";
+            this.label_Algorithm.Size = new System.Drawing.Size(50, 13);
+            this.label_Algorithm.TabIndex = 10;
+            this.label_Algorithm.Text = "Algorithm";
+            // 
+            // comboBox_AlgorithmType
+            // 
+            this.comboBox_AlgorithmType.FormattingEnabled = true;
+            this.comboBox_AlgorithmType.Items.AddRange(new object[] {
+            "Bees VRP -> TSP",
+            "Bees CLUSTERING",
+            "K-means CLUSTERING"});
+            this.comboBox_AlgorithmType.Location = new System.Drawing.Point(3, 55);
+            this.comboBox_AlgorithmType.Name = "comboBox_AlgorithmType";
+            this.comboBox_AlgorithmType.Size = new System.Drawing.Size(117, 21);
+            this.comboBox_AlgorithmType.TabIndex = 7;
+            // 
             // button_StartAlgorithm
             // 
-            this.button_StartAlgorithm.Location = new System.Drawing.Point(6, 19);
+            this.button_StartAlgorithm.Location = new System.Drawing.Point(3, 82);
             this.button_StartAlgorithm.Name = "button_StartAlgorithm";
-            this.button_StartAlgorithm.Size = new System.Drawing.Size(104, 23);
+            this.button_StartAlgorithm.Size = new System.Drawing.Size(118, 23);
             this.button_StartAlgorithm.TabIndex = 3;
             this.button_StartAlgorithm.Text = "Start";
             this.button_StartAlgorithm.UseVisualStyleBackColor = true;
@@ -153,9 +234,9 @@
             // 
             // button_Iteration
             // 
-            this.button_Iteration.Location = new System.Drawing.Point(6, 48);
+            this.button_Iteration.Location = new System.Drawing.Point(3, 111);
             this.button_Iteration.Name = "button_Iteration";
-            this.button_Iteration.Size = new System.Drawing.Size(104, 23);
+            this.button_Iteration.Size = new System.Drawing.Size(118, 23);
             this.button_Iteration.TabIndex = 4;
             this.button_Iteration.Text = "Iteration";
             this.button_Iteration.UseVisualStyleBackColor = true;
@@ -163,7 +244,7 @@
             // 
             // numericUpDown_IterationsCount
             // 
-            this.numericUpDown_IterationsCount.Location = new System.Drawing.Point(6, 77);
+            this.numericUpDown_IterationsCount.Location = new System.Drawing.Point(3, 140);
             this.numericUpDown_IterationsCount.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -175,7 +256,7 @@
             0,
             0});
             this.numericUpDown_IterationsCount.Name = "numericUpDown_IterationsCount";
-            this.numericUpDown_IterationsCount.Size = new System.Drawing.Size(104, 20);
+            this.numericUpDown_IterationsCount.Size = new System.Drawing.Size(118, 20);
             this.numericUpDown_IterationsCount.TabIndex = 5;
             this.numericUpDown_IterationsCount.Value = new decimal(new int[] {
             10,
@@ -185,9 +266,9 @@
             // 
             // button_Iterate
             // 
-            this.button_Iterate.Location = new System.Drawing.Point(6, 103);
+            this.button_Iterate.Location = new System.Drawing.Point(3, 166);
             this.button_Iterate.Name = "button_Iterate";
-            this.button_Iterate.Size = new System.Drawing.Size(104, 23);
+            this.button_Iterate.Size = new System.Drawing.Size(118, 23);
             this.button_Iterate.TabIndex = 6;
             this.button_Iterate.Text = "Iterate";
             this.button_Iterate.UseVisualStyleBackColor = true;
@@ -199,7 +280,7 @@
             this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
             this.panel_Drawing.Name = "panel_Drawing";
-            this.panel_Drawing.Size = new System.Drawing.Size(782, 422);
+            this.panel_Drawing.Size = new System.Drawing.Size(768, 422);
             this.panel_Drawing.TabIndex = 1;
             this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
             // 
@@ -234,6 +315,11 @@
             this.newModelToolStripMenuItem.Text = "New model";
             this.newModelToolStripMenuItem.Click += new System.EventHandler(this.newModelToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
+            // 
             // saveModelToolStripMenuItem
             // 
             this.saveModelToolStripMenuItem.Name = "saveModelToolStripMenuItem";
@@ -267,24 +353,6 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
-            // 
-            // groupBox_Algorithm
-            // 
-            this.groupBox_Algorithm.Controls.Add(this.button_StartAlgorithm);
-            this.groupBox_Algorithm.Controls.Add(this.button_Iterate);
-            this.groupBox_Algorithm.Controls.Add(this.numericUpDown_IterationsCount);
-            this.groupBox_Algorithm.Controls.Add(this.button_Iteration);
-            this.groupBox_Algorithm.Location = new System.Drawing.Point(3, 133);
-            this.groupBox_Algorithm.Name = "groupBox_Algorithm";
-            this.groupBox_Algorithm.Size = new System.Drawing.Size(116, 163);
-            this.groupBox_Algorithm.TabIndex = 7;
-            this.groupBox_Algorithm.TabStop = false;
-            this.groupBox_Algorithm.Text = "Algorithm";
-            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,10 +368,13 @@
             this.flowLayoutPanel_Tools.ResumeLayout(false);
             this.groupBox_NodeType.ResumeLayout(false);
             this.groupBox_NodeType.PerformLayout();
+            this.groupBox_Algorithm.ResumeLayout(false);
+            this.flowLayoutPanel_Algorithm.ResumeLayout(false);
+            this.flowLayoutPanel_Algorithm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClustersCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IterationsCount)).EndInit();
             this.menuStrip_MainMenu.ResumeLayout(false);
             this.menuStrip_MainMenu.PerformLayout();
-            this.groupBox_Algorithm.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,6 +404,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox_Algorithm;
+        private System.Windows.Forms.ComboBox comboBox_AlgorithmType;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Algorithm;
+        private System.Windows.Forms.Label label_ClustersCount;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ClustersCount;
+        private System.Windows.Forms.Label label_Algorithm;
 
     }
 }

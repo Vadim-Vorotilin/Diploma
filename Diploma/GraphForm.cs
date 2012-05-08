@@ -20,6 +20,7 @@ namespace Diploma
         {
             TaskController.GraphicsForDraw = panel_Drawing.CreateGraphics();
             button_AddNode.PerformClick();
+            comboBox_AlgorithmType.SelectedIndex = 0;
         }
 
         private void GraphForm_MouseClick(object sender, MouseEventArgs e)
@@ -80,42 +81,34 @@ namespace Diploma
 
         private void button_StartAlgorithm_MouseClick(object sender, MouseEventArgs e)
         {
-            TaskController.Colony = new BeesColony();
-
-            TaskController.Colony.Problem = BeesColony.ProblemType.CLUSTERING;
-            TaskController.Colony.ClustersCount = 3;
-
-            TaskController.Colony.ScoutsCount = 5;
-            TaskController.Colony.GoodSitesCount = 3;
-            TaskController.Colony.BestSitesCount = 1;
-            TaskController.Colony.NeighboursForGoodSites = 2;
-            TaskController.Colony.NeighboursForBestSites = 3;
-
-            TaskController.Colony.SetNodes(TaskController.Nodes);
-            //TaskController.Colony.GeneratePricesByPositions();
-
-            TaskController.Colony.CreateSites();
-
-            kMeans = new KMeans(TaskController.Nodes, 3);
+            switch (comboBox_AlgorithmType.SelectedIndex)
+            {
+                case 0:                 //  Bees VRP -> TSP
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.VRP_TSP, Convert.ToInt32(numericUpDown_ClustersCount.Value), 5, 3, 1, 2, 3);
+                    break;
+                case 1:                 //  Bees CLUSTERING
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING, Convert.ToInt32(numericUpDown_ClustersCount.Value), 5, 3, 1, 2, 3);
+                    break;
+                case 2:                 //  K-means CLUSTERING
+                    TaskController.StartKMeansAlgorithm(Convert.ToInt32(numericUpDown_ClustersCount.Value));
+                    break;
+            }
         }
 
         private void button_Iteration_Click(object sender, EventArgs e)
         {
-            TaskController.Colony.Iteration();
-            TaskController.Colony.DrawNodes();
-
-            //kMeans.Iteration();
-            //kMeans.DrawNodes();
+            TaskController.Algorithm.Iteration();
+            TaskController.Algorithm.DrawNodes();
         }
 
         private void button_Iterate_Click(object sender, EventArgs e)
         {
             for (int i = 0; i != numericUpDown_IterationsCount.Value; i++)
             {
-                TaskController.Colony.Iteration();
+                TaskController.Algorithm.Iteration();
             }
 
-            TaskController.Colony.DrawNodes();
+            TaskController.Algorithm.DrawNodes();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
