@@ -19,6 +19,7 @@ namespace Diploma
         private void GraphForm_Load(object sender, EventArgs e)
         {
             TaskController.GraphicsForDraw = panel_Drawing.CreateGraphics();
+            button_AddNode.PerformClick();
         }
 
         private void GraphForm_MouseClick(object sender, MouseEventArgs e)

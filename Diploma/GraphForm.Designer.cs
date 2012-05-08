@@ -36,10 +36,10 @@
             this.radioButton_isConsumer = new System.Windows.Forms.RadioButton();
             this.radioButton_isDepot = new System.Windows.Forms.RadioButton();
             this.button_CreateColony = new System.Windows.Forms.Button();
-            this.panel_Drawing = new System.Windows.Forms.Panel();
             this.button_Iteration = new System.Windows.Forms.Button();
             this.numericUpDown_IterationsCount = new System.Windows.Forms.NumericUpDown();
             this.button_Iterate = new System.Windows.Forms.Button();
+            this.panel_Drawing = new System.Windows.Forms.Panel();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
             this.groupBox_NodeType.SuspendLayout();
@@ -142,15 +142,6 @@
             this.button_CreateColony.UseVisualStyleBackColor = true;
             this.button_CreateColony.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button_CreateColony_MouseClick);
             // 
-            // panel_Drawing
-            // 
-            this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
-            this.panel_Drawing.Name = "panel_Drawing";
-            this.panel_Drawing.Size = new System.Drawing.Size(721, 446);
-            this.panel_Drawing.TabIndex = 1;
-            this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
-            // 
             // button_Iteration
             // 
             this.button_Iteration.Location = new System.Drawing.Point(3, 162);
@@ -192,6 +183,16 @@
             this.button_Iterate.Text = "Iterate";
             this.button_Iterate.UseVisualStyleBackColor = true;
             this.button_Iterate.Click += new System.EventHandler(this.button_Iterate_Click);
+            // 
+            // panel_Drawing
+            // 
+            this.panel_Drawing.BackColor = System.Drawing.Color.White;
+            this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
+            this.panel_Drawing.Name = "panel_Drawing";
+            this.panel_Drawing.Size = new System.Drawing.Size(721, 446);
+            this.panel_Drawing.TabIndex = 1;
+            this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
             // 
             // GraphForm
             // 
