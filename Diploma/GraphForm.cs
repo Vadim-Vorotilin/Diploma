@@ -101,11 +101,11 @@ namespace Diploma
 
         private void button_Iteration_Click(object sender, EventArgs e)
         {
-            //TaskController.Colony.Iteration();
-            //TaskController.Colony.DrawNodes();
+            TaskController.Colony.Iteration();
+            TaskController.Colony.DrawNodes();
 
-            kMeans.Iteration();
-            kMeans.DrawNodes();
+            //kMeans.Iteration();
+            //kMeans.DrawNodes();
         }
 
         private void button_Iterate_Click(object sender, EventArgs e)
@@ -116,6 +116,16 @@ namespace Diploma
             }
 
             TaskController.Colony.DrawNodes();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void newModelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TaskController.CreateNewModel();
         }
     }
 }

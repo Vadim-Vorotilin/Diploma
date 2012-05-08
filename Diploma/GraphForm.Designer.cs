@@ -40,10 +40,20 @@
             this.numericUpDown_IterationsCount = new System.Windows.Forms.NumericUpDown();
             this.button_Iterate = new System.Windows.Forms.Button();
             this.panel_Drawing = new System.Windows.Forms.Panel();
+            this.menuStrip_MainMenu = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveModelAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
             this.groupBox_NodeType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IterationsCount)).BeginInit();
+            this.menuStrip_MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_Main
@@ -54,12 +64,12 @@
             this.tableLayoutPanel_Main.Controls.Add(this.flowLayoutPanel_Tools, 1, 0);
             this.tableLayoutPanel_Main.Controls.Add(this.panel_Drawing, 0, 0);
             this.tableLayoutPanel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_Main.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel_Main.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel_Main.Name = "tableLayoutPanel_Main";
             this.tableLayoutPanel_Main.RowCount = 2;
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(861, 486);
+            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(861, 462);
             this.tableLayoutPanel_Main.TabIndex = 0;
             // 
             // flowLayoutPanel_Tools
@@ -75,7 +85,7 @@
             this.flowLayoutPanel_Tools.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(730, 3);
             this.flowLayoutPanel_Tools.Name = "flowLayoutPanel_Tools";
-            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(128, 446);
+            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(128, 422);
             this.flowLayoutPanel_Tools.TabIndex = 0;
             // 
             // button_Redraw
@@ -190,9 +200,75 @@
             this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
             this.panel_Drawing.Name = "panel_Drawing";
-            this.panel_Drawing.Size = new System.Drawing.Size(721, 446);
+            this.panel_Drawing.Size = new System.Drawing.Size(721, 422);
             this.panel_Drawing.TabIndex = 1;
             this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
+            // 
+            // menuStrip_MainMenu
+            // 
+            this.menuStrip_MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip_MainMenu.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip_MainMenu.Name = "menuStrip_MainMenu";
+            this.menuStrip_MainMenu.Size = new System.Drawing.Size(861, 24);
+            this.menuStrip_MainMenu.TabIndex = 1;
+            this.menuStrip_MainMenu.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newModelToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.saveModelToolStripMenuItem,
+            this.saveModelAsToolStripMenuItem,
+            this.loadModelToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // newModelToolStripMenuItem
+            // 
+            this.newModelToolStripMenuItem.Name = "newModelToolStripMenuItem";
+            this.newModelToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.newModelToolStripMenuItem.Text = "New model";
+            this.newModelToolStripMenuItem.Click += new System.EventHandler(this.newModelToolStripMenuItem_Click);
+            // 
+            // saveModelToolStripMenuItem
+            // 
+            this.saveModelToolStripMenuItem.Name = "saveModelToolStripMenuItem";
+            this.saveModelToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.saveModelToolStripMenuItem.Text = "Save model";
+            // 
+            // saveModelAsToolStripMenuItem
+            // 
+            this.saveModelAsToolStripMenuItem.Name = "saveModelAsToolStripMenuItem";
+            this.saveModelAsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.saveModelAsToolStripMenuItem.Text = "Save model As...";
+            // 
+            // loadModelToolStripMenuItem
+            // 
+            this.loadModelToolStripMenuItem.Name = "loadModelToolStripMenuItem";
+            this.loadModelToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.loadModelToolStripMenuItem.Text = "Load model...";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
             // 
             // GraphForm
             // 
@@ -200,6 +276,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 486);
             this.Controls.Add(this.tableLayoutPanel_Main);
+            this.Controls.Add(this.menuStrip_MainMenu);
             this.Name = "GraphForm";
             this.Text = "Graph";
             this.Load += new System.EventHandler(this.GraphForm_Load);
@@ -209,7 +286,10 @@
             this.groupBox_NodeType.ResumeLayout(false);
             this.groupBox_NodeType.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IterationsCount)).EndInit();
+            this.menuStrip_MainMenu.ResumeLayout(false);
+            this.menuStrip_MainMenu.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -227,6 +307,15 @@
         private System.Windows.Forms.Button button_Iteration;
         private System.Windows.Forms.NumericUpDown numericUpDown_IterationsCount;
         private System.Windows.Forms.Button button_Iterate;
+        private System.Windows.Forms.MenuStrip menuStrip_MainMenu;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newModelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem saveModelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveModelAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadModelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 
     }
 }

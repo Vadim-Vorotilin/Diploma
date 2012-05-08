@@ -88,5 +88,11 @@ namespace Diploma
                     break;
             }
         }
+
+        public static void CreateNewModel()
+        {
+            Nodes = new List<Node>();
+            DrawNodes();
+        }
     }
 }
