@@ -56,6 +56,9 @@ namespace Diploma
 
             foreach (Node node in Nodes)
             {
+                if (node.ConnectedNodes == null)
+                    continue;
+
                 foreach (Node connectedNode in node.ConnectedNodes)
                 {
                     g.DrawLine(ConnectionsPen, (int)node.ScreenPosition.x, (int)node.ScreenPosition.y, (int)connectedNode.ScreenPosition.x, (int)connectedNode.ScreenPosition.y);

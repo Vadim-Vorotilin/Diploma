@@ -12,6 +12,7 @@ namespace Diploma
         public class Cluster
         {
             public List<Node> Nodes = new List<Node>();
+            public Node Depot;
 
             public Node.Point Center
             {
@@ -41,6 +42,11 @@ namespace Diploma
                     distance += Node.Point.SqrDistance(node.RealPosition, center);
                 }
 
+                if (Depot != null)
+                {
+                    distance += Node.Point.SqrDistance(Depot.RealPosition, center);
+                }
+
                 return distance;
             }
 
@@ -54,6 +60,8 @@ namespace Diploma
                 {
                     Nodes.Add(node);
                 }
+
+                Depot = cluster.Depot;
             }
         }
 
@@ -63,11 +71,6 @@ namespace Diploma
             : base(nodes)
         {
             Clusters = new Cluster[clustersCount];
-
-            for (int i = 0; i != Clusters.Length; i++)
-            {
-                Clusters[i] = new Cluster();
-            }
 
             GenerateClusters();
         }
@@ -85,7 +88,31 @@ namespace Diploma
 
         private void GenerateClusters()
         {
+            Node depot = null;
+            
             foreach (Node node in Nodes)
+            {
+                if (node.Type == Node.NodeType.Depot)
+                {
+                    depot = node;
+                    break;
+                }
+            }
+
+            List<Node> nodesForClusters = new List<Node>();
+            nodesForClusters.AddRange(Nodes);
+
+            for (int i = 0; i != Clusters.Length; i++)
+            {
+                Clusters[i] = new Cluster();
+                Clusters[i].Depot = depot;
+
+                int nodeIndex = TaskController.Rnd.Next(nodesForClusters.Count);
+                Clusters[i].Nodes.Add(nodesForClusters[nodeIndex]);
+                nodesForClusters.RemoveAt(nodeIndex);
+            }
+
+            foreach (Node node in nodesForClusters)
             {
                 if (node.Type == Node.NodeType.Consumer)
                 {
@@ -166,6 +193,13 @@ namespace Diploma
                 }
 
                 DrawingNodes.Add(center);
+            }
+
+            Node depot = Clusters[0].Depot;
+
+            if (depot != null)
+            {
+                DrawingNodes.Add(depot);
             }
         }
 
