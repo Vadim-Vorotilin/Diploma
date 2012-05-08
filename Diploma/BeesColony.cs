@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Diploma
 {
-    public class BeesColony
+    public class BeesColony : Algorithm
     {
         public enum ProblemType
         {
@@ -24,32 +24,7 @@ namespace Diploma
         public int NeighboursForGoodSites;
         public int NeighboursForBestSites;
 
-        private List<Node> nodes;
         public int ClustersCount;
-
-        private int depotsCount;
-        private int consumersCount;
-
-        public void SetNodes (List<Node> nodesForSet)
-        {
-            nodes = new List<Node>();
-
-            var depots = from node in nodesForSet
-                         where node.Type == Node.NodeType.Depot
-                         select node;
-
-            nodes.AddRange(depots.ToList());
-
-            depotsCount = depots.ToList().Count;
-
-            var consumers = from node in nodesForSet
-                            where node.Type == Node.NodeType.Consumer
-                            select node;
-
-            nodes.AddRange(consumers.ToList());
-
-            consumersCount = consumers.ToList().Count;
-        }
 
         private List<Site> sites;
 
@@ -58,9 +33,9 @@ namespace Diploma
             switch (Problem)
             {
                 case ProblemType.VRP_TSP:
-                    return new SiteVrpTsp(nodes, depotsCount, consumersCount, ClustersCount);
+                    return new SiteVrpTsp(Nodes, DepotsCount, ConsumersCount, ClustersCount);
                 case ProblemType.CLUSTERING:
-                    return new SiteClustering(nodes, ClustersCount);
+                    return new SiteClustering(Nodes, ClustersCount);
                 default:
                     return null;
             }
@@ -76,7 +51,7 @@ namespace Diploma
             }
         }
 
-        public void Iteration ()
+        protected override void InnerIteration ()
         {
             sites.Sort();
 
@@ -98,7 +73,7 @@ namespace Diploma
             }
         }
 
-        public void DrawNodes ()
+        public override void DrawNodes ()
         {
             sites[0].DrawNodes();
         }

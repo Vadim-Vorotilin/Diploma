@@ -5,26 +5,20 @@ using System.Text;
 
 namespace Diploma
 {
-    public class KMeans
+    public class KMeans : Algorithm
     {
-        private List<Node> nodes;
         private Cluster[] clusters;
         private Node depot;
 
         public KMeans(List<Node> nodes, int clustersCount)
         {
-            this.nodes = new List<Node>();
-            this.nodes.AddRange(nodes);
+            SetNodes(nodes);
 
             clusters = new Cluster[clustersCount];
 
-            foreach (Node node in nodes)
+            if (nodes[0].Type == Node.NodeType.Depot)
             {
-                if (node.Type == Node.NodeType.Depot)
-                {
-                    depot = node;
-                    break;
-                }
+                depot = nodes[0];
             }
 
             for (int i = 0; i != clusters.Length; i++)
@@ -42,13 +36,13 @@ namespace Diploma
             {
                 centers = new Node.Point[clusters.Length];
 
-                var xs = from node in nodes
+                var xs = from node in Nodes
                          select node.RealPosition.x;
 
                 double xMin = xs.Min();
                 double xMax = xs.Max();
 
-                var ys = from node in nodes
+                var ys = from node in Nodes
                          select node.RealPosition.y;
 
                 double yMin = ys.Min();
@@ -67,6 +61,9 @@ namespace Diploma
             {
                 for (int i = 0; i != centers.Length; i++)
                 {
+                    if (clusters[i].Nodes.Count == 0)
+                        continue;
+
                     centers[i] = clusters[i].Center;
                 }
             }
@@ -79,8 +76,30 @@ namespace Diploma
                 cluster.Nodes.Clear();
             }
 
-            foreach (Node node in nodes)
+            foreach (Node node in Nodes)
             {
+                if (node.Type != Node.NodeType.Consumer)
+                    continue;
+
+                if (IterationNumber == 0)
+                {
+                    bool b = false;
+
+                    foreach (Cluster cluster in clusters)
+                    {
+                        if (cluster.Nodes.Count == 0)
+                        {
+                            cluster.Nodes.Add(node);
+
+                            b = true;
+                            break;
+                        }
+                    }
+
+                    if (b)
+                        continue;
+                }
+
                 double minDist = double.PositiveInfinity;
                 Cluster closest = clusters[0];
 
@@ -101,10 +120,47 @@ namespace Diploma
 
         //private void 
 
-        public void Iteration()
+        protected override void InnerIteration()
         {
             SetCenters();
             GenerateClusters();
+        }
+
+        public override void DrawNodes()
+        {
+            List<Node> drawingNodes = new List<Node>();
+
+            for (int i = 0; i != clusters.Length; i++)
+            {
+                Cluster cluster = clusters[i];
+
+                Node center = new Node(-1, Node.NodeType.Auxiliary, (int)centers[i].x, (int)centers[i].y, centers[i].x, centers[i].y);
+
+                if (cluster.Nodes.Count == 0)
+                {
+                    drawingNodes.Add(center);
+                    continue;
+                }
+
+                foreach (Node node in cluster.Nodes)
+                {
+                    center.ConnectedNodes.Add(node);
+                    drawingNodes.Add(node);
+                }
+
+                drawingNodes.Add(center);
+            }
+
+            Node depot = clusters[0].Depot;
+
+            if (depot != null)
+            {
+                drawingNodes.Add(depot);
+            }
+
+            TaskController.Nodes = drawingNodes;
+
+            TaskController.DrawNodes(); 
         }
     }
 }

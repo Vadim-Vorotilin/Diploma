@@ -76,6 +76,8 @@ namespace Diploma
             isAddingNode = !isAddingNode;
         }
 
+        private KMeans kMeans;
+
         private void button_CreateColony_MouseClick(object sender, MouseEventArgs e)
         {
             TaskController.Colony = new BeesColony();
@@ -93,12 +95,17 @@ namespace Diploma
             //TaskController.Colony.GeneratePricesByPositions();
 
             TaskController.Colony.CreateSites();
+
+            kMeans = new KMeans(TaskController.Nodes, 3);
         }
 
         private void button_Iteration_Click(object sender, EventArgs e)
         {
-            TaskController.Colony.Iteration();
-            TaskController.Colony.DrawNodes();
+            //TaskController.Colony.Iteration();
+            //TaskController.Colony.DrawNodes();
+
+            kMeans.Iteration();
+            kMeans.DrawNodes();
         }
 
         private void button_Iterate_Click(object sender, EventArgs e)
