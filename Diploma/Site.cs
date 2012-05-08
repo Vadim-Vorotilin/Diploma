@@ -5,169 +5,19 @@ using System.Text;
 
 namespace Diploma
 {
-    public class Site : IComparable
+    public abstract class Site : IComparable
     {
-        private int[] nodesSequence;
+        protected abstract double Price { get; }
 
-        public int[] NodesSequence
-        {
-            get { return nodesSequence; }
-        }
+        public abstract int CompareTo (object obj);
 
-        private double[,] prices;
-        private Node[] nodes;
+        protected abstract void GoToNeighbour(Site site);
 
-        private int depotsCount;
-        private int consumersCount;
+        protected abstract Site GetNeighbour();
 
-        private double Price
-        {
-            get
-            {
-                double price = 0;
+        public abstract object Result { get; }
 
-                for (int i = 0; i != nodesSequence.Length - 1; i++)
-                {
-                    price += prices[nodesSequence[i], nodesSequence[i + 1]];
-                }
-
-                price += prices[nodesSequence[nodesSequence.Length - 1], nodesSequence[0]];
-
-                return price;
-            }
-        }
-
-        private static double GetDistance(Node node1, Node node2)
-        {
-            return Math.Sqrt(Math.Pow(node1.RealPosition.x - node2.RealPosition.x, 2) + Math.Pow(node1.RealPosition.y - node2.RealPosition.y, 2));
-        }
-
-        private static double[,] GeneratePricesByPositions(List<Node> nodes, int depotsCount, int consumersCount)
-        {
-            double[,] prices = new double[depotsCount + consumersCount, depotsCount + consumersCount];
-
-            for (int i = 0; i != prices.GetLength(0); i++)
-            {
-                for (int j = 0; j != prices.GetLength(0); j++)
-                {
-                    if (i < depotsCount && j < depotsCount)
-                    {
-                        prices[i, j] = double.PositiveInfinity;
-                    }
-                    else
-                    {
-                        prices[i, j] = GetDistance(nodes[i], nodes[j]);
-                    }
-                }
-            }
-
-            return prices;
-        }
-
-        public Site(List<Node> nodes, int depotsCount, int consumersCount, int clustersCount)
-            : this(GeneratePricesByPositions(nodes, depotsCount, consumersCount), depotsCount, consumersCount, clustersCount)
-        {
-        }
-
-        public Site (double[,] prices, int depotsCount, int consumersCount, int clustersCount)
-        {
-            this.prices = prices;
-            this.depotsCount = depotsCount;
-            this.consumersCount = consumersCount;
-            GenerateSequence(depotsCount, clustersCount, consumersCount);
-        }
-
-        public Site (Site site)
-        {
-            this.prices = site.prices.Clone() as double[,];
-            this.nodesSequence = site.nodesSequence.Clone() as int[];
-        }
-
-        private void GenerateSequence (int depotsCount, int clustersCount, int consumersCount)
-        {
-            List<int> orderedSequence = new List<int>();
-
-            for (int i = 0; i != depotsCount; i++)
-            {
-                for (int j = 0; j != clustersCount; j++)
-                {
-                    orderedSequence.Add(i);
-                }
-            }
-
-            for (int i = depotsCount; i != depotsCount + consumersCount; i++)
-            {
-                orderedSequence.Add(i);
-            }
-
-            nodesSequence = new int[depotsCount*clustersCount + consumersCount];
-
-            for (int i = 0; i != nodesSequence.Length; i++)
-            {
-                int index = TaskController.Rnd.Next(orderedSequence.Count);
-
-                nodesSequence[i] = orderedSequence[index];
-
-                orderedSequence.RemoveAt(index);
-            }
-        }
-
-        private static void Invert (int[] arr, int i1, int i2)
-        {
-            int end_ = ((i1 + Math.Abs(i1 - i2)/2 + 1)%arr.Length >= 0
-                            ? (i1 + Math.Abs(i1 - i2)/2 + 1)%arr.Length
-                            : (i1 + Math.Abs(i1 - i2)/2 + 1)%arr.Length + arr.Length);
-
-
-            for (int i = i1; i != end_; i++)
-            {
-                int i1_ = (i%arr.Length >= 0 ? i%arr.Length : i%arr.Length + arr.Length);
-
-                if (i1_ == end_) break;
-
-                int i2_ = ((i1 + i2 - i)%arr.Length >= 0
-                               ? (i1 + i2 - i)%arr.Length
-                               : (i1 + i2 - i)%arr.Length + arr.Length);
-
-                Interchange(arr, i1_, i2_);
-            }
-        }
-
-        private static void Interchange (int[] arr, int i1, int i2)
-        {
-            var temp = arr[i1];
-            arr[i1] = arr[i2];
-            arr[i2] = temp;
-        }
-
-        public void InvertRandomPartOfNodesSequence ()
-        {
-            int i1 = TaskController.Rnd.Next(nodesSequence.Length);
-            int i2;
-
-            do
-            {
-                i2 = TaskController.Rnd.Next(nodesSequence.Length);
-            } while (i1 == i2);
-
-            Invert(nodesSequence, i1, i2);
-        }
-
-        private Site GetNeighbour ()
-        {
-            Site result = new Site(this);
-
-            result.InvertRandomPartOfNodesSequence();
-
-            return result;
-        }
-
-        private void GoToNeighbour (Site site)
-        {
-            nodesSequence = site.NodesSequence.Clone() as int[];
-        }
-
-        private List<Site> GenerateNeighbours (int count)
+        private List<Site> GenerateNeighbours(int count)
         {
             List<Site> result = new List<Site>();
 
@@ -179,7 +29,7 @@ namespace Diploma
             return result;
         }
 
-        public bool GoToBestNeighbour (int countOfNeightbours)
+        public bool GoToBestNeighbour(int countOfNeightbours)
         {
             List<Site> neighbours = GenerateNeighbours(countOfNeightbours);
 
@@ -192,25 +42,6 @@ namespace Diploma
             }
 
             return false;
-        }
-
-        public int CompareTo (object obj)
-        {
-            Site site = obj as Site;
-
-            return Price.CompareTo(site.Price);
-        }
-
-        public override string ToString()
-        {
-            string sequence = "{";
-
-            for (int i = 0; i != nodesSequence.Length; i++)
-            {
-                sequence += nodesSequence[i] + (i != nodesSequence.Length - 1 ? " " : "}");
-            }
-
-            return string.Format("{0}. Price: {1}", sequence, Price);
         }
     }
 }

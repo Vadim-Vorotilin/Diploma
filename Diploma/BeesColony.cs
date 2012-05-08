@@ -55,7 +55,7 @@ namespace Diploma
 
             for (int i = 0; i != ScoutsCount; i++)
             {
-                sites.Add(new Site(nodes, depotsCount, consumersCount, ClustersCount));
+                sites.Add(new SiteVrpTsp(nodes, depotsCount, consumersCount, ClustersCount));
             }
         }
 
@@ -77,7 +77,7 @@ namespace Diploma
 
             for (int i = GoodSitesCount; i != ScoutsCount; i++)
             {
-                sites[i] = new Site(nodes, depotsCount, consumersCount, ClustersCount);
+                sites[i] = new SiteVrpTsp(nodes, depotsCount, consumersCount, ClustersCount);
             }
         }
 
@@ -88,12 +88,14 @@ namespace Diploma
                 nodes[i].ConnectedNodes = new List<Node>();
             }
 
-            for (int i = 0; i != sites[0].NodesSequence.Length - 1; i++)
+            int[] result = sites[0].Result as int[];
+
+            for (int i = 0; i != result.Length - 1; i++)
             {
-                nodes[sites[0].NodesSequence[i]].ConnectedNodes.Add(nodes[sites[0].NodesSequence[i + 1]]);
+                nodes[result[i]].ConnectedNodes.Add(nodes[result[i + 1]]);
             }
 
-            nodes[sites[0].NodesSequence[sites[0].NodesSequence.Length - 1]].ConnectedNodes.Add(nodes[sites[0].NodesSequence[0]]);
+            nodes[result[result.Length - 1]].ConnectedNodes.Add(nodes[result[0]]);
 
             TaskController.Nodes = this.nodes;
 
