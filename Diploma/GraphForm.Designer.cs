@@ -55,6 +55,8 @@
             this.loadModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip_Main = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel_Main = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
             this.groupBox_NodeType.SuspendLayout();
@@ -63,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClustersCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IterationsCount)).BeginInit();
             this.menuStrip_MainMenu.SuspendLayout();
+            this.statusStrip_Main.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_Main
@@ -75,10 +78,11 @@
             this.tableLayoutPanel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_Main.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel_Main.Name = "tableLayoutPanel_Main";
-            this.tableLayoutPanel_Main.RowCount = 2;
+            this.tableLayoutPanel_Main.RowCount = 3;
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(922, 462);
+            this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(927, 488);
             this.tableLayoutPanel_Main.TabIndex = 0;
             // 
             // flowLayoutPanel_Tools
@@ -89,9 +93,9 @@
             this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_Algorithm);
             this.flowLayoutPanel_Tools.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Tools.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(777, 3);
+            this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(782, 3);
             this.flowLayoutPanel_Tools.Name = "flowLayoutPanel_Tools";
-            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(142, 422);
+            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(142, 424);
             this.flowLayoutPanel_Tools.TabIndex = 0;
             // 
             // button_Redraw
@@ -280,7 +284,7 @@
             this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
             this.panel_Drawing.Name = "panel_Drawing";
-            this.panel_Drawing.Size = new System.Drawing.Size(768, 422);
+            this.panel_Drawing.Size = new System.Drawing.Size(773, 424);
             this.panel_Drawing.TabIndex = 1;
             this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
             // 
@@ -290,7 +294,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip_MainMenu.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_MainMenu.Name = "menuStrip_MainMenu";
-            this.menuStrip_MainMenu.Size = new System.Drawing.Size(922, 24);
+            this.menuStrip_MainMenu.Size = new System.Drawing.Size(927, 24);
             this.menuStrip_MainMenu.TabIndex = 1;
             this.menuStrip_MainMenu.Text = "menuStrip1";
             // 
@@ -353,11 +357,27 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // statusStrip_Main
+            // 
+            this.statusStrip_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel_Main});
+            this.statusStrip_Main.Location = new System.Drawing.Point(0, 490);
+            this.statusStrip_Main.Name = "statusStrip_Main";
+            this.statusStrip_Main.Size = new System.Drawing.Size(927, 22);
+            this.statusStrip_Main.TabIndex = 2;
+            this.statusStrip_Main.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel_Main
+            // 
+            this.toolStripStatusLabel_Main.Name = "toolStripStatusLabel_Main";
+            this.toolStripStatusLabel_Main.Size = new System.Drawing.Size(0, 17);
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 486);
+            this.ClientSize = new System.Drawing.Size(927, 512);
+            this.Controls.Add(this.statusStrip_Main);
             this.Controls.Add(this.tableLayoutPanel_Main);
             this.Controls.Add(this.menuStrip_MainMenu);
             this.Name = "GraphForm";
@@ -375,6 +395,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IterationsCount)).EndInit();
             this.menuStrip_MainMenu.ResumeLayout(false);
             this.menuStrip_MainMenu.PerformLayout();
+            this.statusStrip_Main.ResumeLayout(false);
+            this.statusStrip_Main.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,6 +431,8 @@
         private System.Windows.Forms.Label label_ClustersCount;
         private System.Windows.Forms.NumericUpDown numericUpDown_ClustersCount;
         private System.Windows.Forms.Label label_Algorithm;
+        private System.Windows.Forms.StatusStrip statusStrip_Main;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Main;
 
     }
 }

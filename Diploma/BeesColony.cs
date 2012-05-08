@@ -51,6 +51,21 @@ namespace Diploma
             }
         }
 
+        private Site BestSite
+        {
+            get
+            {
+                sites.Sort();
+
+                return sites[0];
+            }
+        }
+
+        public override double Value
+        {
+            get { return BestSite.Price; }
+        }
+
         protected override void InnerIteration ()
         {
             sites.Sort();
@@ -75,7 +90,7 @@ namespace Diploma
 
         public override void DrawNodes ()
         {
-            sites[0].DrawNodes();
+            BestSite.DrawNodes();
         }
     }
 }

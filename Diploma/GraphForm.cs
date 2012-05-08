@@ -99,6 +99,8 @@ namespace Diploma
         {
             TaskController.Algorithm.Iteration();
             TaskController.Algorithm.DrawNodes();
+
+            SetStatus(string.Format("Iteration {0} completed. Value: {1:0.00}", TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value));
         }
 
         private void button_Iterate_Click(object sender, EventArgs e)
@@ -109,6 +111,8 @@ namespace Diploma
             }
 
             TaskController.Algorithm.DrawNodes();
+
+            SetStatus(string.Format("Iteration {0} completed. Value: {1:0.00}", TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value));
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -159,6 +163,11 @@ namespace Diploma
             {
                 saveModelAsToolStripMenuItem.PerformClick();
             }
+        }
+
+        private void SetStatus(string status)
+        {
+            toolStripStatusLabel_Main.Text = status;
         }
     }
 }

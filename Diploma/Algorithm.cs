@@ -11,7 +11,14 @@ namespace Diploma
 
         protected int DepotsCount;
         protected int ConsumersCount;
-        protected int IterationNumber = 0;
+        public int IterationNumber { get; private set; }
+
+        public abstract double Value { get; }
+
+        protected Algorithm()
+        {
+            IterationNumber = 0;
+        }
 
         public void SetNodes(List<Node> nodesForSet)
         {

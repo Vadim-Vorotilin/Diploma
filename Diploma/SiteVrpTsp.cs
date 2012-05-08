@@ -19,7 +19,7 @@ namespace Diploma
         private int depotsCount;
         private int consumersCount;
 
-        protected override double Price
+        public override double Price
         {
             get
             {

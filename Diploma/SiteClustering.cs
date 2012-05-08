@@ -89,7 +89,7 @@ namespace Diploma
             Clusters[c2].Nodes.Add(node);
         }
 
-        protected override double Price
+        public override double Price
         {
             get
             {

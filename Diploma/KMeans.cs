@@ -16,9 +16,9 @@ namespace Diploma
 
             clusters = new Cluster[clustersCount];
 
-            if (nodes[0].Type == Node.NodeType.Depot)
+            if (Nodes[0].Type == Node.NodeType.Depot)
             {
-                depot = nodes[0];
+                depot = Nodes[0];
             }
 
             for (int i = 0; i != clusters.Length; i++)
@@ -119,6 +119,21 @@ namespace Diploma
         }
 
         //private void 
+
+        public override double Value
+        {
+            get
+            {
+                double value = 0;
+
+                foreach (Cluster cluster in clusters)
+                {
+                    value += cluster.GetPrice();
+                }
+
+                return value;
+            }
+        }
 
         protected override void InnerIteration()
         {

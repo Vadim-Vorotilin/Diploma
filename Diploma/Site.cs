@@ -20,7 +20,7 @@ namespace Diploma
             }
         }
 
-        protected abstract double Price { get; }
+        public abstract double Price { get; }
 
         protected abstract void GoToNeighbour(Site site);
 
