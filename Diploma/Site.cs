@@ -61,9 +61,7 @@ namespace Diploma
         {
             PrepareToDraw();
 
-            TaskController.Nodes = this.DrawingNodes;
-
-            TaskController.DrawNodes(); 
+            TaskController.DrawNodes(DrawingNodes); 
         }
 
         public int CompareTo(object obj)

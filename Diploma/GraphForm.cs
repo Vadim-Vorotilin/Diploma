@@ -127,5 +127,45 @@ namespace Diploma
         {
             TaskController.CreateNewModel();
         }
+
+        private void loadModelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Model|*.mdl";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (!TaskController.LoadModel(openFileDialog.FileName))
+                    {
+                        MessageBox.Show("Loading model failed!", "Loading failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void saveModelAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Model|*.mdl";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (!TaskController.SaveModel(saveFileDialog.FileName))
+                    {
+                        MessageBox.Show("Saving model failed!", "Saving failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void saveModelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!TaskController.SaveModel())
+            {
+                saveModelAsToolStripMenuItem.PerformClick();
+            }
+        }
     }
 }

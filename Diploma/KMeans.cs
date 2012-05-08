@@ -158,9 +158,7 @@ namespace Diploma
                 drawingNodes.Add(depot);
             }
 
-            TaskController.Nodes = drawingNodes;
-
-            TaskController.DrawNodes(); 
+            TaskController.DrawNodes(drawingNodes); 
         }
     }
 }

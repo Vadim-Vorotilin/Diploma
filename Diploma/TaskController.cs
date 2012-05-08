@@ -21,7 +21,9 @@ namespace Diploma
 
         public static Color ClearColor = Color.White;
 
-        public static List<Node> Nodes = new List<Node>();
+        public static List<Node> Nodes { get; private set; }
+
+        private static string lastFileName;
 
         private static Graphics graphicsForDraw;
         public static Graphics GraphicsForDraw
@@ -37,6 +39,12 @@ namespace Diploma
 
         public static Random Rnd = new Random();
 
+        static TaskController()
+        {
+            Nodes = new List<Node>();
+            lastFileName = "";
+        }
+
         public static void AddNodeAtScreen (Node.NodeType nodeType, int posX, int posY)
         {
             Node newNode = new Node(Nodes.Count, nodeType, posX, posY, posX, posY);
@@ -45,16 +53,16 @@ namespace Diploma
             Nodes.Add(newNode);
         }
 
-        public static void DrawNodes ()
+        public static void DrawNodes (List<Node> nodes = null)
         {
-            DrawNodes(graphicsForDraw);
+            DrawNodes(graphicsForDraw, nodes ?? Nodes);
         }
 
-        public static void DrawNodes (Graphics g)
+        public static void DrawNodes (Graphics g, List<Node> nodes)
         {
             g.Clear(ClearColor);
 
-            foreach (Node node in Nodes)
+            foreach (Node node in nodes)
             {
                 if (node.ConnectedNodes == null)
                     continue;
@@ -65,7 +73,7 @@ namespace Diploma
                 }
             }
 
-            foreach (Node node in Nodes)
+            foreach (Node node in nodes)
             {
                 DrawNode(g, node);
             }
@@ -93,6 +101,21 @@ namespace Diploma
         {
             Nodes = new List<Node>();
             DrawNodes();
+        }
+
+        public static bool SaveModel(string fileName = "")
+        {
+            if (fileName == "" && lastFileName == "")
+            {
+                return false;
+            }
+
+            return false;
+        }
+
+        public static bool LoadModel(string fileName)
+        {
+            return false;
         }
     }
 }
