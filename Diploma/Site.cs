@@ -7,6 +7,18 @@ namespace Diploma
 {
     public abstract class Site : IComparable
     {
+        protected List<Node> Nodes;
+
+        protected Site (List<Node> nodes)
+        {
+            Nodes = new List<Node>();
+
+            for (int i = 0; i != nodes.Count; i++)
+            {
+                Nodes.Add(nodes[i]);
+            }
+        }
+
         protected abstract double Price { get; }
 
         protected abstract void GoToNeighbour(Site site);
@@ -40,6 +52,17 @@ namespace Diploma
             }
 
             return false;
+        }
+
+        protected abstract void PrepareToDraw();
+
+        public void DrawNodes ()
+        {
+            PrepareToDraw();
+
+            TaskController.Nodes = this.Nodes;
+
+            TaskController.DrawNodes(); 
         }
 
         public int CompareTo(object obj)

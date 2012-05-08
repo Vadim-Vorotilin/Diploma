@@ -100,23 +100,7 @@ namespace Diploma
 
         public void DrawNodes ()
         {
-            for (int i = 0; i != nodes.Count; i++)
-            {
-                nodes[i].ConnectedNodes = new List<Node>();
-            }
-
-            int[] result = sites[0].Result as int[];
-
-            for (int i = 0; i != result.Length - 1; i++)
-            {
-                nodes[result[i]].ConnectedNodes.Add(nodes[result[i + 1]]);
-            }
-
-            nodes[result[result.Length - 1]].ConnectedNodes.Add(nodes[result[0]]);
-
-            TaskController.Nodes = this.nodes;
-
-            TaskController.DrawNodes();
+            sites[0].DrawNodes();
         }
     }
 }

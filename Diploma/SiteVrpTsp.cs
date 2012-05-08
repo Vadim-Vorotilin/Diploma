@@ -15,7 +15,6 @@ namespace Diploma
         }
 
         private double[,] prices;
-        private Node[] nodes;
 
         private int depotsCount;
         private int consumersCount;
@@ -40,6 +39,23 @@ namespace Diploma
         public override object Result
         {
             get { return nodesSequence; }
+        }
+
+        protected override void PrepareToDraw()
+        {
+            for (int i = 0; i != Nodes.Count; i++)
+            {
+                Nodes[i].ConnectedNodes = new List<Node>();
+            }
+
+            int[] result = Result as int[];
+
+            for (int i = 0; i != result.Length - 1; i++)
+            {
+                Nodes[result[i]].ConnectedNodes.Add(Nodes[result[i + 1]]);
+            }
+
+            Nodes[result[result.Length - 1]].ConnectedNodes.Add(Nodes[result[0]]);
         }
 
         private static double GetDistance(Node node1, Node node2)
@@ -70,19 +86,17 @@ namespace Diploma
         }
 
         public SiteVrpTsp(List<Node> nodes, int depotsCount, int consumersCount, int clustersCount)
-            : this(GeneratePricesByPositions(nodes, depotsCount, consumersCount), depotsCount, consumersCount, clustersCount)
+            : base(nodes)
         {
-        }
-
-        public SiteVrpTsp (double[,] prices, int depotsCount, int consumersCount, int clustersCount)
-        {
-            this.prices = prices;
+            this.prices = GeneratePricesByPositions(nodes, depotsCount, consumersCount);
             this.depotsCount = depotsCount;
             this.consumersCount = consumersCount;
             GenerateSequence(depotsCount, clustersCount, consumersCount);
+            
         }
 
-        public SiteVrpTsp (SiteVrpTsp site)
+        private SiteVrpTsp (SiteVrpTsp site)
+            : base(site.Nodes)
         {
             this.prices = site.prices.Clone() as double[,];
             this.nodesSequence = site.nodesSequence.Clone() as int[];

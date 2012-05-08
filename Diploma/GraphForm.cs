@@ -80,6 +80,7 @@ namespace Diploma
         {
             TaskController.Colony = new BeesColony();
 
+            TaskController.Colony.Problem = BeesColony.ProblemType.VRP_TSP;
             TaskController.Colony.ClustersCount = 3;
 
             TaskController.Colony.ScoutsCount = 5;
