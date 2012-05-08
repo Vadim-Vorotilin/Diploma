@@ -78,7 +78,7 @@ namespace Diploma
 
         private KMeans kMeans;
 
-        private void button_CreateColony_MouseClick(object sender, MouseEventArgs e)
+        private void button_StartAlgorithm_MouseClick(object sender, MouseEventArgs e)
         {
             TaskController.Colony = new BeesColony();
 
