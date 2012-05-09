@@ -129,7 +129,7 @@ namespace Diploma
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Filter = "Model|*.mdl";
+                openFileDialog.Filter = "Model|*.xmdl";
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -145,7 +145,7 @@ namespace Diploma
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                saveFileDialog.Filter = "Model|*.mdl";
+                saveFileDialog.Filter = "Model|*.xmdl";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {

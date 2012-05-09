@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace Diploma
 {
@@ -11,13 +12,21 @@ namespace Diploma
         {
             Depot,
             Consumer,
-            Auxiliary
+            Auxiliary,
+            Unknown
         }
 
 
         public class Point
         {
-            public double x, y;
+            public double x;
+            public double y;
+
+            public Point ()
+            {
+                x = 0;
+                y = 0;
+            }
 
             public Point (double x, double y)
             {
@@ -52,6 +61,17 @@ namespace Diploma
             ConnectedNodes = new List<Node>();
         }
 
+        public Node()
+        {
+            Id = -1;
+            Type = NodeType.Unknown;
+            ScreenPosition = new Point(0, 0);
+            RealPosition = new Point(0, 0);
+
+            ConnectedNodes = new List<Node>();
+        }
+
+        [XmlIgnore]
         public List<Node> ConnectedNodes;
 
         public override string ToString()

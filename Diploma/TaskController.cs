@@ -148,12 +148,27 @@ namespace Diploma
                 return false;
             }
 
-            return false;
+            string fName = lastFileName == "" ? fileName : lastFileName;
+
+            SerializationData data = new SerializationData();
+            data.Nodes = Nodes;
+
+            return SerializationData.Serialize(fName, data);
         }
 
         public static bool LoadModel(string fileName)
         {
-            return false;
+            SerializationData data;
+            
+            bool b = SerializationData.Deserialize(fileName, out data);
+
+            if (b)
+            {
+                Nodes = data.Nodes;
+                DrawNodes();
+            }
+
+            return b;
         }
     }
 }
