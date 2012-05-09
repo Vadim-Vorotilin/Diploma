@@ -43,6 +43,18 @@ namespace Diploma
             return distance;
         }
 
+        public int GetVolume()
+        {
+            int volume = 0;
+
+            foreach (Node node in Nodes)
+            {
+                volume += node.Volume;
+            }
+
+            return volume;
+        }
+
         public Cluster() {}
 
         public Cluster(Cluster cluster)

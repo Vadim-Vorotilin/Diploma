@@ -141,12 +141,13 @@ namespace Diploma
         }
 
         public static void StartBeesAlgorithm(BeesColony.ProblemType problemType, int clustersCount, int scoutsCount, 
-            int goodSitesCount, int bestSitesCount, int neighboursForGoodSites, int neighboursForBestSites)
+            int goodSitesCount, int bestSitesCount, int neighboursForGoodSites, int neighboursForBestSites, int clusterCapacityLimit = -1)
         {
             BeesColony colony = new BeesColony();
 
             colony.Problem = problemType;
             colony.ClustersCount = clustersCount;
+            colony.ClusterCapacityLimit = clusterCapacityLimit;
 
             colony.ScoutsCount = scoutsCount;
             colony.GoodSitesCount = goodSitesCount;
@@ -213,6 +214,7 @@ namespace Diploma
             if (b)
             {
                 Nodes = data.Nodes;
+                CheckVolume();
                 DrawNodes();
             }
 

@@ -67,6 +67,21 @@ namespace Diploma
             }
         }
 
+        protected void MoveNodeFromOneClusterToAnother(int c1, int c2)
+        {
+            MoveNodeFromOneClusterToAnother(Clusters[c1], Clusters[c2]);
+        }
+
+        protected void MoveNodeFromOneClusterToAnother(Cluster cluster1, Cluster cluster2)
+        {
+            int nodeIndex = TaskController.Rnd.Next(cluster1.Nodes.Count);
+
+            Node node = cluster1.Nodes[nodeIndex];
+
+            cluster1.Nodes.RemoveAt(nodeIndex);
+            cluster2.Nodes.Add(node);
+        }
+
         public void MoveNodeFromOneClusterToAnother()
         {
             int c1;
@@ -82,12 +97,7 @@ namespace Diploma
                 c2 = TaskController.Rnd.Next(Clusters.Length);
             } while (c2 == c1);
 
-            int nodeIndex = TaskController.Rnd.Next(Clusters[c1].Nodes.Count);
-
-            Node node = Clusters[c1].Nodes[nodeIndex];
-
-            Clusters[c1].Nodes.RemoveAt(nodeIndex);
-            Clusters[c2].Nodes.Add(node);
+            MoveNodeFromOneClusterToAnother(c1, c2);
         }
 
         public override double Price

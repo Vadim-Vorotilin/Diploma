@@ -114,15 +114,21 @@ namespace Diploma
                 return false;
             }
 
+            int clustersCount = Convert.ToInt32(numericUpDown_ClustersCount.Value);
+            int clusterCapacityLimit = Convert.ToInt32(numericUpDown_ClusterCapacityLimit.Value);
+
             switch (comboBox_AlgorithmType.SelectedIndex)
             {
                 case 0:                 //  Bees VRP -> TSP
-                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.VRP_TSP, Convert.ToInt32(numericUpDown_ClustersCount.Value), 5, 3, 1, 2, 3);
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.VRP_TSP, clustersCount, 5, 3, 1, 2, 3);
                     break;
                 case 1:                 //  Bees CLUSTERING
-                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING, Convert.ToInt32(numericUpDown_ClustersCount.Value), 5, 3, 1, 2, 3);
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING, clustersCount, 5, 3, 1, 2, 3);
                     break;
-                case 2:                 //  K-means CLUSTERING
+                case 2:                 //  Bees CLUST w/ LIMIT
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_LIMITED_CAPASITY, clustersCount, 5, 3, 1, 2, 3, clusterCapacityLimit);
+                    break;
+                case 3:                 //  K-means CLUSTERING
                     TaskController.StartKMeansAlgorithm(ClustersCount);
                     break;
             }

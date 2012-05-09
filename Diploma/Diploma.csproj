@@ -62,6 +62,7 @@
     <Compile Include="SerializationData.cs" />
     <Compile Include="Site.cs" />
     <Compile Include="SiteClustering.cs" />
+    <Compile Include="SiteClusteringLimitedCapacity.cs" />
     <Compile Include="SiteVrpTsp.cs" />
     <Compile Include="TaskController.cs" />
     <EmbeddedResource Include="GraphForm.resx">

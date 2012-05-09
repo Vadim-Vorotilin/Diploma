@@ -12,7 +12,8 @@ namespace Diploma
             TSP,
             VRP,
             VRP_TSP,
-            CLUSTERING
+            CLUSTERING,
+            CLUSTERING_LIMITED_CAPASITY
         }
 
         public ProblemType Problem;
@@ -25,6 +26,7 @@ namespace Diploma
         public int NeighboursForBestSites;
 
         public int ClustersCount;
+        public int ClusterCapacityLimit;
 
         private List<Site> sites;
 
@@ -36,6 +38,8 @@ namespace Diploma
                     return new SiteVrpTsp(Nodes, DepotsCount, ConsumersCount, ClustersCount);
                 case ProblemType.CLUSTERING:
                     return new SiteClustering(Nodes, ClustersCount);
+                case ProblemType.CLUSTERING_LIMITED_CAPASITY:
+                    return new SiteClusteringLimitedCapacity(Nodes, ClustersCount, ClusterCapacityLimit);
                 default:
                     return null;
             }

@@ -64,7 +64,7 @@ namespace Diploma
             TaskController.DrawNodes(DrawingNodes); 
         }
 
-        public int CompareTo(object obj)
+        public virtual int CompareTo(object obj)
         {
             Site site = obj as Site;
             return Price.CompareTo(site.Price);

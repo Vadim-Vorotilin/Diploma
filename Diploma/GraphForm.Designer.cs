@@ -60,6 +60,8 @@
             this.numericUpDown_Volume = new System.Windows.Forms.NumericUpDown();
             this.flowLayoutPanel_Node = new System.Windows.Forms.FlowLayoutPanel();
             this.label_Volume = new System.Windows.Forms.Label();
+            this.numericUpDown_ClusterCapacityLimit = new System.Windows.Forms.NumericUpDown();
+            this.label_ClusterCapacityLimit = new System.Windows.Forms.Label();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
             this.groupBox_Node.SuspendLayout();
@@ -71,6 +73,7 @@
             this.statusStrip_Main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Volume)).BeginInit();
             this.flowLayoutPanel_Node.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClusterCapacityLimit)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_Main
@@ -87,7 +90,7 @@
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(927, 488);
+            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(927, 553);
             this.tableLayoutPanel_Main.TabIndex = 0;
             // 
             // flowLayoutPanel_Tools
@@ -100,7 +103,7 @@
             this.flowLayoutPanel_Tools.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(782, 3);
             this.flowLayoutPanel_Tools.Name = "flowLayoutPanel_Tools";
-            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(142, 424);
+            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(142, 489);
             this.flowLayoutPanel_Tools.TabIndex = 0;
             // 
             // button_Redraw
@@ -162,7 +165,7 @@
             this.groupBox_Algorithm.Controls.Add(this.flowLayoutPanel_Algorithm);
             this.groupBox_Algorithm.Location = new System.Drawing.Point(3, 184);
             this.groupBox_Algorithm.Name = "groupBox_Algorithm";
-            this.groupBox_Algorithm.Size = new System.Drawing.Size(130, 214);
+            this.groupBox_Algorithm.Size = new System.Drawing.Size(130, 294);
             this.groupBox_Algorithm.TabIndex = 7;
             this.groupBox_Algorithm.TabStop = false;
             this.groupBox_Algorithm.Text = "Algorithm";
@@ -171,6 +174,8 @@
             // 
             this.flowLayoutPanel_Algorithm.Controls.Add(this.label_ClustersCount);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.numericUpDown_ClustersCount);
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.label_ClusterCapacityLimit);
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.numericUpDown_ClusterCapacityLimit);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.label_Algorithm);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.comboBox_AlgorithmType);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.button_StartAlgorithm);
@@ -181,13 +186,14 @@
             this.flowLayoutPanel_Algorithm.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_Algorithm.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel_Algorithm.Name = "flowLayoutPanel_Algorithm";
-            this.flowLayoutPanel_Algorithm.Size = new System.Drawing.Size(124, 195);
+            this.flowLayoutPanel_Algorithm.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.flowLayoutPanel_Algorithm.Size = new System.Drawing.Size(124, 275);
             this.flowLayoutPanel_Algorithm.TabIndex = 8;
             // 
             // label_ClustersCount
             // 
             this.label_ClustersCount.AutoSize = true;
-            this.label_ClustersCount.Location = new System.Drawing.Point(3, 0);
+            this.label_ClustersCount.Location = new System.Drawing.Point(3, 5);
             this.label_ClustersCount.Name = "label_ClustersCount";
             this.label_ClustersCount.Size = new System.Drawing.Size(74, 13);
             this.label_ClustersCount.TabIndex = 8;
@@ -195,7 +201,7 @@
             // 
             // numericUpDown_ClustersCount
             // 
-            this.numericUpDown_ClustersCount.Location = new System.Drawing.Point(3, 16);
+            this.numericUpDown_ClustersCount.Location = new System.Drawing.Point(3, 21);
             this.numericUpDown_ClustersCount.Minimum = new decimal(new int[] {
             1,
             0,
@@ -213,7 +219,7 @@
             // label_Algorithm
             // 
             this.label_Algorithm.AutoSize = true;
-            this.label_Algorithm.Location = new System.Drawing.Point(3, 39);
+            this.label_Algorithm.Location = new System.Drawing.Point(3, 83);
             this.label_Algorithm.Name = "label_Algorithm";
             this.label_Algorithm.Size = new System.Drawing.Size(50, 13);
             this.label_Algorithm.TabIndex = 10;
@@ -225,15 +231,16 @@
             this.comboBox_AlgorithmType.Items.AddRange(new object[] {
             "Bees VRP -> TSP",
             "Bees CLUSTERING",
+            "Bees CLUST w/ LIMIT",
             "K-means CLUSTERING"});
-            this.comboBox_AlgorithmType.Location = new System.Drawing.Point(3, 55);
+            this.comboBox_AlgorithmType.Location = new System.Drawing.Point(3, 99);
             this.comboBox_AlgorithmType.Name = "comboBox_AlgorithmType";
             this.comboBox_AlgorithmType.Size = new System.Drawing.Size(117, 21);
             this.comboBox_AlgorithmType.TabIndex = 7;
             // 
             // button_StartAlgorithm
             // 
-            this.button_StartAlgorithm.Location = new System.Drawing.Point(3, 82);
+            this.button_StartAlgorithm.Location = new System.Drawing.Point(3, 126);
             this.button_StartAlgorithm.Name = "button_StartAlgorithm";
             this.button_StartAlgorithm.Size = new System.Drawing.Size(118, 23);
             this.button_StartAlgorithm.TabIndex = 3;
@@ -243,7 +250,7 @@
             // 
             // button_Iteration
             // 
-            this.button_Iteration.Location = new System.Drawing.Point(3, 111);
+            this.button_Iteration.Location = new System.Drawing.Point(3, 155);
             this.button_Iteration.Name = "button_Iteration";
             this.button_Iteration.Size = new System.Drawing.Size(118, 23);
             this.button_Iteration.TabIndex = 4;
@@ -253,7 +260,7 @@
             // 
             // numericUpDown_IterationsCount
             // 
-            this.numericUpDown_IterationsCount.Location = new System.Drawing.Point(3, 140);
+            this.numericUpDown_IterationsCount.Location = new System.Drawing.Point(3, 184);
             this.numericUpDown_IterationsCount.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -275,7 +282,7 @@
             // 
             // button_Iterate
             // 
-            this.button_Iterate.Location = new System.Drawing.Point(3, 166);
+            this.button_Iterate.Location = new System.Drawing.Point(3, 210);
             this.button_Iterate.Name = "button_Iterate";
             this.button_Iterate.Size = new System.Drawing.Size(118, 23);
             this.button_Iterate.TabIndex = 6;
@@ -289,7 +296,7 @@
             this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
             this.panel_Drawing.Name = "panel_Drawing";
-            this.panel_Drawing.Size = new System.Drawing.Size(773, 424);
+            this.panel_Drawing.Size = new System.Drawing.Size(773, 489);
             this.panel_Drawing.TabIndex = 1;
             this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
             // 
@@ -321,20 +328,20 @@
             // 
             this.newModelToolStripMenuItem.Name = "newModelToolStripMenuItem";
             this.newModelToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newModelToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.newModelToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.newModelToolStripMenuItem.Text = "New model";
             this.newModelToolStripMenuItem.Click += new System.EventHandler(this.newModelToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(220, 6);
             // 
             // saveModelToolStripMenuItem
             // 
             this.saveModelToolStripMenuItem.Name = "saveModelToolStripMenuItem";
             this.saveModelToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveModelToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.saveModelToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.saveModelToolStripMenuItem.Text = "Save model";
             this.saveModelToolStripMenuItem.Click += new System.EventHandler(this.saveModelToolStripMenuItem_Click);
             // 
@@ -358,7 +365,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(220, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -372,7 +379,7 @@
             // 
             this.statusStrip_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel_Main});
-            this.statusStrip_Main.Location = new System.Drawing.Point(0, 490);
+            this.statusStrip_Main.Location = new System.Drawing.Point(0, 555);
             this.statusStrip_Main.Name = "statusStrip_Main";
             this.statusStrip_Main.Size = new System.Drawing.Size(927, 22);
             this.statusStrip_Main.TabIndex = 2;
@@ -428,11 +435,42 @@
             this.label_Volume.TabIndex = 3;
             this.label_Volume.Text = "Volume";
             // 
+            // numericUpDown_ClusterCapacityLimit
+            // 
+            this.numericUpDown_ClusterCapacityLimit.Location = new System.Drawing.Point(3, 60);
+            this.numericUpDown_ClusterCapacityLimit.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericUpDown_ClusterCapacityLimit.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_ClusterCapacityLimit.Name = "numericUpDown_ClusterCapacityLimit";
+            this.numericUpDown_ClusterCapacityLimit.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown_ClusterCapacityLimit.TabIndex = 11;
+            this.numericUpDown_ClusterCapacityLimit.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label_ClusterCapacityLimit
+            // 
+            this.label_ClusterCapacityLimit.AutoSize = true;
+            this.label_ClusterCapacityLimit.Location = new System.Drawing.Point(3, 44);
+            this.label_ClusterCapacityLimit.Name = "label_ClusterCapacityLimit";
+            this.label_ClusterCapacityLimit.Size = new System.Drawing.Size(28, 13);
+            this.label_ClusterCapacityLimit.TabIndex = 12;
+            this.label_ClusterCapacityLimit.Text = "Limit";
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 512);
+            this.ClientSize = new System.Drawing.Size(927, 577);
             this.Controls.Add(this.statusStrip_Main);
             this.Controls.Add(this.tableLayoutPanel_Main);
             this.Controls.Add(this.menuStrip_MainMenu);
@@ -455,6 +493,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Volume)).EndInit();
             this.flowLayoutPanel_Node.ResumeLayout(false);
             this.flowLayoutPanel_Node.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClusterCapacityLimit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,6 +533,8 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_Volume;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Node;
         private System.Windows.Forms.Label label_Volume;
+        private System.Windows.Forms.Label label_ClusterCapacityLimit;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ClusterCapacityLimit;
 
     }
 }
