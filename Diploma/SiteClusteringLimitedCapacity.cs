@@ -52,29 +52,32 @@ namespace Diploma
             }
         }
 
-        //protected override void GenerateClusters(List<Node> nodesForClusters, Node depot)
-        //{
-        //    for (int i = 0; i != Clusters.Length; i++)
-        //    {
-        //        Clusters[i] = new Cluster();
-        //        Clusters[i].Depot = depot;
-        //    }
+        protected override void GenerateClusters(List<Node> nodesForClusters, Node depot)
+        {
+            for (int i = 0; i != Clusters.Length; i++)
+            {
+                Clusters[i] = new Cluster();
+                Clusters[i].Depot = depot;
+            }
 
-        //    nodesForClusters.Sort();
-        //    nodesForClusters.Reverse();
+            nodesForClusters.Sort();
+            nodesForClusters.Reverse();
 
-        //    while (nodesForClusters.Count != 0)
-        //    {
-        //        for (int i = 0; i != Clusters.Length; i++)
-        //        {
-        //            if (Clusters[i].Volume + nodesForClusters[0].Volume <= capacityLimit)
-        //            {
-        //                Clusters[i].Nodes.Add(nodesForClusters[0]);
-        //                nodesForClusters.RemoveAt(0);
-        //            }
-        //        }
-        //    }
-        //}
+            while (nodesForClusters.Count != 0)
+            {
+                for (int i = 0; i != Clusters.Length; i++)
+                {
+                    if (nodesForClusters.Count == 0)
+                        break;
+
+                    if (Clusters[i].Volume + nodesForClusters[0].Volume <= capacityLimit)
+                    {
+                        Clusters[i].Nodes.Add(nodesForClusters[0]);
+                        nodesForClusters.RemoveAt(0);
+                    }
+                }
+            }
+        }
 
         public void MoveNodeFromBadClusterToGood()
         {

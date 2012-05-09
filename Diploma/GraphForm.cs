@@ -168,19 +168,25 @@ namespace Diploma
             TaskController.Algorithm.Iteration();
             TaskController.Algorithm.DrawNodes();
 
-            SetStatus(string.Format("Iteration {0} completed. Value: {1:0.00}", TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value));
+            SetStatus(string.Format("Iteration {0} completed. Value: {1:0.00}. Last changed at iteration: {2}", TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value, TaskController.Algorithm.LastChangedIteration));
         }
 
         private void button_Iterate_Click(object sender, EventArgs e)
         {
+            DateTime stTime = DateTime.Now;
+
+            TaskController.Algorithm.IsCalcLastChange = checkBox_LastChangedIteration.Checked;
+
             for (int i = 0; i != numericUpDown_IterationsCount.Value; i++)
             {
                 TaskController.Algorithm.Iteration();
             }
 
+            TimeSpan calcTime = DateTime.Now - stTime;
+
             TaskController.Algorithm.DrawNodes();
 
-            SetStatus(string.Format("Iteration {0} completed. Value: {1:0.00}", TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value));
+            SetStatus(string.Format("Iteration {0} completed. Value: {1:0.00}. Last changed at iteration: {2}. Time: {3:0.00} s", TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value, TaskController.Algorithm.LastChangedIteration, calcTime.TotalMilliseconds/ 1000.0));
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

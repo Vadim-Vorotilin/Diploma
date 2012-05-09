@@ -40,11 +40,21 @@ namespace Diploma
 
             ConsumersCount = consumers.Count();
         }
+
+        public int LastChangedIteration { get; private set; }
+        public bool IsCalcLastChange { get; set; }
        
         public void Iteration()
         {
+            double lastValue = IsCalcLastChange ? Value : 0;
+
             InnerIteration();
             IterationNumber++;
+
+            if (IsCalcLastChange && lastValue != Value)
+            {
+                LastChangedIteration = IterationNumber;
+            }
         }
 
         protected abstract void InnerIteration();

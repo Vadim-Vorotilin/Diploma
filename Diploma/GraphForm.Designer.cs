@@ -62,6 +62,7 @@
             this.label_Volume = new System.Windows.Forms.Label();
             this.numericUpDown_ClusterCapacityLimit = new System.Windows.Forms.NumericUpDown();
             this.label_ClusterCapacityLimit = new System.Windows.Forms.Label();
+            this.checkBox_LastChangedIteration = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
             this.groupBox_Node.SuspendLayout();
@@ -99,6 +100,7 @@
             this.flowLayoutPanel_Tools.Controls.Add(this.button_AddNode);
             this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_Node);
             this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_Algorithm);
+            this.flowLayoutPanel_Tools.Controls.Add(this.checkBox_LastChangedIteration);
             this.flowLayoutPanel_Tools.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Tools.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(782, 3);
@@ -165,7 +167,7 @@
             this.groupBox_Algorithm.Controls.Add(this.flowLayoutPanel_Algorithm);
             this.groupBox_Algorithm.Location = new System.Drawing.Point(3, 184);
             this.groupBox_Algorithm.Name = "groupBox_Algorithm";
-            this.groupBox_Algorithm.Size = new System.Drawing.Size(130, 294);
+            this.groupBox_Algorithm.Size = new System.Drawing.Size(130, 257);
             this.groupBox_Algorithm.TabIndex = 7;
             this.groupBox_Algorithm.TabStop = false;
             this.groupBox_Algorithm.Text = "Algorithm";
@@ -187,7 +189,7 @@
             this.flowLayoutPanel_Algorithm.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel_Algorithm.Name = "flowLayoutPanel_Algorithm";
             this.flowLayoutPanel_Algorithm.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.flowLayoutPanel_Algorithm.Size = new System.Drawing.Size(124, 275);
+            this.flowLayoutPanel_Algorithm.Size = new System.Drawing.Size(124, 238);
             this.flowLayoutPanel_Algorithm.TabIndex = 8;
             // 
             // label_ClustersCount
@@ -466,6 +468,18 @@
             this.label_ClusterCapacityLimit.TabIndex = 12;
             this.label_ClusterCapacityLimit.Text = "Limit";
             // 
+            // checkBox_LastChangedIteration
+            // 
+            this.checkBox_LastChangedIteration.AutoSize = true;
+            this.checkBox_LastChangedIteration.Checked = true;
+            this.checkBox_LastChangedIteration.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_LastChangedIteration.Location = new System.Drawing.Point(3, 447);
+            this.checkBox_LastChangedIteration.Name = "checkBox_LastChangedIteration";
+            this.checkBox_LastChangedIteration.Size = new System.Drawing.Size(105, 17);
+            this.checkBox_LastChangedIteration.TabIndex = 8;
+            this.checkBox_LastChangedIteration.Text = "Calc last change";
+            this.checkBox_LastChangedIteration.UseVisualStyleBackColor = true;
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -480,6 +494,7 @@
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GraphForm_MouseClick);
             this.tableLayoutPanel_Main.ResumeLayout(false);
             this.flowLayoutPanel_Tools.ResumeLayout(false);
+            this.flowLayoutPanel_Tools.PerformLayout();
             this.groupBox_Node.ResumeLayout(false);
             this.groupBox_Algorithm.ResumeLayout(false);
             this.flowLayoutPanel_Algorithm.ResumeLayout(false);
@@ -535,6 +550,7 @@
         private System.Windows.Forms.Label label_Volume;
         private System.Windows.Forms.Label label_ClusterCapacityLimit;
         private System.Windows.Forms.NumericUpDown numericUpDown_ClusterCapacityLimit;
+        private System.Windows.Forms.CheckBox checkBox_LastChangedIteration;
 
     }
 }
