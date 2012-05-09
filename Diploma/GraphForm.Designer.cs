@@ -63,6 +63,8 @@
             this.numericUpDown_ClusterCapacityLimit = new System.Windows.Forms.NumericUpDown();
             this.label_ClusterCapacityLimit = new System.Windows.Forms.Label();
             this.checkBox_LastChangedIteration = new System.Windows.Forms.CheckBox();
+            this.textBox_LogFileName = new System.Windows.Forms.TextBox();
+            this.label_LogFileName = new System.Windows.Forms.Label();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
             this.groupBox_Node.SuspendLayout();
@@ -91,7 +93,7 @@
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(927, 553);
+            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(927, 591);
             this.tableLayoutPanel_Main.TabIndex = 0;
             // 
             // flowLayoutPanel_Tools
@@ -101,11 +103,13 @@
             this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_Node);
             this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_Algorithm);
             this.flowLayoutPanel_Tools.Controls.Add(this.checkBox_LastChangedIteration);
+            this.flowLayoutPanel_Tools.Controls.Add(this.label_LogFileName);
+            this.flowLayoutPanel_Tools.Controls.Add(this.textBox_LogFileName);
             this.flowLayoutPanel_Tools.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Tools.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(782, 3);
             this.flowLayoutPanel_Tools.Name = "flowLayoutPanel_Tools";
-            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(142, 489);
+            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(142, 527);
             this.flowLayoutPanel_Tools.TabIndex = 0;
             // 
             // button_Redraw
@@ -298,7 +302,7 @@
             this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
             this.panel_Drawing.Name = "panel_Drawing";
-            this.panel_Drawing.Size = new System.Drawing.Size(773, 489);
+            this.panel_Drawing.Size = new System.Drawing.Size(773, 527);
             this.panel_Drawing.TabIndex = 1;
             this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
             // 
@@ -381,7 +385,7 @@
             // 
             this.statusStrip_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel_Main});
-            this.statusStrip_Main.Location = new System.Drawing.Point(0, 555);
+            this.statusStrip_Main.Location = new System.Drawing.Point(0, 593);
             this.statusStrip_Main.Name = "statusStrip_Main";
             this.statusStrip_Main.Size = new System.Drawing.Size(927, 22);
             this.statusStrip_Main.TabIndex = 2;
@@ -480,11 +484,29 @@
             this.checkBox_LastChangedIteration.Text = "Calc last change";
             this.checkBox_LastChangedIteration.UseVisualStyleBackColor = true;
             // 
+            // textBox_LogFileName
+            // 
+            this.textBox_LogFileName.Location = new System.Drawing.Point(3, 486);
+            this.textBox_LogFileName.Name = "textBox_LogFileName";
+            this.textBox_LogFileName.Size = new System.Drawing.Size(127, 20);
+            this.textBox_LogFileName.TabIndex = 9;
+            this.textBox_LogFileName.Text = "C:\\Users\\Vadim\\Documents\\Visual Studio 2010\\Projects\\Diploma\\Models\\log.txt";
+            // 
+            // label_LogFileName
+            // 
+            this.label_LogFileName.AutoSize = true;
+            this.label_LogFileName.Location = new System.Drawing.Point(3, 467);
+            this.label_LogFileName.Name = "label_LogFileName";
+            this.label_LogFileName.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label_LogFileName.Size = new System.Drawing.Size(41, 16);
+            this.label_LogFileName.TabIndex = 10;
+            this.label_LogFileName.Text = "Log file";
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 577);
+            this.ClientSize = new System.Drawing.Size(927, 615);
             this.Controls.Add(this.statusStrip_Main);
             this.Controls.Add(this.tableLayoutPanel_Main);
             this.Controls.Add(this.menuStrip_MainMenu);
@@ -551,6 +573,8 @@
         private System.Windows.Forms.Label label_ClusterCapacityLimit;
         private System.Windows.Forms.NumericUpDown numericUpDown_ClusterCapacityLimit;
         private System.Windows.Forms.CheckBox checkBox_LastChangedIteration;
+        private System.Windows.Forms.Label label_LogFileName;
+        private System.Windows.Forms.TextBox textBox_LogFileName;
 
     }
 }

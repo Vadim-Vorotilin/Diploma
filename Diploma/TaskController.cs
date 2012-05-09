@@ -189,6 +189,7 @@ namespace Diploma
 
         public static void StopAlgorithm()
         {
+            Algorithm.Stop();
             Algorithm = null;
         }
 

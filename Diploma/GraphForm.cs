@@ -140,6 +140,8 @@ namespace Diploma
                     break;
             }
 
+            TaskController.Algorithm.LogFileName = textBox_LogFileName.Text;
+
             return true;
         }
 
@@ -165,7 +167,7 @@ namespace Diploma
 
         private void button_Iteration_Click(object sender, EventArgs e)
         {
-            TaskController.Algorithm.Iteration();
+            TaskController.Algorithm.Iterations();
             TaskController.Algorithm.DrawNodes();
 
             SetStatus(string.Format("Iteration {0} completed. Value: {1:0.00}. Last changed at iteration: {2}", TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value, TaskController.Algorithm.LastChangedIteration));
@@ -177,10 +179,7 @@ namespace Diploma
 
             TaskController.Algorithm.IsCalcLastChange = checkBox_LastChangedIteration.Checked;
 
-            for (int i = 0; i != numericUpDown_IterationsCount.Value; i++)
-            {
-                TaskController.Algorithm.Iteration();
-            }
+            TaskController.Algorithm.Iterations(Convert.ToInt32(numericUpDown_IterationsCount.Value));
 
             TimeSpan calcTime = DateTime.Now - stTime;
 
