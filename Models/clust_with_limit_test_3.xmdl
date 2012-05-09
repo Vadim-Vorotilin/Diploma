@@ -16,19 +16,6 @@
     </Node>
     <Node>
       <ScreenPosition>
-        <x>256</x>
-        <y>135</y>
-      </ScreenPosition>
-      <RealPosition>
-        <x>256</x>
-        <y>135</y>
-      </RealPosition>
-      <Type>Consumer</Type>
-      <Volume>1</Volume>
-      <Id>1</Id>
-    </Node>
-    <Node>
-      <ScreenPosition>
         <x>154</x>
         <y>175</y>
       </ScreenPosition>

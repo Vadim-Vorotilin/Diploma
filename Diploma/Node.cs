@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace Diploma
 {
-    public class Node
+    public class Node : IComparable
     {
         public enum NodeType
         {
@@ -100,7 +100,14 @@ namespace Diploma
 
         public override string ToString()
         {
-            return string.Format("Node {0}:{1}", Id, Type);
+            return string.Format("Node {0}:{1}. Volume: {2}", Id, Type, Volume);
+        }
+
+        public int CompareTo(object obj)
+        {
+            Node node = obj as Node;
+
+            return Volume.CompareTo(node.Volume);
         }
     }
 }

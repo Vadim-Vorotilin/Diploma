@@ -126,6 +126,13 @@ namespace Diploma
                     TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING, clustersCount, 5, 3, 1, 2, 3);
                     break;
                 case 2:                 //  Bees CLUST w/ LIMIT
+                    if (clustersCount * clusterCapacityLimit < TaskController.NodesVolume)
+                    {
+                        MessageBox.Show(string.Format("Sum volume: {0}. Capacity: {1}", TaskController.NodesVolume, clustersCount * clusterCapacityLimit), "Too few clusters",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return false;
+                    }
+
                     TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_LIMITED_CAPASITY, clustersCount, 5, 3, 1, 2, 3, clusterCapacityLimit);
                     break;
                 case 3:                 //  K-means CLUSTERING

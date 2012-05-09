@@ -23,6 +23,14 @@ namespace Diploma
         public static Color ClearColor = Color.White;
 
         public static List<Node> Nodes { get; private set; }
+        public static int NodesVolume
+        {
+            get 
+            { 
+                return (from node in Nodes 
+                        select node.Volume).Sum();
+            }
+        }
 
         private static string lastFileName;
 

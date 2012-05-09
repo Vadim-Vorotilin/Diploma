@@ -8,9 +8,14 @@ namespace Diploma
 {
     public class SiteClustering : Site
     {
-        public Cluster[] Clusters { get; private set; }
+        protected Cluster[] Clusters { get; set; }
 
         #region Overrides of Site
+
+        public SiteClustering(List<Node> nodes)
+            : base(nodes)
+        {
+        }
 
         public SiteClustering(List<Node> nodes, int clustersCount)
             : base(nodes)
@@ -20,7 +25,7 @@ namespace Diploma
             GenerateClusters();
         }
 
-        private SiteClustering(SiteClustering site)
+        protected SiteClustering(SiteClustering site)
             : base(site.Nodes)
         {
             Clusters = new Cluster[site.Clusters.Length];
@@ -31,22 +36,8 @@ namespace Diploma
             }
         }
 
-        private void GenerateClusters()
+        protected virtual void GenerateClusters(List<Node> nodesForClusters, Node depot)
         {
-            Node depot = null;
-            
-            foreach (Node node in Nodes)
-            {
-                if (node.Type == Node.NodeType.Depot)
-                {
-                    depot = node;
-                    break;
-                }
-            }
-
-            List<Node> nodesForClusters = new List<Node>();
-            nodesForClusters.AddRange(Nodes);
-
             for (int i = 0; i != Clusters.Length; i++)
             {
                 Clusters[i] = new Cluster();
@@ -65,6 +56,26 @@ namespace Diploma
                     Clusters[clusterIndex].Nodes.Add(node);
                 }
             }
+        }
+
+        protected void GenerateClusters()
+        {
+            Node depot = null;
+            
+            foreach (Node node in Nodes)
+            {
+                if (node.Type == Node.NodeType.Depot)
+                {
+                    depot = node;
+                    break;
+                }
+            }
+
+            List<Node> nodesForClusters = (from node in Nodes 
+                                           where node.Type == Node.NodeType.Consumer
+                                           select node).ToList();
+
+            GenerateClusters(nodesForClusters, depot);
         }
 
         protected void MoveNodeFromOneClusterToAnother(int c1, int c2)
