@@ -49,6 +49,8 @@ namespace Diploma
         public Point RealPosition;
         public NodeType Type;
 
+        public int Volume;
+
         public int Id;
 
         public Node(int id, NodeType nodeType, int screenPosX, int screenPosY, double realPosX, double realPosY)

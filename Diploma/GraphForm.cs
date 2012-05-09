@@ -37,26 +37,28 @@ namespace Diploma
         {
             if (isAddingNode)
             {
+                int volume = Convert.ToInt32(numericUpDown_Volume.Value);
+
                 if (radioButton_isConsumer.Checked)
                 {
                     if (e.Button == MouseButtons.Left)
                     {
-                        TaskController.AddNodeAtScreen(Node.NodeType.Consumer, e.X, e.Y);
+                        TaskController.AddNodeAtScreen(Node.NodeType.Consumer, e.X, e.Y, volume);
                     }
                     else if (e.Button == MouseButtons.Right)
                     {
-                        TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y);
+                        TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y, volume);
                     }
                 }
                 else if (radioButton_isDepot.Checked)
                 {
                     if (e.Button == MouseButtons.Left)
                     {
-                        TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y);
+                        TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y, volume);
                     }
                     else if (e.Button == MouseButtons.Right)
                     {
-                        TaskController.AddNodeAtScreen(Node.NodeType.Consumer, e.X, e.Y);
+                        TaskController.AddNodeAtScreen(Node.NodeType.Consumer, e.X, e.Y, volume);
                     }
                 }
             }
@@ -221,6 +223,24 @@ namespace Diploma
         private void SetStatus(string status)
         {
             toolStripStatusLabel_Main.Text = status;
+        }
+
+        private void radioButton_isConsumer_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton_isConsumer.Checked)
+            {
+                LockConsumerVolumeSettings(false);
+            }
+            else
+            {
+                LockConsumerVolumeSettings(true);
+            }
+        }
+
+        private void LockConsumerVolumeSettings(bool _lock)
+        {
+            label_Volume.Enabled = !_lock;
+            numericUpDown_Volume.Enabled = !_lock;
         }
     }
 }

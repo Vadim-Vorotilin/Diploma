@@ -9,7 +9,8 @@ namespace Diploma
     public static class TaskController
     {
         public static Brush ConsumerBrush = new SolidBrush(Color.Red);
-        public static int ConsumerSize = 7;
+        public static int ConsumerMinSize = 4;
+        public static int ConsumerMaxSize = 10;
 
         public static Brush DepotBrush = new SolidBrush(Color.Blue);
         public static int DepotSize = 12;
@@ -51,12 +52,45 @@ namespace Diploma
             Algorithm = null;
         }
 
-        public static void AddNodeAtScreen (Node.NodeType nodeType, int posX, int posY)
+        private static int minVolume = int.MaxValue;
+        private static int maxVolume = int.MinValue;
+
+        private static bool CheckVolume()
         {
-            Node newNode = new Node(Nodes.Count, nodeType, posX, posY, posX, posY);
-            DrawNode(graphicsForDraw, newNode);
+            bool b = false;
+
+            foreach (Node node in Nodes)
+            {
+                if (node.Volume < minVolume)
+                {
+                    minVolume = node.Volume;
+                    b = true;
+                }
+
+                if (node.Volume > maxVolume)
+                {
+                    maxVolume = node.Volume;
+                    b = true;
+                }
+            }
+
+            return b;
+        }
+
+        public static void AddNodeAtScreen (Node.NodeType nodeType, int posX, int posY, int volume = 1)
+        {
+            Node newNode = new Node(Nodes.Count, nodeType, posX, posY, posX, posY) {Volume = volume};
 
             Nodes.Add(newNode);
+
+            if (!CheckVolume())
+            {
+                DrawNode(graphicsForDraw, newNode);
+            }
+            else
+            {
+                DrawNodes();
+            }
         }
 
         public static void DrawNodes (List<Node> nodes = null)
@@ -90,7 +124,8 @@ namespace Diploma
             switch (node.Type)
             {
                 case Node.NodeType.Consumer:
-                    g.FillEllipse(ConsumerBrush, (int)(node.ScreenPosition.x - ConsumerSize / 2.0), (int)(node.ScreenPosition.y - ConsumerSize / 2.0), ConsumerSize, ConsumerSize);
+                    int size = maxVolume == minVolume ? ConsumerMaxSize : Convert.ToInt32((ConsumerMaxSize - ConsumerMinSize) * (double)(node.Volume - minVolume) / (double)(maxVolume - minVolume)) + ConsumerMinSize;
+                    g.FillEllipse(ConsumerBrush, (int)(node.ScreenPosition.x - size / 2.0), (int)(node.ScreenPosition.y - size / 2.0), size, size);
                     break;
 
                 case Node.NodeType.Depot:

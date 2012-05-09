@@ -32,7 +32,7 @@
             this.flowLayoutPanel_Tools = new System.Windows.Forms.FlowLayoutPanel();
             this.button_Redraw = new System.Windows.Forms.Button();
             this.button_AddNode = new System.Windows.Forms.Button();
-            this.groupBox_NodeType = new System.Windows.Forms.GroupBox();
+            this.groupBox_Node = new System.Windows.Forms.GroupBox();
             this.radioButton_isConsumer = new System.Windows.Forms.RadioButton();
             this.radioButton_isDepot = new System.Windows.Forms.RadioButton();
             this.groupBox_Algorithm = new System.Windows.Forms.GroupBox();
@@ -57,15 +57,20 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Main = new System.Windows.Forms.ToolStripStatusLabel();
+            this.numericUpDown_Volume = new System.Windows.Forms.NumericUpDown();
+            this.flowLayoutPanel_Node = new System.Windows.Forms.FlowLayoutPanel();
+            this.label_Volume = new System.Windows.Forms.Label();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
-            this.groupBox_NodeType.SuspendLayout();
+            this.groupBox_Node.SuspendLayout();
             this.groupBox_Algorithm.SuspendLayout();
             this.flowLayoutPanel_Algorithm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClustersCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IterationsCount)).BeginInit();
             this.menuStrip_MainMenu.SuspendLayout();
             this.statusStrip_Main.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Volume)).BeginInit();
+            this.flowLayoutPanel_Node.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_Main
@@ -89,7 +94,7 @@
             // 
             this.flowLayoutPanel_Tools.Controls.Add(this.button_Redraw);
             this.flowLayoutPanel_Tools.Controls.Add(this.button_AddNode);
-            this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_NodeType);
+            this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_Node);
             this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_Algorithm);
             this.flowLayoutPanel_Tools.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Tools.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -119,33 +124,33 @@
             this.button_AddNode.UseVisualStyleBackColor = true;
             this.button_AddNode.Click += new System.EventHandler(this.button_AddNode_Click);
             // 
-            // groupBox_NodeType
+            // groupBox_Node
             // 
-            this.groupBox_NodeType.Controls.Add(this.radioButton_isConsumer);
-            this.groupBox_NodeType.Controls.Add(this.radioButton_isDepot);
-            this.groupBox_NodeType.Location = new System.Drawing.Point(3, 61);
-            this.groupBox_NodeType.Name = "groupBox_NodeType";
-            this.groupBox_NodeType.Size = new System.Drawing.Size(130, 66);
-            this.groupBox_NodeType.TabIndex = 1;
-            this.groupBox_NodeType.TabStop = false;
-            this.groupBox_NodeType.Text = "Node type";
+            this.groupBox_Node.Controls.Add(this.flowLayoutPanel_Node);
+            this.groupBox_Node.Location = new System.Drawing.Point(3, 61);
+            this.groupBox_Node.Name = "groupBox_Node";
+            this.groupBox_Node.Size = new System.Drawing.Size(130, 117);
+            this.groupBox_Node.TabIndex = 1;
+            this.groupBox_Node.TabStop = false;
+            this.groupBox_Node.Text = "Node";
             // 
             // radioButton_isConsumer
             // 
             this.radioButton_isConsumer.AutoSize = true;
             this.radioButton_isConsumer.Checked = true;
-            this.radioButton_isConsumer.Location = new System.Drawing.Point(7, 43);
+            this.radioButton_isConsumer.Location = new System.Drawing.Point(3, 26);
             this.radioButton_isConsumer.Name = "radioButton_isConsumer";
             this.radioButton_isConsumer.Size = new System.Drawing.Size(72, 17);
             this.radioButton_isConsumer.TabIndex = 1;
             this.radioButton_isConsumer.TabStop = true;
             this.radioButton_isConsumer.Text = "Consumer";
             this.radioButton_isConsumer.UseVisualStyleBackColor = true;
+            this.radioButton_isConsumer.CheckedChanged += new System.EventHandler(this.radioButton_isConsumer_CheckedChanged);
             // 
             // radioButton_isDepot
             // 
             this.radioButton_isDepot.AutoSize = true;
-            this.radioButton_isDepot.Location = new System.Drawing.Point(7, 20);
+            this.radioButton_isDepot.Location = new System.Drawing.Point(3, 3);
             this.radioButton_isDepot.Name = "radioButton_isDepot";
             this.radioButton_isDepot.Size = new System.Drawing.Size(54, 17);
             this.radioButton_isDepot.TabIndex = 0;
@@ -155,7 +160,7 @@
             // groupBox_Algorithm
             // 
             this.groupBox_Algorithm.Controls.Add(this.flowLayoutPanel_Algorithm);
-            this.groupBox_Algorithm.Location = new System.Drawing.Point(3, 133);
+            this.groupBox_Algorithm.Location = new System.Drawing.Point(3, 184);
             this.groupBox_Algorithm.Name = "groupBox_Algorithm";
             this.groupBox_Algorithm.Size = new System.Drawing.Size(130, 214);
             this.groupBox_Algorithm.TabIndex = 7;
@@ -372,6 +377,51 @@
             this.toolStripStatusLabel_Main.Name = "toolStripStatusLabel_Main";
             this.toolStripStatusLabel_Main.Size = new System.Drawing.Size(0, 17);
             // 
+            // numericUpDown_Volume
+            // 
+            this.numericUpDown_Volume.Location = new System.Drawing.Point(3, 67);
+            this.numericUpDown_Volume.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDown_Volume.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_Volume.Name = "numericUpDown_Volume";
+            this.numericUpDown_Volume.Size = new System.Drawing.Size(114, 20);
+            this.numericUpDown_Volume.TabIndex = 2;
+            this.numericUpDown_Volume.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // flowLayoutPanel_Node
+            // 
+            this.flowLayoutPanel_Node.Controls.Add(this.radioButton_isDepot);
+            this.flowLayoutPanel_Node.Controls.Add(this.radioButton_isConsumer);
+            this.flowLayoutPanel_Node.Controls.Add(this.label_Volume);
+            this.flowLayoutPanel_Node.Controls.Add(this.numericUpDown_Volume);
+            this.flowLayoutPanel_Node.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel_Node.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel_Node.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel_Node.Name = "flowLayoutPanel_Node";
+            this.flowLayoutPanel_Node.Size = new System.Drawing.Size(124, 98);
+            this.flowLayoutPanel_Node.TabIndex = 3;
+            // 
+            // label_Volume
+            // 
+            this.label_Volume.AutoSize = true;
+            this.label_Volume.Location = new System.Drawing.Point(3, 51);
+            this.label_Volume.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label_Volume.Name = "label_Volume";
+            this.label_Volume.Size = new System.Drawing.Size(42, 13);
+            this.label_Volume.TabIndex = 3;
+            this.label_Volume.Text = "Volume";
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,8 +436,7 @@
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GraphForm_MouseClick);
             this.tableLayoutPanel_Main.ResumeLayout(false);
             this.flowLayoutPanel_Tools.ResumeLayout(false);
-            this.groupBox_NodeType.ResumeLayout(false);
-            this.groupBox_NodeType.PerformLayout();
+            this.groupBox_Node.ResumeLayout(false);
             this.groupBox_Algorithm.ResumeLayout(false);
             this.flowLayoutPanel_Algorithm.ResumeLayout(false);
             this.flowLayoutPanel_Algorithm.PerformLayout();
@@ -397,6 +446,9 @@
             this.menuStrip_MainMenu.PerformLayout();
             this.statusStrip_Main.ResumeLayout(false);
             this.statusStrip_Main.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Volume)).EndInit();
+            this.flowLayoutPanel_Node.ResumeLayout(false);
+            this.flowLayoutPanel_Node.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,7 +460,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Tools;
         private System.Windows.Forms.Button button_Redraw;
         private System.Windows.Forms.Panel panel_Drawing;
-        private System.Windows.Forms.GroupBox groupBox_NodeType;
+        private System.Windows.Forms.GroupBox groupBox_Node;
         private System.Windows.Forms.RadioButton radioButton_isConsumer;
         private System.Windows.Forms.RadioButton radioButton_isDepot;
         private System.Windows.Forms.Button button_AddNode;
@@ -433,6 +485,9 @@
         private System.Windows.Forms.Label label_Algorithm;
         private System.Windows.Forms.StatusStrip statusStrip_Main;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Main;
+        private System.Windows.Forms.NumericUpDown numericUpDown_Volume;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Node;
+        private System.Windows.Forms.Label label_Volume;
 
     }
 }
