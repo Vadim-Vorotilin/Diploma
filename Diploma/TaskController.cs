@@ -104,12 +104,14 @@ namespace Diploma
 
             foreach (Node node in nodes)
             {
-                if (node.ConnectedNodes == null)
+                if (node.Connections == null)
                     continue;
 
-                foreach (Node connectedNode in node.ConnectedNodes)
+                foreach (Node.Connection connection in node.Connections)
                 {
-                    g.DrawLine(ConnectionsPen, (int)node.ScreenPosition.x, (int)node.ScreenPosition.y, (int)connectedNode.ScreenPosition.x, (int)connectedNode.ScreenPosition.y);
+                    Pen pen = new Pen(connection.Color, ConnectionsPen.Width);
+
+                    g.DrawLine(pen, (int)node.ScreenPosition.x, (int)node.ScreenPosition.y, (int)connection.ConnectedNode.ScreenPosition.x, (int)connection.ConnectedNode.ScreenPosition.y);
                 }
             }
 
@@ -124,7 +126,7 @@ namespace Diploma
             switch (node.Type)
             {
                 case Node.NodeType.Consumer:
-                    int size = maxVolume == minVolume ? ConsumerMaxSize : Convert.ToInt32((ConsumerMaxSize - ConsumerMinSize) * (double)(node.Volume - minVolume) / (double)(maxVolume - minVolume)) + ConsumerMinSize;
+                    int size = maxVolume == minVolume ? (ConsumerMaxSize + ConsumerMinSize) / 2 : Convert.ToInt32((ConsumerMaxSize - ConsumerMinSize) * (double)(node.Volume - minVolume) / (double)(maxVolume - minVolume)) + ConsumerMinSize;
                     g.FillEllipse(ConsumerBrush, (int)(node.ScreenPosition.x - size / 2.0), (int)(node.ScreenPosition.y - size / 2.0), size, size);
                     break;
 
@@ -170,7 +172,7 @@ namespace Diploma
         {
             foreach (Node node in Nodes)
             {
-                node.ConnectedNodes.Clear();
+                node.Connections.Clear();
             }
 
             Algorithm = algorithm;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -159,7 +160,7 @@ namespace Diploma
 
                 foreach (Node node in cluster.Nodes)
                 {
-                    center.ConnectedNodes.Add(node);
+                    center.ConnectTo(node, Color.LightGray);
                     drawingNodes.Add(node);
                 }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
@@ -45,6 +46,12 @@ namespace Diploma
             }
         }
 
+        public class Connection
+        {
+            public Node ConnectedNode;
+            public Color Color;
+        }
+
         public Point ScreenPosition;
         public Point RealPosition;
         public NodeType Type;
@@ -60,7 +67,7 @@ namespace Diploma
             ScreenPosition = new Point(screenPosX, screenPosY);
             RealPosition = new Point(realPosX, realPosY);
 
-            ConnectedNodes = new List<Node>();
+            Connections = new List<Connection>();
         }
 
         public Node()
@@ -70,11 +77,26 @@ namespace Diploma
             ScreenPosition = new Point(0, 0);
             RealPosition = new Point(0, 0);
 
-            ConnectedNodes = new List<Node>();
+            Connections = new List<Connection>();
         }
 
         [XmlIgnore]
-        public List<Node> ConnectedNodes;
+        public List<Connection> Connections;
+
+        public void ConnectTo(Node node)
+        {
+            ConnectTo(node, Color.Black);
+        }
+
+        public void ConnectTo(Node node, Color color)
+        {
+            Connections.Add(new Connection {Color = color, ConnectedNode = node});
+        }
+
+        public void DisconnectFromAll()
+        {
+            Connections.Clear();
+        }
 
         public override string ToString()
         {

@@ -52,17 +52,17 @@ namespace Diploma
 
             for (int i = 0; i != Nodes.Count; i++)
             {
-                Nodes[i].ConnectedNodes = new List<Node>();
+                Nodes[i].DisconnectFromAll();
             }
 
             int[] result = Result as int[];
 
             for (int i = 0; i != result.Length - 1; i++)
             {
-                Nodes[result[i]].ConnectedNodes.Add(Nodes[result[i + 1]]);
+                Nodes[result[i]].ConnectTo(Nodes[result[i + 1]]);
             }
 
-            Nodes[result[result.Length - 1]].ConnectedNodes.Add(Nodes[result[0]]);
+            Nodes[result[result.Length - 1]].ConnectTo(Nodes[result[0]]);
         }
 
         private static double GetDistance(Node node1, Node node2)
