@@ -35,7 +35,12 @@ namespace Diploma
             }
         }
 
-        public static Algorithm Algorithm;
+        public static Algorithm Algorithm { get; private set; }
+
+        public static bool IsAlgorithmStarted
+        {
+            get { return Algorithm != null; }
+        }
 
         public static Random Rnd = new Random();
 
@@ -43,6 +48,7 @@ namespace Diploma
         {
             Nodes = new List<Node>();
             lastFileName = "";
+            Algorithm = null;
         }
 
         public static void AddNodeAtScreen (Node.NodeType nodeType, int posX, int posY)
@@ -133,6 +139,11 @@ namespace Diploma
             }
 
             Algorithm = algorithm;
+        }
+
+        public static void StopAlgorithm()
+        {
+            Algorithm = null;
         }
 
         public static void CreateNewModel()

@@ -21,6 +21,7 @@ namespace Diploma
             TaskController.GraphicsForDraw = panel_Drawing.CreateGraphics();
             button_AddNode.PerformClick();
             comboBox_AlgorithmType.SelectedIndex = 0;
+            LockIterationsOptions(true);
         }
 
         private void GraphForm_MouseClick(object sender, MouseEventArgs e)
@@ -77,10 +78,40 @@ namespace Diploma
             isAddingNode = !isAddingNode;
         }
 
-        private KMeans kMeans;
-
-        private void button_StartAlgorithm_MouseClick(object sender, MouseEventArgs e)
+        private void button_StartAlgorithm_Click(object sender, EventArgs eventArgs)
         {
+            if (!TaskController.IsAlgorithmStarted)
+            {
+                if (!StartAlgorithm())
+                    return;
+
+                LockAlgorithmOptions(true);
+                LockIterationsOptions(false);
+                button_StartAlgorithm.Text = "Stop";
+            }
+            else
+            {
+                StopAlgorithm();
+                LockAlgorithmOptions(false);
+                LockIterationsOptions(true);
+                button_StartAlgorithm.Text = "Start";
+            }
+        }
+
+        private int ClustersCount
+        {
+            get { return Convert.ToInt32(numericUpDown_ClustersCount.Value); }
+        }
+
+        private bool StartAlgorithm()
+        {
+            if (TaskController.Nodes.Count < ClustersCount)
+            {
+                MessageBox.Show("Model must have more or equal number of points than clusters count", "Too few points",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
             switch (comboBox_AlgorithmType.SelectedIndex)
             {
                 case 0:                 //  Bees VRP -> TSP
@@ -90,9 +121,31 @@ namespace Diploma
                     TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING, Convert.ToInt32(numericUpDown_ClustersCount.Value), 5, 3, 1, 2, 3);
                     break;
                 case 2:                 //  K-means CLUSTERING
-                    TaskController.StartKMeansAlgorithm(Convert.ToInt32(numericUpDown_ClustersCount.Value));
+                    TaskController.StartKMeansAlgorithm(ClustersCount);
                     break;
             }
+
+            return true;
+        }
+
+        private void StopAlgorithm()
+        {
+            TaskController.StopAlgorithm();
+        }
+
+        private void LockAlgorithmOptions(bool _lock)
+        {
+            label_ClustersCount.Enabled = !_lock;
+            numericUpDown_ClustersCount.Enabled = !_lock;
+            label_Algorithm.Enabled = !_lock;
+            comboBox_AlgorithmType.Enabled = !_lock;
+        }
+
+        private void LockIterationsOptions(bool _lock)
+        {
+            button_Iteration.Enabled = !_lock;
+            button_Iterate.Enabled = !_lock;
+            numericUpDown_IterationsCount.Enabled = !_lock;
         }
 
         private void button_Iteration_Click(object sender, EventArgs e)

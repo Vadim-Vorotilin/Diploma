@@ -234,7 +234,7 @@
             this.button_StartAlgorithm.TabIndex = 3;
             this.button_StartAlgorithm.Text = "Start";
             this.button_StartAlgorithm.UseVisualStyleBackColor = true;
-            this.button_StartAlgorithm.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button_StartAlgorithm_MouseClick);
+            this.button_StartAlgorithm.Click += new System.EventHandler(this.button_StartAlgorithm_Click);
             // 
             // button_Iteration
             // 
