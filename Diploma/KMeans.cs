@@ -6,27 +6,12 @@ using System.Text;
 
 namespace Diploma
 {
-    public class KMeans : Algorithm
+    public class KMeans : ClusteringAlgorithm
     {
-        private Cluster[] clusters;
-        private Node depot;
 
         public KMeans(List<Node> nodes, int clustersCount)
+            : base(nodes, clustersCount)
         {
-            SetNodes(nodes);
-
-            clusters = new Cluster[clustersCount];
-
-            if (Nodes[0].Type == Node.NodeType.Depot)
-            {
-                depot = Nodes[0];
-            }
-
-            for (int i = 0; i != clusters.Length; i++)
-            {
-                clusters[i] = new Cluster();
-                clusters[i].Depot = depot;
-            }
         }
 
         private Node.Point[] centers;
@@ -35,7 +20,7 @@ namespace Diploma
         {
             if (centers == null)
             {
-                centers = new Node.Point[clusters.Length];
+                centers = new Node.Point[Clusters.Count];
 
                 var xs = from node in Nodes
                          select node.RealPosition.x;
@@ -62,17 +47,17 @@ namespace Diploma
             {
                 for (int i = 0; i != centers.Length; i++)
                 {
-                    if (clusters[i].Nodes.Count == 0)
+                    if (Clusters[i].Nodes.Count == 0)
                         continue;
 
-                    centers[i] = clusters[i].Center;
+                    centers[i] = Clusters[i].Center;
                 }
             }
         }
 
         private void GenerateClusters()
         {
-            foreach (Cluster cluster in clusters)
+            foreach (Cluster cluster in Clusters)
             {
                 cluster.Nodes.Clear();
             }
@@ -86,7 +71,7 @@ namespace Diploma
                 {
                     bool b = false;
 
-                    foreach (Cluster cluster in clusters)
+                    foreach (Cluster cluster in Clusters)
                     {
                         if (cluster.Nodes.Count == 0)
                         {
@@ -102,7 +87,7 @@ namespace Diploma
                 }
 
                 double minDist = double.PositiveInfinity;
-                Cluster closest = clusters[0];
+                Cluster closest = Clusters[0];
 
                 for (int i = 0; i < centers.Length; i++)
                 {
@@ -111,7 +96,7 @@ namespace Diploma
                     if (dist < minDist)
                     {
                         minDist = dist;
-                        closest = clusters[i];
+                        closest = Clusters[i];
                     }
                 }
 
@@ -127,7 +112,7 @@ namespace Diploma
             {
                 double value = 0;
 
-                foreach (Cluster cluster in clusters)
+                foreach (Cluster cluster in Clusters)
                 {
                     value += cluster.GetPrice();
                 }
@@ -142,39 +127,6 @@ namespace Diploma
             GenerateClusters();
         }
 
-        public override void DrawNodes()
-        {
-            List<Node> drawingNodes = new List<Node>();
 
-            for (int i = 0; i != clusters.Length; i++)
-            {
-                Cluster cluster = clusters[i];
-
-                Node center = new Node(-1, Node.NodeType.Auxiliary, (int)centers[i].x, (int)centers[i].y, centers[i].x, centers[i].y);
-
-                if (cluster.Nodes.Count == 0)
-                {
-                    drawingNodes.Add(center);
-                    continue;
-                }
-
-                foreach (Node node in cluster.Nodes)
-                {
-                    center.ConnectTo(node, Color.LightGray);
-                    drawingNodes.Add(node);
-                }
-
-                drawingNodes.Add(center);
-            }
-
-            Node depot = clusters[0].Depot;
-
-            if (depot != null)
-            {
-                drawingNodes.Add(depot);
-            }
-
-            TaskController.DrawNodes(drawingNodes); 
-        }
     }
 }

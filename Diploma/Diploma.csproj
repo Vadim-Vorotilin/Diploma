@@ -49,6 +49,7 @@
     <Compile Include="Algorithm.cs" />
     <Compile Include="BeesColony.cs" />
     <Compile Include="Cluster.cs" />
+    <Compile Include="ClusteringAlgorithm.cs" />
     <Compile Include="GraphForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +57,7 @@
       <DependentUpon>GraphForm.cs</DependentUpon>
     </Compile>
     <Compile Include="KMeans.cs" />
+    <Compile Include="NearestNeighbourChain.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
