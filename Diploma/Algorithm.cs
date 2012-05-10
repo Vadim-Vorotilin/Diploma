@@ -104,6 +104,14 @@ namespace Diploma
             }
         }
 
+        public void IterateToStop()
+        {
+            while (!Stopped)
+            {
+                Iteration();
+            }
+        }
+
         public void Stop()
         {
             if (writer != null)

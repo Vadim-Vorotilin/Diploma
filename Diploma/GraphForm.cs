@@ -148,7 +148,7 @@ namespace Diploma
                         return false;
                     }
 
-                    TaskController.StartNearestNeighbourChainAlgorithm(ClustersCount, ClusterCapacityLimit);
+                    TaskController.StartNearestNeighbourChainAlgorithm(ClusterCapacityLimit);
                     break;
             }
 
@@ -176,6 +176,7 @@ namespace Diploma
         {
             button_Iteration.Enabled = !_lock;
             button_Iterate.Enabled = !_lock;
+            button_IterateToStop.Enabled = !_lock;
             numericUpDown_IterationsCount.Enabled = !_lock;
         }
 
@@ -280,6 +281,26 @@ namespace Diploma
         {
             label_Volume.Enabled = !_lock;
             numericUpDown_Volume.Enabled = !_lock;
+        }
+
+        private void button_IterateToStop_Click(object sender, EventArgs e)
+        {
+            DateTime stTime = DateTime.Now;
+
+            TaskController.Algorithm.IsCalcLastChange = checkBox_LastChangedIteration.Checked;
+
+            TaskController.Algorithm.IterateToStop();
+
+            TimeSpan calcTime = DateTime.Now - stTime;
+
+            TaskController.Algorithm.DrawNodes();
+
+            SetStatus(
+                string.Format(
+                    "Iteration {0} completed. Value: {1:0.00}. Last changed at iteration: {2}. Time: {3:0.00} s. {4}",
+                    TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value,
+                    TaskController.Algorithm.LastChangedIteration, calcTime.TotalMilliseconds / 1000.0,
+                    TaskController.Algorithm.Info()));
         }
     }
 }

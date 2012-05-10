@@ -72,6 +72,12 @@ namespace Diploma
 
         protected override void InnerIteration ()
         {
+            if (IterationNumber > 100 && IterationNumber > LastChangedIteration * 1.5)
+            {
+                Stop();
+                return;
+            }
+
             sites.Sort();
 
             for (int i = 0; i != BestSitesCount; i++)

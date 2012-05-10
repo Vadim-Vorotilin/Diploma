@@ -105,6 +105,12 @@ namespace Diploma
 
         protected override void InnerIteration()
         {
+            if (IterationNumber - LastChangedIteration > 2)
+            {
+                Stop();
+                return;
+            }
+
             SetCenters();
             GenerateClusters();
         }

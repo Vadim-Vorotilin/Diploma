@@ -65,6 +65,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Main = new System.Windows.Forms.ToolStripStatusLabel();
+            this.button_IterateToStop = new System.Windows.Forms.Button();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
             this.groupBox_Node.SuspendLayout();
@@ -93,7 +94,7 @@
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(927, 591);
+            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(927, 627);
             this.tableLayoutPanel_Main.TabIndex = 0;
             // 
             // flowLayoutPanel_Tools
@@ -109,7 +110,7 @@
             this.flowLayoutPanel_Tools.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(782, 3);
             this.flowLayoutPanel_Tools.Name = "flowLayoutPanel_Tools";
-            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(142, 527);
+            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(142, 563);
             this.flowLayoutPanel_Tools.TabIndex = 0;
             // 
             // button_Redraw
@@ -216,7 +217,7 @@
             this.groupBox_Algorithm.Controls.Add(this.flowLayoutPanel_Algorithm);
             this.groupBox_Algorithm.Location = new System.Drawing.Point(3, 184);
             this.groupBox_Algorithm.Name = "groupBox_Algorithm";
-            this.groupBox_Algorithm.Size = new System.Drawing.Size(130, 257);
+            this.groupBox_Algorithm.Size = new System.Drawing.Size(130, 291);
             this.groupBox_Algorithm.TabIndex = 7;
             this.groupBox_Algorithm.TabStop = false;
             this.groupBox_Algorithm.Text = "Algorithm";
@@ -233,12 +234,13 @@
             this.flowLayoutPanel_Algorithm.Controls.Add(this.button_Iteration);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.numericUpDown_IterationsCount);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.button_Iterate);
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.button_IterateToStop);
             this.flowLayoutPanel_Algorithm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Algorithm.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_Algorithm.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel_Algorithm.Name = "flowLayoutPanel_Algorithm";
             this.flowLayoutPanel_Algorithm.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.flowLayoutPanel_Algorithm.Size = new System.Drawing.Size(124, 238);
+            this.flowLayoutPanel_Algorithm.Size = new System.Drawing.Size(124, 272);
             this.flowLayoutPanel_Algorithm.TabIndex = 8;
             // 
             // label_ClustersCount
@@ -378,7 +380,7 @@
             this.checkBox_LastChangedIteration.AutoSize = true;
             this.checkBox_LastChangedIteration.Checked = true;
             this.checkBox_LastChangedIteration.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_LastChangedIteration.Location = new System.Drawing.Point(3, 447);
+            this.checkBox_LastChangedIteration.Location = new System.Drawing.Point(3, 481);
             this.checkBox_LastChangedIteration.Name = "checkBox_LastChangedIteration";
             this.checkBox_LastChangedIteration.Size = new System.Drawing.Size(105, 17);
             this.checkBox_LastChangedIteration.TabIndex = 8;
@@ -388,7 +390,7 @@
             // label_LogFileName
             // 
             this.label_LogFileName.AutoSize = true;
-            this.label_LogFileName.Location = new System.Drawing.Point(3, 467);
+            this.label_LogFileName.Location = new System.Drawing.Point(3, 501);
             this.label_LogFileName.Name = "label_LogFileName";
             this.label_LogFileName.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.label_LogFileName.Size = new System.Drawing.Size(41, 16);
@@ -397,7 +399,7 @@
             // 
             // textBox_LogFileName
             // 
-            this.textBox_LogFileName.Location = new System.Drawing.Point(3, 486);
+            this.textBox_LogFileName.Location = new System.Drawing.Point(3, 520);
             this.textBox_LogFileName.Name = "textBox_LogFileName";
             this.textBox_LogFileName.Size = new System.Drawing.Size(127, 20);
             this.textBox_LogFileName.TabIndex = 9;
@@ -409,7 +411,7 @@
             this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
             this.panel_Drawing.Name = "panel_Drawing";
-            this.panel_Drawing.Size = new System.Drawing.Size(773, 527);
+            this.panel_Drawing.Size = new System.Drawing.Size(773, 563);
             this.panel_Drawing.TabIndex = 1;
             this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
             // 
@@ -492,7 +494,7 @@
             // 
             this.statusStrip_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel_Main});
-            this.statusStrip_Main.Location = new System.Drawing.Point(0, 593);
+            this.statusStrip_Main.Location = new System.Drawing.Point(0, 629);
             this.statusStrip_Main.Name = "statusStrip_Main";
             this.statusStrip_Main.Size = new System.Drawing.Size(927, 22);
             this.statusStrip_Main.TabIndex = 2;
@@ -503,11 +505,21 @@
             this.toolStripStatusLabel_Main.Name = "toolStripStatusLabel_Main";
             this.toolStripStatusLabel_Main.Size = new System.Drawing.Size(0, 17);
             // 
+            // button_IterateToStop
+            // 
+            this.button_IterateToStop.Location = new System.Drawing.Point(3, 239);
+            this.button_IterateToStop.Name = "button_IterateToStop";
+            this.button_IterateToStop.Size = new System.Drawing.Size(117, 23);
+            this.button_IterateToStop.TabIndex = 13;
+            this.button_IterateToStop.Text = "Iterate to stop";
+            this.button_IterateToStop.UseVisualStyleBackColor = true;
+            this.button_IterateToStop.Click += new System.EventHandler(this.button_IterateToStop_Click);
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 615);
+            this.ClientSize = new System.Drawing.Size(927, 651);
             this.Controls.Add(this.statusStrip_Main);
             this.Controls.Add(this.tableLayoutPanel_Main);
             this.Controls.Add(this.menuStrip_MainMenu);
@@ -576,6 +588,7 @@
         private System.Windows.Forms.CheckBox checkBox_LastChangedIteration;
         private System.Windows.Forms.Label label_LogFileName;
         private System.Windows.Forms.TextBox textBox_LogFileName;
+        private System.Windows.Forms.Button button_IterateToStop;
 
     }
 }
