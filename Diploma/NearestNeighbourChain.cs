@@ -7,9 +7,13 @@ namespace Diploma
 {
     public class NearestNeighbourChain : ClusteringAlgorithm
     {
-        public NearestNeighbourChain(List<Node> nodes)
+        private readonly int capacityLimit;
+
+        public NearestNeighbourChain(List<Node> nodes, int capacityLimit)
             : base(nodes)
         {
+            this.capacityLimit = capacityLimit;
+
             GenerateClusters();
 
             lastReviewedCluster = -1;
@@ -28,6 +32,28 @@ namespace Diploma
 
         private int lastReviewedCluster;
 
+        private int NearestCluster(int cluster)
+        {
+            double minDistance = double.PositiveInfinity;
+            int result = -1;
+
+            for (int i = 0; i != Clusters.Count; i++)
+            {
+                if (i == cluster)
+                    continue;
+
+                double dist = Node.Point.SqrDistance(Clusters[i].Center, Clusters[cluster].Center);
+
+                if (dist < minDistance)
+                {
+                    minDistance = dist;
+                    result = i;
+                }
+            }
+
+            return result;
+        }
+
         protected override void InnerIteration()
         {
             lastReviewedCluster++;
@@ -40,12 +66,27 @@ namespace Diploma
             int startingCluster = lastReviewedCluster;
 
             int currentCluster = startingCluster;
-            int lastCluster;
+            int lastCluster = startingCluster;
 
             do
             {
+                int nearest = NearestCluster(currentCluster);
+
+                if (nearest == lastCluster)
+                {
+                    break;
+                }
+
+                lastCluster = currentCluster;
+                currentCluster = nearest;
 
             } while (true);
+
+            if (Clusters[lastCluster].Volume + Clusters[currentCluster].Volume <= capacityLimit)
+            {
+                Clusters[lastCluster].Merge(Clusters[currentCluster]);
+                Clusters.RemoveAt(currentCluster);
+            }
         }
     }
 }
