@@ -46,7 +46,7 @@ namespace Diploma
                 Clusters[i].Depot = depot;
 
                 int nodeIndex = TaskController.Rnd.Next(nodesForClusters.Count);
-                Clusters[i].Nodes.Add(nodesForClusters[nodeIndex]);
+                Clusters[i].AddNode(nodesForClusters[nodeIndex]);
                 nodesForClusters.RemoveAt(nodeIndex);
             }
 
@@ -55,7 +55,7 @@ namespace Diploma
                 if (node.Type == Node.NodeType.Consumer)
                 {
                     int clusterIndex = TaskController.Rnd.Next(Clusters.Count);
-                    Clusters[clusterIndex].Nodes.Add(node);
+                    Clusters[clusterIndex].AddNode(node);
                 }
             }
         }
@@ -91,8 +91,8 @@ namespace Diploma
 
             Node node = cluster1.Nodes[nodeIndex];
 
-            cluster1.Nodes.RemoveAt(nodeIndex);
-            cluster2.Nodes.Add(node);
+            cluster1.RemoveNode(node);
+            cluster2.AddNode(node);
         }
 
         public void MoveNodeFromOneClusterToAnother()

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Diploma
 {
@@ -7,10 +8,23 @@ namespace Diploma
         public List<Node> Nodes = new List<Node>();
         public Node Depot;
 
+        private bool nodesUpdated = true;
+        private Node.Point center;
+
         public Node.Point Center
         {
             get
             {
+                if (!nodesUpdated)
+                {
+                    return center;
+                }
+
+                if (Nodes.Count == 0)
+                {
+                    return null;
+                }
+
                 double sx = 0;
                 double sy = 0;
 
@@ -20,7 +34,10 @@ namespace Diploma
                     sy += node.RealPosition.y;
                 }
 
-                return new Node.Point(sx / Nodes.Count, sy / Nodes.Count);
+                center = new Node.Point(sx / Nodes.Count, sy / Nodes.Count);
+                nodesUpdated = false;
+
+                return center;
             }
         }
 
@@ -70,6 +87,30 @@ namespace Diploma
             }
 
             Depot = cluster.Depot;
+        }
+
+        public void Merge(Cluster cluster)
+        {
+            Nodes.AddRange(cluster.Nodes);
+            Nodes = Nodes.Distinct().ToList();
+        }
+
+        public void AddNode(Node node)
+        {
+            Nodes.Add(node);
+            nodesUpdated = true;
+        }
+
+        public void RemoveNodes()
+        {
+            Nodes.Clear();
+            nodesUpdated = true;
+        }
+
+        public void RemoveNode(Node node)
+        {
+            Nodes.Remove(node);
+            nodesUpdated = true;
         }
     }
 }

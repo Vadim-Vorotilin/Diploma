@@ -79,7 +79,7 @@ namespace Diploma
 
                     if (Clusters[i].Volume + nodesForClusters[index].Volume <= capacityLimit)
                     {
-                        Clusters[i].Nodes.Add(nodesForClusters[index]);
+                        Clusters[i].AddNode(nodesForClusters[index]);
                         nodesForClusters.RemoveAt(index);
                         b = true;
                     }
@@ -118,11 +118,11 @@ namespace Diploma
 
             if (volume1 + node2.Volume <= capacityLimit && volume2 + node1.Volume <= capacityLimit)
             {
-                c1.Nodes.RemoveAt(i1);
-                c2.Nodes.RemoveAt(i2);
+                c1.RemoveNode(node1);
+                c2.RemoveNode(node2);
 
-                c1.Nodes.Add(node2);
-                c2.Nodes.Add(node1);
+                c1.AddNode(node2);
+                c2.AddNode(node1);
 
                 return true;
             }

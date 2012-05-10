@@ -11,6 +11,8 @@ namespace Diploma
             : base(nodes)
         {
             GenerateClusters();
+
+            lastReviewedCluster = -1;
         }
 
         private void GenerateClusters()
@@ -20,13 +22,30 @@ namespace Diploma
             for (int i = 0; i != Consumers.Count; i++)
             {
                 AddCluster();
-                Clusters[i].Nodes.Add(Consumers[i]);
+                Clusters[i].AddNode(Consumers[i]);
             }
         }
 
+        private int lastReviewedCluster;
+
         protected override void InnerIteration()
         {
-            throw new NotImplementedException();
+            lastReviewedCluster++;
+
+            if (lastReviewedCluster >= Clusters.Count)
+            {
+                lastReviewedCluster = 0;
+            }
+
+            int startingCluster = lastReviewedCluster;
+
+            int currentCluster = startingCluster;
+            int lastCluster;
+
+            do
+            {
+
+            } while (true);
         }
     }
 }

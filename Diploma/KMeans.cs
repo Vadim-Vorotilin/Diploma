@@ -58,7 +58,7 @@ namespace Diploma
         {
             foreach (Cluster cluster in Clusters)
             {
-                cluster.Nodes.Clear();
+                cluster.RemoveNodes();
             }
 
             foreach (Node node in Nodes)
@@ -74,7 +74,7 @@ namespace Diploma
                     {
                         if (cluster.Nodes.Count == 0)
                         {
-                            cluster.Nodes.Add(node);
+                            cluster.AddNode(node);
 
                             b = true;
                             break;
@@ -99,7 +99,7 @@ namespace Diploma
                     }
                 }
 
-                closest.Nodes.Add(node);
+                closest.AddNode(node);
             }
         }
 
