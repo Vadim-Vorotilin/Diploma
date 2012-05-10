@@ -54,13 +54,22 @@ namespace Diploma
             return result;
         }
 
+        private bool merged = false;
+
         protected override void InnerIteration()
         {
             lastReviewedCluster++;
 
             if (lastReviewedCluster >= Clusters.Count)
             {
+                if (!merged)
+                {
+                    Stop();
+                    return;
+                }
+
                 lastReviewedCluster = 0;
+                merged = false;
             }
 
             int startingCluster = lastReviewedCluster;
@@ -86,7 +95,13 @@ namespace Diploma
             {
                 Clusters[lastCluster].Merge(Clusters[currentCluster]);
                 Clusters.RemoveAt(currentCluster);
+                merged = true;
             }
+        }
+
+        public override string Info()
+        {
+            return string.Format("Clusters count: {0}. Stopped: {1}", Clusters.Count, Stopped);
         }
     }
 }

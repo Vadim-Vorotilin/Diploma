@@ -18,6 +18,8 @@ namespace Diploma
 
         public abstract double Value { get; }
 
+        protected bool Stopped { get; private set; }
+
         protected Algorithm()
         {
             IterationNumber = 0;
@@ -63,6 +65,9 @@ namespace Diploma
        
         private void Iteration()
         {
+            if (Stopped)
+                return;
+            
             if (IterationNumber == 0)
             {
                 OpenLogFile();
@@ -78,7 +83,7 @@ namespace Diploma
                 newValue = Value;
             }
 
-            if (writer != null)
+            if (writer != null && !Stopped)
             {
                 writer.WriteLine(string.Format("{0}\t{1:0.00}", IterationNumber, newValue));
             }
@@ -105,6 +110,8 @@ namespace Diploma
             {
                 writer.Close();
             }
+
+            Stopped = true;
         }
 
         protected abstract void InnerIteration();

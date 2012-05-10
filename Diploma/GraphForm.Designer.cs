@@ -314,7 +314,8 @@
             "Bees VRP -> TSP",
             "Bees CLUSTERING",
             "Bees CLUST w/ LIMIT",
-            "K-means CLUSTERING"});
+            "K-means CLUSTERING",
+            "NearNeighChain"});
             this.comboBox_AlgorithmType.Location = new System.Drawing.Point(3, 99);
             this.comboBox_AlgorithmType.Name = "comboBox_AlgorithmType";
             this.comboBox_AlgorithmType.Size = new System.Drawing.Size(117, 21);

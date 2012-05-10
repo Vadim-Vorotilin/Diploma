@@ -11,6 +11,8 @@ namespace Diploma
         private bool nodesUpdated = true;
         private Node.Point center;
 
+        private const double sqrt2 = 1.4142135623730950488016887242097;
+
         public Node.Point Center
         {
             get
@@ -93,6 +95,7 @@ namespace Diploma
         {
             Nodes.AddRange(cluster.Nodes);
             Nodes = Nodes.Distinct().ToList();
+            nodesUpdated = true;
         }
 
         public void AddNode(Node node)

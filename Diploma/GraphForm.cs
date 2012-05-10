@@ -105,6 +105,11 @@ namespace Diploma
             get { return Convert.ToInt32(numericUpDown_ClustersCount.Value); }
         }
 
+        private int ClusterCapacityLimit
+        {
+            get { return Convert.ToInt32(numericUpDown_ClusterCapacityLimit.Value); }
+        }
+
         private bool StartAlgorithm()
         {
             if (TaskController.Nodes.Count < ClustersCount)
@@ -114,29 +119,36 @@ namespace Diploma
                 return false;
             }
 
-            int clustersCount = Convert.ToInt32(numericUpDown_ClustersCount.Value);
-            int clusterCapacityLimit = Convert.ToInt32(numericUpDown_ClusterCapacityLimit.Value);
-
             switch (comboBox_AlgorithmType.SelectedIndex)
             {
                 case 0:                 //  Bees VRP -> TSP
-                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.VRP_TSP, clustersCount, 5, 3, 1, 2, 3);
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.VRP_TSP, ClustersCount, 5, 3, 1, 2, 3);
                     break;
                 case 1:                 //  Bees CLUSTERING
-                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING, clustersCount, 5, 3, 1, 2, 3);
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING, ClustersCount, 5, 3, 1, 2, 3);
                     break;
                 case 2:                 //  Bees CLUST w/ LIMIT
-                    if (clusterCapacityLimit < TaskController.MaxVolume)
+                    if (ClusterCapacityLimit < TaskController.MaxVolume)
                     {
-                        MessageBox.Show(string.Format("Max volume: {0}. Capacity: {1}", TaskController.MaxVolume, clusterCapacityLimit), "Too few clusters",
+                        MessageBox.Show(string.Format("Max volume: {0}. Capacity: {1}", TaskController.MaxVolume, ClusterCapacityLimit), "Too few clusters",
                                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return false;
                     }
 
-                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_LIMITED_CAPASITY, clustersCount, 7, 3, 2, 2, 5, clusterCapacityLimit);
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_LIMITED_CAPASITY, ClustersCount, 7, 3, 2, 2, 5, ClusterCapacityLimit);
                     break;
                 case 3:                 //  K-means CLUSTERING
                     TaskController.StartKMeansAlgorithm(ClustersCount);
+                    break;
+                case 4:                 //  NearNeighChain
+                    if (ClusterCapacityLimit < TaskController.MaxVolume)
+                    {
+                        MessageBox.Show(string.Format("Max volume: {0}. Capacity: {1}", TaskController.MaxVolume, ClusterCapacityLimit), "Too few clusters",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return false;
+                    }
+
+                    TaskController.StartNearestNeighbourChainAlgorithm(ClustersCount, ClusterCapacityLimit);
                     break;
             }
 

@@ -180,6 +180,13 @@ namespace Diploma
             SetAlgorithm(kMeans);
         }
 
+        public static void StartNearestNeighbourChainAlgorithm(int clustersCount, int capacityLimit)
+        {
+            NearestNeighbourChain nearestNeighbourChain = new NearestNeighbourChain(Nodes, capacityLimit);
+
+            SetAlgorithm(nearestNeighbourChain);
+        }
+
         private static void SetAlgorithm(Algorithm algorithm)
         {
             foreach (Node node in Nodes)
