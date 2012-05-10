@@ -108,5 +108,10 @@ namespace Diploma
         protected abstract void InnerIteration();
 
         public abstract void DrawNodes();
+
+        public virtual string Info()
+        {
+            return "";
+        }
     }
 }

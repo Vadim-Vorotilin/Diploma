@@ -126,14 +126,14 @@ namespace Diploma
                     TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING, clustersCount, 5, 3, 1, 2, 3);
                     break;
                 case 2:                 //  Bees CLUST w/ LIMIT
-                    if (clustersCount * clusterCapacityLimit < TaskController.NodesVolume)
+                    if (clusterCapacityLimit < TaskController.MaxVolume)
                     {
-                        MessageBox.Show(string.Format("Sum volume: {0}. Capacity: {1}", TaskController.NodesVolume, clustersCount * clusterCapacityLimit), "Too few clusters",
+                        MessageBox.Show(string.Format("Max volume: {0}. Capacity: {1}", TaskController.MaxVolume, clusterCapacityLimit), "Too few clusters",
                                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return false;
                     }
 
-                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_LIMITED_CAPASITY, clustersCount, 5, 3, 1, 2, 3, clusterCapacityLimit);
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_LIMITED_CAPASITY, clustersCount, 7, 3, 2, 2, 5, clusterCapacityLimit);
                     break;
                 case 3:                 //  K-means CLUSTERING
                     TaskController.StartKMeansAlgorithm(ClustersCount);
@@ -154,6 +154,8 @@ namespace Diploma
         {
             label_ClustersCount.Enabled = !_lock;
             numericUpDown_ClustersCount.Enabled = !_lock;
+            label_ClusterCapacityLimit.Enabled = !_lock;
+            numericUpDown_ClusterCapacityLimit.Enabled = !_lock;
             label_Algorithm.Enabled = !_lock;
             comboBox_AlgorithmType.Enabled = !_lock;
         }
@@ -170,7 +172,9 @@ namespace Diploma
             TaskController.Algorithm.Iterations();
             TaskController.Algorithm.DrawNodes();
 
-            SetStatus(string.Format("Iteration {0} completed. Value: {1:0.00}. Last changed at iteration: {2}", TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value, TaskController.Algorithm.LastChangedIteration));
+            SetStatus(string.Format("Iteration {0} completed. Value: {1:0.00}. Last changed at iteration: {2}. {3}",
+                                    TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value,
+                                    TaskController.Algorithm.LastChangedIteration, TaskController.Algorithm.Info()));
         }
 
         private void button_Iterate_Click(object sender, EventArgs e)
@@ -185,7 +189,12 @@ namespace Diploma
 
             TaskController.Algorithm.DrawNodes();
 
-            SetStatus(string.Format("Iteration {0} completed. Value: {1:0.00}. Last changed at iteration: {2}. Time: {3:0.00} s", TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value, TaskController.Algorithm.LastChangedIteration, calcTime.TotalMilliseconds/ 1000.0));
+            SetStatus(
+                string.Format(
+                    "Iteration {0} completed. Value: {1:0.00}. Last changed at iteration: {2}. Time: {3:0.00} s. {4}",
+                    TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value,
+                    TaskController.Algorithm.LastChangedIteration, calcTime.TotalMilliseconds/1000.0,
+                    TaskController.Algorithm.Info()));
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

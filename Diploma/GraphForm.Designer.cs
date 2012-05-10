@@ -33,18 +33,26 @@
             this.button_Redraw = new System.Windows.Forms.Button();
             this.button_AddNode = new System.Windows.Forms.Button();
             this.groupBox_Node = new System.Windows.Forms.GroupBox();
-            this.radioButton_isConsumer = new System.Windows.Forms.RadioButton();
+            this.flowLayoutPanel_Node = new System.Windows.Forms.FlowLayoutPanel();
             this.radioButton_isDepot = new System.Windows.Forms.RadioButton();
+            this.radioButton_isConsumer = new System.Windows.Forms.RadioButton();
+            this.label_Volume = new System.Windows.Forms.Label();
+            this.numericUpDown_Volume = new System.Windows.Forms.NumericUpDown();
             this.groupBox_Algorithm = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel_Algorithm = new System.Windows.Forms.FlowLayoutPanel();
             this.label_ClustersCount = new System.Windows.Forms.Label();
             this.numericUpDown_ClustersCount = new System.Windows.Forms.NumericUpDown();
+            this.label_ClusterCapacityLimit = new System.Windows.Forms.Label();
+            this.numericUpDown_ClusterCapacityLimit = new System.Windows.Forms.NumericUpDown();
             this.label_Algorithm = new System.Windows.Forms.Label();
             this.comboBox_AlgorithmType = new System.Windows.Forms.ComboBox();
             this.button_StartAlgorithm = new System.Windows.Forms.Button();
             this.button_Iteration = new System.Windows.Forms.Button();
             this.numericUpDown_IterationsCount = new System.Windows.Forms.NumericUpDown();
             this.button_Iterate = new System.Windows.Forms.Button();
+            this.checkBox_LastChangedIteration = new System.Windows.Forms.CheckBox();
+            this.label_LogFileName = new System.Windows.Forms.Label();
+            this.textBox_LogFileName = new System.Windows.Forms.TextBox();
             this.panel_Drawing = new System.Windows.Forms.Panel();
             this.menuStrip_MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,26 +65,18 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Main = new System.Windows.Forms.ToolStripStatusLabel();
-            this.numericUpDown_Volume = new System.Windows.Forms.NumericUpDown();
-            this.flowLayoutPanel_Node = new System.Windows.Forms.FlowLayoutPanel();
-            this.label_Volume = new System.Windows.Forms.Label();
-            this.numericUpDown_ClusterCapacityLimit = new System.Windows.Forms.NumericUpDown();
-            this.label_ClusterCapacityLimit = new System.Windows.Forms.Label();
-            this.checkBox_LastChangedIteration = new System.Windows.Forms.CheckBox();
-            this.textBox_LogFileName = new System.Windows.Forms.TextBox();
-            this.label_LogFileName = new System.Windows.Forms.Label();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
             this.groupBox_Node.SuspendLayout();
+            this.flowLayoutPanel_Node.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Volume)).BeginInit();
             this.groupBox_Algorithm.SuspendLayout();
             this.flowLayoutPanel_Algorithm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClustersCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClusterCapacityLimit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IterationsCount)).BeginInit();
             this.menuStrip_MainMenu.SuspendLayout();
             this.statusStrip_Main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Volume)).BeginInit();
-            this.flowLayoutPanel_Node.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClusterCapacityLimit)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_Main
@@ -143,6 +143,29 @@
             this.groupBox_Node.TabStop = false;
             this.groupBox_Node.Text = "Node";
             // 
+            // flowLayoutPanel_Node
+            // 
+            this.flowLayoutPanel_Node.Controls.Add(this.radioButton_isDepot);
+            this.flowLayoutPanel_Node.Controls.Add(this.radioButton_isConsumer);
+            this.flowLayoutPanel_Node.Controls.Add(this.label_Volume);
+            this.flowLayoutPanel_Node.Controls.Add(this.numericUpDown_Volume);
+            this.flowLayoutPanel_Node.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel_Node.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel_Node.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel_Node.Name = "flowLayoutPanel_Node";
+            this.flowLayoutPanel_Node.Size = new System.Drawing.Size(124, 98);
+            this.flowLayoutPanel_Node.TabIndex = 3;
+            // 
+            // radioButton_isDepot
+            // 
+            this.radioButton_isDepot.AutoSize = true;
+            this.radioButton_isDepot.Location = new System.Drawing.Point(3, 3);
+            this.radioButton_isDepot.Name = "radioButton_isDepot";
+            this.radioButton_isDepot.Size = new System.Drawing.Size(54, 17);
+            this.radioButton_isDepot.TabIndex = 0;
+            this.radioButton_isDepot.Text = "Depot";
+            this.radioButton_isDepot.UseVisualStyleBackColor = true;
+            // 
             // radioButton_isConsumer
             // 
             this.radioButton_isConsumer.AutoSize = true;
@@ -156,15 +179,37 @@
             this.radioButton_isConsumer.UseVisualStyleBackColor = true;
             this.radioButton_isConsumer.CheckedChanged += new System.EventHandler(this.radioButton_isConsumer_CheckedChanged);
             // 
-            // radioButton_isDepot
+            // label_Volume
             // 
-            this.radioButton_isDepot.AutoSize = true;
-            this.radioButton_isDepot.Location = new System.Drawing.Point(3, 3);
-            this.radioButton_isDepot.Name = "radioButton_isDepot";
-            this.radioButton_isDepot.Size = new System.Drawing.Size(54, 17);
-            this.radioButton_isDepot.TabIndex = 0;
-            this.radioButton_isDepot.Text = "Depot";
-            this.radioButton_isDepot.UseVisualStyleBackColor = true;
+            this.label_Volume.AutoSize = true;
+            this.label_Volume.Location = new System.Drawing.Point(3, 51);
+            this.label_Volume.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label_Volume.Name = "label_Volume";
+            this.label_Volume.Size = new System.Drawing.Size(42, 13);
+            this.label_Volume.TabIndex = 3;
+            this.label_Volume.Text = "Volume";
+            // 
+            // numericUpDown_Volume
+            // 
+            this.numericUpDown_Volume.Location = new System.Drawing.Point(3, 67);
+            this.numericUpDown_Volume.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDown_Volume.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_Volume.Name = "numericUpDown_Volume";
+            this.numericUpDown_Volume.Size = new System.Drawing.Size(114, 20);
+            this.numericUpDown_Volume.TabIndex = 2;
+            this.numericUpDown_Volume.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // groupBox_Algorithm
             // 
@@ -218,6 +263,37 @@
             this.numericUpDown_ClustersCount.TabIndex = 9;
             this.numericUpDown_ClustersCount.Value = new decimal(new int[] {
             3,
+            0,
+            0,
+            0});
+            // 
+            // label_ClusterCapacityLimit
+            // 
+            this.label_ClusterCapacityLimit.AutoSize = true;
+            this.label_ClusterCapacityLimit.Location = new System.Drawing.Point(3, 44);
+            this.label_ClusterCapacityLimit.Name = "label_ClusterCapacityLimit";
+            this.label_ClusterCapacityLimit.Size = new System.Drawing.Size(28, 13);
+            this.label_ClusterCapacityLimit.TabIndex = 12;
+            this.label_ClusterCapacityLimit.Text = "Limit";
+            // 
+            // numericUpDown_ClusterCapacityLimit
+            // 
+            this.numericUpDown_ClusterCapacityLimit.Location = new System.Drawing.Point(3, 60);
+            this.numericUpDown_ClusterCapacityLimit.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericUpDown_ClusterCapacityLimit.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_ClusterCapacityLimit.Name = "numericUpDown_ClusterCapacityLimit";
+            this.numericUpDown_ClusterCapacityLimit.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown_ClusterCapacityLimit.TabIndex = 11;
+            this.numericUpDown_ClusterCapacityLimit.Value = new decimal(new int[] {
+            10,
             0,
             0,
             0});
@@ -295,6 +371,36 @@
             this.button_Iterate.Text = "Iterate";
             this.button_Iterate.UseVisualStyleBackColor = true;
             this.button_Iterate.Click += new System.EventHandler(this.button_Iterate_Click);
+            // 
+            // checkBox_LastChangedIteration
+            // 
+            this.checkBox_LastChangedIteration.AutoSize = true;
+            this.checkBox_LastChangedIteration.Checked = true;
+            this.checkBox_LastChangedIteration.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_LastChangedIteration.Location = new System.Drawing.Point(3, 447);
+            this.checkBox_LastChangedIteration.Name = "checkBox_LastChangedIteration";
+            this.checkBox_LastChangedIteration.Size = new System.Drawing.Size(105, 17);
+            this.checkBox_LastChangedIteration.TabIndex = 8;
+            this.checkBox_LastChangedIteration.Text = "Calc last change";
+            this.checkBox_LastChangedIteration.UseVisualStyleBackColor = true;
+            // 
+            // label_LogFileName
+            // 
+            this.label_LogFileName.AutoSize = true;
+            this.label_LogFileName.Location = new System.Drawing.Point(3, 467);
+            this.label_LogFileName.Name = "label_LogFileName";
+            this.label_LogFileName.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label_LogFileName.Size = new System.Drawing.Size(41, 16);
+            this.label_LogFileName.TabIndex = 10;
+            this.label_LogFileName.Text = "Log file";
+            // 
+            // textBox_LogFileName
+            // 
+            this.textBox_LogFileName.Location = new System.Drawing.Point(3, 486);
+            this.textBox_LogFileName.Name = "textBox_LogFileName";
+            this.textBox_LogFileName.Size = new System.Drawing.Size(127, 20);
+            this.textBox_LogFileName.TabIndex = 9;
+            this.textBox_LogFileName.Text = "..\\..\\..\\Models\\log.txt";
             // 
             // panel_Drawing
             // 
@@ -396,112 +502,6 @@
             this.toolStripStatusLabel_Main.Name = "toolStripStatusLabel_Main";
             this.toolStripStatusLabel_Main.Size = new System.Drawing.Size(0, 17);
             // 
-            // numericUpDown_Volume
-            // 
-            this.numericUpDown_Volume.Location = new System.Drawing.Point(3, 67);
-            this.numericUpDown_Volume.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDown_Volume.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_Volume.Name = "numericUpDown_Volume";
-            this.numericUpDown_Volume.Size = new System.Drawing.Size(114, 20);
-            this.numericUpDown_Volume.TabIndex = 2;
-            this.numericUpDown_Volume.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // flowLayoutPanel_Node
-            // 
-            this.flowLayoutPanel_Node.Controls.Add(this.radioButton_isDepot);
-            this.flowLayoutPanel_Node.Controls.Add(this.radioButton_isConsumer);
-            this.flowLayoutPanel_Node.Controls.Add(this.label_Volume);
-            this.flowLayoutPanel_Node.Controls.Add(this.numericUpDown_Volume);
-            this.flowLayoutPanel_Node.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel_Node.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel_Node.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel_Node.Name = "flowLayoutPanel_Node";
-            this.flowLayoutPanel_Node.Size = new System.Drawing.Size(124, 98);
-            this.flowLayoutPanel_Node.TabIndex = 3;
-            // 
-            // label_Volume
-            // 
-            this.label_Volume.AutoSize = true;
-            this.label_Volume.Location = new System.Drawing.Point(3, 51);
-            this.label_Volume.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.label_Volume.Name = "label_Volume";
-            this.label_Volume.Size = new System.Drawing.Size(42, 13);
-            this.label_Volume.TabIndex = 3;
-            this.label_Volume.Text = "Volume";
-            // 
-            // numericUpDown_ClusterCapacityLimit
-            // 
-            this.numericUpDown_ClusterCapacityLimit.Location = new System.Drawing.Point(3, 60);
-            this.numericUpDown_ClusterCapacityLimit.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.numericUpDown_ClusterCapacityLimit.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_ClusterCapacityLimit.Name = "numericUpDown_ClusterCapacityLimit";
-            this.numericUpDown_ClusterCapacityLimit.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown_ClusterCapacityLimit.TabIndex = 11;
-            this.numericUpDown_ClusterCapacityLimit.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // label_ClusterCapacityLimit
-            // 
-            this.label_ClusterCapacityLimit.AutoSize = true;
-            this.label_ClusterCapacityLimit.Location = new System.Drawing.Point(3, 44);
-            this.label_ClusterCapacityLimit.Name = "label_ClusterCapacityLimit";
-            this.label_ClusterCapacityLimit.Size = new System.Drawing.Size(28, 13);
-            this.label_ClusterCapacityLimit.TabIndex = 12;
-            this.label_ClusterCapacityLimit.Text = "Limit";
-            // 
-            // checkBox_LastChangedIteration
-            // 
-            this.checkBox_LastChangedIteration.AutoSize = true;
-            this.checkBox_LastChangedIteration.Checked = true;
-            this.checkBox_LastChangedIteration.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_LastChangedIteration.Location = new System.Drawing.Point(3, 447);
-            this.checkBox_LastChangedIteration.Name = "checkBox_LastChangedIteration";
-            this.checkBox_LastChangedIteration.Size = new System.Drawing.Size(105, 17);
-            this.checkBox_LastChangedIteration.TabIndex = 8;
-            this.checkBox_LastChangedIteration.Text = "Calc last change";
-            this.checkBox_LastChangedIteration.UseVisualStyleBackColor = true;
-            // 
-            // textBox_LogFileName
-            // 
-            this.textBox_LogFileName.Location = new System.Drawing.Point(3, 486);
-            this.textBox_LogFileName.Name = "textBox_LogFileName";
-            this.textBox_LogFileName.Size = new System.Drawing.Size(127, 20);
-            this.textBox_LogFileName.TabIndex = 9;
-            this.textBox_LogFileName.Text = "C:\\Users\\Vadim\\Documents\\Visual Studio 2010\\Projects\\Diploma\\Models\\log.txt";
-            // 
-            // label_LogFileName
-            // 
-            this.label_LogFileName.AutoSize = true;
-            this.label_LogFileName.Location = new System.Drawing.Point(3, 467);
-            this.label_LogFileName.Name = "label_LogFileName";
-            this.label_LogFileName.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.label_LogFileName.Size = new System.Drawing.Size(41, 16);
-            this.label_LogFileName.TabIndex = 10;
-            this.label_LogFileName.Text = "Log file";
-            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -518,19 +518,19 @@
             this.flowLayoutPanel_Tools.ResumeLayout(false);
             this.flowLayoutPanel_Tools.PerformLayout();
             this.groupBox_Node.ResumeLayout(false);
+            this.flowLayoutPanel_Node.ResumeLayout(false);
+            this.flowLayoutPanel_Node.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Volume)).EndInit();
             this.groupBox_Algorithm.ResumeLayout(false);
             this.flowLayoutPanel_Algorithm.ResumeLayout(false);
             this.flowLayoutPanel_Algorithm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClustersCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClusterCapacityLimit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IterationsCount)).EndInit();
             this.menuStrip_MainMenu.ResumeLayout(false);
             this.menuStrip_MainMenu.PerformLayout();
             this.statusStrip_Main.ResumeLayout(false);
             this.statusStrip_Main.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Volume)).EndInit();
-            this.flowLayoutPanel_Node.ResumeLayout(false);
-            this.flowLayoutPanel_Node.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClusterCapacityLimit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

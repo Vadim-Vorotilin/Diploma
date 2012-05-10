@@ -58,10 +58,13 @@ namespace Diploma
             Nodes = new List<Node>();
             lastFileName = "";
             Algorithm = null;
+
+            MinVolume = int.MaxValue;
+            MaxVolume = int.MinValue;
         }
 
-        private static int minVolume = int.MaxValue;
-        private static int maxVolume = int.MinValue;
+        public static int MinVolume { get; private set; }
+        public static int MaxVolume { get; private set; }
 
         private static bool CheckVolume()
         {
@@ -69,15 +72,15 @@ namespace Diploma
 
             foreach (Node node in Nodes)
             {
-                if (node.Volume < minVolume)
+                if (node.Volume < MinVolume)
                 {
-                    minVolume = node.Volume;
+                    MinVolume = node.Volume;
                     b = true;
                 }
 
-                if (node.Volume > maxVolume)
+                if (node.Volume > MaxVolume)
                 {
-                    maxVolume = node.Volume;
+                    MaxVolume = node.Volume;
                     b = true;
                 }
             }
@@ -134,7 +137,7 @@ namespace Diploma
             switch (node.Type)
             {
                 case Node.NodeType.Consumer:
-                    int size = maxVolume == minVolume ? (ConsumerMaxSize + ConsumerMinSize) / 2 : Convert.ToInt32((ConsumerMaxSize - ConsumerMinSize) * (double)(node.Volume - minVolume) / (double)(maxVolume - minVolume)) + ConsumerMinSize;
+                    int size = MaxVolume == MinVolume ? (ConsumerMaxSize + ConsumerMinSize) / 2 : Convert.ToInt32((ConsumerMaxSize - ConsumerMinSize) * (double)(node.Volume - MinVolume) / (double)(MaxVolume - MinVolume)) + ConsumerMinSize;
                     g.FillEllipse(ConsumerBrush, (int)(node.ScreenPosition.x - size / 2.0), (int)(node.ScreenPosition.y - size / 2.0), size, size);
                     break;
 

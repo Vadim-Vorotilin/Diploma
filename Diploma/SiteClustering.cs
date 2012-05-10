@@ -8,7 +8,8 @@ namespace Diploma
 {
     public class SiteClustering : Site
     {
-        protected Cluster[] Clusters { get; set; }
+        public List<Cluster> Clusters { get; protected set; }
+        protected int ClustersCount;
 
         #region Overrides of Site
 
@@ -20,7 +21,8 @@ namespace Diploma
         public SiteClustering(List<Node> nodes, int clustersCount)
             : base(nodes)
         {
-            Clusters = new Cluster[clustersCount];
+            Clusters = new List<Cluster>();
+            ClustersCount = clustersCount;
 
             GenerateClusters();
         }
@@ -28,19 +30,19 @@ namespace Diploma
         protected SiteClustering(SiteClustering site)
             : base(site.Nodes)
         {
-            Clusters = new Cluster[site.Clusters.Length];
+            Clusters = new List<Cluster>();
 
-            for (int i = 0; i != Clusters.Length; i++)
+            for (int i = 0; i != site.Clusters.Count; i++)
             {
-                Clusters[i] = new Cluster(site.Clusters[i]);
+                Clusters.Add(new Cluster(site.Clusters[i]));
             }
         }
 
         protected virtual void GenerateClusters(List<Node> nodesForClusters, Node depot)
         {
-            for (int i = 0; i != Clusters.Length; i++)
+            for (int i = 0; i != ClustersCount; i++)
             {
-                Clusters[i] = new Cluster();
+                Clusters.Add(new Cluster());
                 Clusters[i].Depot = depot;
 
                 int nodeIndex = TaskController.Rnd.Next(nodesForClusters.Count);
@@ -52,7 +54,7 @@ namespace Diploma
             {
                 if (node.Type == Node.NodeType.Consumer)
                 {
-                    int clusterIndex = TaskController.Rnd.Next(Clusters.Length);
+                    int clusterIndex = TaskController.Rnd.Next(Clusters.Count);
                     Clusters[clusterIndex].Nodes.Add(node);
                 }
             }
@@ -100,12 +102,12 @@ namespace Diploma
 
             do
             {
-                c1 = TaskController.Rnd.Next(Clusters.Length);
+                c1 = TaskController.Rnd.Next(Clusters.Count);
             } while (Clusters[c1].Nodes.Count <= 1);
 
             do
             {
-                c2 = TaskController.Rnd.Next(Clusters.Length);
+                c2 = TaskController.Rnd.Next(Clusters.Count);
             } while (c2 == c1);
 
             MoveNodeFromOneClusterToAnother(c1, c2);
@@ -128,7 +130,8 @@ namespace Diploma
 
         protected override void GoToNeighbour(Site site)
         {
-            Clusters = (site as SiteClustering).Clusters.Clone() as Cluster[];
+            Clusters = new List<Cluster>();
+            Clusters.AddRange((site as SiteClustering).Clusters);
         }
 
         protected override Site GetNeighbour()

@@ -8,12 +8,14 @@ namespace Diploma
     public class SiteClusteringLimitedCapacity : SiteClustering
     {
         private readonly int capacityLimit;
+        private Node depot;
             
         public SiteClusteringLimitedCapacity (List<Node> nodes, int clustersCount, int capacityLimit) 
             : base(nodes)
         {
-            Clusters = new Cluster[clustersCount];
+            Clusters = new List<Cluster>();
             this.capacityLimit = capacityLimit;
+            this.ClustersCount = clustersCount;
 
             GenerateClusters();
         }
@@ -52,57 +54,96 @@ namespace Diploma
             }
         }
 
+        private void AddCluster()
+        {
+            Cluster newCluster = new Cluster();
+            newCluster.Depot = depot;
+
+            Clusters.Add(newCluster);
+        }
+
         protected override void GenerateClusters(List<Node> nodesForClusters, Node depot)
         {
-            for (int i = 0; i != Clusters.Length; i++)
-            {
-                Clusters[i] = new Cluster();
-                Clusters[i].Depot = depot;
-            }
-
-            nodesForClusters.Sort();
-            nodesForClusters.Reverse();
+            this.depot = depot;
 
             while (nodesForClusters.Count != 0)
             {
-                for (int i = 0; i != Clusters.Length; i++)
+                bool b = false;
+
+                for (int i = 0; i != Clusters.Count; i++)
                 {
                     if (nodesForClusters.Count == 0)
                         break;
 
-                    if (Clusters[i].Volume + nodesForClusters[0].Volume <= capacityLimit)
+                    int index = TaskController.Rnd.Next(nodesForClusters.Count);
+
+                    if (Clusters[i].Volume + nodesForClusters[index].Volume <= capacityLimit)
                     {
-                        Clusters[i].Nodes.Add(nodesForClusters[0]);
-                        nodesForClusters.RemoveAt(0);
+                        Clusters[i].Nodes.Add(nodesForClusters[index]);
+                        nodesForClusters.RemoveAt(index);
+                        b = true;
                     }
+                }
+
+                if (!b)
+                {
+                    AddCluster();
                 }
             }
         }
 
-        public void MoveNodeFromBadClusterToGood()
+        public bool ExchangeNodesInClusters()
         {
-            List<Cluster> badClusters = (from cluster in Clusters
-                                         where cluster.Volume > capacityLimit
-                                         select cluster).ToList();
+            int i1 = TaskController.Rnd.Next(Clusters.Count);
+            int i2;
 
-            List<Cluster> goodClusters = (from cluster in Clusters
-                                          where cluster.Volume <= capacityLimit
-                                          select cluster).ToList();
+            do
+            {
+                i2 = TaskController.Rnd.Next(Clusters.Count);
+            } while (i2 == i1);
 
-            if (badClusters.Count == 0)
+            return ExchangeNodesInClusters(Clusters[i1], Clusters[i2]);
+        }
+
+        private bool ExchangeNodesInClusters(Cluster c1, Cluster c2)
+        {
+            int i1 = TaskController.Rnd.Next(c1.Nodes.Count);
+            int i2 = TaskController.Rnd.Next(c2.Nodes.Count);
+
+            Node node1 = c1.Nodes[i1];
+            Node node2 = c2.Nodes[i2];
+
+            int volume1 = c1.Volume - node1.Volume;
+            int volume2 = c2.Volume - node2.Volume;
+
+            if (volume1 + node2.Volume <= capacityLimit && volume2 + node1.Volume <= capacityLimit)
             {
-                MoveNodeFromOneClusterToAnother();
+                c1.Nodes.RemoveAt(i1);
+                c2.Nodes.RemoveAt(i2);
+
+                c1.Nodes.Add(node2);
+                c2.Nodes.Add(node1);
+
+                return true;
             }
-            else
-            {
-                MoveNodeFromOneClusterToAnother(badClusters[TaskController.Rnd.Next(badClusters.Count)], goodClusters[TaskController.Rnd.Next(goodClusters.Count)]);
-            }
+
+            return false;
         }
 
         protected override Site GetNeighbour()
         {
             SiteClusteringLimitedCapacity result = new SiteClusteringLimitedCapacity(this);
-            result.MoveNodeFromBadClusterToGood();
+
+            double probability = TaskController.Rnd.NextDouble();
+
+            if (probability < 0.5)
+            {
+                result.MoveNodeFromOneClusterToAnother();
+            }
+            else
+            {
+                result.ExchangeNodesInClusters();
+            }
 
             return result;
         }

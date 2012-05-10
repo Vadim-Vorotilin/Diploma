@@ -96,5 +96,19 @@ namespace Diploma
         {
             BestSite.DrawNodes();
         }
+
+        public override string Info()
+        {
+            string str = "";
+
+            switch (Problem)
+            {
+                case ProblemType.CLUSTERING_LIMITED_CAPASITY:
+                    str = string.Format("Clusters count: {0}", (BestSite as SiteClusteringLimitedCapacity).Clusters.Count);
+                    break;
+            }
+
+            return str;
+        }
     }
 }
