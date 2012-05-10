@@ -41,7 +41,19 @@ namespace Diploma
             get { return nodesSequence; }
         }
 
-        public override void PrepareToDraw()
+        private void ConnectConsumerToDepot(Node node1, Node node2)
+        {
+            if (node1.Type != Node.NodeType.Depot)
+            {
+                node1.ConnectTo(node2);
+            }
+            else
+            {
+                node2.ConnectTo(node1);
+            }
+        }
+
+        public override List<Node> PrepareToDraw()
         {
             DrawingNodes = new List<Node>();
 
@@ -59,10 +71,13 @@ namespace Diploma
 
             for (int i = 0; i != result.Length - 1; i++)
             {
-                Nodes[result[i]].ConnectTo(Nodes[result[i + 1]]);
+
+                ConnectConsumerToDepot(Nodes[result[i]], Nodes[result[i + 1]]);
             }
 
-            Nodes[result[result.Length - 1]].ConnectTo(Nodes[result[0]]);
+            ConnectConsumerToDepot(Nodes[result[result.Length - 1]], Nodes[result[0]]);
+
+            return DrawingNodes;
         }
 
         private static double GetDistance(Node node1, Node node2)

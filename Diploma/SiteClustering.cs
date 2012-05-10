@@ -147,7 +147,7 @@ namespace Diploma
             get { throw new NotImplementedException(); }
         }
 
-        public override void PrepareToDraw()
+        public override List<Node> PrepareToDraw()
         {
             DrawingNodes = new List<Node>();
 
@@ -162,6 +162,8 @@ namespace Diploma
             {
                 DrawingNodes.Add(depot);
             }
+
+            return DrawingNodes;
         }
 
         #endregion

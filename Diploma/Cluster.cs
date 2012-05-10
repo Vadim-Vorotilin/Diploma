@@ -57,7 +57,7 @@ namespace Diploma
 
             if (Depot != null)
             {
-                distance += Node.Point.SqrDistance(Depot.RealPosition, center);
+                distance += 2 * Node.Point.SqrDistance(Depot.RealPosition, center);
             }
 
             return distance;

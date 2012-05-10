@@ -72,7 +72,7 @@ namespace Diploma
 
         protected override void InnerIteration ()
         {
-            if (IterationNumber > 100 && IterationNumber > LastChangedIteration * 1.5)
+            if (IterationNumber > 100 && (IterationNumber < 500 && IterationNumber > LastChangedIteration * 3.0 || IterationNumber > 500 && IterationNumber > LastChangedIteration * 1.5))
             {
                 Stop();
                 return;

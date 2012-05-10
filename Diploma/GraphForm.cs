@@ -302,5 +302,23 @@ namespace Diploma
                     TaskController.Algorithm.LastChangedIteration, calcTime.TotalMilliseconds / 1000.0,
                     TaskController.Algorithm.Info()));
         }
+
+        private void button_CalculateTsp_Click(object sender, EventArgs e)
+        {
+            DateTime stTime = DateTime.Now;
+
+            TaskController.StartClusteringToTsp();
+            (TaskController.Algorithm as ClusteringToTsp).Calculate(5, 3, 1, 2, 3);
+
+            TimeSpan calcTime = DateTime.Now - stTime;
+
+            TaskController.Algorithm.DrawNodes();
+
+            SetStatus(
+                string.Format(
+                    "Value: {0:0.00}. Time: {1:0.00} s. {2}",
+                    TaskController.Algorithm.Value, calcTime.TotalMilliseconds / 1000.0,
+                    TaskController.Algorithm.Info()));
+        }
     }
 }

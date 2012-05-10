@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Diploma
 {
@@ -104,9 +105,12 @@ namespace Diploma
             }
         }
 
+        private static List<Node> drawingNodes; 
+
         public static void DrawNodes (List<Node> nodes = null)
         {
-            DrawNodes(graphicsForDraw, nodes ?? Nodes);
+            drawingNodes = nodes ?? (drawingNodes ?? Nodes);
+            DrawNodes(graphicsForDraw, drawingNodes);
         }
 
         public static void DrawNodes (Graphics g, List<Node> nodes)
@@ -189,7 +193,29 @@ namespace Diploma
 
         public static void StartClusteringToTsp()
         {
+            List<Cluster> clusters;
+
+            if (Algorithm as BeesColony != null)
+            {
+                SiteClustering site = ((Algorithm as BeesColony).BestSite as SiteClustering);
+
+                if (site == null)
+                    return;
+
+                clusters = site.Clusters;
+            }
+            else if (Algorithm as ClusteringAlgorithm != null)
+            {
+                clusters = (Algorithm as ClusteringAlgorithm).Clusters;
+            }
+            else
+            {
+                return;
+            }
+
+            ClusteringToTsp clusteringToTsp = new ClusteringToTsp(clusters);
             
+            SetAlgorithm(clusteringToTsp);
         }
 
         private static void SetAlgorithm(Algorithm algorithm)
@@ -238,6 +264,7 @@ namespace Diploma
             if (b)
             {
                 Nodes = data.Nodes;
+                drawingNodes = null;
                 CheckVolume();
                 DrawNodes();
             }

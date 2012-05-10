@@ -27,6 +27,7 @@ namespace Diploma
 
                 colony.Problem = BeesColony.ProblemType.VRP_TSP;
                 colony.ClustersCount = 1;
+                colony.IsCalcLastChange = true;
 
                 colony.ScoutsCount = scoutsCount;
                 colony.GoodSitesCount = goodSitesCount;
@@ -36,17 +37,21 @@ namespace Diploma
 
                 List<Node> colonyNodes = new List<Node>();
                 colonyNodes.AddRange(cluster.Nodes);
-                colonyNodes.Add(cluster.Depot);
+
+                if (cluster.Depot != null)
+                {
+                    colonyNodes.Add(cluster.Depot);
+                }
 
                 colony.SetNodes(colonyNodes);
-
                 colony.CreateSites();
-
                 colony.IterateToStop();
 
                 values.Add(colony.Value);
                 colonies.Add(colony);
             }
+
+            Stop();
         }
 
         public override double Value
@@ -64,23 +69,21 @@ namespace Diploma
 
         protected override void InnerIteration()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public override void DrawNodes()
         {
             List<Node> drawingNodes = new List<Node>();
 
-            foreach (BeesColony colony in colonies)
-            {
-                colony.BestSite.PrepareToDraw();
-                drawingNodes.AddRange(colony.BestSite.DrawingNodes);
-                
-            }
-
             foreach (Cluster cluster in clusters)
             {
                 drawingNodes.AddRange(cluster.GetDrawingNodes());
+            }
+
+            foreach (BeesColony colony in colonies)
+            {
+                drawingNodes.AddRange(colony.BestSite.PrepareToDraw());
             }
 
             TaskController.DrawNodes(drawingNodes); 

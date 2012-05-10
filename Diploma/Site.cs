@@ -55,7 +55,7 @@ namespace Diploma
             return false;
         }
 
-        public abstract void PrepareToDraw();
+        public abstract List<Node> PrepareToDraw();
 
         public void DrawNodes ()
         {
