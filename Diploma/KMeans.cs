@@ -8,7 +8,6 @@ namespace Diploma
 {
     public class KMeans : ClusteringAlgorithm
     {
-
         public KMeans(List<Node> nodes, int clustersCount)
             : base(nodes, clustersCount)
         {
@@ -101,23 +100,6 @@ namespace Diploma
                 }
 
                 closest.Nodes.Add(node);
-            }
-        }
-
-        //private void 
-
-        public override double Value
-        {
-            get
-            {
-                double value = 0;
-
-                foreach (Cluster cluster in Clusters)
-                {
-                    value += cluster.GetPrice();
-                }
-
-                return value;
             }
         }
 

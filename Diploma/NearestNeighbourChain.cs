@@ -5,31 +5,26 @@ using System.Text;
 
 namespace Diploma
 {
-    public class NearestNeighbourChain : Algorithm
+    public class NearestNeighbourChain : ClusteringAlgorithm
     {
-        private List<Cluster> clusters; 
-
-        public override double Value
+        public NearestNeighbourChain(List<Node> nodes)
+            : base(nodes)
         {
-            get
+            GenerateClusters();
+        }
+
+        private void GenerateClusters()
+        {
+            Clusters = new List<Cluster>();
+
+            for (int i = 0; i != Consumers.Count; i++)
             {
-                double value = 0;
-
-                foreach (Cluster cluster in clusters)
-                {
-                    value += cluster.GetPrice();
-                }
-
-                return value;
+                AddCluster();
+                Clusters[i].Nodes.Add(Consumers[i]);
             }
         }
 
         protected override void InnerIteration()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void DrawNodes()
         {
             throw new NotImplementedException();
         }

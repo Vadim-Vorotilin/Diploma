@@ -21,16 +21,21 @@ namespace Diploma
             Clusters.Add(newCluster);
         }
 
+        protected ClusteringAlgorithm(List<Node> nodes)
+        {
+            SetNodes(nodes);
+
+            if (Depots.Count != 0)
+            {
+                Depot = Depots[0];
+            }
+        }
+
         protected ClusteringAlgorithm(List<Node> nodes, int clustersCount)
+            : this(nodes)
         {
             ClustersCount = clustersCount;
             Clusters = new List<Cluster>();
-            SetNodes(nodes);
-
-            if (Nodes[0].Type == Node.NodeType.Depot)
-            {
-                Depot = Nodes[0];
-            }
 
             for (int i = 0; i != ClustersCount; i++)
             {
@@ -71,6 +76,21 @@ namespace Diploma
             }
 
             TaskController.DrawNodes(drawingNodes);
+        }
+
+        public override double Value
+        {
+            get
+            {
+                double value = 0;
+
+                foreach (Cluster cluster in Clusters)
+                {
+                    value += cluster.GetPrice();
+                }
+
+                return value;
+            }
         }
     }
 }

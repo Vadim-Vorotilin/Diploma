@@ -9,6 +9,8 @@ namespace Diploma
     public abstract class Algorithm
     {
         protected List<Node> Nodes;
+        protected List<Node> Depots;
+        protected List<Node> Consumers;
 
         protected int DepotsCount;
         protected int ConsumersCount;
@@ -25,21 +27,21 @@ namespace Diploma
         {
             Nodes = new List<Node>();
 
-            var depots = from node in nodesForSet
-                         where node.Type == Node.NodeType.Depot
-                         select node;
+            Depots = (from node in nodesForSet
+                      where node.Type == Node.NodeType.Depot
+                      select node).ToList();
 
-            Nodes.AddRange(depots.ToList());
+            Nodes.AddRange(Depots);
 
-            DepotsCount = depots.Count();
+            DepotsCount = Depots.Count;
 
-            var consumers = from node in nodesForSet
-                            where node.Type == Node.NodeType.Consumer
-                            select node;
+            Consumers = (from node in nodesForSet
+                         where node.Type == Node.NodeType.Consumer
+                         select node).ToList();
 
-            Nodes.AddRange(consumers.ToList());
+            Nodes.AddRange(Consumers);
 
-            ConsumersCount = consumers.Count();
+            ConsumersCount = Consumers.Count;
         }
 
         public int LastChangedIteration { get; private set; }
