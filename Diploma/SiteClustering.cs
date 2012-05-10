@@ -147,21 +147,13 @@ namespace Diploma
             get { throw new NotImplementedException(); }
         }
 
-        protected override void PrepareToDraw()
+        public override void PrepareToDraw()
         {
             DrawingNodes = new List<Node>();
 
             foreach (Cluster cluster in Clusters)
             {
-                Node center = new Node(-1, Node.NodeType.Auxiliary, (int)cluster.Center.x, (int)cluster.Center.y, cluster.Center.x, cluster.Center.y);
-
-                foreach (Node node in cluster.Nodes)
-                {
-                    center.ConnectTo(node, Color.LightGray);
-                    DrawingNodes.Add(node);
-                }
-
-                DrawingNodes.Add(center);
+                DrawingNodes.AddRange(cluster.GetDrawingNodes());
             }
 
             Node depot = Clusters[0].Depot;

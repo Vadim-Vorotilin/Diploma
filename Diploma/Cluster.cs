@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 
 namespace Diploma
@@ -89,6 +90,23 @@ namespace Diploma
             }
 
             Depot = cluster.Depot;
+        }
+
+        public List<Node> GetDrawingNodes()
+        {
+            List<Node> drawingNodes = new List<Node>();
+
+            Node center = new Node(-1, Node.NodeType.Auxiliary, (int)Center.x, (int)Center.y, Center.x, Center.y);
+
+            foreach (Node node in Nodes)
+            {
+                center.ConnectTo(node, Color.LightGray);
+                drawingNodes.Add(node);
+            }
+
+            drawingNodes.Add(center);
+
+            return drawingNodes;
         }
 
         public void Merge(Cluster cluster)

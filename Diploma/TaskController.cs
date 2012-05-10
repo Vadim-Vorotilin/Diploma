@@ -187,6 +187,11 @@ namespace Diploma
             SetAlgorithm(nearestNeighbourChain);
         }
 
+        public static void StartClusteringToTsp()
+        {
+            
+        }
+
         private static void SetAlgorithm(Algorithm algorithm)
         {
             foreach (Node node in Nodes)

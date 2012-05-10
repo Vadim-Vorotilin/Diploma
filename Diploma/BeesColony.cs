@@ -55,7 +55,7 @@ namespace Diploma
             }
         }
 
-        private Site BestSite
+        public Site BestSite
         {
             get
             {

@@ -8,7 +8,7 @@ namespace Diploma
     public abstract class Site : IComparable
     {
         protected List<Node> Nodes;
-        protected List<Node> DrawingNodes;
+        public List<Node> DrawingNodes { get; protected set; }
 
         protected Site (List<Node> nodes)
         {
@@ -55,7 +55,7 @@ namespace Diploma
             return false;
         }
 
-        protected abstract void PrepareToDraw();
+        public abstract void PrepareToDraw();
 
         public void DrawNodes ()
         {

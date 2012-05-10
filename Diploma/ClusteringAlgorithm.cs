@@ -8,7 +8,7 @@ namespace Diploma
 {
     public abstract class ClusteringAlgorithm : Algorithm
     {
-        protected List<Cluster> Clusters;
+        public List<Cluster> Clusters { get; protected set; }
         protected Node Depot;
 
         protected int ClustersCount;

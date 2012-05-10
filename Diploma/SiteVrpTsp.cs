@@ -41,7 +41,7 @@ namespace Diploma
             get { return nodesSequence; }
         }
 
-        protected override void PrepareToDraw()
+        public override void PrepareToDraw()
         {
             DrawingNodes = new List<Node>();
 
