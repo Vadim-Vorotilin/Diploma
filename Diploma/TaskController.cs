@@ -259,6 +259,7 @@ namespace Diploma
         public static void CreateNewModel()
         {
             Nodes = new List<Node>();
+            drawingNodes = null;
             DrawNodes();
         }
 
