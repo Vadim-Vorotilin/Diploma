@@ -42,7 +42,7 @@ namespace Diploma
             }
             else if (e.Button == MouseButtons.Right)
             {
-                TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y, volume);
+                TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y, 0);
             }
         }
 
@@ -282,6 +282,26 @@ namespace Diploma
                     "Value: {0:0.00}. Time: {1:0.00} s. {2}",
                     TaskController.Algorithm.Value, calcTime.TotalMilliseconds / 1000.0,
                     TaskController.Algorithm.Info()));
+        }
+
+        private void GenerateNodes(int count, int volumeFrom, int volumeTo, bool withDepot)
+        {
+            for (int i = 0; i != count; i++)
+            {
+                TaskController.AddNodeAtScreen(Node.NodeType.Consumer, TaskController.Rnd.Next(10, panel_Drawing.Width - 10), TaskController.Rnd.Next(10, panel_Drawing.Height - 10), TaskController.Rnd.Next(volumeFrom, volumeTo + 1));
+            }
+
+            TaskController.AddNodeAtScreen(Node.NodeType.Depot, TaskController.Rnd.Next(10, panel_Drawing.Width - 10), TaskController.Rnd.Next(10, panel_Drawing.Height - 10), 0);
+
+            TaskController.DrawNodes(TaskController.Nodes);
+        }
+
+        private void button_Generate_Click(object sender, EventArgs e)
+        {
+            GenerateNodes(Convert.ToInt32(numericUpDown_GeneratingCount.Value),
+                Convert.ToInt32(numericUpDown_GeneratingVolumeFrom.Value),
+                Convert.ToInt32(numericUpDown_GeneratingVolumeTo.Value),
+                checkBox_WithDepot.Checked);
         }
     }
 }

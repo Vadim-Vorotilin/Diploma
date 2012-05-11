@@ -34,7 +34,7 @@
             this.groupBox_Generation = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel_Generation = new System.Windows.Forms.FlowLayoutPanel();
             this.label_GeneratingCount = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_GeneratingCount = new System.Windows.Forms.NumericUpDown();
             this.label_GeneratingVolume = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label_GeneratingVolumeFrom = new System.Windows.Forms.Label();
@@ -76,11 +76,12 @@
             this.toolStripStatusLabel_Main = new System.Windows.Forms.ToolStripStatusLabel();
             this.button_Generate = new System.Windows.Forms.Button();
             this.groupBox_Options = new System.Windows.Forms.GroupBox();
+            this.checkBox_WithDepot = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
             this.groupBox_Generation.SuspendLayout();
             this.flowLayoutPanel_Generation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_GeneratingCount)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_GeneratingVolumeFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_GeneratingVolumeTo)).BeginInit();
@@ -145,7 +146,7 @@
             this.groupBox_Generation.Controls.Add(this.flowLayoutPanel_Generation);
             this.groupBox_Generation.Location = new System.Drawing.Point(3, 32);
             this.groupBox_Generation.Name = "groupBox_Generation";
-            this.groupBox_Generation.Size = new System.Drawing.Size(130, 165);
+            this.groupBox_Generation.Size = new System.Drawing.Size(130, 191);
             this.groupBox_Generation.TabIndex = 11;
             this.groupBox_Generation.TabStop = false;
             this.groupBox_Generation.Text = "Generation";
@@ -153,15 +154,16 @@
             // flowLayoutPanel_Generation
             // 
             this.flowLayoutPanel_Generation.Controls.Add(this.label_GeneratingCount);
-            this.flowLayoutPanel_Generation.Controls.Add(this.numericUpDown1);
+            this.flowLayoutPanel_Generation.Controls.Add(this.numericUpDown_GeneratingCount);
             this.flowLayoutPanel_Generation.Controls.Add(this.label_GeneratingVolume);
             this.flowLayoutPanel_Generation.Controls.Add(this.tableLayoutPanel1);
+            this.flowLayoutPanel_Generation.Controls.Add(this.checkBox_WithDepot);
             this.flowLayoutPanel_Generation.Controls.Add(this.button_Generate);
             this.flowLayoutPanel_Generation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Generation.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_Generation.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel_Generation.Name = "flowLayoutPanel_Generation";
-            this.flowLayoutPanel_Generation.Size = new System.Drawing.Size(124, 146);
+            this.flowLayoutPanel_Generation.Size = new System.Drawing.Size(124, 172);
             this.flowLayoutPanel_Generation.TabIndex = 0;
             // 
             // label_GeneratingCount
@@ -174,23 +176,23 @@
             this.label_GeneratingCount.TabIndex = 0;
             this.label_GeneratingCount.Text = "Count";
             // 
-            // numericUpDown1
+            // numericUpDown_GeneratingCount
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(3, 21);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numericUpDown_GeneratingCount.Location = new System.Drawing.Point(3, 21);
+            this.numericUpDown_GeneratingCount.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.numericUpDown_GeneratingCount.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 1;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numericUpDown_GeneratingCount.Name = "numericUpDown_GeneratingCount";
+            this.numericUpDown_GeneratingCount.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown_GeneratingCount.TabIndex = 1;
+            this.numericUpDown_GeneratingCount.Value = new decimal(new int[] {
             100,
             0,
             0,
@@ -289,7 +291,7 @@
             // groupBox_Node
             // 
             this.groupBox_Node.Controls.Add(this.flowLayoutPanel_Node);
-            this.groupBox_Node.Location = new System.Drawing.Point(3, 203);
+            this.groupBox_Node.Location = new System.Drawing.Point(3, 229);
             this.groupBox_Node.Name = "groupBox_Node";
             this.groupBox_Node.Size = new System.Drawing.Size(130, 68);
             this.groupBox_Node.TabIndex = 1;
@@ -538,7 +540,7 @@
             // label_LogFileName
             // 
             this.label_LogFileName.AutoSize = true;
-            this.label_LogFileName.Location = new System.Drawing.Point(3, 274);
+            this.label_LogFileName.Location = new System.Drawing.Point(3, 300);
             this.label_LogFileName.Name = "label_LogFileName";
             this.label_LogFileName.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.label_LogFileName.Size = new System.Drawing.Size(41, 16);
@@ -547,7 +549,7 @@
             // 
             // textBox_LogFileName
             // 
-            this.textBox_LogFileName.Location = new System.Drawing.Point(3, 293);
+            this.textBox_LogFileName.Location = new System.Drawing.Point(3, 319);
             this.textBox_LogFileName.Name = "textBox_LogFileName";
             this.textBox_LogFileName.Size = new System.Drawing.Size(127, 20);
             this.textBox_LogFileName.TabIndex = 9;
@@ -655,13 +657,14 @@
             // 
             // button_Generate
             // 
-            this.button_Generate.Location = new System.Drawing.Point(3, 112);
+            this.button_Generate.Location = new System.Drawing.Point(3, 135);
             this.button_Generate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.button_Generate.Name = "button_Generate";
             this.button_Generate.Size = new System.Drawing.Size(118, 23);
             this.button_Generate.TabIndex = 4;
             this.button_Generate.Text = "Generate";
             this.button_Generate.UseVisualStyleBackColor = true;
+            this.button_Generate.Click += new System.EventHandler(this.button_Generate_Click);
             // 
             // groupBox_Options
             // 
@@ -672,6 +675,16 @@
             this.groupBox_Options.Size = new System.Drawing.Size(279, 511);
             this.groupBox_Options.TabIndex = 2;
             this.groupBox_Options.TabStop = false;
+            // 
+            // checkBox_WithDepot
+            // 
+            this.checkBox_WithDepot.AutoSize = true;
+            this.checkBox_WithDepot.Location = new System.Drawing.Point(3, 110);
+            this.checkBox_WithDepot.Name = "checkBox_WithDepot";
+            this.checkBox_WithDepot.Size = new System.Drawing.Size(78, 17);
+            this.checkBox_WithDepot.TabIndex = 5;
+            this.checkBox_WithDepot.Text = "With depot";
+            this.checkBox_WithDepot.UseVisualStyleBackColor = true;
             // 
             // GraphForm
             // 
@@ -691,7 +704,7 @@
             this.groupBox_Generation.ResumeLayout(false);
             this.flowLayoutPanel_Generation.ResumeLayout(false);
             this.flowLayoutPanel_Generation.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_GeneratingCount)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_GeneratingVolumeFrom)).EndInit();
@@ -757,7 +770,7 @@
         private System.Windows.Forms.GroupBox groupBox_Generation;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Generation;
         private System.Windows.Forms.Label label_GeneratingCount;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown_GeneratingCount;
         private System.Windows.Forms.Label label_GeneratingVolume;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label_GeneratingVolumeFrom;
@@ -766,6 +779,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_GeneratingVolumeTo;
         private System.Windows.Forms.Button button_Generate;
         private System.Windows.Forms.GroupBox groupBox_Options;
+        private System.Windows.Forms.CheckBox checkBox_WithDepot;
 
     }
 }
