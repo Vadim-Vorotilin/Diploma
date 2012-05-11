@@ -31,11 +31,18 @@
             this.tableLayoutPanel_Main = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel_Tools = new System.Windows.Forms.FlowLayoutPanel();
             this.button_Redraw = new System.Windows.Forms.Button();
-            this.button_AddNode = new System.Windows.Forms.Button();
+            this.groupBox_Generation = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel_Generation = new System.Windows.Forms.FlowLayoutPanel();
+            this.label_GeneratingCount = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label_GeneratingVolume = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_GeneratingVolumeFrom = new System.Windows.Forms.Label();
+            this.label_GeneratingVolumeTo = new System.Windows.Forms.Label();
+            this.numericUpDown_GeneratingVolumeFrom = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_GeneratingVolumeTo = new System.Windows.Forms.NumericUpDown();
             this.groupBox_Node = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel_Node = new System.Windows.Forms.FlowLayoutPanel();
-            this.radioButton_isDepot = new System.Windows.Forms.RadioButton();
-            this.radioButton_isConsumer = new System.Windows.Forms.RadioButton();
             this.label_Volume = new System.Windows.Forms.Label();
             this.numericUpDown_Volume = new System.Windows.Forms.NumericUpDown();
             this.groupBox_Algorithm = new System.Windows.Forms.GroupBox();
@@ -50,6 +57,8 @@
             this.button_Iteration = new System.Windows.Forms.Button();
             this.numericUpDown_IterationsCount = new System.Windows.Forms.NumericUpDown();
             this.button_Iterate = new System.Windows.Forms.Button();
+            this.button_IterateToStop = new System.Windows.Forms.Button();
+            this.button_CalculateTsp = new System.Windows.Forms.Button();
             this.checkBox_LastChangedIteration = new System.Windows.Forms.CheckBox();
             this.label_LogFileName = new System.Windows.Forms.Label();
             this.textBox_LogFileName = new System.Windows.Forms.TextBox();
@@ -65,10 +74,16 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Main = new System.Windows.Forms.ToolStripStatusLabel();
-            this.button_IterateToStop = new System.Windows.Forms.Button();
-            this.button_CalculateTsp = new System.Windows.Forms.Button();
+            this.button_Generate = new System.Windows.Forms.Button();
+            this.groupBox_Options = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
+            this.groupBox_Generation.SuspendLayout();
+            this.flowLayoutPanel_Generation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_GeneratingVolumeFrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_GeneratingVolumeTo)).BeginInit();
             this.groupBox_Node.SuspendLayout();
             this.flowLayoutPanel_Node.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Volume)).BeginInit();
@@ -79,15 +94,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IterationsCount)).BeginInit();
             this.menuStrip_MainMenu.SuspendLayout();
             this.statusStrip_Main.SuspendLayout();
+            this.groupBox_Options.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_Main
             // 
             this.tableLayoutPanel_Main.ColumnCount = 2;
             this.tableLayoutPanel_Main.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_Main.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
-            this.tableLayoutPanel_Main.Controls.Add(this.flowLayoutPanel_Tools, 1, 0);
+            this.tableLayoutPanel_Main.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 285F));
             this.tableLayoutPanel_Main.Controls.Add(this.panel_Drawing, 0, 0);
+            this.tableLayoutPanel_Main.Controls.Add(this.groupBox_Options, 1, 0);
             this.tableLayoutPanel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_Main.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel_Main.Name = "tableLayoutPanel_Main";
@@ -95,23 +111,23 @@
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(927, 640);
+            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(1006, 575);
             this.tableLayoutPanel_Main.TabIndex = 0;
             // 
             // flowLayoutPanel_Tools
             // 
             this.flowLayoutPanel_Tools.Controls.Add(this.button_Redraw);
-            this.flowLayoutPanel_Tools.Controls.Add(this.button_AddNode);
+            this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_Generation);
             this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_Node);
-            this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_Algorithm);
-            this.flowLayoutPanel_Tools.Controls.Add(this.checkBox_LastChangedIteration);
             this.flowLayoutPanel_Tools.Controls.Add(this.label_LogFileName);
             this.flowLayoutPanel_Tools.Controls.Add(this.textBox_LogFileName);
+            this.flowLayoutPanel_Tools.Controls.Add(this.groupBox_Algorithm);
+            this.flowLayoutPanel_Tools.Controls.Add(this.checkBox_LastChangedIteration);
             this.flowLayoutPanel_Tools.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Tools.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(782, 3);
+            this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel_Tools.Name = "flowLayoutPanel_Tools";
-            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(142, 576);
+            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(273, 492);
             this.flowLayoutPanel_Tools.TabIndex = 0;
             // 
             // button_Redraw
@@ -124,67 +140,177 @@
             this.button_Redraw.UseVisualStyleBackColor = true;
             this.button_Redraw.Click += new System.EventHandler(this.button_Redraw_Click);
             // 
-            // button_AddNode
+            // groupBox_Generation
             // 
-            this.button_AddNode.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button_AddNode.Location = new System.Drawing.Point(3, 32);
-            this.button_AddNode.Name = "button_AddNode";
-            this.button_AddNode.Size = new System.Drawing.Size(130, 23);
-            this.button_AddNode.TabIndex = 2;
-            this.button_AddNode.Text = "Add node";
-            this.button_AddNode.UseVisualStyleBackColor = true;
-            this.button_AddNode.Click += new System.EventHandler(this.button_AddNode_Click);
+            this.groupBox_Generation.Controls.Add(this.flowLayoutPanel_Generation);
+            this.groupBox_Generation.Location = new System.Drawing.Point(3, 32);
+            this.groupBox_Generation.Name = "groupBox_Generation";
+            this.groupBox_Generation.Size = new System.Drawing.Size(130, 165);
+            this.groupBox_Generation.TabIndex = 11;
+            this.groupBox_Generation.TabStop = false;
+            this.groupBox_Generation.Text = "Generation";
+            // 
+            // flowLayoutPanel_Generation
+            // 
+            this.flowLayoutPanel_Generation.Controls.Add(this.label_GeneratingCount);
+            this.flowLayoutPanel_Generation.Controls.Add(this.numericUpDown1);
+            this.flowLayoutPanel_Generation.Controls.Add(this.label_GeneratingVolume);
+            this.flowLayoutPanel_Generation.Controls.Add(this.tableLayoutPanel1);
+            this.flowLayoutPanel_Generation.Controls.Add(this.button_Generate);
+            this.flowLayoutPanel_Generation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel_Generation.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel_Generation.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel_Generation.Name = "flowLayoutPanel_Generation";
+            this.flowLayoutPanel_Generation.Size = new System.Drawing.Size(124, 146);
+            this.flowLayoutPanel_Generation.TabIndex = 0;
+            // 
+            // label_GeneratingCount
+            // 
+            this.label_GeneratingCount.AutoSize = true;
+            this.label_GeneratingCount.Location = new System.Drawing.Point(3, 5);
+            this.label_GeneratingCount.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label_GeneratingCount.Name = "label_GeneratingCount";
+            this.label_GeneratingCount.Size = new System.Drawing.Size(35, 13);
+            this.label_GeneratingCount.TabIndex = 0;
+            this.label_GeneratingCount.Text = "Count";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(3, 21);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 1;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label_GeneratingVolume
+            // 
+            this.label_GeneratingVolume.AutoSize = true;
+            this.label_GeneratingVolume.Location = new System.Drawing.Point(3, 49);
+            this.label_GeneratingVolume.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label_GeneratingVolume.Name = "label_GeneratingVolume";
+            this.label_GeneratingVolume.Size = new System.Drawing.Size(42, 13);
+            this.label_GeneratingVolume.TabIndex = 2;
+            this.label_GeneratingVolume.Text = "Volume";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label_GeneratingVolumeFrom, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label_GeneratingVolumeTo, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDown_GeneratingVolumeFrom, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDown_GeneratingVolumeTo, 1, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 65);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(123, 42);
+            this.tableLayoutPanel1.TabIndex = 3;
+            // 
+            // label_GeneratingVolumeFrom
+            // 
+            this.label_GeneratingVolumeFrom.AutoSize = true;
+            this.label_GeneratingVolumeFrom.Location = new System.Drawing.Point(3, 0);
+            this.label_GeneratingVolumeFrom.Name = "label_GeneratingVolumeFrom";
+            this.label_GeneratingVolumeFrom.Size = new System.Drawing.Size(30, 13);
+            this.label_GeneratingVolumeFrom.TabIndex = 0;
+            this.label_GeneratingVolumeFrom.Text = "From";
+            // 
+            // label_GeneratingVolumeTo
+            // 
+            this.label_GeneratingVolumeTo.AutoSize = true;
+            this.label_GeneratingVolumeTo.Location = new System.Drawing.Point(64, 0);
+            this.label_GeneratingVolumeTo.Name = "label_GeneratingVolumeTo";
+            this.label_GeneratingVolumeTo.Size = new System.Drawing.Size(20, 13);
+            this.label_GeneratingVolumeTo.TabIndex = 1;
+            this.label_GeneratingVolumeTo.Text = "To";
+            // 
+            // numericUpDown_GeneratingVolumeFrom
+            // 
+            this.numericUpDown_GeneratingVolumeFrom.Location = new System.Drawing.Point(3, 17);
+            this.numericUpDown_GeneratingVolumeFrom.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDown_GeneratingVolumeFrom.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_GeneratingVolumeFrom.Name = "numericUpDown_GeneratingVolumeFrom";
+            this.numericUpDown_GeneratingVolumeFrom.Size = new System.Drawing.Size(55, 20);
+            this.numericUpDown_GeneratingVolumeFrom.TabIndex = 2;
+            this.numericUpDown_GeneratingVolumeFrom.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDown_GeneratingVolumeTo
+            // 
+            this.numericUpDown_GeneratingVolumeTo.Location = new System.Drawing.Point(64, 17);
+            this.numericUpDown_GeneratingVolumeTo.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDown_GeneratingVolumeTo.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_GeneratingVolumeTo.Name = "numericUpDown_GeneratingVolumeTo";
+            this.numericUpDown_GeneratingVolumeTo.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDown_GeneratingVolumeTo.TabIndex = 3;
+            this.numericUpDown_GeneratingVolumeTo.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             // 
             // groupBox_Node
             // 
             this.groupBox_Node.Controls.Add(this.flowLayoutPanel_Node);
-            this.groupBox_Node.Location = new System.Drawing.Point(3, 61);
+            this.groupBox_Node.Location = new System.Drawing.Point(3, 203);
             this.groupBox_Node.Name = "groupBox_Node";
-            this.groupBox_Node.Size = new System.Drawing.Size(130, 117);
+            this.groupBox_Node.Size = new System.Drawing.Size(130, 68);
             this.groupBox_Node.TabIndex = 1;
             this.groupBox_Node.TabStop = false;
             this.groupBox_Node.Text = "Node";
             // 
             // flowLayoutPanel_Node
             // 
-            this.flowLayoutPanel_Node.Controls.Add(this.radioButton_isDepot);
-            this.flowLayoutPanel_Node.Controls.Add(this.radioButton_isConsumer);
             this.flowLayoutPanel_Node.Controls.Add(this.label_Volume);
             this.flowLayoutPanel_Node.Controls.Add(this.numericUpDown_Volume);
             this.flowLayoutPanel_Node.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Node.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_Node.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel_Node.Name = "flowLayoutPanel_Node";
-            this.flowLayoutPanel_Node.Size = new System.Drawing.Size(124, 98);
+            this.flowLayoutPanel_Node.Size = new System.Drawing.Size(124, 49);
             this.flowLayoutPanel_Node.TabIndex = 3;
-            // 
-            // radioButton_isDepot
-            // 
-            this.radioButton_isDepot.AutoSize = true;
-            this.radioButton_isDepot.Location = new System.Drawing.Point(3, 3);
-            this.radioButton_isDepot.Name = "radioButton_isDepot";
-            this.radioButton_isDepot.Size = new System.Drawing.Size(54, 17);
-            this.radioButton_isDepot.TabIndex = 0;
-            this.radioButton_isDepot.Text = "Depot";
-            this.radioButton_isDepot.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_isConsumer
-            // 
-            this.radioButton_isConsumer.AutoSize = true;
-            this.radioButton_isConsumer.Checked = true;
-            this.radioButton_isConsumer.Location = new System.Drawing.Point(3, 26);
-            this.radioButton_isConsumer.Name = "radioButton_isConsumer";
-            this.radioButton_isConsumer.Size = new System.Drawing.Size(72, 17);
-            this.radioButton_isConsumer.TabIndex = 1;
-            this.radioButton_isConsumer.TabStop = true;
-            this.radioButton_isConsumer.Text = "Consumer";
-            this.radioButton_isConsumer.UseVisualStyleBackColor = true;
-            this.radioButton_isConsumer.CheckedChanged += new System.EventHandler(this.radioButton_isConsumer_CheckedChanged);
             // 
             // label_Volume
             // 
             this.label_Volume.AutoSize = true;
-            this.label_Volume.Location = new System.Drawing.Point(3, 51);
+            this.label_Volume.Location = new System.Drawing.Point(3, 5);
             this.label_Volume.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label_Volume.Name = "label_Volume";
             this.label_Volume.Size = new System.Drawing.Size(42, 13);
@@ -193,7 +319,7 @@
             // 
             // numericUpDown_Volume
             // 
-            this.numericUpDown_Volume.Location = new System.Drawing.Point(3, 67);
+            this.numericUpDown_Volume.Location = new System.Drawing.Point(3, 21);
             this.numericUpDown_Volume.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -205,7 +331,7 @@
             0,
             0});
             this.numericUpDown_Volume.Name = "numericUpDown_Volume";
-            this.numericUpDown_Volume.Size = new System.Drawing.Size(114, 20);
+            this.numericUpDown_Volume.Size = new System.Drawing.Size(118, 20);
             this.numericUpDown_Volume.TabIndex = 2;
             this.numericUpDown_Volume.Value = new decimal(new int[] {
             1,
@@ -216,7 +342,7 @@
             // groupBox_Algorithm
             // 
             this.groupBox_Algorithm.Controls.Add(this.flowLayoutPanel_Algorithm);
-            this.groupBox_Algorithm.Location = new System.Drawing.Point(3, 184);
+            this.groupBox_Algorithm.Location = new System.Drawing.Point(139, 3);
             this.groupBox_Algorithm.Name = "groupBox_Algorithm";
             this.groupBox_Algorithm.Size = new System.Drawing.Size(130, 317);
             this.groupBox_Algorithm.TabIndex = 7;
@@ -377,12 +503,32 @@
             this.button_Iterate.UseVisualStyleBackColor = true;
             this.button_Iterate.Click += new System.EventHandler(this.button_Iterate_Click);
             // 
+            // button_IterateToStop
+            // 
+            this.button_IterateToStop.Location = new System.Drawing.Point(3, 239);
+            this.button_IterateToStop.Name = "button_IterateToStop";
+            this.button_IterateToStop.Size = new System.Drawing.Size(117, 23);
+            this.button_IterateToStop.TabIndex = 13;
+            this.button_IterateToStop.Text = "Iterate to stop";
+            this.button_IterateToStop.UseVisualStyleBackColor = true;
+            this.button_IterateToStop.Click += new System.EventHandler(this.button_IterateToStop_Click);
+            // 
+            // button_CalculateTsp
+            // 
+            this.button_CalculateTsp.Location = new System.Drawing.Point(3, 268);
+            this.button_CalculateTsp.Name = "button_CalculateTsp";
+            this.button_CalculateTsp.Size = new System.Drawing.Size(117, 23);
+            this.button_CalculateTsp.TabIndex = 14;
+            this.button_CalculateTsp.Text = "Calc TSP";
+            this.button_CalculateTsp.UseVisualStyleBackColor = true;
+            this.button_CalculateTsp.Click += new System.EventHandler(this.button_CalculateTsp_Click);
+            // 
             // checkBox_LastChangedIteration
             // 
             this.checkBox_LastChangedIteration.AutoSize = true;
             this.checkBox_LastChangedIteration.Checked = true;
             this.checkBox_LastChangedIteration.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_LastChangedIteration.Location = new System.Drawing.Point(3, 507);
+            this.checkBox_LastChangedIteration.Location = new System.Drawing.Point(139, 326);
             this.checkBox_LastChangedIteration.Name = "checkBox_LastChangedIteration";
             this.checkBox_LastChangedIteration.Size = new System.Drawing.Size(105, 17);
             this.checkBox_LastChangedIteration.TabIndex = 8;
@@ -392,7 +538,7 @@
             // label_LogFileName
             // 
             this.label_LogFileName.AutoSize = true;
-            this.label_LogFileName.Location = new System.Drawing.Point(3, 527);
+            this.label_LogFileName.Location = new System.Drawing.Point(3, 274);
             this.label_LogFileName.Name = "label_LogFileName";
             this.label_LogFileName.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.label_LogFileName.Size = new System.Drawing.Size(41, 16);
@@ -401,7 +547,7 @@
             // 
             // textBox_LogFileName
             // 
-            this.textBox_LogFileName.Location = new System.Drawing.Point(3, 546);
+            this.textBox_LogFileName.Location = new System.Drawing.Point(3, 293);
             this.textBox_LogFileName.Name = "textBox_LogFileName";
             this.textBox_LogFileName.Size = new System.Drawing.Size(127, 20);
             this.textBox_LogFileName.TabIndex = 9;
@@ -413,7 +559,7 @@
             this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
             this.panel_Drawing.Name = "panel_Drawing";
-            this.panel_Drawing.Size = new System.Drawing.Size(773, 576);
+            this.panel_Drawing.Size = new System.Drawing.Size(715, 511);
             this.panel_Drawing.TabIndex = 1;
             this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
             // 
@@ -423,7 +569,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip_MainMenu.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_MainMenu.Name = "menuStrip_MainMenu";
-            this.menuStrip_MainMenu.Size = new System.Drawing.Size(927, 24);
+            this.menuStrip_MainMenu.Size = new System.Drawing.Size(1006, 24);
             this.menuStrip_MainMenu.TabIndex = 1;
             this.menuStrip_MainMenu.Text = "menuStrip1";
             // 
@@ -496,9 +642,9 @@
             // 
             this.statusStrip_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel_Main});
-            this.statusStrip_Main.Location = new System.Drawing.Point(0, 642);
+            this.statusStrip_Main.Location = new System.Drawing.Point(0, 577);
             this.statusStrip_Main.Name = "statusStrip_Main";
-            this.statusStrip_Main.Size = new System.Drawing.Size(927, 22);
+            this.statusStrip_Main.Size = new System.Drawing.Size(1006, 22);
             this.statusStrip_Main.TabIndex = 2;
             this.statusStrip_Main.Text = "statusStrip1";
             // 
@@ -507,31 +653,31 @@
             this.toolStripStatusLabel_Main.Name = "toolStripStatusLabel_Main";
             this.toolStripStatusLabel_Main.Size = new System.Drawing.Size(0, 17);
             // 
-            // button_IterateToStop
+            // button_Generate
             // 
-            this.button_IterateToStop.Location = new System.Drawing.Point(3, 239);
-            this.button_IterateToStop.Name = "button_IterateToStop";
-            this.button_IterateToStop.Size = new System.Drawing.Size(117, 23);
-            this.button_IterateToStop.TabIndex = 13;
-            this.button_IterateToStop.Text = "Iterate to stop";
-            this.button_IterateToStop.UseVisualStyleBackColor = true;
-            this.button_IterateToStop.Click += new System.EventHandler(this.button_IterateToStop_Click);
+            this.button_Generate.Location = new System.Drawing.Point(3, 112);
+            this.button_Generate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.button_Generate.Name = "button_Generate";
+            this.button_Generate.Size = new System.Drawing.Size(118, 23);
+            this.button_Generate.TabIndex = 4;
+            this.button_Generate.Text = "Generate";
+            this.button_Generate.UseVisualStyleBackColor = true;
             // 
-            // button_CalculateTsp
+            // groupBox_Options
             // 
-            this.button_CalculateTsp.Location = new System.Drawing.Point(3, 268);
-            this.button_CalculateTsp.Name = "button_CalculateTsp";
-            this.button_CalculateTsp.Size = new System.Drawing.Size(114, 23);
-            this.button_CalculateTsp.TabIndex = 14;
-            this.button_CalculateTsp.Text = "Calc TSP";
-            this.button_CalculateTsp.UseVisualStyleBackColor = true;
-            this.button_CalculateTsp.Click += new System.EventHandler(this.button_CalculateTsp_Click);
+            this.groupBox_Options.Controls.Add(this.flowLayoutPanel_Tools);
+            this.groupBox_Options.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox_Options.Location = new System.Drawing.Point(724, 3);
+            this.groupBox_Options.Name = "groupBox_Options";
+            this.groupBox_Options.Size = new System.Drawing.Size(279, 511);
+            this.groupBox_Options.TabIndex = 2;
+            this.groupBox_Options.TabStop = false;
             // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 664);
+            this.ClientSize = new System.Drawing.Size(1006, 599);
             this.Controls.Add(this.statusStrip_Main);
             this.Controls.Add(this.tableLayoutPanel_Main);
             this.Controls.Add(this.menuStrip_MainMenu);
@@ -542,6 +688,14 @@
             this.tableLayoutPanel_Main.ResumeLayout(false);
             this.flowLayoutPanel_Tools.ResumeLayout(false);
             this.flowLayoutPanel_Tools.PerformLayout();
+            this.groupBox_Generation.ResumeLayout(false);
+            this.flowLayoutPanel_Generation.ResumeLayout(false);
+            this.flowLayoutPanel_Generation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_GeneratingVolumeFrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_GeneratingVolumeTo)).EndInit();
             this.groupBox_Node.ResumeLayout(false);
             this.flowLayoutPanel_Node.ResumeLayout(false);
             this.flowLayoutPanel_Node.PerformLayout();
@@ -556,6 +710,7 @@
             this.menuStrip_MainMenu.PerformLayout();
             this.statusStrip_Main.ResumeLayout(false);
             this.statusStrip_Main.PerformLayout();
+            this.groupBox_Options.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,9 +723,6 @@
         private System.Windows.Forms.Button button_Redraw;
         private System.Windows.Forms.Panel panel_Drawing;
         private System.Windows.Forms.GroupBox groupBox_Node;
-        private System.Windows.Forms.RadioButton radioButton_isConsumer;
-        private System.Windows.Forms.RadioButton radioButton_isDepot;
-        private System.Windows.Forms.Button button_AddNode;
         private System.Windows.Forms.Button button_StartAlgorithm;
         private System.Windows.Forms.Button button_Iteration;
         private System.Windows.Forms.NumericUpDown numericUpDown_IterationsCount;
@@ -602,6 +754,18 @@
         private System.Windows.Forms.TextBox textBox_LogFileName;
         private System.Windows.Forms.Button button_IterateToStop;
         private System.Windows.Forms.Button button_CalculateTsp;
+        private System.Windows.Forms.GroupBox groupBox_Generation;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Generation;
+        private System.Windows.Forms.Label label_GeneratingCount;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label_GeneratingVolume;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label_GeneratingVolumeFrom;
+        private System.Windows.Forms.Label label_GeneratingVolumeTo;
+        private System.Windows.Forms.NumericUpDown numericUpDown_GeneratingVolumeFrom;
+        private System.Windows.Forms.NumericUpDown numericUpDown_GeneratingVolumeTo;
+        private System.Windows.Forms.Button button_Generate;
+        private System.Windows.Forms.GroupBox groupBox_Options;
 
     }
 }

@@ -19,7 +19,6 @@ namespace Diploma
         private void GraphForm_Load(object sender, EventArgs e)
         {
             TaskController.GraphicsForDraw = panel_Drawing.CreateGraphics();
-            button_AddNode.PerformClick();
             comboBox_AlgorithmType.SelectedIndex = 0;
             LockIterationsOptions(true);
         }
@@ -35,49 +34,16 @@ namespace Diploma
 
         private void panel_Drawing_MouseClick(object sender, MouseEventArgs e)
         {
-            if (isAddingNode)
+            int volume = Convert.ToInt32(numericUpDown_Volume.Value);
+            
+            if (e.Button == MouseButtons.Left)
             {
-                int volume = Convert.ToInt32(numericUpDown_Volume.Value);
-
-                if (radioButton_isConsumer.Checked)
-                {
-                    if (e.Button == MouseButtons.Left)
-                    {
-                        TaskController.AddNodeAtScreen(Node.NodeType.Consumer, e.X, e.Y, volume);
-                    }
-                    else if (e.Button == MouseButtons.Right)
-                    {
-                        TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y, volume);
-                    }
-                }
-                else if (radioButton_isDepot.Checked)
-                {
-                    if (e.Button == MouseButtons.Left)
-                    {
-                        TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y, volume);
-                    }
-                    else if (e.Button == MouseButtons.Right)
-                    {
-                        TaskController.AddNodeAtScreen(Node.NodeType.Consumer, e.X, e.Y, volume);
-                    }
-                }
+                TaskController.AddNodeAtScreen(Node.NodeType.Consumer, e.X, e.Y, volume);
             }
-        }
-
-        private bool isAddingNode = false;
-
-        private void button_AddNode_Click(object sender, EventArgs e)
-        {
-            if (isAddingNode)
+            else if (e.Button == MouseButtons.Right)
             {
-                (sender as Button).Text = "Add node";
+                TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y, volume);
             }
-            else
-            {
-                (sender as Button).Text = "Stop adding";
-            }
-
-            isAddingNode = !isAddingNode;
         }
 
         private void button_StartAlgorithm_Click(object sender, EventArgs eventArgs)
@@ -264,18 +230,6 @@ namespace Diploma
         private void SetStatus(string status)
         {
             toolStripStatusLabel_Main.Text = status;
-        }
-
-        private void radioButton_isConsumer_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton_isConsumer.Checked)
-            {
-                LockConsumerVolumeSettings(false);
-            }
-            else
-            {
-                LockConsumerVolumeSettings(true);
-            }
         }
 
         private void LockConsumerVolumeSettings(bool _lock)
