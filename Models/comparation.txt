@@ -1,0 +1,9 @@
+VRP
+TSP	4604	-	11.7s
+K-m	4609	-	1.5s
+BEE	4791	-	1.2s
+CVRP
+NNC	6270	-	0.3s
+BEE	5610	-	6.5s
+
+Depots: 1. Consumers: 72.

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -41,19 +42,19 @@ namespace Diploma
             get { return nodesSequence; }
         }
 
-        private void ConnectConsumerToDepot(Node node1, Node node2)
+        private void ConnectConsumerToDepot(Node node1, Node node2, Color connectionsColor)
         {
             if (node1.Type != Node.NodeType.Depot)
             {
-                node1.ConnectTo(node2);
+                node1.ConnectTo(node2, connectionsColor);
             }
             else
             {
-                node2.ConnectTo(node1);
+                node2.ConnectTo(node1, connectionsColor);
             }
         }
 
-        public override List<Node> PrepareToDraw()
+        public override List<Node> PrepareToDraw(Color connectionsColor)
         {
             DrawingNodes = new List<Node>();
 
@@ -71,11 +72,10 @@ namespace Diploma
 
             for (int i = 0; i != result.Length - 1; i++)
             {
-
-                ConnectConsumerToDepot(Nodes[result[i]], Nodes[result[i + 1]]);
+                ConnectConsumerToDepot(Nodes[result[i]], Nodes[result[i + 1]], connectionsColor);
             }
 
-            ConnectConsumerToDepot(Nodes[result[result.Length - 1]], Nodes[result[0]]);
+            ConnectConsumerToDepot(Nodes[result[result.Length - 1]], Nodes[result[0]], connectionsColor);
 
             return DrawingNodes;
         }

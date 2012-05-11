@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -55,11 +56,11 @@ namespace Diploma
             return false;
         }
 
-        public abstract List<Node> PrepareToDraw();
+        public abstract List<Node> PrepareToDraw(Color connectionsColor);
 
-        public void DrawNodes ()
+        public void DrawNodes()
         {
-            PrepareToDraw();
+            PrepareToDraw(TaskController.ConnectionsPen.Color);
 
             TaskController.DrawNodes(DrawingNodes); 
         }

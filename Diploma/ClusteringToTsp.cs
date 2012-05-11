@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -78,12 +79,12 @@ namespace Diploma
 
             foreach (Cluster cluster in clusters)
             {
-                drawingNodes.AddRange(cluster.GetDrawingNodes());
+                drawingNodes.AddRange(cluster.GetDrawingNodes(Color.LightGray));
             }
 
-            foreach (BeesColony colony in colonies)
+            for (int i = 0; i != colonies.Count; i++)
             {
-                drawingNodes.AddRange(colony.BestSite.PrepareToDraw());
+                drawingNodes.AddRange(colonies[i].BestSite.PrepareToDraw(TaskController.GetDrawingColor(i)));
             }
 
             TaskController.DrawNodes(drawingNodes); 

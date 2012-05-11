@@ -92,7 +92,7 @@ namespace Diploma
             Depot = cluster.Depot;
         }
 
-        public List<Node> GetDrawingNodes()
+        public List<Node> GetDrawingNodes(Color connectionsColor)
         {
             List<Node> drawingNodes = new List<Node>();
 
@@ -100,7 +100,7 @@ namespace Diploma
 
             foreach (Node node in Nodes)
             {
-                center.ConnectTo(node, Color.LightGray);
+                center.ConnectTo(node, connectionsColor);
                 drawingNodes.Add(node);
             }
 

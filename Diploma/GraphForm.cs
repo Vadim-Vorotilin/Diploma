@@ -177,6 +177,7 @@ namespace Diploma
             button_Iteration.Enabled = !_lock;
             button_Iterate.Enabled = !_lock;
             button_IterateToStop.Enabled = !_lock;
+            button_CalculateTsp.Enabled = !_lock;
             numericUpDown_IterationsCount.Enabled = !_lock;
         }
 
@@ -308,7 +309,15 @@ namespace Diploma
             DateTime stTime = DateTime.Now;
 
             TaskController.StartClusteringToTsp();
-            (TaskController.Algorithm as ClusteringToTsp).Calculate(5, 3, 1, 2, 3);
+
+            if (TaskController.Algorithm as ClusteringToTsp != null)
+            {
+                (TaskController.Algorithm as ClusteringToTsp).Calculate(5, 3, 1, 2, 3);
+            }
+            else
+            {
+                return;
+            }
 
             TimeSpan calcTime = DateTime.Now - stTime;
 

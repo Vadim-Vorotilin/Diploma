@@ -23,6 +23,28 @@ namespace Diploma
 
         public static Color ClearColor = Color.White;
 
+        public static Color[] DrawingColors = {
+                                                  Color.Green,
+                                                  Color.Blue,
+                                                  Color.Red,
+                                                  Color.Gold,
+                                                  Color.GreenYellow,
+                                                  Color.Orange,
+                                                  Color.LightSkyBlue,
+                                                  Color.Indigo,
+                                                  Color.Brown
+                                              };
+
+        public static Color DefaultColor = Color.Black;
+
+        public static Color GetDrawingColor (int i)
+        {
+            if (i >= DrawingColors.Length)
+                return DefaultColor;
+
+            return DrawingColors[i];
+        }
+
         public static List<Node> Nodes { get; private set; }
         public static int NodesVolume
         {
