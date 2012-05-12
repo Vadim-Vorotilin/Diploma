@@ -84,7 +84,7 @@ namespace Diploma
                 newValue = Value;
             }
 
-            if (writer != null && !Stopped)
+            if (writer != null && !Stopped && (IterationNumber - 1) % 10 == 0)
             {
                 writer.WriteLine(string.Format("{0}\t{1:0.00}", IterationNumber, newValue));
             }

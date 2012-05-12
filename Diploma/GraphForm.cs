@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -243,7 +244,7 @@ namespace Diploma
             numericUpDown_Volume.Enabled = !_lock;
         }
 
-        private void button_IterateToStop_Click(object sender, EventArgs e)
+        private double IterateToStop()
         {
             DateTime stTime = DateTime.Now;
 
@@ -252,6 +253,7 @@ namespace Diploma
             TaskController.Algorithm.IterateToStop();
 
             TimeSpan calcTime = DateTime.Now - stTime;
+            double time = calcTime.TotalMilliseconds / 1000.0;
 
             TaskController.Algorithm.DrawNodes();
 
@@ -259,11 +261,18 @@ namespace Diploma
                 string.Format(
                     "Iteration {0} completed. Value: {1:0.00}. Last changed at iteration: {2}. Time: {3:0.00} s. {4}",
                     TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value,
-                    TaskController.Algorithm.LastChangedIteration, calcTime.TotalMilliseconds / 1000.0,
+                    TaskController.Algorithm.LastChangedIteration, time,
                     TaskController.Algorithm.Info()));
+
+            return time;
         }
 
-        private void button_CalculateTsp_Click(object sender, EventArgs e)
+        private void button_IterateToStop_Click(object sender, EventArgs e)
+        {
+            IterateToStop();
+        }
+
+        private double CalculateTsp()
         {
             DateTime stTime = DateTime.Now;
 
@@ -275,18 +284,26 @@ namespace Diploma
             }
             else
             {
-                return;
+                return 0;
             }
 
             TimeSpan calcTime = DateTime.Now - stTime;
+            double time = calcTime.TotalMilliseconds / 1000.0;
 
             TaskController.Algorithm.DrawNodes();
 
             SetStatus(
                 string.Format(
                     "Value: {0:0.00}. Time: {1:0.00} s. {2}",
-                    TaskController.Algorithm.Value, calcTime.TotalMilliseconds / 1000.0,
+                    TaskController.Algorithm.Value, time,
                     TaskController.Algorithm.Info()));
+
+            return time;
+        }
+
+        private void button_CalculateTsp_Click(object sender, EventArgs e)
+        {
+            CalculateTsp();
         }
 
         private void GenerateNodes(int count, int volumeFrom, int volumeTo, bool withDepot)
@@ -321,6 +338,95 @@ namespace Diploma
         private void listBox_Statuses_MouseClick(object sender, MouseEventArgs e)
         {
             TaskController.DrawNodes(listBox_Statuses.SelectedIndex);
+        }
+
+        private void button_StartSeries_Click(object sender, EventArgs e)
+        {
+            int consumersFrom = Convert.ToInt32(numericUpDown_ConsumersCountFrom.Value);
+            int consumersTo = Convert.ToInt32(numericUpDown_ConsumersCountTo.Value);
+            int consumersStep = Convert.ToInt32(numericUpDown_ConsumersCountStep.Value);
+
+            int volumeFrom = Convert.ToInt32(numericUpDown_GeneratingVolumeFrom.Value);
+            int volumeTo = Convert.ToInt32(numericUpDown_GeneratingVolumeTo.Value);
+
+            int startsCount = Convert.ToInt32(numericUpDown_StartsInSeriesCount.Value);
+
+            int modelsCount = (consumersTo - consumersFrom) / consumersStep + 1;
+
+            string logFileName = textBox_LogFileName.Text;
+
+            QuickAppendToFile(logFileName,
+                              string.Format(
+                                  "----- Series start. Clusters limit: {0}. Capacity limit: {1}. Starts in each series: {2}",
+                                  Convert.ToInt32(numericUpDown_ClustersCount.Value),
+                                  Convert.ToInt32(numericUpDown_ClusterCapacityLimit.Value), 
+                                  startsCount));
+
+            for (int i = 0; i != modelsCount; i++)
+            {
+                int consumersCount = consumersFrom + i * consumersStep;
+
+                TaskController.CreateNewModel();
+                GenerateNodes(consumersCount, volumeFrom, volumeTo, true);
+
+                QuickAppendToFile(logFileName,
+                                  string.Format("--- New model generated. Consumers count: {0}. Time: {1}", consumersCount,
+                                                DateTime.Now));
+
+                for (int j = 0; j != comboBox_AlgorithmType.Items.Count; j++)
+                {
+                    comboBox_AlgorithmType.SelectedIndex = j;
+
+                    QuickAppendToFile(logFileName,
+                                      string.Format("Starting series for algorithm {0}. Time: {1}", comboBox_AlgorithmType.Items[j],
+                                                    DateTime.Now));
+
+                    List<double> values = new List<double>();
+                    List<double> times = new List<double>();
+
+                    for (int k = 0; k != startsCount; k++)
+                    {
+                        StartAlgorithm();
+                        TaskController.Algorithm.LogFileName = "";
+
+                        double time = IterateToStop() + CalculateTsp();
+
+                        values.Add(TaskController.Algorithm.Value);
+                        times.Add(time);
+
+                        //QuickAppendToFile(logFileName,
+                        //                  string.Format(
+                        //                      "Start #{0} completed. Result: {1:0.00}. During the: {2:0.00} s. Time: {3}",
+                        //                      k,
+                        //                      values[k],
+                        //                      times[k],
+                        //                      DateTime.Now));
+                    }
+
+                    QuickAppendToFile(logFileName,
+                                      string.Format(
+                                          "Series completed. Avr result: {0:0.00}. Avr time: {1:0.00} s. Time: {2}",
+                                          values.Average(), times.Average(), DateTime.Now));
+                }
+            }
+
+            QuickAppendToFile(logFileName,
+                              string.Format(
+                                  "----- All series completed. Time: {0}", DateTime.Now));
+        }
+
+        private void QuickAppendToFile(string fileName, string line)
+        {
+            if (File.Exists(fileName))
+            {
+                StreamWriter writer = new StreamWriter(fileName, true);
+                writer.WriteLine(line);
+                writer.Close();
+            }
+            else
+            {
+                throw new Exception("No file!");
+            }
         }
     }
 }
