@@ -340,6 +340,11 @@ namespace Diploma
             TaskController.DrawNodes(listBox_Statuses.SelectedIndex);
         }
 
+        private string GetAlgorithmName(int index)
+        {
+            return comboBox_AlgorithmType.Items[index].ToString();
+        }
+
         private void button_StartSeries_Click(object sender, EventArgs e)
         {
             int consumersFrom = Convert.ToInt32(numericUpDown_ConsumersCountFrom.Value);
@@ -350,64 +355,96 @@ namespace Diploma
             int volumeTo = Convert.ToInt32(numericUpDown_GeneratingVolumeTo.Value);
 
             int startsCount = Convert.ToInt32(numericUpDown_StartsInSeriesCount.Value);
+            int modelsCount = Convert.ToInt32(numericUpDown_ModelsCount.Value);
 
-            int modelsCount = (consumersTo - consumersFrom) / consumersStep + 1;
+            int algorithmsCount = comboBox_AlgorithmType.Items.Count;
+
+            int seriesCount = (consumersTo - consumersFrom) / consumersStep + 1;
 
             string logFileName = textBox_LogFileName.Text;
 
             QuickAppendToFile(logFileName,
                               string.Format(
-                                  "----- Series start. Clusters limit: {0}. Capacity limit: {1}. Starts in each series: {2}",
+                                  "----- Series start. Clusters limit: {0}. Capacity limit: {1}. Starts in each series: {2}. Models count: {3}. Time: {4}",
                                   Convert.ToInt32(numericUpDown_ClustersCount.Value),
-                                  Convert.ToInt32(numericUpDown_ClusterCapacityLimit.Value), 
-                                  startsCount));
+                                  Convert.ToInt32(numericUpDown_ClusterCapacityLimit.Value),
+                                  startsCount, modelsCount, DateTime.Now));
 
-            for (int i = 0; i != modelsCount; i++)
+            for (int i = 0; i != seriesCount; i++)
             {
                 int consumersCount = consumersFrom + i * consumersStep;
 
-                TaskController.CreateNewModel();
-                GenerateNodes(consumersCount, volumeFrom, volumeTo, true);
+                //QuickAppendToFile(logFileName,
+                //                  string.Format("--- New models generate. Consumers count: {0}. Time: {1}", consumersCount,
+                //                                DateTime.Now));
 
-                QuickAppendToFile(logFileName,
-                                  string.Format("--- New model generated. Consumers count: {0}. Time: {1}", consumersCount,
-                                                DateTime.Now));
+                double[] valuesAvr = new double[algorithmsCount];
+                double[] timesAvr = new double[algorithmsCount];
 
-                for (int j = 0; j != comboBox_AlgorithmType.Items.Count; j++)
+                for (int k = 0; k != algorithmsCount; k++)
                 {
-                    comboBox_AlgorithmType.SelectedIndex = j;
+                    valuesAvr[k] = 0;
+                    timesAvr[k] = 0;
+                }
 
-                    QuickAppendToFile(logFileName,
-                                      string.Format("Starting series for algorithm {0}. Time: {1}", comboBox_AlgorithmType.Items[j],
-                                                    DateTime.Now));
+                for (int j = 0; j != modelsCount; j++)
+                {
+                    TaskController.CreateNewModel();
+                    GenerateNodes(consumersCount, volumeFrom, volumeTo, true);
 
-                    List<double> values = new List<double>();
-                    List<double> times = new List<double>();
-
-                    for (int k = 0; k != startsCount; k++)
+                    for (int k = 0; k != algorithmsCount; k++)
                     {
-                        StartAlgorithm();
-                        TaskController.Algorithm.LogFileName = "";
+                        comboBox_AlgorithmType.SelectedIndex = k;
 
-                        double time = IterateToStop() + CalculateTsp();
+                        //QuickAppendToFile(logFileName,
+                        //                  string.Format("Starting model series for algorithm {0}. Time: {1}",
+                        //                                GetAlgorithmName(k),
+                        //                                DateTime.Now));
 
-                        values.Add(TaskController.Algorithm.Value);
-                        times.Add(time);
+                        List<double> values = new List<double>();
+                        List<double> times = new List<double>();
+
+                        for (int l = 0; l != startsCount; l++)
+                        {
+                            StartAlgorithm();
+                            TaskController.Algorithm.LogFileName = "";
+
+                            double time = IterateToStop() + CalculateTsp();
+
+                            values.Add(TaskController.Algorithm.Value);
+                            times.Add(time);
+
+                            //QuickAppendToFile(logFileName,
+                            //                  string.Format(
+                            //                      "Start #{0} completed. Result: {1:0.00}. During the: {2:0.00} s. Time: {3}",
+                            //                      l,
+                            //                      values[l],
+                            //                      times[l],
+                            //                      DateTime.Now));
+                        }
+
+
+                        valuesAvr[k] += values.Average();
+                        timesAvr[k] += times.Average();
 
                         //QuickAppendToFile(logFileName,
                         //                  string.Format(
-                        //                      "Start #{0} completed. Result: {1:0.00}. During the: {2:0.00} s. Time: {3}",
-                        //                      k,
-                        //                      values[k],
-                        //                      times[k],
-                        //                      DateTime.Now));
+                        //                      "Model series completed. Avr result: {0:0.00}. Avr time: {1:0.00} s. Time: {2}",
+                        //                      values.Average(), times.Average(), DateTime.Now));
                     }
+                }
+
+                for (int k = 0; k != algorithmsCount; k++)
+                {
+                    valuesAvr[k] /= modelsCount;
+                    timesAvr[k] /= modelsCount;
 
                     QuickAppendToFile(logFileName,
-                                      string.Format(
-                                          "Series completed. Avr result: {0:0.00}. Avr time: {1:0.00} s. Time: {2}",
-                                          values.Average(), times.Average(), DateTime.Now));
+                                      string.Format("Algorithm {0}. Avr result: {1:0.00}. Avr time: {2:0.00} s",
+                                                    GetAlgorithmName(k), valuesAvr[k], timesAvr[k]));
                 }
+
+                QuickAppendToFile(logFileName, string.Format("--- Series #{0} completed. Time: {1}", i, DateTime.Now));
             }
 
             QuickAppendToFile(logFileName,

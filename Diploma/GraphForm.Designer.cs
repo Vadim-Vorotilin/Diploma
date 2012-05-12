@@ -79,7 +79,7 @@
             this.label_ConsumersCountStep = new System.Windows.Forms.Label();
             this.numericUpDown_ConsumersCountStep = new System.Windows.Forms.NumericUpDown();
             this.flowLayoutPanel_Series1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label_StartsIsSeries = new System.Windows.Forms.Label();
+            this.label_StartsInSeries = new System.Windows.Forms.Label();
             this.numericUpDown_StartsInSeriesCount = new System.Windows.Forms.NumericUpDown();
             this.button_StartSeries = new System.Windows.Forms.Button();
             this.menuStrip_MainMenu = new System.Windows.Forms.MenuStrip();
@@ -93,6 +93,9 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Main = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tableLayoutPanel_SeriesOptions = new System.Windows.Forms.TableLayoutPanel();
+            this.label_ModelsCount = new System.Windows.Forms.Label();
+            this.numericUpDown_ModelsCount = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.groupBox_Options.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
@@ -121,6 +124,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_StartsInSeriesCount)).BeginInit();
             this.menuStrip_MainMenu.SuspendLayout();
             this.statusStrip_Main.SuspendLayout();
+            this.tableLayoutPanel_SeriesOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ModelsCount)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_Main
@@ -137,7 +142,7 @@
             this.tableLayoutPanel_Main.Name = "tableLayoutPanel_Main";
             this.tableLayoutPanel_Main.RowCount = 3;
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 124F));
+            this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel_Main.Size = new System.Drawing.Size(1006, 640);
             this.tableLayoutPanel_Main.TabIndex = 0;
@@ -148,7 +153,7 @@
             this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
             this.panel_Drawing.Name = "panel_Drawing";
-            this.panel_Drawing.Size = new System.Drawing.Size(715, 486);
+            this.panel_Drawing.Size = new System.Drawing.Size(715, 480);
             this.panel_Drawing.TabIndex = 1;
             this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
             // 
@@ -158,7 +163,7 @@
             this.groupBox_Options.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox_Options.Location = new System.Drawing.Point(724, 3);
             this.groupBox_Options.Name = "groupBox_Options";
-            this.groupBox_Options.Size = new System.Drawing.Size(279, 486);
+            this.groupBox_Options.Size = new System.Drawing.Size(279, 480);
             this.groupBox_Options.TabIndex = 2;
             this.groupBox_Options.TabStop = false;
             // 
@@ -175,7 +180,7 @@
             this.flowLayoutPanel_Tools.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel_Tools.Name = "flowLayoutPanel_Tools";
-            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(273, 467);
+            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(273, 461);
             this.flowLayoutPanel_Tools.TabIndex = 0;
             // 
             // button_Redraw
@@ -627,9 +632,9 @@
             // 
             this.listBox_Statuses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox_Statuses.FormattingEnabled = true;
-            this.listBox_Statuses.Location = new System.Drawing.Point(3, 495);
+            this.listBox_Statuses.Location = new System.Drawing.Point(3, 489);
             this.listBox_Statuses.Name = "listBox_Statuses";
-            this.listBox_Statuses.Size = new System.Drawing.Size(715, 118);
+            this.listBox_Statuses.Size = new System.Drawing.Size(715, 124);
             this.listBox_Statuses.TabIndex = 3;
             this.listBox_Statuses.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox_Statuses_MouseClick);
             this.listBox_Statuses.SelectedIndexChanged += new System.EventHandler(this.listBox_Statuses_SelectedIndexChanged);
@@ -638,9 +643,9 @@
             // 
             this.groupBox_Series.Controls.Add(this.tableLayoutPanel_Series);
             this.groupBox_Series.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox_Series.Location = new System.Drawing.Point(724, 495);
+            this.groupBox_Series.Location = new System.Drawing.Point(724, 489);
             this.groupBox_Series.Name = "groupBox_Series";
-            this.groupBox_Series.Size = new System.Drawing.Size(279, 118);
+            this.groupBox_Series.Size = new System.Drawing.Size(279, 124);
             this.groupBox_Series.TabIndex = 4;
             this.groupBox_Series.TabStop = false;
             this.groupBox_Series.Text = "Series";
@@ -658,7 +663,7 @@
             this.tableLayoutPanel_Series.Name = "tableLayoutPanel_Series";
             this.tableLayoutPanel_Series.RowCount = 1;
             this.tableLayoutPanel_Series.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_Series.Size = new System.Drawing.Size(273, 99);
+            this.tableLayoutPanel_Series.Size = new System.Drawing.Size(273, 105);
             this.tableLayoutPanel_Series.TabIndex = 0;
             // 
             // flowLayoutPanel_Series2
@@ -671,7 +676,7 @@
             this.flowLayoutPanel_Series2.Location = new System.Drawing.Point(136, 0);
             this.flowLayoutPanel_Series2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel_Series2.Name = "flowLayoutPanel_Series2";
-            this.flowLayoutPanel_Series2.Size = new System.Drawing.Size(137, 99);
+            this.flowLayoutPanel_Series2.Size = new System.Drawing.Size(137, 105);
             this.flowLayoutPanel_Series2.TabIndex = 1;
             // 
             // label_ConsumersCount
@@ -791,35 +796,34 @@
             // 
             // flowLayoutPanel_Series1
             // 
-            this.flowLayoutPanel_Series1.Controls.Add(this.label_StartsIsSeries);
-            this.flowLayoutPanel_Series1.Controls.Add(this.numericUpDown_StartsInSeriesCount);
+            this.flowLayoutPanel_Series1.Controls.Add(this.tableLayoutPanel_SeriesOptions);
             this.flowLayoutPanel_Series1.Controls.Add(this.button_StartSeries);
             this.flowLayoutPanel_Series1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Series1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel_Series1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel_Series1.Name = "flowLayoutPanel_Series1";
-            this.flowLayoutPanel_Series1.Size = new System.Drawing.Size(136, 99);
+            this.flowLayoutPanel_Series1.Size = new System.Drawing.Size(136, 105);
             this.flowLayoutPanel_Series1.TabIndex = 0;
             // 
-            // label_StartsIsSeries
+            // label_StartsInSeries
             // 
-            this.label_StartsIsSeries.AutoSize = true;
-            this.label_StartsIsSeries.Location = new System.Drawing.Point(3, 0);
-            this.label_StartsIsSeries.Name = "label_StartsIsSeries";
-            this.label_StartsIsSeries.Size = new System.Drawing.Size(102, 13);
-            this.label_StartsIsSeries.TabIndex = 0;
-            this.label_StartsIsSeries.Text = "Starts in each series";
+            this.label_StartsInSeries.AutoSize = true;
+            this.label_StartsInSeries.Location = new System.Drawing.Point(67, 0);
+            this.label_StartsInSeries.Name = "label_StartsInSeries";
+            this.label_StartsInSeries.Size = new System.Drawing.Size(34, 13);
+            this.label_StartsInSeries.TabIndex = 0;
+            this.label_StartsInSeries.Text = "Starts";
             // 
             // numericUpDown_StartsInSeriesCount
             // 
-            this.numericUpDown_StartsInSeriesCount.Location = new System.Drawing.Point(3, 16);
+            this.numericUpDown_StartsInSeriesCount.Location = new System.Drawing.Point(67, 17);
             this.numericUpDown_StartsInSeriesCount.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numericUpDown_StartsInSeriesCount.Name = "numericUpDown_StartsInSeriesCount";
-            this.numericUpDown_StartsInSeriesCount.Size = new System.Drawing.Size(127, 20);
+            this.numericUpDown_StartsInSeriesCount.Size = new System.Drawing.Size(59, 20);
             this.numericUpDown_StartsInSeriesCount.TabIndex = 1;
             this.numericUpDown_StartsInSeriesCount.Value = new decimal(new int[] {
             5,
@@ -829,7 +833,7 @@
             // 
             // button_StartSeries
             // 
-            this.button_StartSeries.Location = new System.Drawing.Point(3, 72);
+            this.button_StartSeries.Location = new System.Drawing.Point(3, 78);
             this.button_StartSeries.Margin = new System.Windows.Forms.Padding(3, 33, 3, 3);
             this.button_StartSeries.Name = "button_StartSeries";
             this.button_StartSeries.Size = new System.Drawing.Size(130, 23);
@@ -928,6 +932,55 @@
             this.toolStripStatusLabel_Main.Name = "toolStripStatusLabel_Main";
             this.toolStripStatusLabel_Main.Size = new System.Drawing.Size(0, 17);
             // 
+            // tableLayoutPanel_SeriesOptions
+            // 
+            this.tableLayoutPanel_SeriesOptions.ColumnCount = 2;
+            this.tableLayoutPanel_SeriesOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel_SeriesOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel_SeriesOptions.Controls.Add(this.label_ModelsCount, 0, 0);
+            this.tableLayoutPanel_SeriesOptions.Controls.Add(this.numericUpDown_StartsInSeriesCount, 1, 1);
+            this.tableLayoutPanel_SeriesOptions.Controls.Add(this.label_StartsInSeries, 1, 0);
+            this.tableLayoutPanel_SeriesOptions.Controls.Add(this.numericUpDown_ModelsCount, 0, 1);
+            this.tableLayoutPanel_SeriesOptions.Location = new System.Drawing.Point(0, 3);
+            this.tableLayoutPanel_SeriesOptions.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.tableLayoutPanel_SeriesOptions.Name = "tableLayoutPanel_SeriesOptions";
+            this.tableLayoutPanel_SeriesOptions.RowCount = 2;
+            this.tableLayoutPanel_SeriesOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
+            this.tableLayoutPanel_SeriesOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel_SeriesOptions.Size = new System.Drawing.Size(129, 42);
+            this.tableLayoutPanel_SeriesOptions.TabIndex = 5;
+            // 
+            // label_ModelsCount
+            // 
+            this.label_ModelsCount.AutoSize = true;
+            this.label_ModelsCount.Location = new System.Drawing.Point(3, 0);
+            this.label_ModelsCount.Name = "label_ModelsCount";
+            this.label_ModelsCount.Size = new System.Drawing.Size(41, 13);
+            this.label_ModelsCount.TabIndex = 1;
+            this.label_ModelsCount.Text = "Models";
+            // 
+            // numericUpDown_ModelsCount
+            // 
+            this.numericUpDown_ModelsCount.Location = new System.Drawing.Point(3, 17);
+            this.numericUpDown_ModelsCount.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDown_ModelsCount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_ModelsCount.Name = "numericUpDown_ModelsCount";
+            this.numericUpDown_ModelsCount.Size = new System.Drawing.Size(58, 20);
+            this.numericUpDown_ModelsCount.TabIndex = 3;
+            this.numericUpDown_ModelsCount.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -972,12 +1025,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ConsumersCountTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ConsumersCountStep)).EndInit();
             this.flowLayoutPanel_Series1.ResumeLayout(false);
-            this.flowLayoutPanel_Series1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_StartsInSeriesCount)).EndInit();
             this.menuStrip_MainMenu.ResumeLayout(false);
             this.menuStrip_MainMenu.PerformLayout();
             this.statusStrip_Main.ResumeLayout(false);
             this.statusStrip_Main.PerformLayout();
+            this.tableLayoutPanel_SeriesOptions.ResumeLayout(false);
+            this.tableLayoutPanel_SeriesOptions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ModelsCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1039,7 +1094,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_Series;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Series2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Series1;
-        private System.Windows.Forms.Label label_StartsIsSeries;
+        private System.Windows.Forms.Label label_StartsInSeries;
         private System.Windows.Forms.NumericUpDown numericUpDown_StartsInSeriesCount;
         private System.Windows.Forms.Label label_ConsumersCount;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_ConsumersCount;
@@ -1050,6 +1105,9 @@
         private System.Windows.Forms.Label label_ConsumersCountStep;
         private System.Windows.Forms.NumericUpDown numericUpDown_ConsumersCountStep;
         private System.Windows.Forms.Button button_StartSeries;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_SeriesOptions;
+        private System.Windows.Forms.Label label_ModelsCount;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ModelsCount;
 
     }
 }
