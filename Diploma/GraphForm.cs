@@ -230,6 +230,11 @@ namespace Diploma
         private void SetStatus(string status)
         {
             toolStripStatusLabel_Main.Text = status;
+
+            listBox_Statuses.Items.Add(status);
+            listBox_Statuses.SelectedIndex = listBox_Statuses.Items.Count - 1;
+
+            TaskController.SaveDrawnNodes();
         }
 
         private void LockConsumerVolumeSettings(bool _lock)
@@ -291,7 +296,12 @@ namespace Diploma
                 TaskController.AddNodeAtScreen(Node.NodeType.Consumer, TaskController.Rnd.Next(10, panel_Drawing.Width - 10), TaskController.Rnd.Next(10, panel_Drawing.Height - 10), TaskController.Rnd.Next(volumeFrom, volumeTo + 1));
             }
 
-            TaskController.AddNodeAtScreen(Node.NodeType.Depot, TaskController.Rnd.Next(10, panel_Drawing.Width - 10), TaskController.Rnd.Next(10, panel_Drawing.Height - 10), 0);
+            if (withDepot)
+            {
+                TaskController.AddNodeAtScreen(Node.NodeType.Depot,
+                                               TaskController.Rnd.Next(10, panel_Drawing.Width - 10),
+                                               TaskController.Rnd.Next(10, panel_Drawing.Height - 10), 0);
+            }
 
             TaskController.DrawNodes(TaskController.Nodes);
         }
@@ -302,6 +312,15 @@ namespace Diploma
                 Convert.ToInt32(numericUpDown_GeneratingVolumeFrom.Value),
                 Convert.ToInt32(numericUpDown_GeneratingVolumeTo.Value),
                 checkBox_WithDepot.Checked);
+        }
+
+        private void listBox_Statuses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void listBox_Statuses_MouseClick(object sender, MouseEventArgs e)
+        {
+            TaskController.DrawNodes(listBox_Statuses.SelectedIndex);
         }
     }
 }

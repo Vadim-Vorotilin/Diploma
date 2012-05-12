@@ -76,8 +76,21 @@ namespace Diploma
             Type = NodeType.Unknown;
             ScreenPosition = new Point(0, 0);
             RealPosition = new Point(0, 0);
+            Volume = 0;
 
             Connections = new List<Connection>();
+        }
+
+        public Node(Node node)
+        {
+            Id = node.Id;
+            Type = node.Type;
+            ScreenPosition = node.ScreenPosition;
+            RealPosition = node.RealPosition;
+            Volume = node.Volume;
+
+            Connections = new List<Connection>(); 
+            Connections.AddRange(node.Connections);
         }
 
         [XmlIgnore]

@@ -32,7 +32,11 @@ namespace Diploma
                                                   Color.Orange,
                                                   Color.LightSkyBlue,
                                                   Color.Indigo,
-                                                  Color.Brown
+                                                  Color.Brown,
+                                                  Color.LightPink,
+                                                  Color.LightCoral,
+                                                  Color.LightSeaGreen,
+                                                  Color.Magenta
                                               };
 
         public static Color DefaultColor = Color.Black;
@@ -79,6 +83,7 @@ namespace Diploma
         static TaskController()
         {
             Nodes = new List<Node>();
+            drawnNodes = new List<List<Node>>();
             lastFileName = "";
             Algorithm = null;
 
@@ -127,7 +132,8 @@ namespace Diploma
             }
         }
 
-        private static List<Node> drawingNodes; 
+        private static List<Node> drawingNodes;
+        private static List<List<Node>> drawnNodes;
 
         public static void DrawNodes (List<Node> nodes = null)
         {
@@ -135,7 +141,25 @@ namespace Diploma
             DrawNodes(graphicsForDraw, drawingNodes);
         }
 
-        public static void DrawNodes (Graphics g, List<Node> nodes)
+        public static void SaveDrawnNodes ()
+        {
+            Node[] currentDrawnNodes = drawingNodes.ToArray().Clone() as Node[];
+            List<Node> currentListDrawnNodes = new List<Node>();
+
+            foreach (Node currentDrawnNode in currentDrawnNodes)
+            {
+                currentListDrawnNodes.Add(new Node(currentDrawnNode));
+            }
+
+            drawnNodes.Add(currentListDrawnNodes);
+        }
+
+        public static void DrawNodes (int index)
+        {
+            DrawNodes(drawnNodes[index]);
+        }
+
+        private static void DrawNodes (Graphics g, List<Node> nodes)
         {
             g.Clear(ClearColor);
 

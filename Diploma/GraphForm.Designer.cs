@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel_Main = new System.Windows.Forms.TableLayoutPanel();
+            this.panel_Drawing = new System.Windows.Forms.Panel();
+            this.groupBox_Options = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel_Tools = new System.Windows.Forms.FlowLayoutPanel();
             this.button_Redraw = new System.Windows.Forms.Button();
             this.groupBox_Generation = new System.Windows.Forms.GroupBox();
@@ -41,10 +43,14 @@
             this.label_GeneratingVolumeTo = new System.Windows.Forms.Label();
             this.numericUpDown_GeneratingVolumeFrom = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_GeneratingVolumeTo = new System.Windows.Forms.NumericUpDown();
+            this.checkBox_WithDepot = new System.Windows.Forms.CheckBox();
+            this.button_Generate = new System.Windows.Forms.Button();
             this.groupBox_Node = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel_Node = new System.Windows.Forms.FlowLayoutPanel();
             this.label_Volume = new System.Windows.Forms.Label();
             this.numericUpDown_Volume = new System.Windows.Forms.NumericUpDown();
+            this.label_LogFileName = new System.Windows.Forms.Label();
+            this.textBox_LogFileName = new System.Windows.Forms.TextBox();
             this.groupBox_Algorithm = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel_Algorithm = new System.Windows.Forms.FlowLayoutPanel();
             this.label_ClustersCount = new System.Windows.Forms.Label();
@@ -60,9 +66,6 @@
             this.button_IterateToStop = new System.Windows.Forms.Button();
             this.button_CalculateTsp = new System.Windows.Forms.Button();
             this.checkBox_LastChangedIteration = new System.Windows.Forms.CheckBox();
-            this.label_LogFileName = new System.Windows.Forms.Label();
-            this.textBox_LogFileName = new System.Windows.Forms.TextBox();
-            this.panel_Drawing = new System.Windows.Forms.Panel();
             this.menuStrip_MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,10 +77,9 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Main = new System.Windows.Forms.ToolStripStatusLabel();
-            this.button_Generate = new System.Windows.Forms.Button();
-            this.groupBox_Options = new System.Windows.Forms.GroupBox();
-            this.checkBox_WithDepot = new System.Windows.Forms.CheckBox();
+            this.listBox_Statuses = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel_Main.SuspendLayout();
+            this.groupBox_Options.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
             this.groupBox_Generation.SuspendLayout();
             this.flowLayoutPanel_Generation.SuspendLayout();
@@ -95,7 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IterationsCount)).BeginInit();
             this.menuStrip_MainMenu.SuspendLayout();
             this.statusStrip_Main.SuspendLayout();
-            this.groupBox_Options.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_Main
@@ -105,15 +106,36 @@
             this.tableLayoutPanel_Main.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 285F));
             this.tableLayoutPanel_Main.Controls.Add(this.panel_Drawing, 0, 0);
             this.tableLayoutPanel_Main.Controls.Add(this.groupBox_Options, 1, 0);
+            this.tableLayoutPanel_Main.Controls.Add(this.listBox_Statuses, 0, 1);
             this.tableLayoutPanel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_Main.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel_Main.Name = "tableLayoutPanel_Main";
             this.tableLayoutPanel_Main.RowCount = 3;
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 124F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(1006, 575);
+            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(1006, 640);
             this.tableLayoutPanel_Main.TabIndex = 0;
+            // 
+            // panel_Drawing
+            // 
+            this.panel_Drawing.BackColor = System.Drawing.Color.White;
+            this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
+            this.panel_Drawing.Name = "panel_Drawing";
+            this.panel_Drawing.Size = new System.Drawing.Size(715, 486);
+            this.panel_Drawing.TabIndex = 1;
+            this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
+            // 
+            // groupBox_Options
+            // 
+            this.groupBox_Options.Controls.Add(this.flowLayoutPanel_Tools);
+            this.groupBox_Options.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox_Options.Location = new System.Drawing.Point(724, 3);
+            this.groupBox_Options.Name = "groupBox_Options";
+            this.groupBox_Options.Size = new System.Drawing.Size(279, 486);
+            this.groupBox_Options.TabIndex = 2;
+            this.groupBox_Options.TabStop = false;
             // 
             // flowLayoutPanel_Tools
             // 
@@ -128,7 +150,7 @@
             this.flowLayoutPanel_Tools.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_Tools.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel_Tools.Name = "flowLayoutPanel_Tools";
-            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(273, 492);
+            this.flowLayoutPanel_Tools.Size = new System.Drawing.Size(273, 467);
             this.flowLayoutPanel_Tools.TabIndex = 0;
             // 
             // button_Redraw
@@ -288,6 +310,27 @@
             0,
             0});
             // 
+            // checkBox_WithDepot
+            // 
+            this.checkBox_WithDepot.AutoSize = true;
+            this.checkBox_WithDepot.Location = new System.Drawing.Point(3, 110);
+            this.checkBox_WithDepot.Name = "checkBox_WithDepot";
+            this.checkBox_WithDepot.Size = new System.Drawing.Size(78, 17);
+            this.checkBox_WithDepot.TabIndex = 5;
+            this.checkBox_WithDepot.Text = "With depot";
+            this.checkBox_WithDepot.UseVisualStyleBackColor = true;
+            // 
+            // button_Generate
+            // 
+            this.button_Generate.Location = new System.Drawing.Point(3, 135);
+            this.button_Generate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.button_Generate.Name = "button_Generate";
+            this.button_Generate.Size = new System.Drawing.Size(118, 23);
+            this.button_Generate.TabIndex = 4;
+            this.button_Generate.Text = "Generate";
+            this.button_Generate.UseVisualStyleBackColor = true;
+            this.button_Generate.Click += new System.EventHandler(this.button_Generate_Click);
+            // 
             // groupBox_Node
             // 
             this.groupBox_Node.Controls.Add(this.flowLayoutPanel_Node);
@@ -340,6 +383,24 @@
             0,
             0,
             0});
+            // 
+            // label_LogFileName
+            // 
+            this.label_LogFileName.AutoSize = true;
+            this.label_LogFileName.Location = new System.Drawing.Point(3, 300);
+            this.label_LogFileName.Name = "label_LogFileName";
+            this.label_LogFileName.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label_LogFileName.Size = new System.Drawing.Size(41, 16);
+            this.label_LogFileName.TabIndex = 10;
+            this.label_LogFileName.Text = "Log file";
+            // 
+            // textBox_LogFileName
+            // 
+            this.textBox_LogFileName.Location = new System.Drawing.Point(3, 319);
+            this.textBox_LogFileName.Name = "textBox_LogFileName";
+            this.textBox_LogFileName.Size = new System.Drawing.Size(127, 20);
+            this.textBox_LogFileName.TabIndex = 9;
+            this.textBox_LogFileName.Text = "..\\..\\..\\Models\\log.txt";
             // 
             // groupBox_Algorithm
             // 
@@ -425,7 +486,7 @@
             this.numericUpDown_ClusterCapacityLimit.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown_ClusterCapacityLimit.TabIndex = 11;
             this.numericUpDown_ClusterCapacityLimit.Value = new decimal(new int[] {
-            10,
+            50,
             0,
             0,
             0});
@@ -537,34 +598,6 @@
             this.checkBox_LastChangedIteration.Text = "Calc last change";
             this.checkBox_LastChangedIteration.UseVisualStyleBackColor = true;
             // 
-            // label_LogFileName
-            // 
-            this.label_LogFileName.AutoSize = true;
-            this.label_LogFileName.Location = new System.Drawing.Point(3, 300);
-            this.label_LogFileName.Name = "label_LogFileName";
-            this.label_LogFileName.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.label_LogFileName.Size = new System.Drawing.Size(41, 16);
-            this.label_LogFileName.TabIndex = 10;
-            this.label_LogFileName.Text = "Log file";
-            // 
-            // textBox_LogFileName
-            // 
-            this.textBox_LogFileName.Location = new System.Drawing.Point(3, 319);
-            this.textBox_LogFileName.Name = "textBox_LogFileName";
-            this.textBox_LogFileName.Size = new System.Drawing.Size(127, 20);
-            this.textBox_LogFileName.TabIndex = 9;
-            this.textBox_LogFileName.Text = "..\\..\\..\\Models\\log.txt";
-            // 
-            // panel_Drawing
-            // 
-            this.panel_Drawing.BackColor = System.Drawing.Color.White;
-            this.panel_Drawing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Drawing.Location = new System.Drawing.Point(3, 3);
-            this.panel_Drawing.Name = "panel_Drawing";
-            this.panel_Drawing.Size = new System.Drawing.Size(715, 511);
-            this.panel_Drawing.TabIndex = 1;
-            this.panel_Drawing.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_Drawing_MouseClick);
-            // 
             // menuStrip_MainMenu
             // 
             this.menuStrip_MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -644,7 +677,7 @@
             // 
             this.statusStrip_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel_Main});
-            this.statusStrip_Main.Location = new System.Drawing.Point(0, 577);
+            this.statusStrip_Main.Location = new System.Drawing.Point(0, 642);
             this.statusStrip_Main.Name = "statusStrip_Main";
             this.statusStrip_Main.Size = new System.Drawing.Size(1006, 22);
             this.statusStrip_Main.TabIndex = 2;
@@ -655,42 +688,22 @@
             this.toolStripStatusLabel_Main.Name = "toolStripStatusLabel_Main";
             this.toolStripStatusLabel_Main.Size = new System.Drawing.Size(0, 17);
             // 
-            // button_Generate
+            // listBox_Statuses
             // 
-            this.button_Generate.Location = new System.Drawing.Point(3, 135);
-            this.button_Generate.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.button_Generate.Name = "button_Generate";
-            this.button_Generate.Size = new System.Drawing.Size(118, 23);
-            this.button_Generate.TabIndex = 4;
-            this.button_Generate.Text = "Generate";
-            this.button_Generate.UseVisualStyleBackColor = true;
-            this.button_Generate.Click += new System.EventHandler(this.button_Generate_Click);
-            // 
-            // groupBox_Options
-            // 
-            this.groupBox_Options.Controls.Add(this.flowLayoutPanel_Tools);
-            this.groupBox_Options.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox_Options.Location = new System.Drawing.Point(724, 3);
-            this.groupBox_Options.Name = "groupBox_Options";
-            this.groupBox_Options.Size = new System.Drawing.Size(279, 511);
-            this.groupBox_Options.TabIndex = 2;
-            this.groupBox_Options.TabStop = false;
-            // 
-            // checkBox_WithDepot
-            // 
-            this.checkBox_WithDepot.AutoSize = true;
-            this.checkBox_WithDepot.Location = new System.Drawing.Point(3, 110);
-            this.checkBox_WithDepot.Name = "checkBox_WithDepot";
-            this.checkBox_WithDepot.Size = new System.Drawing.Size(78, 17);
-            this.checkBox_WithDepot.TabIndex = 5;
-            this.checkBox_WithDepot.Text = "With depot";
-            this.checkBox_WithDepot.UseVisualStyleBackColor = true;
+            this.listBox_Statuses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox_Statuses.FormattingEnabled = true;
+            this.listBox_Statuses.Location = new System.Drawing.Point(3, 495);
+            this.listBox_Statuses.Name = "listBox_Statuses";
+            this.listBox_Statuses.Size = new System.Drawing.Size(715, 118);
+            this.listBox_Statuses.TabIndex = 3;
+            this.listBox_Statuses.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox_Statuses_MouseClick);
+            this.listBox_Statuses.SelectedIndexChanged += new System.EventHandler(this.listBox_Statuses_SelectedIndexChanged);
             // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 599);
+            this.ClientSize = new System.Drawing.Size(1006, 664);
             this.Controls.Add(this.statusStrip_Main);
             this.Controls.Add(this.tableLayoutPanel_Main);
             this.Controls.Add(this.menuStrip_MainMenu);
@@ -699,6 +712,7 @@
             this.Load += new System.EventHandler(this.GraphForm_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GraphForm_MouseClick);
             this.tableLayoutPanel_Main.ResumeLayout(false);
+            this.groupBox_Options.ResumeLayout(false);
             this.flowLayoutPanel_Tools.ResumeLayout(false);
             this.flowLayoutPanel_Tools.PerformLayout();
             this.groupBox_Generation.ResumeLayout(false);
@@ -723,7 +737,6 @@
             this.menuStrip_MainMenu.PerformLayout();
             this.statusStrip_Main.ResumeLayout(false);
             this.statusStrip_Main.PerformLayout();
-            this.groupBox_Options.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -780,6 +793,7 @@
         private System.Windows.Forms.Button button_Generate;
         private System.Windows.Forms.GroupBox groupBox_Options;
         private System.Windows.Forms.CheckBox checkBox_WithDepot;
+        private System.Windows.Forms.ListBox listBox_Statuses;
 
     }
 }
