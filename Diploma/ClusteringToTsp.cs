@@ -24,6 +24,11 @@ namespace Diploma
 
             foreach (Cluster cluster in clusters)
             {
+                if (cluster.Nodes.Count == 0)
+                {
+                    continue;
+                }
+
                 BeesColony colony = new BeesColony();
 
                 colony.Problem = BeesColony.ProblemType.VRP_TSP;

@@ -72,6 +72,11 @@ namespace Diploma
                 merged = false;
             }
 
+            if (Clusters.Count <= 1)
+            {
+                return;
+            }
+
             int startingCluster = lastReviewedCluster;
 
             int currentCluster = startingCluster;

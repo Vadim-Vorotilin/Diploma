@@ -374,9 +374,9 @@ namespace Diploma
             {
                 int consumersCount = consumersFrom + i * consumersStep;
 
-                //QuickAppendToFile(logFileName,
-                //                  string.Format("--- New models generate. Consumers count: {0}. Time: {1}", consumersCount,
-                //                                DateTime.Now));
+                QuickAppendToFile(logFileName,
+                                  string.Format("--- New models generate. Consumers count: {0}. Time: {1}", consumersCount,
+                                                DateTime.Now));
 
                 double[] valuesAvr = new double[algorithmsCount];
                 double[] timesAvr = new double[algorithmsCount];

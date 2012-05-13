@@ -94,6 +94,11 @@ namespace Diploma
 
         public bool ExchangeNodesInClusters()
         {
+            if (Clusters.Count <= 1)
+            {
+                return false;
+            }
+
             int i1 = TaskController.Rnd.Next(Clusters.Count);
             int i2;
 

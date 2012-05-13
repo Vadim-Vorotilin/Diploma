@@ -97,6 +97,11 @@ namespace Diploma
 
         public void MoveNodeFromOneClusterToAnother()
         {
+            if (Clusters.Count <= 1)
+            {
+                return;
+            }
+
             int c1;
             int c2;
 

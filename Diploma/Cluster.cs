@@ -46,18 +46,23 @@ namespace Diploma
 
         public double GetPrice ()
         {
-            Node.Point center = Center;
+            Node.Point currentCenter = Center;
+
+            if (Nodes.Count == 0)
+            {
+                return 0;
+            }
 
             double distance = 0;
 
             foreach (Node node in Nodes)
             {
-                distance += Node.Point.SqrDistance(node.RealPosition, center);
+                distance += Node.Point.SqrDistance(node.RealPosition, currentCenter);
             }
 
             if (Depot != null)
             {
-                distance += 2 * Node.Point.SqrDistance(Depot.RealPosition, center);
+                distance += 2 * Node.Point.SqrDistance(Depot.RealPosition, currentCenter);
             }
 
             return distance;
@@ -95,6 +100,11 @@ namespace Diploma
         public List<Node> GetDrawingNodes(Color connectionsColor)
         {
             List<Node> drawingNodes = new List<Node>();
+
+            if (Nodes.Count == 0)
+            {
+                return drawingNodes;
+            }
 
             Node center = new Node(-1, Node.NodeType.Auxiliary, (int)Center.x, (int)Center.y, Center.x, Center.y);
 

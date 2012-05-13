@@ -51,6 +51,11 @@ namespace Diploma
             {
                 Cluster cluster = Clusters[i];
 
+                if (cluster.Nodes.Count == 0)
+                {
+                    continue;
+                }
+
                 Node center = new Node(-1, Node.NodeType.Auxiliary, (int)Clusters[i].Center.x, (int)Clusters[i].Center.y, Clusters[i].Center.x, Clusters[i].Center.y);
 
                 if (cluster.Nodes.Count == 0)
