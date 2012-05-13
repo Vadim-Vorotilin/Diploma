@@ -96,6 +96,7 @@
             this.tableLayoutPanel_SeriesOptions = new System.Windows.Forms.TableLayoutPanel();
             this.label_ModelsCount = new System.Windows.Forms.Label();
             this.numericUpDown_ModelsCount = new System.Windows.Forms.NumericUpDown();
+            this.checkBox_CurrentModel = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.groupBox_Options.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
@@ -797,6 +798,7 @@
             // flowLayoutPanel_Series1
             // 
             this.flowLayoutPanel_Series1.Controls.Add(this.tableLayoutPanel_SeriesOptions);
+            this.flowLayoutPanel_Series1.Controls.Add(this.checkBox_CurrentModel);
             this.flowLayoutPanel_Series1.Controls.Add(this.button_StartSeries);
             this.flowLayoutPanel_Series1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Series1.Location = new System.Drawing.Point(0, 0);
@@ -833,8 +835,7 @@
             // 
             // button_StartSeries
             // 
-            this.button_StartSeries.Location = new System.Drawing.Point(3, 78);
-            this.button_StartSeries.Margin = new System.Windows.Forms.Padding(3, 33, 3, 3);
+            this.button_StartSeries.Location = new System.Drawing.Point(3, 71);
             this.button_StartSeries.Name = "button_StartSeries";
             this.button_StartSeries.Size = new System.Drawing.Size(130, 23);
             this.button_StartSeries.TabIndex = 2;
@@ -981,6 +982,16 @@
             0,
             0});
             // 
+            // checkBox_CurrentModel
+            // 
+            this.checkBox_CurrentModel.AutoSize = true;
+            this.checkBox_CurrentModel.Location = new System.Drawing.Point(3, 48);
+            this.checkBox_CurrentModel.Name = "checkBox_CurrentModel";
+            this.checkBox_CurrentModel.Size = new System.Drawing.Size(91, 17);
+            this.checkBox_CurrentModel.TabIndex = 6;
+            this.checkBox_CurrentModel.Text = "Current model";
+            this.checkBox_CurrentModel.UseVisualStyleBackColor = true;
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1025,6 +1036,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ConsumersCountTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ConsumersCountStep)).EndInit();
             this.flowLayoutPanel_Series1.ResumeLayout(false);
+            this.flowLayoutPanel_Series1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_StartsInSeriesCount)).EndInit();
             this.menuStrip_MainMenu.ResumeLayout(false);
             this.menuStrip_MainMenu.PerformLayout();
@@ -1108,6 +1120,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_SeriesOptions;
         private System.Windows.Forms.Label label_ModelsCount;
         private System.Windows.Forms.NumericUpDown numericUpDown_ModelsCount;
+        private System.Windows.Forms.CheckBox checkBox_CurrentModel;
 
     }
 }

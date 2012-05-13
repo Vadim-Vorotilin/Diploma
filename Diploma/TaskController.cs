@@ -59,6 +59,26 @@ namespace Diploma
             }
         }
 
+        public static int DepotsCount
+        {
+            get
+            {
+                return (from node in Nodes 
+                        where node.Type == Node.NodeType.Depot
+                        select node).Count();
+            }
+        }
+
+        public static int ConsumersCount
+        {
+            get
+            {
+                return (from node in Nodes
+                        where node.Type == Node.NodeType.Consumer
+                        select node).Count();
+            }
+        }
+
         private static string lastFileName;
 
         private static Graphics graphicsForDraw;

@@ -45,6 +45,9 @@ namespace Diploma
             {
                 TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y, 0);
             }
+
+            SetStatus(string.Format("Node added. Depots: {0}. Consumers: {1}", TaskController.DepotsCount,
+                                    TaskController.ConsumersCount), false);
         }
 
         private void button_StartAlgorithm_Click(object sender, EventArgs eventArgs)
@@ -228,14 +231,17 @@ namespace Diploma
             }
         }
 
-        private void SetStatus(string status)
+        private void SetStatus(string status, bool saveToList = true)
         {
             toolStripStatusLabel_Main.Text = status;
 
-            listBox_Statuses.Items.Add(status);
-            listBox_Statuses.SelectedIndex = listBox_Statuses.Items.Count - 1;
+            if (saveToList)
+            {
+                listBox_Statuses.Items.Add(status);
+                listBox_Statuses.SelectedIndex = listBox_Statuses.Items.Count - 1;
 
-            TaskController.SaveDrawnNodes();
+                TaskController.SaveDrawnNodes();
+            }
         }
 
         private void LockConsumerVolumeSettings(bool _lock)
@@ -337,7 +343,10 @@ namespace Diploma
 
         private void listBox_Statuses_MouseClick(object sender, MouseEventArgs e)
         {
-            TaskController.DrawNodes(listBox_Statuses.SelectedIndex);
+            if (listBox_Statuses.SelectedIndex >= 0)
+            {
+                TaskController.DrawNodes(listBox_Statuses.SelectedIndex);
+            }
         }
 
         private string GetAlgorithmName(int index)
@@ -357,26 +366,46 @@ namespace Diploma
             int startsCount = Convert.ToInt32(numericUpDown_StartsInSeriesCount.Value);
             int modelsCount = Convert.ToInt32(numericUpDown_ModelsCount.Value);
 
+            bool currentModel = checkBox_CurrentModel.Checked;
+
             int algorithmsCount = comboBox_AlgorithmType.Items.Count;
 
-            int seriesCount = (consumersTo - consumersFrom) / consumersStep + 1;
+            int seriesCount = currentModel ? 1 : (consumersTo - consumersFrom) / consumersStep + 1;
 
             string logFileName = textBox_LogFileName.Text;
 
+            if (currentModel)
+            {
+                modelsCount = 1;
+            }
+
             QuickAppendToFile(logFileName,
                               string.Format(
-                                  "----- Series start. Clusters limit: {0}. Capacity limit: {1}. Starts in each series: {2}. Models count: {3}. Time: {4}",
+                                  "\n\n\n----- Series start. Clusters limit: {0}. Capacity limit: {1}. " +
+                                  "Starts in each series: {2}. Models count: {3}. " +
+                                  "Current model: {4}. Consumers count: {5}. Time: {6}",
                                   Convert.ToInt32(numericUpDown_ClustersCount.Value),
                                   Convert.ToInt32(numericUpDown_ClusterCapacityLimit.Value),
-                                  startsCount, modelsCount, DateTime.Now));
+                                  startsCount, modelsCount, currentModel,
+                                  TaskController.ConsumersCount, DateTime.Now));
 
             for (int i = 0; i != seriesCount; i++)
             {
                 int consumersCount = consumersFrom + i * consumersStep;
 
-                QuickAppendToFile(logFileName,
-                                  string.Format("--- New models generate. Consumers count: {0}. Time: {1}", consumersCount,
-                                                DateTime.Now));
+                if (!currentModel)
+                {
+                    QuickAppendToFile(logFileName,
+                                      string.Format(
+                                          "--- Series #{0} start. New models generate. Consumers count: {1}. Time: {2}",
+                                          i,
+                                          consumersCount,
+                                          DateTime.Now));
+                }
+                else
+                {
+                    QuickAppendToFile(logFileName, string.Format("--- Series start. Time: {0}", DateTime.Now));
+                }
 
                 double[] valuesAvr = new double[algorithmsCount];
                 double[] timesAvr = new double[algorithmsCount];
@@ -389,8 +418,11 @@ namespace Diploma
 
                 for (int j = 0; j != modelsCount; j++)
                 {
-                    TaskController.CreateNewModel();
-                    GenerateNodes(consumersCount, volumeFrom, volumeTo, true);
+                    if (!currentModel)
+                    {
+                        TaskController.CreateNewModel();
+                        GenerateNodes(consumersCount, volumeFrom, volumeTo, true);
+                    }
 
                     for (int k = 0; k != algorithmsCount; k++)
                     {

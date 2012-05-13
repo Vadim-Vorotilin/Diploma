@@ -429,3 +429,33 @@ Algorithm K-means CLUSTERING. Avr result: 4684,91. Avr time: 1,76 s
 Algorithm NearNeighChain. Avr result: 4688,07. Avr time: 2,20 s
 --- Series #8 completed. Time: 13.05.2012 18:15:50
 ----- All series completed. Time: 13.05.2012 18:15:50
+
+----- Series start. Clusters limit: 4. Capacity limit: 50. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 60. Time: 13.05.2012 19:14:48
+--- Series start. Time: 13.05.2012 19:14:48
+Algorithm Bees VRP -> TSP. Avr result: 3903,43. Avr time: 17,91 s
+Algorithm Bees CLUSTERING. Avr result: 3824,13. Avr time: 0,88 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 6202,69. Avr time: 8,56 s
+Algorithm K-means CLUSTERING. Avr result: 3838,82. Avr time: 0,32 s
+Algorithm NearNeighChain. Avr result: 7642,77. Avr time: 0,14 s
+--- Series #0 completed. Time: 13.05.2012 19:19:33
+----- All series completed. Time: 13.05.2012 19:19:33
+
+----- Series start. Clusters limit: 4. Capacity limit: 100. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 60. Time: 13.05.2012 19:20:17
+--- Series start. Time: 13.05.2012 19:20:17
+Algorithm Bees VRP -> TSP. Avr result: 3940,57. Avr time: 11,61 s
+Algorithm Bees CLUSTERING. Avr result: 3777,09. Avr time: 0,87 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 4350,35. Avr time: 2,77 s
+Algorithm K-means CLUSTERING. Avr result: 3835,25. Avr time: 0,42 s
+Algorithm NearNeighChain. Avr result: 4209,72. Avr time: 0,26 s
+--- Series #0 completed. Time: 13.05.2012 19:21:41
+----- All series completed. Time: 13.05.2012 19:21:41
+
+----- Series start. Clusters limit: 4. Capacity limit: 100. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 70. Time: 13.05.2012 19:24:27
+--- Series start. Time: 13.05.2012 19:24:27
+Algorithm Bees VRP -> TSP. Avr result: 3992,36. Avr time: 33,78 s
+Algorithm Bees CLUSTERING. Avr result: 3953,67. Avr time: 1,23 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 4768,46. Avr time: 4,80 s
+Algorithm K-means CLUSTERING. Avr result: 4032,21. Avr time: 1,07 s
+Algorithm NearNeighChain. Avr result: 4743,91. Avr time: 0,42 s
+--- Series #0 completed. Time: 13.05.2012 19:27:58
+----- All series completed. Time: 13.05.2012 19:27:58
