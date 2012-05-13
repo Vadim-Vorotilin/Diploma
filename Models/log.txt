@@ -430,6 +430,10 @@ Algorithm NearNeighChain. Avr result: 4688,07. Avr time: 2,20 s
 --- Series #8 completed. Time: 13.05.2012 18:15:50
 ----- All series completed. Time: 13.05.2012 18:15:50
 
+========================================================================
+========= Clustered test. 4 clusters. Depot at center ==================
+========================================================================
+
 ----- Series start. Clusters limit: 4. Capacity limit: 50. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 60. Time: 13.05.2012 19:14:48
 --- Series start. Time: 13.05.2012 19:14:48
 Algorithm Bees VRP -> TSP. Avr result: 3903,43. Avr time: 17,91 s
@@ -439,6 +443,8 @@ Algorithm K-means CLUSTERING. Avr result: 3838,82. Avr time: 0,32 s
 Algorithm NearNeighChain. Avr result: 7642,77. Avr time: 0,14 s
 --- Series #0 completed. Time: 13.05.2012 19:19:33
 ----- All series completed. Time: 13.05.2012 19:19:33
+
+
 
 ----- Series start. Clusters limit: 4. Capacity limit: 100. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 60. Time: 13.05.2012 19:20:17
 --- Series start. Time: 13.05.2012 19:20:17
@@ -450,6 +456,8 @@ Algorithm NearNeighChain. Avr result: 4209,72. Avr time: 0,26 s
 --- Series #0 completed. Time: 13.05.2012 19:21:41
 ----- All series completed. Time: 13.05.2012 19:21:41
 
+
+
 ----- Series start. Clusters limit: 4. Capacity limit: 100. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 70. Time: 13.05.2012 19:24:27
 --- Series start. Time: 13.05.2012 19:24:27
 Algorithm Bees VRP -> TSP. Avr result: 3992,36. Avr time: 33,78 s
@@ -459,3 +467,310 @@ Algorithm K-means CLUSTERING. Avr result: 4032,21. Avr time: 1,07 s
 Algorithm NearNeighChain. Avr result: 4743,91. Avr time: 0,42 s
 --- Series #0 completed. Time: 13.05.2012 19:27:58
 ----- All series completed. Time: 13.05.2012 19:27:58
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 50. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 30. Time: 13.05.2012 19:37:56
+--- Series start. Time: 13.05.2012 19:37:56
+Algorithm Bees VRP -> TSP. Avr result: 3354,32. Avr time: 0,91 s
+Algorithm Bees CLUSTERING. Avr result: 3351,20. Avr time: 0,17 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 3355,61. Avr time: 0,64 s
+Algorithm K-means CLUSTERING. Avr result: 3396,14. Avr time: 0,04 s
+Algorithm NearNeighChain. Avr result: 3359,47. Avr time: 0,03 s
+--- Series #0 completed. Time: 13.05.2012 19:38:17
+----- All series completed. Time: 13.05.2012 19:38:17
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 50. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 40. Time: 13.05.2012 19:40:20
+--- Series start. Time: 13.05.2012 19:40:20
+Algorithm Bees VRP -> TSP. Avr result: 3604,59. Avr time: 2,84 s
+Algorithm Bees CLUSTERING. Avr result: 3615,07. Avr time: 0,42 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 5224,93. Avr time: 1,66 s
+Algorithm K-means CLUSTERING. Avr result: 3658,56. Avr time: 0,12 s
+Algorithm NearNeighChain. Avr result: 7090,87. Avr time: 0,04 s
+--- Series #0 completed. Time: 13.05.2012 19:41:15
+----- All series completed. Time: 13.05.2012 19:41:15
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 80. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 40. Time: 13.05.2012 19:41:27
+--- Series start. Time: 13.05.2012 19:41:27
+Algorithm Bees VRP -> TSP. Avr result: 3590,04. Avr time: 3,24 s
+Algorithm Bees CLUSTERING. Avr result: 3608,08. Avr time: 0,38 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 3658,54. Avr time: 1,11 s
+Algorithm K-means CLUSTERING. Avr result: 3627,83. Avr time: 0,11 s
+Algorithm NearNeighChain. Avr result: 3614,34. Avr time: 0,07 s
+--- Series #0 completed. Time: 13.05.2012 19:42:20
+----- All series completed. Time: 13.05.2012 19:42:20
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 80. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 50. Time: 13.05.2012 19:43:11
+--- Series start. Time: 13.05.2012 19:43:11
+Algorithm Bees VRP -> TSP. Avr result: 3902,72. Avr time: 6,45 s
+Algorithm Bees CLUSTERING. Avr result: 3848,90. Avr time: 0,62 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 5082,23. Avr time: 2,29 s
+Algorithm K-means CLUSTERING. Avr result: 3955,19. Avr time: 0,26 s
+Algorithm NearNeighChain. Avr result: 6657,53. Avr time: 0,06 s
+--- Series #0 completed. Time: 13.05.2012 19:44:53
+----- All series completed. Time: 13.05.2012 19:44:53
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 100. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 30. Time: 13.05.2012 19:45:19
+--- Series start. Time: 13.05.2012 19:45:19
+Algorithm Bees VRP -> TSP. Avr result: 3392,86. Avr time: 0,68 s
+Algorithm Bees CLUSTERING. Avr result: 3357,04. Avr time: 0,20 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 2798,40. Avr time: 0,33 s
+Algorithm K-means CLUSTERING. Avr result: 3418,18. Avr time: 0,06 s
+Algorithm NearNeighChain. Avr result: 2791,31. Avr time: 0,18 s
+--- Series #0 completed. Time: 13.05.2012 19:45:37
+----- All series completed. Time: 13.05.2012 19:45:37
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 100. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 40. Time: 13.05.2012 19:45:47
+--- Series start. Time: 13.05.2012 19:45:47
+Algorithm Bees VRP -> TSP. Avr result: 3567,98. Avr time: 3,37 s
+Algorithm Bees CLUSTERING. Avr result: 3619,77. Avr time: 0,43 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 3421,11. Avr time: 0,87 s
+Algorithm K-means CLUSTERING. Avr result: 3593,99. Avr time: 0,12 s
+Algorithm NearNeighChain. Avr result: 3614,32. Avr time: 0,08 s
+--- Series #0 completed. Time: 13.05.2012 19:46:40
+----- All series completed. Time: 13.05.2012 19:46:40
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 100. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 50. Time: 13.05.2012 19:46:53
+--- Series start. Time: 13.05.2012 19:46:53
+Algorithm Bees VRP -> TSP. Avr result: 3847,53. Avr time: 12,43 s
+Algorithm Bees CLUSTERING. Avr result: 3839,10. Avr time: 0,63 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 4676,90. Avr time: 1,94 s
+Algorithm K-means CLUSTERING. Avr result: 3910,23. Avr time: 0,29 s
+Algorithm NearNeighChain. Avr result: 5686,79. Avr time: 0,11 s
+--- Series #0 completed. Time: 13.05.2012 19:49:33
+----- All series completed. Time: 13.05.2012 19:49:33
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 100. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 60. Time: 13.05.2012 19:50:00
+--- Series start. Time: 13.05.2012 19:50:00
+Algorithm Bees VRP -> TSP. Avr result: 3910,74. Avr time: 22,05 s
+Algorithm Bees CLUSTERING. Avr result: 3807,34. Avr time: 0,91 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 4343,68. Avr time: 2,20 s
+Algorithm K-means CLUSTERING. Avr result: 3807,10. Avr time: 0,48 s
+Algorithm NearNeighChain. Avr result: 4198,64. Avr time: 0,34 s
+--- Series #0 completed. Time: 13.05.2012 19:52:14
+----- All series completed. Time: 13.05.2012 19:52:14
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 100. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 70. Time: 13.05.2012 19:52:53
+--- Series start. Time: 13.05.2012 19:52:53
+Algorithm Bees VRP -> TSP. Avr result: 3987,39. Avr time: 44,74 s
+Algorithm Bees CLUSTERING. Avr result: 3917,84. Avr time: 1,21 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 4832,69. Avr time: 5,22 s
+Algorithm K-means CLUSTERING. Avr result: 3920,23. Avr time: 0,69 s
+Algorithm NearNeighChain. Avr result: 4733,58. Avr time: 0,50 s
+--- Series #0 completed. Time: 13.05.2012 19:57:18
+----- All series completed. Time: 13.05.2012 19:57:18
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 150. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 30. Time: 13.05.2012 19:59:27
+--- Series start. Time: 13.05.2012 19:59:27
+Algorithm Bees VRP -> TSP. Avr result: 3380,20. Avr time: 0,97 s
+Algorithm Bees CLUSTERING. Avr result: 3387,66. Avr time: 0,20 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 2807,21. Avr time: 0,32 s
+Algorithm K-means CLUSTERING. Avr result: 3261,55. Avr time: 0,07 s
+Algorithm NearNeighChain. Avr result: 2806,11. Avr time: 0,17 s
+--- Series #0 completed. Time: 13.05.2012 19:59:47
+----- All series completed. Time: 13.05.2012 19:59:47
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 150. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 40. Time: 13.05.2012 19:59:56
+--- Series start. Time: 13.05.2012 19:59:56
+Algorithm Bees VRP -> TSP. Avr result: 3642,00. Avr time: 4,00 s
+Algorithm Bees CLUSTERING. Avr result: 3625,54. Avr time: 0,40 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 3335,26. Avr time: 0,67 s
+Algorithm K-means CLUSTERING. Avr result: 3674,40. Avr time: 0,12 s
+Algorithm NearNeighChain. Avr result: 3296,65. Avr time: 0,22 s
+--- Series #0 completed. Time: 13.05.2012 20:00:55
+----- All series completed. Time: 13.05.2012 20:00:55
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 150. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 50. Time: 13.05.2012 20:01:36
+--- Series start. Time: 13.05.2012 20:01:36
+Algorithm Bees VRP -> TSP. Avr result: 3856,29. Avr time: 10,56 s
+Algorithm Bees CLUSTERING. Avr result: 3839,58. Avr time: 0,61 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 4099,31. Avr time: 1,97 s
+Algorithm K-means CLUSTERING. Avr result: 3967,40. Avr time: 0,28 s
+Algorithm NearNeighChain. Avr result: 3849,04. Avr time: 0,18 s
+--- Series #0 completed. Time: 13.05.2012 20:03:58
+----- All series completed. Time: 13.05.2012 20:03:58
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 150. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 60. Time: 13.05.2012 20:04:25
+--- Series start. Time: 13.05.2012 20:04:25
+Algorithm Bees VRP -> TSP. Avr result: 3856,22. Avr time: 26,79 s
+Algorithm Bees CLUSTERING. Avr result: 3781,36. Avr time: 0,92 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 3861,65. Avr time: 2,74 s
+Algorithm K-means CLUSTERING. Avr result: 3800,92. Avr time: 0,36 s
+Algorithm NearNeighChain. Avr result: 4202,15. Avr time: 0,32 s
+--- Series #0 completed. Time: 13.05.2012 20:07:04
+----- All series completed. Time: 13.05.2012 20:07:04
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 150. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 70. Time: 13.05.2012 20:07:19
+--- Series start. Time: 13.05.2012 20:07:19
+Algorithm Bees VRP -> TSP. Avr result: 4019,86. Avr time: 47,79 s
+Algorithm Bees CLUSTERING. Avr result: 3972,07. Avr time: 1,15 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 4104,98. Avr time: 4,01 s
+Algorithm K-means CLUSTERING. Avr result: 3986,20. Avr time: 0,62 s
+Algorithm NearNeighChain. Avr result: 4378,19. Avr time: 0,48 s
+--- Series #0 completed. Time: 13.05.2012 20:11:53
+----- All series completed. Time: 13.05.2012 20:11:53
+
+
+
+----- Series start. Clusters limit: 3. Capacity limit: 150. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 30. Time: 13.05.2012 20:12:30
+--- Series start. Time: 13.05.2012 20:12:30
+Algorithm Bees VRP -> TSP. Avr result: 3106,25. Avr time: 0,96 s
+Algorithm Bees CLUSTERING. Avr result: 3068,70. Avr time: 0,21 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 2798,63. Avr time: 0,35 s
+Algorithm K-means CLUSTERING. Avr result: 3064,67. Avr time: 0,12 s
+Algorithm NearNeighChain. Avr result: 2809,81. Avr time: 0,18 s
+--- Series #0 completed. Time: 13.05.2012 20:12:51
+----- All series completed. Time: 13.05.2012 20:12:51
+
+
+
+----- Series start. Clusters limit: 3. Capacity limit: 150. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 40. Time: 13.05.2012 20:13:53
+--- Series start. Time: 13.05.2012 20:13:53
+Algorithm Bees VRP -> TSP. Avr result: 3322,59. Avr time: 2,70 s
+Algorithm Bees CLUSTERING. Avr result: 3304,29. Avr time: 0,38 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 3316,06. Avr time: 0,80 s
+Algorithm K-means CLUSTERING. Avr result: 3305,28. Avr time: 0,23 s
+Algorithm NearNeighChain. Avr result: 3315,41. Avr time: 0,18 s
+--- Series #0 completed. Time: 13.05.2012 20:14:41
+----- All series completed. Time: 13.05.2012 20:14:41
+
+
+
+----- Series start. Clusters limit: 3. Capacity limit: 150. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 50. Time: 13.05.2012 20:14:56
+--- Series start. Time: 13.05.2012 20:14:56
+Algorithm Bees VRP -> TSP. Avr result: 3563,63. Avr time: 7,94 s
+Algorithm Bees CLUSTERING. Avr result: 3548,11. Avr time: 0,83 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 4161,99. Avr time: 2,03 s
+Algorithm K-means CLUSTERING. Avr result: 3591,36. Avr time: 0,47 s
+Algorithm NearNeighChain. Avr result: 3837,11. Avr time: 0,19 s
+--- Series #0 completed. Time: 13.05.2012 20:15:56
+----- All series completed. Time: 13.05.2012 20:15:56
+
+
+
+----- Series start. Clusters limit: 3. Capacity limit: 150. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 60. Time: 13.05.2012 20:16:15
+--- Series start. Time: 13.05.2012 20:16:15
+Algorithm Bees VRP -> TSP. Avr result: 3613,34. Avr time: 22,68 s
+Algorithm Bees CLUSTERING. Avr result: 3596,81. Avr time: 1,15 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 3932,15. Avr time: 2,45 s
+Algorithm K-means CLUSTERING. Avr result: 3594,46. Avr time: 0,83 s
+Algorithm NearNeighChain. Avr result: 4176,47. Avr time: 0,22 s
+--- Series #0 completed. Time: 13.05.2012 20:18:35
+----- All series completed. Time: 13.05.2012 20:18:35
+
+
+
+----- Series start. Clusters limit: 3. Capacity limit: 150. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 70. Time: 13.05.2012 20:18:53
+--- Series start. Time: 13.05.2012 20:18:53
+Algorithm Bees VRP -> TSP. Avr result: 3755,42. Avr time: 28,57 s
+Algorithm Bees CLUSTERING. Avr result: 3722,16. Avr time: 2,02 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 4117,67. Avr time: 3,14 s
+Algorithm K-means CLUSTERING. Avr result: 3662,41. Avr time: 1,99 s
+Algorithm NearNeighChain. Avr result: 4391,37. Avr time: 0,48 s
+--- Series #0 completed. Time: 13.05.2012 20:21:58
+----- All series completed. Time: 13.05.2012 20:21:58
+
+
+========================================================================
+========= Clustered test. 4 clusters. Depot at the side ================
+========================================================================
+
+----- Series start. Clusters limit: 4. Capacity limit: 150. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 30. Time: 13.05.2012 20:24:36
+--- Series start. Time: 13.05.2012 20:24:36
+Algorithm Bees VRP -> TSP. Avr result: 3208,18. Avr time: 0,95 s
+Algorithm Bees CLUSTERING. Avr result: 3163,24. Avr time: 0,25 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 2851,60. Avr time: 0,32 s
+Algorithm K-means CLUSTERING. Avr result: 3518,69. Avr time: 0,05 s
+Algorithm NearNeighChain. Avr result: 2841,93. Avr time: 0,17 s
+--- Series #0 completed. Time: 13.05.2012 20:24:56
+----- All series completed. Time: 13.05.2012 20:24:56
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 150. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 40. Time: 13.05.2012 20:26:17
+--- Series start. Time: 13.05.2012 20:26:17
+Algorithm Bees VRP -> TSP. Avr result: 3403,82. Avr time: 3,32 s
+Algorithm Bees CLUSTERING. Avr result: 3379,33. Avr time: 0,58 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 3687,49. Avr time: 1,03 s
+Algorithm K-means CLUSTERING. Avr result: 3722,60. Avr time: 0,14 s
+Algorithm NearNeighChain. Avr result: 3787,26. Avr time: 0,07 s
+--- Series #0 completed. Time: 13.05.2012 20:27:13
+----- All series completed. Time: 13.05.2012 20:27:13
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 150. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 50. Time: 13.05.2012 20:28:16
+--- Series start. Time: 13.05.2012 20:28:16
+Algorithm Bees VRP -> TSP. Avr result: 3608,42. Avr time: 7,73 s
+Algorithm Bees CLUSTERING. Avr result: 3870,59. Avr time: 0,75 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 4465,87. Avr time: 1,63 s
+Algorithm K-means CLUSTERING. Avr result: 3816,56. Avr time: 0,27 s
+Algorithm NearNeighChain. Avr result: 3974,33. Avr time: 0,18 s
+--- Series #0 completed. Time: 13.05.2012 20:29:12
+----- All series completed. Time: 13.05.2012 20:29:12
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 150. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 60. Time: 13.05.2012 20:30:16
+--- Series start. Time: 13.05.2012 20:30:16
+Algorithm Bees VRP -> TSP. Avr result: 3677,07. Avr time: 27,08 s
+Algorithm Bees CLUSTERING. Avr result: 4126,47. Avr time: 0,85 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 4509,50. Avr time: 2,11 s
+Algorithm K-means CLUSTERING. Avr result: 4045,75. Avr time: 0,53 s
+Algorithm NearNeighChain. Avr result: 4127,74. Avr time: 0,35 s
+--- Series #0 completed. Time: 13.05.2012 20:32:54
+----- All series completed. Time: 13.05.2012 20:32:54
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 150. Starts in each series: 10. Models count: 1. Current model: True. Consumers count: 70. Time: 13.05.2012 20:35:26
+--- Series start. Time: 13.05.2012 20:35:26
+Algorithm Bees VRP -> TSP. Avr result: 3862,13. Avr time: 46,09 s
+Algorithm Bees CLUSTERING. Avr result: 4301,13. Avr time: 1,57 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 4306,31. Avr time: 2,48 s
+Algorithm K-means CLUSTERING. Avr result: 4205,32. Avr time: 0,91 s
+Algorithm NearNeighChain. Avr result: 4318,35. Avr time: 0,48 s
+--- Series #0 completed. Time: 13.05.2012 20:44:10
+----- All series completed. Time: 13.05.2012 20:44:10
+
+
+==========================================
+
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 100. Starts in each series: 5. Models count: 1. Current model: True. Consumers count: 50. Time: 13.05.2012 22:36:25
+--- Series start. Time: 13.05.2012 22:36:25
+Algorithm Bees VRP -> TSP. Avr result: 3843,20. Avr time: 8,01 s
+Algorithm Bees CLUSTERING. Avr result: 3845,60. Avr time: 0,56 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 4677,08. Avr time: 1,65 s
+Algorithm K-means CLUSTERING. Avr result: 3878,98. Avr time: 0,17 s
+Algorithm NearNeighChain. Avr result: 5694,14. Avr time: 0,10 s
+--- Series #0 completed. Time: 13.05.2012 22:37:20
+----- All series completed. Time: 13.05.2012 22:37:20
