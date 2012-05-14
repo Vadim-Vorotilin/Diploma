@@ -5,12 +5,12 @@ using System.Text;
 
 namespace Diploma
 {
-    public class SiteClusteringLimitedCapacity : SiteClustering
+    public class SiteClusteringCvrp : SiteClusteringVrp
     {
         private readonly int capacityLimit;
         private Node depot;
             
-        public SiteClusteringLimitedCapacity (List<Node> nodes, int clustersCount, int capacityLimit) 
+        public SiteClusteringCvrp (List<Node> nodes, int clustersCount, int capacityLimit) 
             : base(nodes)
         {
             Clusters = new List<Cluster>();
@@ -25,7 +25,7 @@ namespace Diploma
             }
         }
 
-        private SiteClusteringLimitedCapacity (SiteClusteringLimitedCapacity site)
+        private SiteClusteringCvrp (SiteClusteringCvrp site)
             : base(site)
         {
             this.capacityLimit = site.capacityLimit;
@@ -142,7 +142,7 @@ namespace Diploma
 
         protected override Site GetNeighbour()
         {
-            SiteClusteringLimitedCapacity result = new SiteClusteringLimitedCapacity(this);
+            SiteClusteringCvrp result = new SiteClusteringCvrp(this);
 
             double probability = TaskController.Rnd.NextDouble();
 
@@ -160,7 +160,7 @@ namespace Diploma
 
         public override int CompareTo(object obj)
         {
-            SiteClusteringLimitedCapacity site = obj as SiteClusteringLimitedCapacity;
+            SiteClusteringCvrp site = obj as SiteClusteringCvrp;
 
             if (double.IsPositiveInfinity(Price) && double.IsPositiveInfinity(site.Price))
             {

@@ -10,12 +10,10 @@ namespace Diploma
     {
         public enum ProblemType
         {
-            TSP,
-            VRP,
             VRP_TSP,
-            CLUSTERING,
-            CLUSTERING_LIMITED_CAPASITY,
-            CLUSTERING_LIMITED_CAPASITY_PIORITY
+            CLUSTERING_VRP,
+            CLUSTERING_CVRP,
+            CLUSTERING_CVRPP
         }
 
         public ProblemType Problem;
@@ -38,10 +36,10 @@ namespace Diploma
             {
                 case ProblemType.VRP_TSP:
                     return new SiteVrpTsp(Nodes, DepotsCount, ConsumersCount, ClustersCount);
-                case ProblemType.CLUSTERING:
-                    return new SiteClustering(Nodes, ClustersCount);
-                case ProblemType.CLUSTERING_LIMITED_CAPASITY:
-                    return new SiteClusteringLimitedCapacity(Nodes, ClustersCount, ClusterCapacityLimit);
+                case ProblemType.CLUSTERING_VRP:
+                    return new SiteClusteringVrp(Nodes, ClustersCount);
+                case ProblemType.CLUSTERING_CVRP:
+                    return new SiteClusteringCvrp(Nodes, ClustersCount, ClusterCapacityLimit);
                 default:
                     return null;
             }
@@ -111,8 +109,8 @@ namespace Diploma
 
             switch (Problem)
             {
-                case ProblemType.CLUSTERING_LIMITED_CAPASITY:
-                    str = string.Format("Clusters count: {0}", (BestSite as SiteClusteringLimitedCapacity).Clusters.Count);
+                case ProblemType.CLUSTERING_CVRP:
+                    str = string.Format("Clusters count: {0}", (BestSite as SiteClusteringCvrp).Clusters.Count);
                     break;
             }
 

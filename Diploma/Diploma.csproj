@@ -64,8 +64,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializationData.cs" />
     <Compile Include="Site.cs" />
-    <Compile Include="SiteClustering.cs" />
-    <Compile Include="SiteClusteringLimitedCapacity.cs" />
+    <Compile Include="SiteClusteringVrp.cs" />
+    <Compile Include="SiteClusteringCvrp.cs" />
     <Compile Include="SiteVrpTsp.cs" />
     <Compile Include="TaskController.cs" />
     <EmbeddedResource Include="GraphForm.resx">

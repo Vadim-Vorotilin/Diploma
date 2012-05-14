@@ -774,3 +774,21 @@ Algorithm K-means CLUSTERING. Avr result: 3878,98. Avr time: 0,17 s
 Algorithm NearNeighChain. Avr result: 5694,14. Avr time: 0,10 s
 --- Series #0 completed. Time: 13.05.2012 22:37:20
 ----- All series completed. Time: 13.05.2012 22:37:20
+Starting new algorithm: NearestNeighbourChain. Time: 14.05.2012 21:05:28.
+1	22022611,00
+11	20434772,33
+21	16082707,44
+31	12316735,11
+41	10366774,69
+51	7426765,39
+61	6152481,44
+71	5376890,33
+81	5376890,33
+Starting new algorithm: NearestNeighbourChain. Time: 14.05.2012 21:05:37.
+1	22022611,00
+11	20434772,33
+21	16082707,44
+31	12316735,11
+41	10366774,69
+51	5848240,54
+61	2887083,85

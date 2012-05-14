@@ -263,7 +263,7 @@ namespace Diploma
 
             if (Algorithm as BeesColony != null)
             {
-                SiteClustering site = ((Algorithm as BeesColony).BestSite as SiteClustering);
+                SiteClusteringVrp site = ((Algorithm as BeesColony).BestSite as SiteClusteringVrp);
 
                 if (site == null)
                     return;

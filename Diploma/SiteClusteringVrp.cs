@@ -6,19 +6,19 @@ using System.Text;
 
 namespace Diploma
 {
-    public class SiteClustering : Site
+    public class SiteClusteringVrp : Site
     {
         public List<Cluster> Clusters { get; protected set; }
         protected int ClustersCount;
 
         #region Overrides of Site
 
-        public SiteClustering(List<Node> nodes)
+        public SiteClusteringVrp(List<Node> nodes)
             : base(nodes)
         {
         }
 
-        public SiteClustering(List<Node> nodes, int clustersCount)
+        public SiteClusteringVrp(List<Node> nodes, int clustersCount)
             : base(nodes)
         {
             Clusters = new List<Cluster>();
@@ -27,7 +27,7 @@ namespace Diploma
             GenerateClusters();
         }
 
-        protected SiteClustering(SiteClustering site)
+        protected SiteClusteringVrp(SiteClusteringVrp site)
             : base(site.Nodes)
         {
             Clusters = new List<Cluster>();
@@ -136,12 +136,12 @@ namespace Diploma
         protected override void GoToNeighbour(Site site)
         {
             Clusters = new List<Cluster>();
-            Clusters.AddRange((site as SiteClustering).Clusters);
+            Clusters.AddRange((site as SiteClusteringVrp).Clusters);
         }
 
         protected override Site GetNeighbour()
         {
-            SiteClustering result = new SiteClustering(this);
+            SiteClusteringVrp result = new SiteClusteringVrp(this);
             result.MoveNodeFromOneClusterToAnother();
 
             return result;

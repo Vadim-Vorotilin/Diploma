@@ -95,7 +95,7 @@ namespace Diploma
                     TaskController.StartBeesAlgorithm(BeesColony.ProblemType.VRP_TSP, ClustersCount, 5, 3, 1, 2, 3);
                     break;
                 case 1:                 //  Bees CLUSTERING
-                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING, ClustersCount, 5, 3, 1, 2, 3);
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_VRP, ClustersCount, 5, 3, 1, 2, 3);
                     break;
                 case 2:                 //  Bees CLUST w/ LIMIT
                     if (ClusterCapacityLimit < TaskController.MaxVolume)
@@ -105,7 +105,7 @@ namespace Diploma
                         return false;
                     }
 
-                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_LIMITED_CAPASITY, ClustersCount, 7, 3, 2, 2, 5, ClusterCapacityLimit);
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_CVRP, ClustersCount, 7, 3, 2, 2, 5, ClusterCapacityLimit);
                     break;
                 case 3:                 //  K-means CLUSTERING
                     TaskController.StartKMeansAlgorithm(ClustersCount);
