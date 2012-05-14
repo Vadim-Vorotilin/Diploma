@@ -9,12 +9,16 @@ namespace Diploma
     class ClusteringToTsp : Algorithm
     {
         private List<Cluster> clusters;
+        private List<Node> notClusteredNodes;
         private List<double> values;
-        private List<BeesColony> colonies; 
+        private List<BeesColony> colonies;
+        private double kilometerCost;
 
-        public ClusteringToTsp (List<Cluster> clusters)
+        public ClusteringToTsp (List<Cluster> clusters, List<Node> notClusteredNodes, double kilometerCost)
         {
             this.clusters = clusters;
+            this.notClusteredNodes = notClusteredNodes;
+            this.kilometerCost = kilometerCost;
         }
 
         public void Calculate(int scoutsCount, int goodSitesCount, int bestSitesCount, int neighboursForGoodSites, int neighboursForBestSites)
@@ -60,7 +64,7 @@ namespace Diploma
             Stop();
         }
 
-        public override double Value
+        private double SumValue
         {
             get 
             {
@@ -70,6 +74,22 @@ namespace Diploma
                 }
 
                 return values.Sum();
+            }
+        }
+
+        public override double Value
+        {
+            get
+            {
+                if (notClusteredNodes == null)
+                {
+                    return SiteClusteringCvrpp.GetPrice(SumValue, kilometerCost, 0);
+                }
+
+                double fines = (from node in notClusteredNodes
+                                select node.Fine).Sum();
+
+                return SiteClusteringCvrpp.GetPrice(SumValue, kilometerCost, fines);
             }
         }
 
@@ -90,6 +110,11 @@ namespace Diploma
             for (int i = 0; i != colonies.Count; i++)
             {
                 drawingNodes.AddRange(colonies[i].BestSite.PrepareToDraw(TaskController.GetDrawingColor(i)));
+            }
+
+            if (notClusteredNodes != null)
+            {
+                drawingNodes.AddRange(notClusteredNodes);
             }
 
             TaskController.DrawNodes(drawingNodes); 

@@ -94,6 +94,8 @@ namespace Diploma
                 return false;
             }
 
+            TaskController.KilometerCost = KilometerCost;
+
             switch (comboBox_AlgorithmType.SelectedIndex)
             {
                 case 0:                 //  Bees VRP -> TSP
@@ -146,6 +148,8 @@ namespace Diploma
             numericUpDown_ClustersCount.Enabled = !_lock;
             label_ClusterCapacityLimit.Enabled = !_lock;
             numericUpDown_ClusterCapacityLimit.Enabled = !_lock;
+            label_KilometerCost.Enabled = !_lock;
+            numericUpDown_KilometerCost.Enabled = !_lock;
             label_Algorithm.Enabled = !_lock;
             comboBox_AlgorithmType.Enabled = !_lock;
         }

@@ -21,6 +21,8 @@ namespace Diploma
 
         protected bool Stopped { get; private set; }
 
+        private const double Epsilon = 0.0001;
+
         protected Algorithm()
         {
             IterationNumber = 0;
@@ -89,7 +91,7 @@ namespace Diploma
                 writer.WriteLine(string.Format("{0}\t{1:0.00}", IterationNumber, newValue));
             }
 
-            if (IsCalcLastChange && lastValue != newValue)
+            if (IsCalcLastChange && Math.Abs(lastValue - newValue) >= lastValue * Epsilon)
             {
                 LastChangedIteration = IterationNumber;
             }
@@ -115,6 +117,11 @@ namespace Diploma
 
         public void Stop()
         {
+            if (Stopped)
+            {
+                return;
+            }
+
             if (writer != null)
             {
                 writer.Close();
