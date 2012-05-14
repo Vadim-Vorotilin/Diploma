@@ -9,10 +9,10 @@ namespace Diploma
         public List<Node> Nodes = new List<Node>();
         public Node Depot;
 
+        public int CapacityLimit;
+
         private bool nodesUpdated = true;
         private Node.Point center;
-
-        private const double sqrt2 = 1.4142135623730950488016887242097;
 
         public Node.Point Center
         {

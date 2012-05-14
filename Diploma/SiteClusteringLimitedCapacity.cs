@@ -18,6 +18,11 @@ namespace Diploma
             this.ClustersCount = clustersCount;
 
             GenerateClusters();
+
+            for (int i = 0; i != Clusters.Count; i++)
+            {
+                Clusters[i].CapacityLimit = capacityLimit;
+            }
         }
 
         private SiteClusteringLimitedCapacity (SiteClusteringLimitedCapacity site)
@@ -39,7 +44,7 @@ namespace Diploma
                 {
                     int volume = cluster.Volume;
 
-                    if (volume <= capacityLimit)
+                    if (volume <= cluster.CapacityLimit)
                     {
                         price += cluster.GetPrice();
                         UnderLimitClustersCount++;
@@ -77,7 +82,7 @@ namespace Diploma
 
                     int index = TaskController.Rnd.Next(nodesForClusters.Count);
 
-                    if (Clusters[i].Volume + nodesForClusters[index].Volume <= capacityLimit)
+                    if (Clusters[i].Volume + nodesForClusters[index].Volume <= Clusters[i].CapacityLimit)
                     {
                         Clusters[i].AddNode(nodesForClusters[index]);
                         nodesForClusters.RemoveAt(index);
@@ -121,7 +126,7 @@ namespace Diploma
             int volume1 = c1.Volume - node1.Volume;
             int volume2 = c2.Volume - node2.Volume;
 
-            if (volume1 + node2.Volume <= capacityLimit && volume2 + node1.Volume <= capacityLimit)
+            if (volume1 + node2.Volume <= c1.CapacityLimit && volume2 + node1.Volume <= c2.CapacityLimit)
             {
                 c1.RemoveNode(node1);
                 c2.RemoveNode(node2);

@@ -27,6 +27,7 @@ namespace Diploma
             {
                 AddCluster();
                 Clusters[i].AddNode(Consumers[i]);
+                Clusters[i].CapacityLimit = capacityLimit;
             }
         }
 
@@ -96,10 +97,16 @@ namespace Diploma
 
             } while (true);
 
-            if (Clusters[lastCluster].Volume + Clusters[currentCluster].Volume <= capacityLimit)
+            if (Clusters[lastCluster].Volume + Clusters[currentCluster].Volume <= Clusters[lastCluster].CapacityLimit)
             {
                 Clusters[lastCluster].Merge(Clusters[currentCluster]);
                 Clusters.RemoveAt(currentCluster);
+                merged = true;
+            }
+            else if (Clusters[lastCluster].Volume + Clusters[currentCluster].Volume <= Clusters[currentCluster].CapacityLimit)
+            {
+                Clusters[currentCluster].Merge(Clusters[lastCluster]);
+                Clusters.RemoveAt(lastCluster);
                 merged = true;
             }
         }

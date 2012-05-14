@@ -14,7 +14,8 @@ namespace Diploma
             VRP,
             VRP_TSP,
             CLUSTERING,
-            CLUSTERING_LIMITED_CAPASITY
+            CLUSTERING_LIMITED_CAPASITY,
+            CLUSTERING_LIMITED_CAPASITY_PIORITY
         }
 
         public ProblemType Problem;

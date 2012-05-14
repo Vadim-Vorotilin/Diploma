@@ -56,6 +56,8 @@ namespace Diploma
         public Point RealPosition;
         public NodeType Type;
 
+        public int Fine;
+
         public int Volume;
 
         public int Id;
@@ -77,6 +79,7 @@ namespace Diploma
             ScreenPosition = new Point(0, 0);
             RealPosition = new Point(0, 0);
             Volume = 0;
+            Fine = 0;
 
             Connections = new List<Connection>();
         }
