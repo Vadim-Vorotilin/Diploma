@@ -39,11 +39,11 @@ namespace Diploma
             
             if (e.Button == MouseButtons.Left)
             {
-                TaskController.AddNodeAtScreen(Node.NodeType.Consumer, e.X, e.Y, volume);
+                TaskController.AddNodeAtScreen(Node.NodeType.Consumer, e.X, e.Y, volume, volume);
             }
             else if (e.Button == MouseButtons.Right)
             {
-                TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y, 0);
+                TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y, 0, 0);
             }
 
             SetStatus(string.Format("Node added. Depots: {0}. Consumers: {1}", TaskController.DepotsCount,
@@ -78,6 +78,11 @@ namespace Diploma
         private int ClusterCapacityLimit
         {
             get { return Convert.ToInt32(numericUpDown_ClusterCapacityLimit.Value); }
+        }
+
+        private double KilometerCost
+        {
+            get { return Convert.ToDouble(numericUpDown_KilometerCost.Value); }
         }
 
         private bool StartAlgorithm()
@@ -119,6 +124,9 @@ namespace Diploma
                     }
 
                     TaskController.StartNearestNeighbourChainAlgorithm(ClusterCapacityLimit);
+                    break;
+                case 5:                 //  Bees CLUST CVRPP
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_CVRPP, ClustersCount, 7, 3, 2, 2, 5, ClusterCapacityLimit, KilometerCost);
                     break;
             }
 
@@ -316,7 +324,8 @@ namespace Diploma
         {
             for (int i = 0; i != count; i++)
             {
-                TaskController.AddNodeAtScreen(Node.NodeType.Consumer, TaskController.Rnd.Next(10, panel_Drawing.Width - 10), TaskController.Rnd.Next(10, panel_Drawing.Height - 10), TaskController.Rnd.Next(volumeFrom, volumeTo + 1));
+                int volume = TaskController.Rnd.Next(volumeFrom, volumeTo + 1);
+                TaskController.AddNodeAtScreen(Node.NodeType.Consumer, TaskController.Rnd.Next(10, panel_Drawing.Width - 10), TaskController.Rnd.Next(10, panel_Drawing.Height - 10), volume, volume);
             }
 
             if (withDepot)

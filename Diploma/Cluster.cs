@@ -9,7 +9,7 @@ namespace Diploma
         public List<Node> Nodes = new List<Node>();
         public Node Depot;
 
-        public int CapacityLimit;
+        public int CapacityLimit = int.MaxValue;
 
         private bool nodesUpdated = true;
         private Node.Point center;
@@ -95,6 +95,7 @@ namespace Diploma
             }
 
             Depot = cluster.Depot;
+            CapacityLimit = cluster.CapacityLimit;
         }
 
         public List<Node> GetDrawingNodes(Color connectionsColor)
@@ -132,6 +133,12 @@ namespace Diploma
             nodesUpdated = true;
         }
 
+        public void AddNodes(List<Node> nodes)
+        {
+            Nodes.AddRange(nodes);
+            nodesUpdated = true;
+        }
+
         public void RemoveNodes()
         {
             Nodes.Clear();
@@ -142,6 +149,20 @@ namespace Diploma
         {
             Nodes.Remove(node);
             nodesUpdated = true;
+        }
+
+        public override string ToString()
+        {
+            string str = "{";
+
+            foreach (Node node in Nodes)
+            {
+                str += node.Id + ",";
+            }
+
+            str += "}";
+
+            return str;
         }
     }
 }

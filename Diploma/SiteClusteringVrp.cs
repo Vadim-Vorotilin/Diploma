@@ -38,12 +38,12 @@ namespace Diploma
             }
         }
 
-        protected virtual void GenerateClusters(List<Node> nodesForClusters, Node depot)
+        protected virtual List<Node> GenerateClusters(List<Node> nodesForClusters, Node _depot)
         {
             for (int i = 0; i != ClustersCount; i++)
             {
                 Clusters.Add(new Cluster());
-                Clusters[i].Depot = depot;
+                Clusters[i].Depot = _depot;
 
                 int nodeIndex = TaskController.Rnd.Next(nodesForClusters.Count);
                 Clusters[i].AddNode(nodesForClusters[nodeIndex]);
@@ -58,9 +58,14 @@ namespace Diploma
                     Clusters[clusterIndex].AddNode(node);
                 }
             }
+
+            List<Node> remainingNodes = new List<Node>();
+            remainingNodes.AddRange(nodesForClusters);
+
+            return remainingNodes;
         }
 
-        protected void GenerateClusters()
+        protected List<Node> GenerateClusters()
         {
             Node depot = null;
             
@@ -77,7 +82,7 @@ namespace Diploma
                                            where node.Type == Node.NodeType.Consumer
                                            select node).ToList();
 
-            GenerateClusters(nodesForClusters, depot);
+            return GenerateClusters(nodesForClusters, depot);
         }
 
         protected void MoveNodeFromOneClusterToAnother(int c1, int c2)
@@ -85,7 +90,7 @@ namespace Diploma
             MoveNodeFromOneClusterToAnother(Clusters[c1], Clusters[c2]);
         }
 
-        protected void MoveNodeFromOneClusterToAnother(Cluster cluster1, Cluster cluster2)
+        protected static void MoveNodeFromOneClusterToAnother(Cluster cluster1, Cluster cluster2)
         {
             int nodeIndex = TaskController.Rnd.Next(cluster1.Nodes.Count);
 
@@ -95,9 +100,9 @@ namespace Diploma
             cluster2.AddNode(node);
         }
 
-        public void MoveNodeFromOneClusterToAnother()
+        public static void MoveNodeFromOneClusterToAnother(List<Cluster> clusters)
         {
-            if (Clusters.Count <= 1)
+            if (clusters.Count <= 1)
             {
                 return;
             }
@@ -107,15 +112,15 @@ namespace Diploma
 
             do
             {
-                c1 = TaskController.Rnd.Next(Clusters.Count);
-            } while (Clusters[c1].Nodes.Count <= 1);
+                c1 = TaskController.Rnd.Next(clusters.Count);
+            } while (clusters[c1].Nodes.Count <= 1);
 
             do
             {
-                c2 = TaskController.Rnd.Next(Clusters.Count);
+                c2 = TaskController.Rnd.Next(clusters.Count);
             } while (c2 == c1);
 
-            MoveNodeFromOneClusterToAnother(c1, c2);
+            MoveNodeFromOneClusterToAnother(clusters[c1], clusters[c2]);
         }
 
         public override double Price
@@ -142,7 +147,7 @@ namespace Diploma
         protected override Site GetNeighbour()
         {
             SiteClusteringVrp result = new SiteClusteringVrp(this);
-            result.MoveNodeFromOneClusterToAnother();
+            MoveNodeFromOneClusterToAnother(result.Clusters);
 
             return result;
         }
@@ -179,14 +184,7 @@ namespace Diploma
 
             foreach (Cluster cluster in Clusters)
             {
-                str += "{";
-
-                foreach (Node node in cluster.Nodes)
-                {
-                    str += node.Id + ",";
-                }
-
-                str += "}, ";
+                str += cluster.ToString() + ", ";
             }
 
             return string.Format("{0}. Price: {1}", str, Price);

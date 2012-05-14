@@ -79,8 +79,12 @@
             this.label_ConsumersCountStep = new System.Windows.Forms.Label();
             this.numericUpDown_ConsumersCountStep = new System.Windows.Forms.NumericUpDown();
             this.flowLayoutPanel_Series1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label_StartsInSeries = new System.Windows.Forms.Label();
+            this.tableLayoutPanel_SeriesOptions = new System.Windows.Forms.TableLayoutPanel();
+            this.label_ModelsCount = new System.Windows.Forms.Label();
             this.numericUpDown_StartsInSeriesCount = new System.Windows.Forms.NumericUpDown();
+            this.label_StartsInSeries = new System.Windows.Forms.Label();
+            this.numericUpDown_ModelsCount = new System.Windows.Forms.NumericUpDown();
+            this.checkBox_CurrentModel = new System.Windows.Forms.CheckBox();
             this.button_StartSeries = new System.Windows.Forms.Button();
             this.menuStrip_MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,10 +97,8 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Main = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tableLayoutPanel_SeriesOptions = new System.Windows.Forms.TableLayoutPanel();
-            this.label_ModelsCount = new System.Windows.Forms.Label();
-            this.numericUpDown_ModelsCount = new System.Windows.Forms.NumericUpDown();
-            this.checkBox_CurrentModel = new System.Windows.Forms.CheckBox();
+            this.label_KilometerCost = new System.Windows.Forms.Label();
+            this.numericUpDown_KilometerCost = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.groupBox_Options.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
@@ -122,11 +124,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ConsumersCountTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ConsumersCountStep)).BeginInit();
             this.flowLayoutPanel_Series1.SuspendLayout();
+            this.tableLayoutPanel_SeriesOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_StartsInSeriesCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ModelsCount)).BeginInit();
             this.menuStrip_MainMenu.SuspendLayout();
             this.statusStrip_Main.SuspendLayout();
-            this.tableLayoutPanel_SeriesOptions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ModelsCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_KilometerCost)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_Main
@@ -438,7 +441,7 @@
             this.groupBox_Algorithm.Controls.Add(this.flowLayoutPanel_Algorithm);
             this.groupBox_Algorithm.Location = new System.Drawing.Point(139, 3);
             this.groupBox_Algorithm.Name = "groupBox_Algorithm";
-            this.groupBox_Algorithm.Size = new System.Drawing.Size(130, 317);
+            this.groupBox_Algorithm.Size = new System.Drawing.Size(130, 365);
             this.groupBox_Algorithm.TabIndex = 7;
             this.groupBox_Algorithm.TabStop = false;
             this.groupBox_Algorithm.Text = "Algorithm";
@@ -449,6 +452,8 @@
             this.flowLayoutPanel_Algorithm.Controls.Add(this.numericUpDown_ClustersCount);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.label_ClusterCapacityLimit);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.numericUpDown_ClusterCapacityLimit);
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.label_KilometerCost);
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.numericUpDown_KilometerCost);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.label_Algorithm);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.comboBox_AlgorithmType);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.button_StartAlgorithm);
@@ -462,7 +467,7 @@
             this.flowLayoutPanel_Algorithm.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel_Algorithm.Name = "flowLayoutPanel_Algorithm";
             this.flowLayoutPanel_Algorithm.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.flowLayoutPanel_Algorithm.Size = new System.Drawing.Size(124, 298);
+            this.flowLayoutPanel_Algorithm.Size = new System.Drawing.Size(124, 346);
             this.flowLayoutPanel_Algorithm.TabIndex = 8;
             // 
             // label_ClustersCount
@@ -525,7 +530,7 @@
             // label_Algorithm
             // 
             this.label_Algorithm.AutoSize = true;
-            this.label_Algorithm.Location = new System.Drawing.Point(3, 83);
+            this.label_Algorithm.Location = new System.Drawing.Point(3, 122);
             this.label_Algorithm.Name = "label_Algorithm";
             this.label_Algorithm.Size = new System.Drawing.Size(50, 13);
             this.label_Algorithm.TabIndex = 10;
@@ -539,15 +544,16 @@
             "Bees CLUSTERING",
             "Bees CLUST w/ LIMIT",
             "K-means CLUSTERING",
-            "NearNeighChain"});
-            this.comboBox_AlgorithmType.Location = new System.Drawing.Point(3, 99);
+            "NearNeighChain",
+            "Bees CLUST CVRPP"});
+            this.comboBox_AlgorithmType.Location = new System.Drawing.Point(3, 138);
             this.comboBox_AlgorithmType.Name = "comboBox_AlgorithmType";
             this.comboBox_AlgorithmType.Size = new System.Drawing.Size(117, 21);
             this.comboBox_AlgorithmType.TabIndex = 7;
             // 
             // button_StartAlgorithm
             // 
-            this.button_StartAlgorithm.Location = new System.Drawing.Point(3, 126);
+            this.button_StartAlgorithm.Location = new System.Drawing.Point(3, 165);
             this.button_StartAlgorithm.Name = "button_StartAlgorithm";
             this.button_StartAlgorithm.Size = new System.Drawing.Size(118, 23);
             this.button_StartAlgorithm.TabIndex = 3;
@@ -557,7 +563,7 @@
             // 
             // button_Iteration
             // 
-            this.button_Iteration.Location = new System.Drawing.Point(3, 155);
+            this.button_Iteration.Location = new System.Drawing.Point(3, 194);
             this.button_Iteration.Name = "button_Iteration";
             this.button_Iteration.Size = new System.Drawing.Size(118, 23);
             this.button_Iteration.TabIndex = 4;
@@ -567,7 +573,7 @@
             // 
             // numericUpDown_IterationsCount
             // 
-            this.numericUpDown_IterationsCount.Location = new System.Drawing.Point(3, 184);
+            this.numericUpDown_IterationsCount.Location = new System.Drawing.Point(3, 223);
             this.numericUpDown_IterationsCount.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -589,7 +595,7 @@
             // 
             // button_Iterate
             // 
-            this.button_Iterate.Location = new System.Drawing.Point(3, 210);
+            this.button_Iterate.Location = new System.Drawing.Point(3, 249);
             this.button_Iterate.Name = "button_Iterate";
             this.button_Iterate.Size = new System.Drawing.Size(118, 23);
             this.button_Iterate.TabIndex = 6;
@@ -599,7 +605,7 @@
             // 
             // button_IterateToStop
             // 
-            this.button_IterateToStop.Location = new System.Drawing.Point(3, 239);
+            this.button_IterateToStop.Location = new System.Drawing.Point(3, 278);
             this.button_IterateToStop.Name = "button_IterateToStop";
             this.button_IterateToStop.Size = new System.Drawing.Size(117, 23);
             this.button_IterateToStop.TabIndex = 13;
@@ -609,7 +615,7 @@
             // 
             // button_CalculateTsp
             // 
-            this.button_CalculateTsp.Location = new System.Drawing.Point(3, 268);
+            this.button_CalculateTsp.Location = new System.Drawing.Point(3, 307);
             this.button_CalculateTsp.Name = "button_CalculateTsp";
             this.button_CalculateTsp.Size = new System.Drawing.Size(117, 23);
             this.button_CalculateTsp.TabIndex = 14;
@@ -622,7 +628,7 @@
             this.checkBox_LastChangedIteration.AutoSize = true;
             this.checkBox_LastChangedIteration.Checked = true;
             this.checkBox_LastChangedIteration.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_LastChangedIteration.Location = new System.Drawing.Point(139, 326);
+            this.checkBox_LastChangedIteration.Location = new System.Drawing.Point(139, 374);
             this.checkBox_LastChangedIteration.Name = "checkBox_LastChangedIteration";
             this.checkBox_LastChangedIteration.Size = new System.Drawing.Size(105, 17);
             this.checkBox_LastChangedIteration.TabIndex = 8;
@@ -807,14 +813,32 @@
             this.flowLayoutPanel_Series1.Size = new System.Drawing.Size(136, 105);
             this.flowLayoutPanel_Series1.TabIndex = 0;
             // 
-            // label_StartsInSeries
+            // tableLayoutPanel_SeriesOptions
             // 
-            this.label_StartsInSeries.AutoSize = true;
-            this.label_StartsInSeries.Location = new System.Drawing.Point(67, 0);
-            this.label_StartsInSeries.Name = "label_StartsInSeries";
-            this.label_StartsInSeries.Size = new System.Drawing.Size(34, 13);
-            this.label_StartsInSeries.TabIndex = 0;
-            this.label_StartsInSeries.Text = "Starts";
+            this.tableLayoutPanel_SeriesOptions.ColumnCount = 2;
+            this.tableLayoutPanel_SeriesOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel_SeriesOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel_SeriesOptions.Controls.Add(this.label_ModelsCount, 0, 0);
+            this.tableLayoutPanel_SeriesOptions.Controls.Add(this.numericUpDown_StartsInSeriesCount, 1, 1);
+            this.tableLayoutPanel_SeriesOptions.Controls.Add(this.label_StartsInSeries, 1, 0);
+            this.tableLayoutPanel_SeriesOptions.Controls.Add(this.numericUpDown_ModelsCount, 0, 1);
+            this.tableLayoutPanel_SeriesOptions.Location = new System.Drawing.Point(0, 3);
+            this.tableLayoutPanel_SeriesOptions.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.tableLayoutPanel_SeriesOptions.Name = "tableLayoutPanel_SeriesOptions";
+            this.tableLayoutPanel_SeriesOptions.RowCount = 2;
+            this.tableLayoutPanel_SeriesOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
+            this.tableLayoutPanel_SeriesOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel_SeriesOptions.Size = new System.Drawing.Size(129, 42);
+            this.tableLayoutPanel_SeriesOptions.TabIndex = 5;
+            // 
+            // label_ModelsCount
+            // 
+            this.label_ModelsCount.AutoSize = true;
+            this.label_ModelsCount.Location = new System.Drawing.Point(3, 0);
+            this.label_ModelsCount.Name = "label_ModelsCount";
+            this.label_ModelsCount.Size = new System.Drawing.Size(41, 13);
+            this.label_ModelsCount.TabIndex = 1;
+            this.label_ModelsCount.Text = "Models";
             // 
             // numericUpDown_StartsInSeriesCount
             // 
@@ -832,6 +856,47 @@
             0,
             0,
             0});
+            // 
+            // label_StartsInSeries
+            // 
+            this.label_StartsInSeries.AutoSize = true;
+            this.label_StartsInSeries.Location = new System.Drawing.Point(67, 0);
+            this.label_StartsInSeries.Name = "label_StartsInSeries";
+            this.label_StartsInSeries.Size = new System.Drawing.Size(34, 13);
+            this.label_StartsInSeries.TabIndex = 0;
+            this.label_StartsInSeries.Text = "Starts";
+            // 
+            // numericUpDown_ModelsCount
+            // 
+            this.numericUpDown_ModelsCount.Location = new System.Drawing.Point(3, 17);
+            this.numericUpDown_ModelsCount.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDown_ModelsCount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_ModelsCount.Name = "numericUpDown_ModelsCount";
+            this.numericUpDown_ModelsCount.Size = new System.Drawing.Size(58, 20);
+            this.numericUpDown_ModelsCount.TabIndex = 3;
+            this.numericUpDown_ModelsCount.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // checkBox_CurrentModel
+            // 
+            this.checkBox_CurrentModel.AutoSize = true;
+            this.checkBox_CurrentModel.Location = new System.Drawing.Point(3, 48);
+            this.checkBox_CurrentModel.Name = "checkBox_CurrentModel";
+            this.checkBox_CurrentModel.Size = new System.Drawing.Size(91, 17);
+            this.checkBox_CurrentModel.TabIndex = 6;
+            this.checkBox_CurrentModel.Text = "Current model";
+            this.checkBox_CurrentModel.UseVisualStyleBackColor = true;
             // 
             // button_StartSeries
             // 
@@ -933,64 +998,27 @@
             this.toolStripStatusLabel_Main.Name = "toolStripStatusLabel_Main";
             this.toolStripStatusLabel_Main.Size = new System.Drawing.Size(0, 17);
             // 
-            // tableLayoutPanel_SeriesOptions
+            // label_KilometerCost
             // 
-            this.tableLayoutPanel_SeriesOptions.ColumnCount = 2;
-            this.tableLayoutPanel_SeriesOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel_SeriesOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel_SeriesOptions.Controls.Add(this.label_ModelsCount, 0, 0);
-            this.tableLayoutPanel_SeriesOptions.Controls.Add(this.numericUpDown_StartsInSeriesCount, 1, 1);
-            this.tableLayoutPanel_SeriesOptions.Controls.Add(this.label_StartsInSeries, 1, 0);
-            this.tableLayoutPanel_SeriesOptions.Controls.Add(this.numericUpDown_ModelsCount, 0, 1);
-            this.tableLayoutPanel_SeriesOptions.Location = new System.Drawing.Point(0, 3);
-            this.tableLayoutPanel_SeriesOptions.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.tableLayoutPanel_SeriesOptions.Name = "tableLayoutPanel_SeriesOptions";
-            this.tableLayoutPanel_SeriesOptions.RowCount = 2;
-            this.tableLayoutPanel_SeriesOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
-            this.tableLayoutPanel_SeriesOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel_SeriesOptions.Size = new System.Drawing.Size(129, 42);
-            this.tableLayoutPanel_SeriesOptions.TabIndex = 5;
+            this.label_KilometerCost.AutoSize = true;
+            this.label_KilometerCost.Location = new System.Drawing.Point(3, 83);
+            this.label_KilometerCost.Name = "label_KilometerCost";
+            this.label_KilometerCost.Size = new System.Drawing.Size(73, 13);
+            this.label_KilometerCost.TabIndex = 15;
+            this.label_KilometerCost.Text = "Kilometer cost";
             // 
-            // label_ModelsCount
+            // numericUpDown_KilometerCost
             // 
-            this.label_ModelsCount.AutoSize = true;
-            this.label_ModelsCount.Location = new System.Drawing.Point(3, 0);
-            this.label_ModelsCount.Name = "label_ModelsCount";
-            this.label_ModelsCount.Size = new System.Drawing.Size(41, 13);
-            this.label_ModelsCount.TabIndex = 1;
-            this.label_ModelsCount.Text = "Models";
-            // 
-            // numericUpDown_ModelsCount
-            // 
-            this.numericUpDown_ModelsCount.Location = new System.Drawing.Point(3, 17);
-            this.numericUpDown_ModelsCount.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDown_ModelsCount.Minimum = new decimal(new int[] {
+            this.numericUpDown_KilometerCost.DecimalPlaces = 3;
+            this.numericUpDown_KilometerCost.Location = new System.Drawing.Point(3, 99);
+            this.numericUpDown_KilometerCost.Name = "numericUpDown_KilometerCost";
+            this.numericUpDown_KilometerCost.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown_KilometerCost.TabIndex = 16;
+            this.numericUpDown_KilometerCost.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown_ModelsCount.Name = "numericUpDown_ModelsCount";
-            this.numericUpDown_ModelsCount.Size = new System.Drawing.Size(58, 20);
-            this.numericUpDown_ModelsCount.TabIndex = 3;
-            this.numericUpDown_ModelsCount.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // checkBox_CurrentModel
-            // 
-            this.checkBox_CurrentModel.AutoSize = true;
-            this.checkBox_CurrentModel.Location = new System.Drawing.Point(3, 48);
-            this.checkBox_CurrentModel.Name = "checkBox_CurrentModel";
-            this.checkBox_CurrentModel.Size = new System.Drawing.Size(91, 17);
-            this.checkBox_CurrentModel.TabIndex = 6;
-            this.checkBox_CurrentModel.Text = "Current model";
-            this.checkBox_CurrentModel.UseVisualStyleBackColor = true;
             // 
             // GraphForm
             // 
@@ -1037,14 +1065,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ConsumersCountStep)).EndInit();
             this.flowLayoutPanel_Series1.ResumeLayout(false);
             this.flowLayoutPanel_Series1.PerformLayout();
+            this.tableLayoutPanel_SeriesOptions.ResumeLayout(false);
+            this.tableLayoutPanel_SeriesOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_StartsInSeriesCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ModelsCount)).EndInit();
             this.menuStrip_MainMenu.ResumeLayout(false);
             this.menuStrip_MainMenu.PerformLayout();
             this.statusStrip_Main.ResumeLayout(false);
             this.statusStrip_Main.PerformLayout();
-            this.tableLayoutPanel_SeriesOptions.ResumeLayout(false);
-            this.tableLayoutPanel_SeriesOptions.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ModelsCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_KilometerCost)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1121,6 +1150,8 @@
         private System.Windows.Forms.Label label_ModelsCount;
         private System.Windows.Forms.NumericUpDown numericUpDown_ModelsCount;
         private System.Windows.Forms.CheckBox checkBox_CurrentModel;
+        private System.Windows.Forms.Label label_KilometerCost;
+        private System.Windows.Forms.NumericUpDown numericUpDown_KilometerCost;
 
     }
 }

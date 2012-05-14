@@ -9,23 +9,20 @@ namespace Diploma
     {
         private readonly int capacityLimit;
         private Node depot;
+
+        protected List<Node> RemainingNodes; 
             
-        public SiteClusteringCvrp (List<Node> nodes, int clustersCount, int capacityLimit) 
+        public SiteClusteringCvrp (List<Node> nodes, int capacityLimit, int clustersCount = int.MaxValue) 
             : base(nodes)
         {
             Clusters = new List<Cluster>();
             this.capacityLimit = capacityLimit;
             this.ClustersCount = clustersCount;
 
-            GenerateClusters();
-
-            for (int i = 0; i != Clusters.Count; i++)
-            {
-                Clusters[i].CapacityLimit = capacityLimit;
-            }
+            RemainingNodes = GenerateClusters();
         }
 
-        private SiteClusteringCvrp (SiteClusteringCvrp site)
+        protected SiteClusteringCvrp (SiteClusteringCvrp site)
             : base(site)
         {
             this.capacityLimit = site.capacityLimit;
@@ -63,13 +60,14 @@ namespace Diploma
         {
             Cluster newCluster = new Cluster();
             newCluster.Depot = depot;
+            newCluster.CapacityLimit = capacityLimit;
 
             Clusters.Add(newCluster);
         }
 
-        protected override void GenerateClusters(List<Node> nodesForClusters, Node depot)
+        protected override List<Node> GenerateClusters(List<Node> nodesForClusters, Node _depot)
         {
-            this.depot = depot;
+            this.depot = _depot;
 
             while (nodesForClusters.Count != 0)
             {
@@ -90,33 +88,48 @@ namespace Diploma
                     }
                 }
 
+                if (!b && Clusters.Count == ClustersCount)
+                {
+                    break;
+                }
+
                 if (!b)
                 {
                     AddCluster();
                 }
             }
+
+            List<Node> remainingNodes = new List<Node>();
+            remainingNodes.AddRange(nodesForClusters);
+
+            return remainingNodes;
         }
 
-        public bool ExchangeNodesInClusters()
+        public static bool ExchangeNodesInClusters(List<Cluster> clusters)
         {
-            if (Clusters.Count <= 1)
+            if (clusters.Count <= 1)
             {
                 return false;
             }
 
-            int i1 = TaskController.Rnd.Next(Clusters.Count);
+            int i1 = TaskController.Rnd.Next(clusters.Count);
             int i2;
 
             do
             {
-                i2 = TaskController.Rnd.Next(Clusters.Count);
+                i2 = TaskController.Rnd.Next(clusters.Count);
             } while (i2 == i1);
 
-            return ExchangeNodesInClusters(Clusters[i1], Clusters[i2]);
+            return ExchangeNodesInClusters(clusters[i1], clusters[i2]);
         }
 
-        private bool ExchangeNodesInClusters(Cluster c1, Cluster c2)
+        protected static bool ExchangeNodesInClusters(Cluster c1, Cluster c2)
         {
+            if (c1.Nodes.Count == 0 || c2.Nodes.Count == 0)
+            {
+                return false;
+            }
+
             int i1 = TaskController.Rnd.Next(c1.Nodes.Count);
             int i2 = TaskController.Rnd.Next(c2.Nodes.Count);
 
@@ -148,11 +161,11 @@ namespace Diploma
 
             if (probability < 0.5)
             {
-                result.MoveNodeFromOneClusterToAnother();
+                MoveNodeFromOneClusterToAnother(result.Clusters);
             }
             else
             {
-                result.ExchangeNodesInClusters();
+                ExchangeNodesInClusters(result.Clusters);
             }
 
             return result;

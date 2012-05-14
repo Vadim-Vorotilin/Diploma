@@ -27,6 +27,7 @@ namespace Diploma
 
         public int ClustersCount;
         public int ClusterCapacityLimit;
+        public double KilometerCost;
 
         private List<Site> sites;
 
@@ -39,7 +40,9 @@ namespace Diploma
                 case ProblemType.CLUSTERING_VRP:
                     return new SiteClusteringVrp(Nodes, ClustersCount);
                 case ProblemType.CLUSTERING_CVRP:
-                    return new SiteClusteringCvrp(Nodes, ClustersCount, ClusterCapacityLimit);
+                    return new SiteClusteringCvrp(Nodes, ClusterCapacityLimit);
+                case ProblemType.CLUSTERING_CVRPP:
+                    return new SiteClusteringCvrpp(Nodes, ClusterCapacityLimit, ClustersCount, KilometerCost);
                 default:
                     return null;
             }
@@ -111,6 +114,9 @@ namespace Diploma
             {
                 case ProblemType.CLUSTERING_CVRP:
                     str = string.Format("Clusters count: {0}", (BestSite as SiteClusteringCvrp).Clusters.Count);
+                    break;
+                case ProblemType.CLUSTERING_CVRPP:
+                    str = string.Format("Estimate length: {0:0.000}. Fines: {1}.", (BestSite as SiteClusteringCvrpp).EstimateLength, (BestSite as SiteClusteringCvrpp).Fines);
                     break;
             }
 

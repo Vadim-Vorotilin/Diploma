@@ -136,9 +136,9 @@ namespace Diploma
             return b;
         }
 
-        public static void AddNodeAtScreen (Node.NodeType nodeType, int posX, int posY, int volume = 1)
+        public static void AddNodeAtScreen (Node.NodeType nodeType, int posX, int posY, int volume = 1, int fine = 0)
         {
-            Node newNode = new Node(Nodes.Count, nodeType, posX, posY, posX, posY) {Volume = volume};
+            Node newNode = new Node(Nodes.Count, nodeType, posX, posY, posX, posY) {Volume = volume, Fine = fine};
 
             Nodes.Add(newNode);
 
@@ -222,13 +222,14 @@ namespace Diploma
         }
 
         public static void StartBeesAlgorithm(BeesColony.ProblemType problemType, int clustersCount, int scoutsCount, 
-            int goodSitesCount, int bestSitesCount, int neighboursForGoodSites, int neighboursForBestSites, int clusterCapacityLimit = -1)
+            int goodSitesCount, int bestSitesCount, int neighboursForGoodSites, int neighboursForBestSites, int clusterCapacityLimit = -1, double kilometerCost = 0)
         {
             BeesColony colony = new BeesColony();
 
             colony.Problem = problemType;
             colony.ClustersCount = clustersCount;
             colony.ClusterCapacityLimit = clusterCapacityLimit;
+            colony.KilometerCost = kilometerCost;
 
             colony.ScoutsCount = scoutsCount;
             colony.GoodSitesCount = goodSitesCount;

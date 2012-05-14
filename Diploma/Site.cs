@@ -60,7 +60,7 @@ namespace Diploma
 
         public void DrawNodes()
         {
-            PrepareToDraw(TaskController.ConnectionsPen.Color);
+            DrawingNodes = PrepareToDraw(TaskController.ConnectionsPen.Color);
 
             TaskController.DrawNodes(DrawingNodes); 
         }
