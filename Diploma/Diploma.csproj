@@ -92,6 +92,12 @@
     <Compile Include="SiteClusteringCvrp.cs" />
     <Compile Include="SiteVrpTsp.cs" />
     <Compile Include="TaskController.cs" />
+    <Compile Include="ToXmdlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToXmdlForm.Designer.cs">
+      <DependentUpon>ToXmdlForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="VRP_Accounting_DB_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -112,6 +118,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ToXmdlForm.resx">
+      <DependentUpon>ToXmdlForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

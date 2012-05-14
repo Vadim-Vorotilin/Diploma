@@ -17,26 +17,30 @@
         <xs:element name="DEPOT" msprop:Generator_TableClassName="DEPOTDataTable" msprop:Generator_TableVarName="tableDEPOT" msprop:Generator_TablePropName="DEPOT" msprop:Generator_RowDeletingName="DEPOTRowDeleting" msprop:Generator_UserTableName="DEPOT" msprop:Generator_RowChangingName="DEPOTRowChanging" msprop:Generator_RowEvHandlerName="DEPOTRowChangeEventHandler" msprop:Generator_RowDeletedName="DEPOTRowDeleted" msprop:Generator_RowEvArgName="DEPOTRowChangeEvent" msprop:Generator_RowChangedName="DEPOTRowChanged" msprop:Generator_RowClassName="DEPOTRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" minOccurs="0" />
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
               <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME" type="xs:string" minOccurs="0" />
               <xs:element name="AMOUNT" msprop:Generator_ColumnVarNameInTable="columnAMOUNT" msprop:Generator_ColumnPropNameInRow="AMOUNT" msprop:Generator_ColumnPropNameInTable="AMOUNTColumn" msprop:Generator_UserColumnName="AMOUNT" type="xs:int" minOccurs="0" />
               <xs:element name="VOLUME" msprop:Generator_ColumnVarNameInTable="columnVOLUME" msprop:Generator_ColumnPropNameInRow="VOLUME" msprop:Generator_ColumnPropNameInTable="VOLUMEColumn" msprop:Generator_UserColumnName="VOLUME" type="xs:int" minOccurs="0" />
+              <xs:element name="COORDINATES_N" msprop:Generator_ColumnVarNameInTable="columnCOORDINATES_N" msprop:Generator_ColumnPropNameInRow="COORDINATES_N" msprop:Generator_ColumnPropNameInTable="COORDINATES_NColumn" msprop:Generator_UserColumnName="COORDINATES_N" type="xs:double" minOccurs="0" />
+              <xs:element name="COORDINATES_E" msprop:Generator_ColumnVarNameInTable="columnCOORDINATES_E" msprop:Generator_ColumnPropNameInRow="COORDINATES_E" msprop:Generator_ColumnPropNameInTable="COORDINATES_EColumn" msprop:Generator_UserColumnName="COORDINATES_E" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="CONSUMER" msprop:Generator_TableClassName="CONSUMERDataTable" msprop:Generator_TableVarName="tableCONSUMER" msprop:Generator_TablePropName="CONSUMER" msprop:Generator_RowDeletingName="CONSUMERRowDeleting" msprop:Generator_UserTableName="CONSUMER" msprop:Generator_RowChangingName="CONSUMERRowChanging" msprop:Generator_RowEvHandlerName="CONSUMERRowChangeEventHandler" msprop:Generator_RowDeletedName="CONSUMERRowDeleted" msprop:Generator_RowEvArgName="CONSUMERRowChangeEvent" msprop:Generator_RowChangedName="CONSUMERRowChanged" msprop:Generator_RowClassName="CONSUMERRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" minOccurs="0" />
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
               <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME" type="xs:string" minOccurs="0" />
               <xs:element name="AMOUNT" msprop:Generator_ColumnVarNameInTable="columnAMOUNT" msprop:Generator_ColumnPropNameInRow="AMOUNT" msprop:Generator_ColumnPropNameInTable="AMOUNTColumn" msprop:Generator_UserColumnName="AMOUNT" type="xs:int" minOccurs="0" />
+              <xs:element name="COORDINATES_N" msprop:Generator_ColumnVarNameInTable="columnCOORDINATES_N" msprop:Generator_ColumnPropNameInRow="COORDINATES_N" msprop:Generator_ColumnPropNameInTable="COORDINATES_NColumn" msprop:Generator_UserColumnName="COORDINATES_N" type="xs:double" minOccurs="0" />
+              <xs:element name="COORDINATES_E" msprop:Generator_ColumnVarNameInTable="columnCOORDINATES_E" msprop:Generator_ColumnPropNameInRow="COORDINATES_E" msprop:Generator_ColumnPropNameInTable="COORDINATES_EColumn" msprop:Generator_UserColumnName="COORDINATES_E" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="VEHICLE" msprop:Generator_TableClassName="VEHICLEDataTable" msprop:Generator_TableVarName="tableVEHICLE" msprop:Generator_TablePropName="VEHICLE" msprop:Generator_RowDeletingName="VEHICLERowDeleting" msprop:Generator_UserTableName="VEHICLE" msprop:Generator_RowChangingName="VEHICLERowChanging" msprop:Generator_RowEvHandlerName="VEHICLERowChangeEventHandler" msprop:Generator_RowDeletedName="VEHICLERowDeleted" msprop:Generator_RowEvArgName="VEHICLERowChangeEvent" msprop:Generator_RowChangedName="VEHICLERowChanged" msprop:Generator_RowClassName="VEHICLERow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" minOccurs="0" />
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
               <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME" type="xs:string" minOccurs="0" />
               <xs:element name="CONSUMPTION" msprop:Generator_ColumnVarNameInTable="columnCONSUMPTION" msprop:Generator_ColumnPropNameInRow="CONSUMPTION" msprop:Generator_ColumnPropNameInTable="CONSUMPTIONColumn" msprop:Generator_UserColumnName="CONSUMPTION" type="xs:double" minOccurs="0" />
               <xs:element name="COUNT" msprop:Generator_ColumnVarNameInTable="columnCOUNT" msprop:Generator_ColumnPropNameInRow="COUNT" msprop:Generator_ColumnPropNameInTable="COUNTColumn" msprop:Generator_UserColumnName="COUNT" type="xs:int" minOccurs="0" />
@@ -45,15 +49,27 @@
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="PK_DEPOT">
+    <xs:unique name="PK_DEPOT_NAME">
+      <xs:selector xpath=".//mstns:DEPOT" />
+      <xs:field xpath="mstns:NAME" />
+    </xs:unique>
+    <xs:unique name="PK_DEPOT" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:DEPOT" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="PK_CONSUMER">
+    <xs:unique name="PK_CONSUMER_NAME">
+      <xs:selector xpath=".//mstns:CONSUMER" />
+      <xs:field xpath="mstns:NAME" />
+    </xs:unique>
+    <xs:unique name="PK_CONSUMER" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:CONSUMER" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="PK_VEHICLE">
+    <xs:unique name="PK_VEHICLE_NAME">
+      <xs:selector xpath=".//mstns:VEHICLE" />
+      <xs:field xpath="mstns:NAME" />
+    </xs:unique>
+    <xs:unique name="PK_VEHICLE" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:VEHICLE" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>

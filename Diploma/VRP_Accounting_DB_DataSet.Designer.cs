@@ -357,6 +357,10 @@ namespace Diploma {
             
             private global::System.Data.DataColumn columnVOLUME;
             
+            private global::System.Data.DataColumn columnCOORDINATES_N;
+            
+            private global::System.Data.DataColumn columnCOORDINATES_E;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DEPOTDataTable() {
@@ -424,6 +428,22 @@ namespace Diploma {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn COORDINATES_NColumn {
+                get {
+                    return this.columnCOORDINATES_N;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn COORDINATES_EColumn {
+                get {
+                    return this.columnCOORDINATES_E;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -459,16 +479,25 @@ namespace Diploma {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DEPOTRow AddDEPOTRow(int ID, string NAME, int AMOUNT, int VOLUME) {
+            public DEPOTRow AddDEPOTRow(string NAME, int AMOUNT, int VOLUME, double COORDINATES_N, double COORDINATES_E) {
                 DEPOTRow rowDEPOTRow = ((DEPOTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
+                        null,
                         NAME,
                         AMOUNT,
-                        VOLUME};
+                        VOLUME,
+                        COORDINATES_N,
+                        COORDINATES_E};
                 rowDEPOTRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDEPOTRow);
                 return rowDEPOTRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DEPOTRow FindByID(int ID) {
+                return ((DEPOTRow)(this.Rows.Find(new object[] {
+                            ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -492,6 +521,8 @@ namespace Diploma {
                 this.columnNAME = base.Columns["NAME"];
                 this.columnAMOUNT = base.Columns["AMOUNT"];
                 this.columnVOLUME = base.Columns["VOLUME"];
+                this.columnCOORDINATES_N = base.Columns["COORDINATES_N"];
+                this.columnCOORDINATES_E = base.Columns["COORDINATES_E"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -505,9 +536,19 @@ namespace Diploma {
                 base.Columns.Add(this.columnAMOUNT);
                 this.columnVOLUME = new global::System.Data.DataColumn("VOLUME", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVOLUME);
+                this.columnCOORDINATES_N = new global::System.Data.DataColumn("COORDINATES_N", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOORDINATES_N);
+                this.columnCOORDINATES_E = new global::System.Data.DataColumn("COORDINATES_E", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOORDINATES_E);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("PK_DEPOT_NAME", new global::System.Data.DataColumn[] {
+                                this.columnNAME}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("PK_DEPOT", new global::System.Data.DataColumn[] {
-                                this.columnID}, false));
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = 1;
+                this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
+                this.columnNAME.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -647,6 +688,10 @@ namespace Diploma {
             
             private global::System.Data.DataColumn columnAMOUNT;
             
+            private global::System.Data.DataColumn columnCOORDINATES_N;
+            
+            private global::System.Data.DataColumn columnCOORDINATES_E;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CONSUMERDataTable() {
@@ -706,6 +751,22 @@ namespace Diploma {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn COORDINATES_NColumn {
+                get {
+                    return this.columnCOORDINATES_N;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn COORDINATES_EColumn {
+                get {
+                    return this.columnCOORDINATES_E;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -741,15 +802,24 @@ namespace Diploma {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CONSUMERRow AddCONSUMERRow(int ID, string NAME, int AMOUNT) {
+            public CONSUMERRow AddCONSUMERRow(string NAME, int AMOUNT, double COORDINATES_N, double COORDINATES_E) {
                 CONSUMERRow rowCONSUMERRow = ((CONSUMERRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
+                        null,
                         NAME,
-                        AMOUNT};
+                        AMOUNT,
+                        COORDINATES_N,
+                        COORDINATES_E};
                 rowCONSUMERRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCONSUMERRow);
                 return rowCONSUMERRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CONSUMERRow FindByID(int ID) {
+                return ((CONSUMERRow)(this.Rows.Find(new object[] {
+                            ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -772,6 +842,8 @@ namespace Diploma {
                 this.columnID = base.Columns["ID"];
                 this.columnNAME = base.Columns["NAME"];
                 this.columnAMOUNT = base.Columns["AMOUNT"];
+                this.columnCOORDINATES_N = base.Columns["COORDINATES_N"];
+                this.columnCOORDINATES_E = base.Columns["COORDINATES_E"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -783,9 +855,19 @@ namespace Diploma {
                 base.Columns.Add(this.columnNAME);
                 this.columnAMOUNT = new global::System.Data.DataColumn("AMOUNT", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAMOUNT);
+                this.columnCOORDINATES_N = new global::System.Data.DataColumn("COORDINATES_N", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOORDINATES_N);
+                this.columnCOORDINATES_E = new global::System.Data.DataColumn("COORDINATES_E", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOORDINATES_E);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("PK_CONSUMER_NAME", new global::System.Data.DataColumn[] {
+                                this.columnNAME}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("PK_CONSUMER", new global::System.Data.DataColumn[] {
-                                this.columnID}, false));
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = 1;
+                this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
+                this.columnNAME.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1029,16 +1111,23 @@ namespace Diploma {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VEHICLERow AddVEHICLERow(int ID, string NAME, double CONSUMPTION, int COUNT) {
+            public VEHICLERow AddVEHICLERow(string NAME, double CONSUMPTION, int COUNT) {
                 VEHICLERow rowVEHICLERow = ((VEHICLERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
+                        null,
                         NAME,
                         CONSUMPTION,
                         COUNT};
                 rowVEHICLERow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVEHICLERow);
                 return rowVEHICLERow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public VEHICLERow FindByID(int ID) {
+                return ((VEHICLERow)(this.Rows.Find(new object[] {
+                            ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1075,9 +1164,15 @@ namespace Diploma {
                 base.Columns.Add(this.columnCONSUMPTION);
                 this.columnCOUNT = new global::System.Data.DataColumn("COUNT", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCOUNT);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("PK_VEHICLE_NAME", new global::System.Data.DataColumn[] {
+                                this.columnNAME}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("PK_VEHICLE", new global::System.Data.DataColumn[] {
-                                this.columnID}, false));
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = 1;
+                this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
+                this.columnNAME.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1222,12 +1317,7 @@ namespace Diploma {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int ID {
                 get {
-                    try {
-                        return ((int)(this[this.tableDEPOT.IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ID\' in table \'DEPOT\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableDEPOT.IDColumn]));
                 }
                 set {
                     this[this.tableDEPOT.IDColumn] = value;
@@ -1284,14 +1374,34 @@ namespace Diploma {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIDNull() {
-                return this.IsNull(this.tableDEPOT.IDColumn);
+            public double COORDINATES_N {
+                get {
+                    try {
+                        return ((double)(this[this.tableDEPOT.COORDINATES_NColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'COORDINATES_N\' in table \'DEPOT\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDEPOT.COORDINATES_NColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIDNull() {
-                this[this.tableDEPOT.IDColumn] = global::System.Convert.DBNull;
+            public double COORDINATES_E {
+                get {
+                    try {
+                        return ((double)(this[this.tableDEPOT.COORDINATES_EColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'COORDINATES_E\' in table \'DEPOT\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDEPOT.COORDINATES_EColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1329,6 +1439,30 @@ namespace Diploma {
             public void SetVOLUMENull() {
                 this[this.tableDEPOT.VOLUMEColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCOORDINATES_NNull() {
+                return this.IsNull(this.tableDEPOT.COORDINATES_NColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCOORDINATES_NNull() {
+                this[this.tableDEPOT.COORDINATES_NColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCOORDINATES_ENull() {
+                return this.IsNull(this.tableDEPOT.COORDINATES_EColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCOORDINATES_ENull() {
+                this[this.tableDEPOT.COORDINATES_EColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1349,12 +1483,7 @@ namespace Diploma {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int ID {
                 get {
-                    try {
-                        return ((int)(this[this.tableCONSUMER.IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ID\' in table \'CONSUMER\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableCONSUMER.IDColumn]));
                 }
                 set {
                     this[this.tableCONSUMER.IDColumn] = value;
@@ -1395,14 +1524,34 @@ namespace Diploma {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIDNull() {
-                return this.IsNull(this.tableCONSUMER.IDColumn);
+            public double COORDINATES_N {
+                get {
+                    try {
+                        return ((double)(this[this.tableCONSUMER.COORDINATES_NColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'COORDINATES_N\' in table \'CONSUMER\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCONSUMER.COORDINATES_NColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIDNull() {
-                this[this.tableCONSUMER.IDColumn] = global::System.Convert.DBNull;
+            public double COORDINATES_E {
+                get {
+                    try {
+                        return ((double)(this[this.tableCONSUMER.COORDINATES_EColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'COORDINATES_E\' in table \'CONSUMER\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCONSUMER.COORDINATES_EColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1428,6 +1577,30 @@ namespace Diploma {
             public void SetAMOUNTNull() {
                 this[this.tableCONSUMER.AMOUNTColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCOORDINATES_NNull() {
+                return this.IsNull(this.tableCONSUMER.COORDINATES_NColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCOORDINATES_NNull() {
+                this[this.tableCONSUMER.COORDINATES_NColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCOORDINATES_ENull() {
+                return this.IsNull(this.tableCONSUMER.COORDINATES_EColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCOORDINATES_ENull() {
+                this[this.tableCONSUMER.COORDINATES_EColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1448,12 +1621,7 @@ namespace Diploma {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int ID {
                 get {
-                    try {
-                        return ((int)(this[this.tableVEHICLE.IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ID\' in table \'VEHICLE\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableVEHICLE.IDColumn]));
                 }
                 set {
                     this[this.tableVEHICLE.IDColumn] = value;
@@ -1506,18 +1674,6 @@ namespace Diploma {
                 set {
                     this[this.tableVEHICLE.COUNTColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIDNull() {
-                return this.IsNull(this.tableVEHICLE.IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIDNull() {
-                this[this.tableVEHICLE.IDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

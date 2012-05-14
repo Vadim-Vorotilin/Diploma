@@ -62,6 +62,8 @@ namespace Diploma
 
         public int Id;
 
+        public string Name = "NoName";
+
         public Node(int id, NodeType nodeType, int screenPosX, int screenPosY, double realPosX, double realPosY)
         {
             Id = id;
