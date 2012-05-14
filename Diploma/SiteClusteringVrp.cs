@@ -11,6 +11,8 @@ namespace Diploma
         public List<Cluster> Clusters { get; protected set; }
         protected int ClustersCount;
 
+        public List<Node> NotClusteredNodes { get; protected set; }
+
         #region Overrides of Site
 
         public SiteClusteringVrp(List<Node> nodes)

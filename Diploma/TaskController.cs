@@ -49,6 +49,8 @@ namespace Diploma
             return DrawingColors[i];
         }
 
+        public static double KilometerCost;
+
         public static List<Node> Nodes { get; private set; }
         public static int NodesVolume
         {
@@ -261,6 +263,7 @@ namespace Diploma
         public static void StartClusteringToTsp()
         {
             List<Cluster> clusters;
+            List<Node> notConnectedNodes = null;
 
             if (Algorithm as BeesColony != null)
             {
@@ -270,6 +273,7 @@ namespace Diploma
                     return;
 
                 clusters = site.Clusters;
+                notConnectedNodes = site.NotClusteredNodes;
             }
             else if (Algorithm as ClusteringAlgorithm != null)
             {
@@ -280,7 +284,9 @@ namespace Diploma
                 return;
             }
 
-            ClusteringToTsp clusteringToTsp = new ClusteringToTsp(clusters);
+            StopAlgorithm();
+
+            ClusteringToTsp clusteringToTsp = new ClusteringToTsp(clusters, notConnectedNodes, KilometerCost);
             
             SetAlgorithm(clusteringToTsp);
         }

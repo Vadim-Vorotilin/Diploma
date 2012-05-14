@@ -38,6 +38,8 @@ namespace Diploma
             allClusters = new List<Cluster>();
             allClusters.AddRange(Clusters);
             allClusters.Add(penaltyCluster);
+
+            NotClusteredNodes = penaltyCluster.Nodes;
         }
 
         public double EstimateLength
@@ -54,12 +56,14 @@ namespace Diploma
             }
         }
 
+        public static double GetPrice(double length, double kilometerCost, double fines)
+        {
+            return (length / 10.0) * kilometerCost + fines;
+        }
+
         public override double Price
         {
-            get
-            {
-                return (EstimateLength / 10.0) * kilometerCost + Fines;
-            }
+            get { return GetPrice(EstimateLength, kilometerCost, Fines); }
         }
 
         protected override Site GetNeighbour()
