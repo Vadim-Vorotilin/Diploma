@@ -37,7 +37,6 @@
             this.button_Ok = new System.Windows.Forms.Button();
             this.label_Depot = new System.Windows.Forms.Label();
             this.comboBox_Depot = new System.Windows.Forms.ComboBox();
-            this.vRP_Accounting_DB_DataSet = new Diploma.VRP_Accounting_DB_DataSet();
             this.dEPOTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label_Vehicle = new System.Windows.Forms.Label();
             this.comboBox_Vehicle = new System.Windows.Forms.ComboBox();
@@ -46,7 +45,6 @@
             this.flowLayoutPanel_Buttons.SuspendLayout();
             this.groupBox_Options.SuspendLayout();
             this.flowLayoutPanel_Options.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vRP_Accounting_DB_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEPOTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vEHICLEBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -142,16 +140,9 @@
             this.comboBox_Depot.TabIndex = 1;
             this.comboBox_Depot.ValueMember = "ID";
             // 
-            // vRP_Accounting_DB_DataSet
-            // 
-            this.vRP_Accounting_DB_DataSet.DataSetName = "VRP_Accounting_DB_DataSet";
-            this.vRP_Accounting_DB_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // dEPOTBindingSource
             // 
             this.dEPOTBindingSource.DataMember = "DEPOT";
-            this.dEPOTBindingSource.DataSource = this.vRP_Accounting_DB_DataSet;
-            // 
             // label_Vehicle
             // 
             this.label_Vehicle.AutoSize = true;
@@ -175,7 +166,6 @@
             // vEHICLEBindingSource
             // 
             this.vEHICLEBindingSource.DataMember = "VEHICLE";
-            this.vEHICLEBindingSource.DataSource = this.vRP_Accounting_DB_DataSet;
             // 
             // ToXmdlForm
             // 
@@ -189,7 +179,6 @@
             this.groupBox_Options.ResumeLayout(false);
             this.flowLayoutPanel_Options.ResumeLayout(false);
             this.flowLayoutPanel_Options.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vRP_Accounting_DB_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEPOTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vEHICLEBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -207,7 +196,6 @@
         private System.Windows.Forms.Label label_Depot;
         private System.Windows.Forms.ComboBox comboBox_Depot;
         private System.Windows.Forms.BindingSource dEPOTBindingSource;
-        private VRP_Accounting_DB_DataSet vRP_Accounting_DB_DataSet;
         private System.Windows.Forms.Label label_Vehicle;
         private System.Windows.Forms.ComboBox comboBox_Vehicle;
         private System.Windows.Forms.BindingSource vEHICLEBindingSource;

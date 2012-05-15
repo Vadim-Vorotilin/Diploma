@@ -98,11 +98,6 @@
     <Compile Include="ToXmdlForm.Designer.cs">
       <DependentUpon>ToXmdlForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="VRP_Accounting_DB_DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VRP_Accounting_DB_DataSet.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="DBForm.resx">
       <DependentUpon>DBForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,17 +126,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="VRP_Accounting_DB_DataSet.xsc">
-      <DependentUpon>VRP_Accounting_DB_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="VRP_Accounting_DB_DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>VRP_Accounting_DB_DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="VRP_Accounting_DB_DataSet.xss">
-      <DependentUpon>VRP_Accounting_DB_DataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="VRP_Accounting_DB.sdf">
