@@ -42,15 +42,15 @@ namespace Diploma
             get { return nodesSequence; }
         }
 
-        private void ConnectConsumerToDepot(Node node1, Node node2, Color connectionsColor)
+        private void ConnectConsumerToDepot(Node node1, Node node2, Color connectionColor)
         {
             if (node1.Type != Node.NodeType.Depot)
             {
-                node1.ConnectTo(node2, connectionsColor);
+                node1.ConnectTo(node2, connectionColor);
             }
             else
             {
-                node2.ConnectTo(node1, connectionsColor);
+                node2.ConnectTo(node1, connectionColor);
             }
         }
 
