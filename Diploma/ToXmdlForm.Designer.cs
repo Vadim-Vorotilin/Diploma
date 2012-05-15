@@ -31,20 +31,24 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel_Main = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel_Buttons = new System.Windows.Forms.FlowLayoutPanel();
-            this.groupBox_Options = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel_Options = new System.Windows.Forms.FlowLayoutPanel();
             this.button_Cancel = new System.Windows.Forms.Button();
             this.button_Ok = new System.Windows.Forms.Button();
+            this.groupBox_Options = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel_Options = new System.Windows.Forms.FlowLayoutPanel();
             this.label_Depot = new System.Windows.Forms.Label();
             this.comboBox_Depot = new System.Windows.Forms.ComboBox();
-            this.dEPOTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label_Vehicle = new System.Windows.Forms.Label();
             this.comboBox_Vehicle = new System.Windows.Forms.ComboBox();
+            this.vRP_Accounting_DB_DataSet = new Diploma.VRP_Accounting_DB_DataSet();
+            this.dEPOTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dEPOTTableAdapter = new Diploma.VRP_Accounting_DB_DataSetTableAdapters.DEPOTTableAdapter();
             this.vEHICLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vEHICLETableAdapter = new Diploma.VRP_Accounting_DB_DataSetTableAdapters.VEHICLETableAdapter();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Buttons.SuspendLayout();
             this.groupBox_Options.SuspendLayout();
             this.flowLayoutPanel_Options.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vRP_Accounting_DB_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEPOTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vEHICLEBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +79,26 @@
             this.flowLayoutPanel_Buttons.Size = new System.Drawing.Size(278, 29);
             this.flowLayoutPanel_Buttons.TabIndex = 0;
             // 
+            // button_Cancel
+            // 
+            this.button_Cancel.Location = new System.Drawing.Point(200, 3);
+            this.button_Cancel.Name = "button_Cancel";
+            this.button_Cancel.Size = new System.Drawing.Size(75, 23);
+            this.button_Cancel.TabIndex = 0;
+            this.button_Cancel.Text = "Cancel";
+            this.button_Cancel.UseVisualStyleBackColor = true;
+            this.button_Cancel.Click += new System.EventHandler(this.button_Cancel_Click);
+            // 
+            // button_Ok
+            // 
+            this.button_Ok.Location = new System.Drawing.Point(119, 3);
+            this.button_Ok.Name = "button_Ok";
+            this.button_Ok.Size = new System.Drawing.Size(75, 23);
+            this.button_Ok.TabIndex = 1;
+            this.button_Ok.Text = "OK";
+            this.button_Ok.UseVisualStyleBackColor = true;
+            this.button_Ok.Click += new System.EventHandler(this.button_Ok_Click);
+            // 
             // groupBox_Options
             // 
             this.groupBox_Options.Controls.Add(this.flowLayoutPanel_Options);
@@ -100,26 +124,6 @@
             this.flowLayoutPanel_Options.Size = new System.Drawing.Size(272, 97);
             this.flowLayoutPanel_Options.TabIndex = 0;
             // 
-            // button_Cancel
-            // 
-            this.button_Cancel.Location = new System.Drawing.Point(200, 3);
-            this.button_Cancel.Name = "button_Cancel";
-            this.button_Cancel.Size = new System.Drawing.Size(75, 23);
-            this.button_Cancel.TabIndex = 0;
-            this.button_Cancel.Text = "Cancel";
-            this.button_Cancel.UseVisualStyleBackColor = true;
-            this.button_Cancel.Click += new System.EventHandler(this.button_Cancel_Click);
-            // 
-            // button_Ok
-            // 
-            this.button_Ok.Location = new System.Drawing.Point(119, 3);
-            this.button_Ok.Name = "button_Ok";
-            this.button_Ok.Size = new System.Drawing.Size(75, 23);
-            this.button_Ok.TabIndex = 1;
-            this.button_Ok.Text = "OK";
-            this.button_Ok.UseVisualStyleBackColor = true;
-            this.button_Ok.Click += new System.EventHandler(this.button_Ok_Click);
-            // 
             // label_Depot
             // 
             this.label_Depot.AutoSize = true;
@@ -140,9 +144,6 @@
             this.comboBox_Depot.TabIndex = 1;
             this.comboBox_Depot.ValueMember = "ID";
             // 
-            // dEPOTBindingSource
-            // 
-            this.dEPOTBindingSource.DataMember = "DEPOT";
             // label_Vehicle
             // 
             this.label_Vehicle.AutoSize = true;
@@ -163,9 +164,28 @@
             this.comboBox_Vehicle.TabIndex = 3;
             this.comboBox_Vehicle.ValueMember = "ID";
             // 
+            // vRP_Accounting_DB_DataSet
+            // 
+            this.vRP_Accounting_DB_DataSet.DataSetName = "VRP_Accounting_DB_DataSet";
+            this.vRP_Accounting_DB_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dEPOTBindingSource
+            // 
+            this.dEPOTBindingSource.DataMember = "DEPOT";
+            this.dEPOTBindingSource.DataSource = this.vRP_Accounting_DB_DataSet;
+            // 
+            // dEPOTTableAdapter
+            // 
+            this.dEPOTTableAdapter.ClearBeforeFill = true;
+            // 
             // vEHICLEBindingSource
             // 
             this.vEHICLEBindingSource.DataMember = "VEHICLE";
+            this.vEHICLEBindingSource.DataSource = this.vRP_Accounting_DB_DataSet;
+            // 
+            // vEHICLETableAdapter
+            // 
+            this.vEHICLETableAdapter.ClearBeforeFill = true;
             // 
             // ToXmdlForm
             // 
@@ -174,11 +194,13 @@
             this.ClientSize = new System.Drawing.Size(284, 157);
             this.Controls.Add(this.tableLayoutPanel_Main);
             this.Name = "ToXmdlForm";
+            this.Load += new System.EventHandler(this.ToXmdlForm_Load);
             this.tableLayoutPanel_Main.ResumeLayout(false);
             this.flowLayoutPanel_Buttons.ResumeLayout(false);
             this.groupBox_Options.ResumeLayout(false);
             this.flowLayoutPanel_Options.ResumeLayout(false);
             this.flowLayoutPanel_Options.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vRP_Accounting_DB_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEPOTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vEHICLEBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -195,9 +217,12 @@
         private System.Windows.Forms.Button button_Ok;
         private System.Windows.Forms.Label label_Depot;
         private System.Windows.Forms.ComboBox comboBox_Depot;
-        private System.Windows.Forms.BindingSource dEPOTBindingSource;
         private System.Windows.Forms.Label label_Vehicle;
         private System.Windows.Forms.ComboBox comboBox_Vehicle;
+        private VRP_Accounting_DB_DataSet vRP_Accounting_DB_DataSet;
+        private System.Windows.Forms.BindingSource dEPOTBindingSource;
+        private VRP_Accounting_DB_DataSetTableAdapters.DEPOTTableAdapter dEPOTTableAdapter;
         private System.Windows.Forms.BindingSource vEHICLEBindingSource;
+        private VRP_Accounting_DB_DataSetTableAdapters.VEHICLETableAdapter vEHICLETableAdapter;
     }
 }

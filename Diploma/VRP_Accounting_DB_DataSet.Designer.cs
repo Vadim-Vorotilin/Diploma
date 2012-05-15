@@ -429,6 +429,8 @@ namespace Diploma {
             
             private global::System.Data.DataColumn columnCOORDINATES_E;
             
+            private global::System.Data.DataColumn columnFINE;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CONSUMERDataTable() {
@@ -504,6 +506,14 @@ namespace Diploma {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FINEColumn {
+                get {
+                    return this.columnFINE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -539,14 +549,15 @@ namespace Diploma {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CONSUMERRow AddCONSUMERRow(decimal ID, string NAME, decimal AMOUNT, decimal COORDINATES_N, decimal COORDINATES_E) {
+            public CONSUMERRow AddCONSUMERRow(decimal ID, string NAME, decimal AMOUNT, double COORDINATES_N, double COORDINATES_E, decimal FINE) {
                 CONSUMERRow rowCONSUMERRow = ((CONSUMERRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
                         NAME,
                         AMOUNT,
                         COORDINATES_N,
-                        COORDINATES_E};
+                        COORDINATES_E,
+                        FINE};
                 rowCONSUMERRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCONSUMERRow);
                 return rowCONSUMERRow;
@@ -581,6 +592,7 @@ namespace Diploma {
                 this.columnAMOUNT = base.Columns["AMOUNT"];
                 this.columnCOORDINATES_N = base.Columns["COORDINATES_N"];
                 this.columnCOORDINATES_E = base.Columns["COORDINATES_E"];
+                this.columnFINE = base.Columns["FINE"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -592,14 +604,16 @@ namespace Diploma {
                 base.Columns.Add(this.columnNAME);
                 this.columnAMOUNT = new global::System.Data.DataColumn("AMOUNT", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAMOUNT);
-                this.columnCOORDINATES_N = new global::System.Data.DataColumn("COORDINATES_N", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnCOORDINATES_N = new global::System.Data.DataColumn("COORDINATES_N", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCOORDINATES_N);
-                this.columnCOORDINATES_E = new global::System.Data.DataColumn("COORDINATES_E", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnCOORDINATES_E = new global::System.Data.DataColumn("COORDINATES_E", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCOORDINATES_E);
+                this.columnFINE = new global::System.Data.DataColumn("FINE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFINE);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnNAME}, false));
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
+                                this.columnNAME}, false));
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
                 this.columnNAME.AllowDBNull = false;
@@ -608,6 +622,7 @@ namespace Diploma {
                 this.columnAMOUNT.AllowDBNull = false;
                 this.columnCOORDINATES_N.AllowDBNull = false;
                 this.columnCOORDINATES_E.AllowDBNull = false;
+                this.columnFINE.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1698,6 +1713,8 @@ namespace Diploma {
             
             private global::System.Data.DataColumn columnCOUNT;
             
+            private global::System.Data.DataColumn columnVOLUME;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public VEHICLEDataTable() {
@@ -1765,6 +1782,14 @@ namespace Diploma {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn VOLUMEColumn {
+                get {
+                    return this.columnVOLUME;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1800,13 +1825,14 @@ namespace Diploma {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VEHICLERow AddVEHICLERow(decimal ID, string NAME, double CONSUMPTION, decimal COUNT) {
+            public VEHICLERow AddVEHICLERow(decimal ID, string NAME, double CONSUMPTION, decimal COUNT, decimal VOLUME) {
                 VEHICLERow rowVEHICLERow = ((VEHICLERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
                         NAME,
                         CONSUMPTION,
-                        COUNT};
+                        COUNT,
+                        VOLUME};
                 rowVEHICLERow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVEHICLERow);
                 return rowVEHICLERow;
@@ -1840,6 +1866,7 @@ namespace Diploma {
                 this.columnNAME = base.Columns["NAME"];
                 this.columnCONSUMPTION = base.Columns["CONSUMPTION"];
                 this.columnCOUNT = base.Columns["COUNT"];
+                this.columnVOLUME = base.Columns["VOLUME"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1853,10 +1880,12 @@ namespace Diploma {
                 base.Columns.Add(this.columnCONSUMPTION);
                 this.columnCOUNT = new global::System.Data.DataColumn("COUNT", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCOUNT);
+                this.columnVOLUME = new global::System.Data.DataColumn("VOLUME", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVOLUME);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnNAME}, false));
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
+                                this.columnNAME}, false));
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
                 this.columnNAME.AllowDBNull = false;
@@ -2039,9 +2068,9 @@ namespace Diploma {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal COORDINATES_N {
+            public double COORDINATES_N {
                 get {
-                    return ((decimal)(this[this.tableCONSUMER.COORDINATES_NColumn]));
+                    return ((double)(this[this.tableCONSUMER.COORDINATES_NColumn]));
                 }
                 set {
                     this[this.tableCONSUMER.COORDINATES_NColumn] = value;
@@ -2050,12 +2079,23 @@ namespace Diploma {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal COORDINATES_E {
+            public double COORDINATES_E {
                 get {
-                    return ((decimal)(this[this.tableCONSUMER.COORDINATES_EColumn]));
+                    return ((double)(this[this.tableCONSUMER.COORDINATES_EColumn]));
                 }
                 set {
                     this[this.tableCONSUMER.COORDINATES_EColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal FINE {
+                get {
+                    return ((decimal)(this[this.tableCONSUMER.FINEColumn]));
+                }
+                set {
+                    this[this.tableCONSUMER.FINEColumn] = value;
                 }
             }
         }
@@ -2315,6 +2355,34 @@ namespace Diploma {
                 set {
                     this[this.tableVEHICLE.COUNTColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal VOLUME {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVEHICLE.VOLUMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VOLUME\' in table \'VEHICLE\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVEHICLE.VOLUMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsVOLUMENull() {
+                return this.IsNull(this.tableVEHICLE.VOLUMEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetVOLUMENull() {
+                this[this.tableVEHICLE.VOLUMEColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2613,40 +2681,16 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "CONSUMER";
+            tableMapping.ColumnMappings.Add("COORDINATES_N1", "COORDINATES_N1");
+            tableMapping.ColumnMappings.Add("COORDINATES_E1", "COORDINATES_E1");
+            tableMapping.ColumnMappings.Add("FINE1", "FINE1");
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("NAME", "NAME");
             tableMapping.ColumnMappings.Add("AMOUNT", "AMOUNT");
             tableMapping.ColumnMappings.Add("COORDINATES_N", "COORDINATES_N");
             tableMapping.ColumnMappings.Add("COORDINATES_E", "COORDINATES_E");
+            tableMapping.ColumnMappings.Add("FINE", "FINE");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [CONSUMER] WHERE (([ID] = @p1) AND ([NAME] = @p2))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ID", global::System.Data.DataRowVersion.Original, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "NAME", global::System.Data.DataRowVersion.Original, null));
-            this._adapter.InsertCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [CONSUMER] ([ID], [NAME], [AMOUNT], [COORDINATES_N], [COORDINATES_E])" +
-                " VALUES (@p1, @p2, @p3, @p4, @p5)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ID", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "NAME", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p3", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "AMOUNT", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "COORDINATES_N", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "COORDINATES_E", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [CONSUMER] SET [ID] = @p1, [NAME] = @p2, [AMOUNT] = @p3, [COORDINATES_N] =" +
-                " @p4, [COORDINATES_E] = @p5 WHERE (([ID] = @p6) AND ([NAME] = @p7))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ID", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "NAME", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p3", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "AMOUNT", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "COORDINATES_N", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "COORDINATES_E", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ID", global::System.Data.DataRowVersion.Original, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "NAME", global::System.Data.DataRowVersion.Original, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2662,7 +2706,8 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [ID], [NAME], [AMOUNT], [COORDINATES_N], [COORDINATES_E] FROM [CONSUMER]";
+            this._commandCollection[0].CommandText = "SELECT        ID, NAME, AMOUNT, COORDINATES_N, COORDINATES_E, FINE\r\nFROM         " +
+                "   CONSUMER";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2688,140 +2733,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
             VRP_Accounting_DB_DataSet.CONSUMERDataTable dataTable = new VRP_Accounting_DB_DataSet.CONSUMERDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(VRP_Accounting_DB_DataSet.CONSUMERDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(VRP_Accounting_DB_DataSet dataSet) {
-            return this.Adapter.Update(dataSet, "CONSUMER");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(decimal p1, string p2) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(p1));
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(p2));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(decimal p1, string p2, decimal p3, decimal p4, decimal p5) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(p1));
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
-            }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(p3));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(p4));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(p5));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(decimal p1, string p2, decimal p3, decimal p4, decimal p5, decimal p6, string p7) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(p1));
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(p3));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(p4));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(p5));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(p6));
-            if ((p7 == null)) {
-                throw new global::System.ArgumentNullException("p7");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(p7));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p2, decimal p3, decimal p4, decimal p5, decimal p6, string p7) {
-            return this.Update(p6, p2, p3, p4, p5, p6, p7);
         }
     }
     
@@ -3920,33 +3831,8 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("NAME", "NAME");
             tableMapping.ColumnMappings.Add("CONSUMPTION", "CONSUMPTION");
             tableMapping.ColumnMappings.Add("COUNT", "COUNT");
+            tableMapping.ColumnMappings.Add("VOLUME", "VOLUME");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [VEHICLE] WHERE (([ID] = @p1) AND ([NAME] = @p2))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ID", global::System.Data.DataRowVersion.Original, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "NAME", global::System.Data.DataRowVersion.Original, null));
-            this._adapter.InsertCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [VEHICLE] ([ID], [NAME], [CONSUMPTION], [COUNT]) VALUES (@p1, @p2, @p" +
-                "3, @p4)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ID", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "NAME", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p3", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "CONSUMPTION", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "COUNT", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [VEHICLE] SET [ID] = @p1, [NAME] = @p2, [CONSUMPTION] = @p3, [COUNT] = @p4" +
-                " WHERE (([ID] = @p5) AND ([NAME] = @p6))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ID", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "NAME", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p3", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "CONSUMPTION", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "COUNT", global::System.Data.DataRowVersion.Current, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "ID", global::System.Data.DataRowVersion.Original, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "NAME", global::System.Data.DataRowVersion.Original, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3962,7 +3848,7 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [ID], [NAME], [CONSUMPTION], [COUNT] FROM [VEHICLE]";
+            this._commandCollection[0].CommandText = "SELECT        ID, NAME, CONSUMPTION, COUNT, VOLUME\r\nFROM            VEHICLE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3989,138 +3875,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(VRP_Accounting_DB_DataSet.VEHICLEDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(VRP_Accounting_DB_DataSet dataSet) {
-            return this.Adapter.Update(dataSet, "VEHICLE");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(decimal p1, string p2) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(p1));
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(p2));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(decimal p1, string p2, double p3, decimal p4) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(p1));
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
-            }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((double)(p3));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(p4));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(decimal p1, string p2, double p3, decimal p4, decimal p5, string p6) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(p1));
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((double)(p3));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(p4));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(p5));
-            if ((p6 == null)) {
-                throw new global::System.ArgumentNullException("p6");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(p6));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p2, double p3, decimal p4, decimal p5, string p6) {
-            return this.Update(p5, p2, p3, p4, p5, p6);
-        }
     }
     
     /// <summary>
@@ -4135,15 +3889,11 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private CONSUMERTableAdapter _cONSUMERTableAdapter;
-        
         private DEPOTTableAdapter _dEPOTTableAdapter;
         
         private DISTANCE_CONSUMERSTableAdapter _dISTANCE_CONSUMERSTableAdapter;
         
         private DISTANCE_DEPOT_CONSUMERTableAdapter _dISTANCE_DEPOT_CONSUMERTableAdapter;
-        
-        private VEHICLETableAdapter _vEHICLETableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -4157,20 +3907,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public CONSUMERTableAdapter CONSUMERTableAdapter {
-            get {
-                return this._cONSUMERTableAdapter;
-            }
-            set {
-                this._cONSUMERTableAdapter = value;
             }
         }
         
@@ -4218,20 +3954,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public VEHICLETableAdapter VEHICLETableAdapter {
-            get {
-                return this._vEHICLETableAdapter;
-            }
-            set {
-                this._vEHICLETableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -4249,10 +3971,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._cONSUMERTableAdapter != null) 
-                            && (this._cONSUMERTableAdapter.Connection != null))) {
-                    return this._cONSUMERTableAdapter.Connection;
-                }
                 if (((this._dEPOTTableAdapter != null) 
                             && (this._dEPOTTableAdapter.Connection != null))) {
                     return this._dEPOTTableAdapter.Connection;
@@ -4264,10 +3982,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
                 if (((this._dISTANCE_DEPOT_CONSUMERTableAdapter != null) 
                             && (this._dISTANCE_DEPOT_CONSUMERTableAdapter.Connection != null))) {
                     return this._dISTANCE_DEPOT_CONSUMERTableAdapter.Connection;
-                }
-                if (((this._vEHICLETableAdapter != null) 
-                            && (this._vEHICLETableAdapter.Connection != null))) {
-                    return this._vEHICLETableAdapter.Connection;
                 }
                 return null;
             }
@@ -4282,9 +3996,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._cONSUMERTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._dEPOTTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -4292,9 +4003,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
                     count = (count + 1);
                 }
                 if ((this._dISTANCE_DEPOT_CONSUMERTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._vEHICLETableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -4317,30 +4025,12 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._vEHICLETableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.VEHICLE.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._vEHICLETableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._dISTANCE_CONSUMERSTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.DISTANCE_CONSUMERS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._dISTANCE_CONSUMERSTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._cONSUMERTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CONSUMER.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cONSUMERTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4371,27 +4061,11 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._vEHICLETableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.VEHICLE.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._vEHICLETableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._dISTANCE_CONSUMERSTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.DISTANCE_CONSUMERS.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._dISTANCE_CONSUMERSTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._cONSUMERTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CONSUMER.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cONSUMERTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -4421,27 +4095,11 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._cONSUMERTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CONSUMER.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._cONSUMERTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._dISTANCE_CONSUMERSTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.DISTANCE_CONSUMERS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._dISTANCE_CONSUMERSTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._vEHICLETableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.VEHICLE.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._vEHICLETableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -4492,11 +4150,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._cONSUMERTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._cONSUMERTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._dEPOTTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._dEPOTTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -4509,11 +4162,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
             }
             if (((this._dISTANCE_DEPOT_CONSUMERTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._dISTANCE_DEPOT_CONSUMERTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._vEHICLETableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._vEHICLETableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -4549,15 +4197,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._cONSUMERTableAdapter != null)) {
-                    revertConnections.Add(this._cONSUMERTableAdapter, this._cONSUMERTableAdapter.Connection);
-                    this._cONSUMERTableAdapter.Connection = ((global::System.Data.SqlServerCe.SqlCeConnection)(workConnection));
-                    this._cONSUMERTableAdapter.Transaction = ((global::System.Data.SqlServerCe.SqlCeTransaction)(workTransaction));
-                    if (this._cONSUMERTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._cONSUMERTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._cONSUMERTableAdapter.Adapter);
-                    }
-                }
                 if ((this._dEPOTTableAdapter != null)) {
                     revertConnections.Add(this._dEPOTTableAdapter, this._dEPOTTableAdapter.Connection);
                     this._dEPOTTableAdapter.Connection = ((global::System.Data.SqlServerCe.SqlCeConnection)(workConnection));
@@ -4583,15 +4222,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
                     if (this._dISTANCE_DEPOT_CONSUMERTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._dISTANCE_DEPOT_CONSUMERTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._dISTANCE_DEPOT_CONSUMERTableAdapter.Adapter);
-                    }
-                }
-                if ((this._vEHICLETableAdapter != null)) {
-                    revertConnections.Add(this._vEHICLETableAdapter, this._vEHICLETableAdapter.Connection);
-                    this._vEHICLETableAdapter.Connection = ((global::System.Data.SqlServerCe.SqlCeConnection)(workConnection));
-                    this._vEHICLETableAdapter.Transaction = ((global::System.Data.SqlServerCe.SqlCeTransaction)(workTransaction));
-                    if (this._vEHICLETableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._vEHICLETableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._vEHICLETableAdapter.Adapter);
                     }
                 }
                 // 
@@ -4652,10 +4282,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._cONSUMERTableAdapter != null)) {
-                    this._cONSUMERTableAdapter.Connection = ((global::System.Data.SqlServerCe.SqlCeConnection)(revertConnections[this._cONSUMERTableAdapter]));
-                    this._cONSUMERTableAdapter.Transaction = null;
-                }
                 if ((this._dEPOTTableAdapter != null)) {
                     this._dEPOTTableAdapter.Connection = ((global::System.Data.SqlServerCe.SqlCeConnection)(revertConnections[this._dEPOTTableAdapter]));
                     this._dEPOTTableAdapter.Transaction = null;
@@ -4667,10 +4293,6 @@ namespace Diploma.VRP_Accounting_DB_DataSetTableAdapters {
                 if ((this._dISTANCE_DEPOT_CONSUMERTableAdapter != null)) {
                     this._dISTANCE_DEPOT_CONSUMERTableAdapter.Connection = ((global::System.Data.SqlServerCe.SqlCeConnection)(revertConnections[this._dISTANCE_DEPOT_CONSUMERTableAdapter]));
                     this._dISTANCE_DEPOT_CONSUMERTableAdapter.Transaction = null;
-                }
-                if ((this._vEHICLETableAdapter != null)) {
-                    this._vEHICLETableAdapter.Connection = ((global::System.Data.SqlServerCe.SqlCeConnection)(revertConnections[this._vEHICLETableAdapter]));
-                    this._vEHICLETableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

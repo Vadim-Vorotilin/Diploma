@@ -98,6 +98,10 @@
     <Compile Include="ToXmdlForm.Designer.cs">
       <DependentUpon>ToXmdlForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="VRP_Accounting_DB_DataSet.cs">
+      <DependentUpon>VRP_Accounting_DB_DataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="VRP_Accounting_DB_DataSet.Designer.cs">
       <DependentUpon>VRP_Accounting_DB_DataSet.xsd</DependentUpon>
       <DesignTime>True</DesignTime>

@@ -24,7 +24,15 @@ namespace Diploma
         {
             if (toXmdlForm.ShowDialog() == DialogResult.OK)
             {
-                
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "Model|*.xmdl";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        
+                    }
+                }
             }
         }
 
@@ -36,6 +44,7 @@ namespace Diploma
         private void dataGridView_Depots_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             //dataGridView_Depots.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            this.dISTANCE_DEPOT_CONSUMERTableAdapter.Update(this.vRP_Accounting_DB_DataSet.DISTANCE_DEPOT_CONSUMER);
         }
 
         private void DBForm_Load(object sender, EventArgs e)
@@ -55,6 +64,13 @@ namespace Diploma
             // TODO: This line of code loads data into the 'vRP_Accounting_DB_DataSet.DEPOT' table. You can move, or remove it, as needed.
             this.dEPOTTableAdapter.Fill(this.vRP_Accounting_DB_DataSet.DEPOT);
 
+        }
+
+        private void solveTheProblemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (toXmdlForm.ShowDialog() == DialogResult.OK)
+            {
+            }
         }
     }
 }
