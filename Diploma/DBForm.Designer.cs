@@ -362,6 +362,7 @@
             this.MainMenuStrip = this.menuStrip_Main;
             this.Name = "DBForm";
             this.Text = "Accounting";
+            this.Load += new System.EventHandler(this.DBForm_Load);
             this.tabControl_Main.ResumeLayout(false);
             this.tabPage_Depots.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Depots)).EndInit();
