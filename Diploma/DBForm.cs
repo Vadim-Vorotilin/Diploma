@@ -37,5 +37,24 @@ namespace Diploma
         {
             //dataGridView_Depots.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
+
+        private void DBForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'vRP_Accounting_DB_DataSet.DISTANCE_DEPOT_CONSUMER' table. You can move, or remove it, as needed.
+            this.dISTANCE_DEPOT_CONSUMERTableAdapter.Fill(this.vRP_Accounting_DB_DataSet.DISTANCE_DEPOT_CONSUMER);
+            // TODO: This line of code loads data into the 'vRP_Accounting_DB_DataSet.DISTANCE_CONSUMERS' table. You can move, or remove it, as needed.
+            this.dISTANCE_CONSUMERSTableAdapter.Fill(this.vRP_Accounting_DB_DataSet.DISTANCE_CONSUMERS);
+            // TODO: This line of code loads data into the 'vRP_Accounting_DB_DataSet.VEHICLE' table. You can move, or remove it, as needed.
+            this.vEHICLETableAdapter.Fill(this.vRP_Accounting_DB_DataSet.VEHICLE);
+            // TODO: This line of code loads data into the 'vRP_Accounting_DB_DataSet.CONSUMER' table. You can move, or remove it, as needed.
+            this.cONSUMERTableAdapter.Fill(this.vRP_Accounting_DB_DataSet.CONSUMER);
+            // TODO: This line of code loads data into the 'vRP_Accounting_DB_DataSet.DEPOT' table. You can move, or remove it, as needed.
+            this.dEPOTTableAdapter.Fill(this.vRP_Accounting_DB_DataSet.DEPOT);
+            // TODO: This line of code loads data into the 'vRP_Accounting_DB_DataSet.DEPOT' table. You can move, or remove it, as needed.
+            this.dEPOTTableAdapter.Fill(this.vRP_Accounting_DB_DataSet.DEPOT);
+            // TODO: This line of code loads data into the 'vRP_Accounting_DB_DataSet.DEPOT' table. You can move, or remove it, as needed.
+            this.dEPOTTableAdapter.Fill(this.vRP_Accounting_DB_DataSet.DEPOT);
+
+        }
     }
 }
