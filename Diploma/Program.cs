@@ -15,7 +15,7 @@ namespace Diploma
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DBForm());
+            Application.Run(new GraphForm());
         }
     }
 }
