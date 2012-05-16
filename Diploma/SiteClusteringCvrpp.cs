@@ -8,7 +8,7 @@ namespace Diploma
 {
     public class SiteClusteringCvrpp : SiteClusteringCvrp
     {
-        private Cluster penaltyCluster;
+        protected Cluster penaltyCluster;
         private double kilometerCost;
 
         private List<Cluster> allClusters;
@@ -33,7 +33,7 @@ namespace Diploma
             FormAllClusters();
         }
 
-        private void FormAllClusters()
+        protected void FormAllClusters()
         {
             allClusters = new List<Cluster>();
             allClusters.AddRange(Clusters);
