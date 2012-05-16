@@ -99,7 +99,7 @@ namespace Diploma
             lastValue = newValue;
         }
 
-        public void Iterations (int count = 1)
+        public void Iterations (int count)
         {
             for (int i = 0; i != count; i++)
             {

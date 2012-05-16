@@ -12,7 +12,7 @@ namespace Diploma
 
         protected List<Node> RemainingNodes; 
             
-        public SiteClusteringCvrp (List<Node> nodes, int capacityLimit, int clustersCount = int.MaxValue) 
+        public SiteClusteringCvrp (List<Node> nodes, int capacityLimit, int clustersCount) 
             : base(nodes)
         {
             Clusters = new List<Cluster>();

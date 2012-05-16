@@ -138,7 +138,7 @@ namespace Diploma
             return b;
         }
 
-        public static void AddNodeAtScreen (Node.NodeType nodeType, int posX, int posY, int volume = 1, int fine = 0)
+        public static void AddNodeAtScreen (Node.NodeType nodeType, int posX, int posY, int volume, int fine)
         {
             Node newNode = new Node(Nodes.Count, nodeType, posX, posY, posX, posY) {Volume = volume, Fine = fine};
 
@@ -157,7 +157,7 @@ namespace Diploma
         private static List<Node> drawingNodes;
         private static List<List<Node>> drawnNodes;
 
-        public static void DrawNodes (List<Node> nodes = null)
+        public static void DrawNodes (List<Node> nodes)
         {
             drawingNodes = nodes ?? (drawingNodes ?? Nodes);
             DrawNodes(graphicsForDraw, drawingNodes);
@@ -224,7 +224,7 @@ namespace Diploma
         }
 
         public static void StartBeesAlgorithm(BeesColony.ProblemType problemType, int clustersCount, int scoutsCount, 
-            int goodSitesCount, int bestSitesCount, int neighboursForGoodSites, int neighboursForBestSites, int clusterCapacityLimit = -1, double kilometerCost = 0)
+            int goodSitesCount, int bestSitesCount, int neighboursForGoodSites, int neighboursForBestSites, int clusterCapacityLimit, double kilometerCost)
         {
             BeesColony colony = new BeesColony();
 
@@ -314,7 +314,7 @@ namespace Diploma
             DrawNodes();
         }
 
-        public static bool SaveModel(string fileName = "")
+        public static bool SaveModel(string fileName)
         {
             if (fileName == "" && lastFileName == "")
             {
