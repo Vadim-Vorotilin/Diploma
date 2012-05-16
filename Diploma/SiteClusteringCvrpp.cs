@@ -8,7 +8,7 @@ namespace Diploma
 {
     public class SiteClusteringCvrpp : SiteClusteringCvrp
     {
-        protected Cluster penaltyCluster;
+        protected Cluster PenaltyCluster;
         private double kilometerCost;
 
         private List<Cluster> allClusters;
@@ -16,8 +16,8 @@ namespace Diploma
         public SiteClusteringCvrpp(List<Node> nodes, int capacityLimit, int clustersCount, double kilometerCost)
             : base(nodes, capacityLimit, clustersCount)
         {
-            penaltyCluster = new Cluster();
-            penaltyCluster.AddNodes(RemainingNodes);
+            PenaltyCluster = new Cluster();
+            PenaltyCluster.AddNodes(RemainingNodes);
 
             this.kilometerCost = kilometerCost;
 
@@ -27,7 +27,7 @@ namespace Diploma
         private SiteClusteringCvrpp(SiteClusteringCvrpp site) 
             : base(site)
         {
-            penaltyCluster = new Cluster(site.penaltyCluster);
+            PenaltyCluster = new Cluster(site.PenaltyCluster);
             kilometerCost = site.kilometerCost;
 
             FormAllClusters();
@@ -37,9 +37,9 @@ namespace Diploma
         {
             allClusters = new List<Cluster>();
             allClusters.AddRange(Clusters);
-            allClusters.Add(penaltyCluster);
+            allClusters.Add(PenaltyCluster);
 
-            NotClusteredNodes = penaltyCluster.Nodes;
+            NotClusteredNodes = PenaltyCluster.Nodes;
         }
 
         public double EstimateLength
@@ -51,7 +51,7 @@ namespace Diploma
         {
             get
             {
-                return (from node in penaltyCluster.Nodes 
+                return (from node in PenaltyCluster.Nodes 
                         select node.Fine).Sum();
             }
         }
@@ -89,7 +89,7 @@ namespace Diploma
             List<Node> drawingNodes = new List<Node>();
             drawingNodes.AddRange(base.PrepareToDraw(connectionsColor));
 
-            foreach (Node node in penaltyCluster.Nodes)
+            foreach (Node node in PenaltyCluster.Nodes)
             {
                 node.DisconnectFromAll();
                 drawingNodes.Add(node);
@@ -106,14 +106,14 @@ namespace Diploma
             Clusters.AddRange(siteClusteringCvrpp.Clusters);
 
             kilometerCost = siteClusteringCvrpp.kilometerCost;
-            penaltyCluster = new Cluster(siteClusteringCvrpp.penaltyCluster);
+            PenaltyCluster = new Cluster(siteClusteringCvrpp.PenaltyCluster);
 
             FormAllClusters();
         }
 
         public override string ToString()
         {
-            return string.Format("{0}. Penalty cluster: {1}. Estimate length: {2:0.000}. Fines: {3}", base.ToString(), penaltyCluster, EstimateLength, Fines);
+            return string.Format("{0}. Penalty cluster: {1}. Estimate length: {2:0.000}. Fines: {3}", base.ToString(), PenaltyCluster, EstimateLength, Fines);
         }
     }
 }

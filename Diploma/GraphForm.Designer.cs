@@ -57,6 +57,8 @@
             this.numericUpDown_ClustersCount = new System.Windows.Forms.NumericUpDown();
             this.label_ClusterCapacityLimit = new System.Windows.Forms.Label();
             this.numericUpDown_ClusterCapacityLimit = new System.Windows.Forms.NumericUpDown();
+            this.label_KilometerCost = new System.Windows.Forms.Label();
+            this.numericUpDown_KilometerCost = new System.Windows.Forms.NumericUpDown();
             this.label_Algorithm = new System.Windows.Forms.Label();
             this.comboBox_AlgorithmType = new System.Windows.Forms.ComboBox();
             this.button_StartAlgorithm = new System.Windows.Forms.Button();
@@ -97,8 +99,6 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Main = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label_KilometerCost = new System.Windows.Forms.Label();
-            this.numericUpDown_KilometerCost = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.groupBox_Options.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
@@ -115,6 +115,7 @@
             this.flowLayoutPanel_Algorithm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClustersCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClusterCapacityLimit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_KilometerCost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IterationsCount)).BeginInit();
             this.groupBox_Series.SuspendLayout();
             this.tableLayoutPanel_Series.SuspendLayout();
@@ -129,7 +130,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ModelsCount)).BeginInit();
             this.menuStrip_MainMenu.SuspendLayout();
             this.statusStrip_Main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_KilometerCost)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_Main
@@ -527,6 +527,28 @@
             0,
             0});
             // 
+            // label_KilometerCost
+            // 
+            this.label_KilometerCost.AutoSize = true;
+            this.label_KilometerCost.Location = new System.Drawing.Point(3, 83);
+            this.label_KilometerCost.Name = "label_KilometerCost";
+            this.label_KilometerCost.Size = new System.Drawing.Size(73, 13);
+            this.label_KilometerCost.TabIndex = 15;
+            this.label_KilometerCost.Text = "Kilometer cost";
+            // 
+            // numericUpDown_KilometerCost
+            // 
+            this.numericUpDown_KilometerCost.DecimalPlaces = 3;
+            this.numericUpDown_KilometerCost.Location = new System.Drawing.Point(3, 99);
+            this.numericUpDown_KilometerCost.Name = "numericUpDown_KilometerCost";
+            this.numericUpDown_KilometerCost.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown_KilometerCost.TabIndex = 16;
+            this.numericUpDown_KilometerCost.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // label_Algorithm
             // 
             this.label_Algorithm.AutoSize = true;
@@ -545,7 +567,8 @@
             "Bees CLUST w/ LIMIT",
             "K-means CLUSTERING",
             "NearNeighChain",
-            "Bees CLUST CVRPP"});
+            "Bees CLUST CVRPP",
+            "Bees CLUST CVRPP NNC"});
             this.comboBox_AlgorithmType.Location = new System.Drawing.Point(3, 138);
             this.comboBox_AlgorithmType.Name = "comboBox_AlgorithmType";
             this.comboBox_AlgorithmType.Size = new System.Drawing.Size(117, 21);
@@ -998,28 +1021,6 @@
             this.toolStripStatusLabel_Main.Name = "toolStripStatusLabel_Main";
             this.toolStripStatusLabel_Main.Size = new System.Drawing.Size(0, 17);
             // 
-            // label_KilometerCost
-            // 
-            this.label_KilometerCost.AutoSize = true;
-            this.label_KilometerCost.Location = new System.Drawing.Point(3, 83);
-            this.label_KilometerCost.Name = "label_KilometerCost";
-            this.label_KilometerCost.Size = new System.Drawing.Size(73, 13);
-            this.label_KilometerCost.TabIndex = 15;
-            this.label_KilometerCost.Text = "Kilometer cost";
-            // 
-            // numericUpDown_KilometerCost
-            // 
-            this.numericUpDown_KilometerCost.DecimalPlaces = 3;
-            this.numericUpDown_KilometerCost.Location = new System.Drawing.Point(3, 99);
-            this.numericUpDown_KilometerCost.Name = "numericUpDown_KilometerCost";
-            this.numericUpDown_KilometerCost.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown_KilometerCost.TabIndex = 16;
-            this.numericUpDown_KilometerCost.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1053,6 +1054,7 @@
             this.flowLayoutPanel_Algorithm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClustersCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ClusterCapacityLimit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_KilometerCost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IterationsCount)).EndInit();
             this.groupBox_Series.ResumeLayout(false);
             this.tableLayoutPanel_Series.ResumeLayout(false);
@@ -1073,7 +1075,6 @@
             this.menuStrip_MainMenu.PerformLayout();
             this.statusStrip_Main.ResumeLayout(false);
             this.statusStrip_Main.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_KilometerCost)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

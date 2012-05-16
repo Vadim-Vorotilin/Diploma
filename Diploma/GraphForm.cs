@@ -130,6 +130,9 @@ namespace Diploma
                 case 5:                 //  Bees CLUST CVRPP
                     TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_CVRPP, ClustersCount, 7, 3, 2, 2, 5, ClusterCapacityLimit, KilometerCost);
                     break;
+                case 6:                 //  Bees CLUST CVRPP NNC
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_CVRPP_NNC, ClustersCount, 7, 3, 2, 2, 5, ClusterCapacityLimit, KilometerCost);
+                    break;
             }
 
             TaskController.Algorithm.LogFileName = textBox_LogFileName.Text;
