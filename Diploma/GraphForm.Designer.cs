@@ -60,7 +60,6 @@
             this.label_KilometerCost = new System.Windows.Forms.Label();
             this.numericUpDown_KilometerCost = new System.Windows.Forms.NumericUpDown();
             this.label_Algorithm = new System.Windows.Forms.Label();
-            this.comboBox_AlgorithmType = new System.Windows.Forms.ComboBox();
             this.button_StartAlgorithm = new System.Windows.Forms.Button();
             this.button_Iteration = new System.Windows.Forms.Button();
             this.numericUpDown_IterationsCount = new System.Windows.Forms.NumericUpDown();
@@ -99,6 +98,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip_Main = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Main = new System.Windows.Forms.ToolStripStatusLabel();
+            this.checkedListBox_AlgorithmType = new System.Windows.Forms.CheckedListBox();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.groupBox_Options.SuspendLayout();
             this.flowLayoutPanel_Tools.SuspendLayout();
@@ -441,7 +441,7 @@
             this.groupBox_Algorithm.Controls.Add(this.flowLayoutPanel_Algorithm);
             this.groupBox_Algorithm.Location = new System.Drawing.Point(139, 3);
             this.groupBox_Algorithm.Name = "groupBox_Algorithm";
-            this.groupBox_Algorithm.Size = new System.Drawing.Size(130, 365);
+            this.groupBox_Algorithm.Size = new System.Drawing.Size(130, 429);
             this.groupBox_Algorithm.TabIndex = 7;
             this.groupBox_Algorithm.TabStop = false;
             this.groupBox_Algorithm.Text = "Algorithm";
@@ -455,7 +455,7 @@
             this.flowLayoutPanel_Algorithm.Controls.Add(this.label_KilometerCost);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.numericUpDown_KilometerCost);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.label_Algorithm);
-            this.flowLayoutPanel_Algorithm.Controls.Add(this.comboBox_AlgorithmType);
+            this.flowLayoutPanel_Algorithm.Controls.Add(this.checkedListBox_AlgorithmType);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.button_StartAlgorithm);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.button_Iteration);
             this.flowLayoutPanel_Algorithm.Controls.Add(this.numericUpDown_IterationsCount);
@@ -467,7 +467,7 @@
             this.flowLayoutPanel_Algorithm.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel_Algorithm.Name = "flowLayoutPanel_Algorithm";
             this.flowLayoutPanel_Algorithm.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.flowLayoutPanel_Algorithm.Size = new System.Drawing.Size(124, 346);
+            this.flowLayoutPanel_Algorithm.Size = new System.Drawing.Size(124, 410);
             this.flowLayoutPanel_Algorithm.TabIndex = 8;
             // 
             // label_ClustersCount
@@ -558,25 +558,9 @@
             this.label_Algorithm.TabIndex = 10;
             this.label_Algorithm.Text = "Algorithm";
             // 
-            // comboBox_AlgorithmType
-            // 
-            this.comboBox_AlgorithmType.FormattingEnabled = true;
-            this.comboBox_AlgorithmType.Items.AddRange(new object[] {
-            "Bees VRP -> TSP",
-            "Bees CLUSTERING",
-            "Bees CLUST w/ LIMIT",
-            "K-means CLUSTERING",
-            "NearNeighChain",
-            "Bees CLUST CVRPP",
-            "Bees CLUST CVRPP NNC"});
-            this.comboBox_AlgorithmType.Location = new System.Drawing.Point(3, 138);
-            this.comboBox_AlgorithmType.Name = "comboBox_AlgorithmType";
-            this.comboBox_AlgorithmType.Size = new System.Drawing.Size(117, 21);
-            this.comboBox_AlgorithmType.TabIndex = 7;
-            // 
             // button_StartAlgorithm
             // 
-            this.button_StartAlgorithm.Location = new System.Drawing.Point(3, 165);
+            this.button_StartAlgorithm.Location = new System.Drawing.Point(3, 240);
             this.button_StartAlgorithm.Name = "button_StartAlgorithm";
             this.button_StartAlgorithm.Size = new System.Drawing.Size(118, 23);
             this.button_StartAlgorithm.TabIndex = 3;
@@ -586,7 +570,7 @@
             // 
             // button_Iteration
             // 
-            this.button_Iteration.Location = new System.Drawing.Point(3, 194);
+            this.button_Iteration.Location = new System.Drawing.Point(3, 269);
             this.button_Iteration.Name = "button_Iteration";
             this.button_Iteration.Size = new System.Drawing.Size(118, 23);
             this.button_Iteration.TabIndex = 4;
@@ -596,7 +580,7 @@
             // 
             // numericUpDown_IterationsCount
             // 
-            this.numericUpDown_IterationsCount.Location = new System.Drawing.Point(3, 223);
+            this.numericUpDown_IterationsCount.Location = new System.Drawing.Point(3, 298);
             this.numericUpDown_IterationsCount.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -618,7 +602,7 @@
             // 
             // button_Iterate
             // 
-            this.button_Iterate.Location = new System.Drawing.Point(3, 249);
+            this.button_Iterate.Location = new System.Drawing.Point(3, 324);
             this.button_Iterate.Name = "button_Iterate";
             this.button_Iterate.Size = new System.Drawing.Size(118, 23);
             this.button_Iterate.TabIndex = 6;
@@ -628,7 +612,7 @@
             // 
             // button_IterateToStop
             // 
-            this.button_IterateToStop.Location = new System.Drawing.Point(3, 278);
+            this.button_IterateToStop.Location = new System.Drawing.Point(3, 353);
             this.button_IterateToStop.Name = "button_IterateToStop";
             this.button_IterateToStop.Size = new System.Drawing.Size(117, 23);
             this.button_IterateToStop.TabIndex = 13;
@@ -638,7 +622,7 @@
             // 
             // button_CalculateTsp
             // 
-            this.button_CalculateTsp.Location = new System.Drawing.Point(3, 307);
+            this.button_CalculateTsp.Location = new System.Drawing.Point(3, 382);
             this.button_CalculateTsp.Name = "button_CalculateTsp";
             this.button_CalculateTsp.Size = new System.Drawing.Size(117, 23);
             this.button_CalculateTsp.TabIndex = 14;
@@ -651,7 +635,7 @@
             this.checkBox_LastChangedIteration.AutoSize = true;
             this.checkBox_LastChangedIteration.Checked = true;
             this.checkBox_LastChangedIteration.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_LastChangedIteration.Location = new System.Drawing.Point(139, 374);
+            this.checkBox_LastChangedIteration.Location = new System.Drawing.Point(139, 438);
             this.checkBox_LastChangedIteration.Name = "checkBox_LastChangedIteration";
             this.checkBox_LastChangedIteration.Size = new System.Drawing.Size(105, 17);
             this.checkBox_LastChangedIteration.TabIndex = 8;
@@ -1021,6 +1005,22 @@
             this.toolStripStatusLabel_Main.Name = "toolStripStatusLabel_Main";
             this.toolStripStatusLabel_Main.Size = new System.Drawing.Size(0, 17);
             // 
+            // checkedListBox_AlgorithmType
+            // 
+            this.checkedListBox_AlgorithmType.FormattingEnabled = true;
+            this.checkedListBox_AlgorithmType.Items.AddRange(new object[] {
+            "Bees VRP -> TSP",
+            "Bees CLUSTERING",
+            "Bees CLUST w/ LIMIT",
+            "K-means CLUSTERING",
+            "NearNeighChain",
+            "Bees CLUST CVRPP",
+            "Bees CLUST CVRPP NNC"});
+            this.checkedListBox_AlgorithmType.Location = new System.Drawing.Point(3, 138);
+            this.checkedListBox_AlgorithmType.Name = "checkedListBox_AlgorithmType";
+            this.checkedListBox_AlgorithmType.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox_AlgorithmType.TabIndex = 17;
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1101,7 +1101,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox_Algorithm;
-        private System.Windows.Forms.ComboBox comboBox_AlgorithmType;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Algorithm;
         private System.Windows.Forms.Label label_ClustersCount;
         private System.Windows.Forms.NumericUpDown numericUpDown_ClustersCount;
@@ -1153,6 +1152,7 @@
         private System.Windows.Forms.CheckBox checkBox_CurrentModel;
         private System.Windows.Forms.Label label_KilometerCost;
         private System.Windows.Forms.NumericUpDown numericUpDown_KilometerCost;
+        private System.Windows.Forms.CheckedListBox checkedListBox_AlgorithmType;
 
     }
 }
