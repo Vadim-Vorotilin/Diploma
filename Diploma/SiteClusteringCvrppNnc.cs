@@ -20,6 +20,7 @@ namespace Diploma
 
         protected override List<Node> GenerateClusters(List<Node> nodesForClusters, Node _depot)
         {
+            Depot = _depot;
             return null;
         }
 
@@ -49,6 +50,11 @@ namespace Diploma
                 {
                     PenaltyCluster.Merge(newCluster);
                 }
+            }
+
+            foreach (Cluster cluster in Clusters)
+            {
+                cluster.Depot = Depot;
             }
         }
 
