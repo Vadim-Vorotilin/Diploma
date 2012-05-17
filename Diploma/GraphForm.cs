@@ -20,7 +20,6 @@ namespace Diploma
         private void GraphForm_Load(object sender, EventArgs e)
         {
             TaskController.GraphicsForDraw = panel_Drawing.CreateGraphics();
-            comboBox_AlgorithmType.SelectedIndex = 0;
             LockIterationsOptions(true);
         }
 
@@ -96,7 +95,7 @@ namespace Diploma
 
             TaskController.KilometerCost = KilometerCost;
 
-            switch (comboBox_AlgorithmType.SelectedIndex)
+            switch (checkedListBox_AlgorithmType.SelectedIndex)
             {
                 case 0:                 //  Bees VRP -> TSP
                     TaskController.StartBeesAlgorithm(BeesColony.ProblemType.VRP_TSP, ClustersCount, 5, 3, 1, 2, 3);
@@ -130,6 +129,9 @@ namespace Diploma
                 case 5:                 //  Bees CLUST CVRPP
                     TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_CVRPP, ClustersCount, 7, 3, 2, 2, 5, ClusterCapacityLimit, KilometerCost);
                     break;
+                case 6:                 //  Bees CLUST CVRPP NNC
+                    TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_CVRPP_NNC, ClustersCount, 7, 3, 2, 2, 5, ClusterCapacityLimit, KilometerCost);
+                    break;
             }
 
             TaskController.Algorithm.LogFileName = textBox_LogFileName.Text;
@@ -151,7 +153,7 @@ namespace Diploma
             label_KilometerCost.Enabled = !_lock;
             numericUpDown_KilometerCost.Enabled = !_lock;
             label_Algorithm.Enabled = !_lock;
-            comboBox_AlgorithmType.Enabled = !_lock;
+            checkedListBox_AlgorithmType.Enabled = !_lock;
         }
 
         private void LockIterationsOptions(bool _lock)
@@ -364,7 +366,7 @@ namespace Diploma
 
         private string GetAlgorithmName(int index)
         {
-            return comboBox_AlgorithmType.Items[index].ToString();
+            return checkedListBox_AlgorithmType.Items[index].ToString();
         }
 
         private void button_StartSeries_Click(object sender, EventArgs e)
@@ -381,7 +383,7 @@ namespace Diploma
 
             bool currentModel = checkBox_CurrentModel.Checked;
 
-            int algorithmsCount = comboBox_AlgorithmType.Items.Count;
+            int algorithmsCount = checkedListBox_AlgorithmType.CheckedIndices.Count;
 
             int seriesCount = currentModel ? 1 : (consumersTo - consumersFrom) / consumersStep + 1;
 
@@ -396,11 +398,13 @@ namespace Diploma
                               string.Format(
                                   "\n\n\n----- Series start. Clusters limit: {0}. Capacity limit: {1}. " +
                                   "Starts in each series: {2}. Models count: {3}. " +
-                                  "Current model: {4}. Consumers count: {5}. Time: {6}",
+                                  "Current model: {4}. Kilometer cost: {5:0.000}. Consumers count: {6}. Time: {7}",
                                   Convert.ToInt32(numericUpDown_ClustersCount.Value),
                                   Convert.ToInt32(numericUpDown_ClusterCapacityLimit.Value),
                                   startsCount, modelsCount, currentModel,
-                                  TaskController.ConsumersCount, DateTime.Now));
+                                  KilometerCost,
+                                  TaskController.ConsumersCount, 
+                                  DateTime.Now));
 
             for (int i = 0; i != seriesCount; i++)
             {
@@ -439,7 +443,7 @@ namespace Diploma
 
                     for (int k = 0; k != algorithmsCount; k++)
                     {
-                        comboBox_AlgorithmType.SelectedIndex = k;
+                        checkedListBox_AlgorithmType.SelectedIndex = checkedListBox_AlgorithmType.CheckedIndices[k];
 
                         //QuickAppendToFile(logFileName,
                         //                  string.Format("Starting model series for algorithm {0}. Time: {1}",
@@ -486,7 +490,9 @@ namespace Diploma
 
                     QuickAppendToFile(logFileName,
                                       string.Format("Algorithm {0}. Avr result: {1:0.00}. Avr time: {2:0.00} s",
-                                                    GetAlgorithmName(k), valuesAvr[k], timesAvr[k]));
+                                                    GetAlgorithmName(checkedListBox_AlgorithmType.CheckedIndices[k]), 
+                                                    valuesAvr[k], 
+                                                    timesAvr[k]));
                 }
 
                 QuickAppendToFile(logFileName, string.Format("--- Series #{0} completed. Time: {1}", i, DateTime.Now));

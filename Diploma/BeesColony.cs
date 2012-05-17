@@ -13,7 +13,8 @@ namespace Diploma
             VRP_TSP,
             CLUSTERING_VRP,
             CLUSTERING_CVRP,
-            CLUSTERING_CVRPP
+            CLUSTERING_CVRPP,
+            CLUSTERING_CVRPP_NNC
         }
 
         public ProblemType Problem;
@@ -43,6 +44,8 @@ namespace Diploma
                     return new SiteClusteringCvrp(Nodes, ClusterCapacityLimit);
                 case ProblemType.CLUSTERING_CVRPP:
                     return new SiteClusteringCvrpp(Nodes, ClusterCapacityLimit, ClustersCount, KilometerCost);
+                case ProblemType.CLUSTERING_CVRPP_NNC:
+                    return new SiteClusteringCvrppNnc(Nodes, ClusterCapacityLimit, ClustersCount, KilometerCost);
                 default:
                     return null;
             }
@@ -51,6 +54,9 @@ namespace Diploma
         public void CreateSites ()
         {
             sites = new List<Site>();
+
+            Site.IsStartingInitialized = false;
+            CreateNewSite().StartingInitialize();
 
             for (int i = 0; i != ScoutsCount; i++)
             {

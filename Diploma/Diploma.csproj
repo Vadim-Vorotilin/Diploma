@@ -88,6 +88,7 @@
     <Compile Include="SerializationData.cs" />
     <Compile Include="Site.cs" />
     <Compile Include="SiteClusteringCvrpp.cs" />
+    <Compile Include="SiteClusteringCvrppNnc.cs" />
     <Compile Include="SiteClusteringVrp.cs" />
     <Compile Include="SiteClusteringCvrp.cs" />
     <Compile Include="SiteVrpTsp.cs" />

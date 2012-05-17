@@ -56,6 +56,13 @@ namespace Diploma
             return false;
         }
 
+        public static bool IsStartingInitialized { protected get; set; }
+
+        public virtual void StartingInitialize()
+        {
+            IsStartingInitialized = true;
+        }
+
         public abstract List<Node> PrepareToDraw(Color connectionsColor);
 
         public void DrawNodes()

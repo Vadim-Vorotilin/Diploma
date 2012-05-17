@@ -135,7 +135,11 @@ namespace Diploma
 
         public void AddNodes(List<Node> nodes)
         {
-            Nodes.AddRange(nodes);
+            if (nodes != null)
+            {
+                Nodes.AddRange(nodes);
+            }
+
             nodesUpdated = true;
         }
 
