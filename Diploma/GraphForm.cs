@@ -20,7 +20,6 @@ namespace Diploma
         private void GraphForm_Load(object sender, EventArgs e)
         {
             TaskController.GraphicsForDraw = panel_Drawing.CreateGraphics();
-            LockIterationsOptions(true);
         }
 
         private void GraphForm_MouseClick(object sender, MouseEventArgs e)
@@ -34,39 +33,41 @@ namespace Diploma
 
         private void panel_Drawing_MouseClick(object sender, MouseEventArgs e)
         {
-            int volume = Convert.ToInt32(numericUpDown_Volume.Value);
-            
-            if (e.Button == MouseButtons.Left)
-            {
-                TaskController.AddNodeAtScreen(Node.NodeType.Consumer, e.X, e.Y, volume, volume);
-            }
-            else if (e.Button == MouseButtons.Right)
-            {
-                TaskController.AddNodeAtScreen(Node.NodeType.Depot, e.X, e.Y, 0, 0);
-            }
-
-            SetStatus(string.Format("Node added. Depots: {0}. Consumers: {1}", TaskController.DepotsCount,
-                                    TaskController.ConsumersCount), false);
         }
 
         private void button_StartAlgorithm_Click(object sender, EventArgs eventArgs)
         {
-            if (!TaskController.IsAlgorithmStarted)
-            {
-                if (!StartAlgorithm())
-                    return;
+            AlgorithmType algorithm;
 
-                LockAlgorithmOptions(true);
-                LockIterationsOptions(false);
-                button_StartAlgorithm.Text = "Stop";
+            if (checkBox_CapacityUnlimited.Checked)
+            {
+                if (TaskController.ConsumersCount < 200)
+                {
+                    algorithm = AlgorithmType.BEES_CLUST;
+                }
+                else
+                {
+                    algorithm = AlgorithmType.K_MEANS_CLUST;
+                }
+            }
+            else if (checkBox_VehiclesCountUnlimited.Checked)
+            {
+                if (TaskController.ConsumersCount < 200)
+                {
+                    algorithm = AlgorithmType.BEES_CLUST_LIMIT;
+                }
+                else
+                {
+                    algorithm = AlgorithmType.NNC_CLUST;
+                }
             }
             else
             {
-                StopAlgorithm();
-                LockAlgorithmOptions(false);
-                LockIterationsOptions(true);
-                button_StartAlgorithm.Text = "Start";
+                algorithm = AlgorithmType.BEES_CLUST_CVRPP_NNC;
             }
+
+            if (!StartAlgorithm(algorithm))
+                return;
         }
 
         private int ClustersCount
@@ -84,7 +85,18 @@ namespace Diploma
             get { return Convert.ToDouble(numericUpDown_KilometerCost.Value); }
         }
 
-        private bool StartAlgorithm()
+        private enum AlgorithmType
+        {
+            BEES_VRP_TSP,
+            BEES_CLUST,
+            BEES_CLUST_LIMIT,
+            K_MEANS_CLUST,
+            NNC_CLUST,
+            BEES_CLUST_CVRPP,
+            BEES_CLUST_CVRPP_NNC
+        }
+
+        private bool StartAlgorithm(AlgorithmType algorithm)
         {
             if (TaskController.Nodes.Count < ClustersCount)
             {
@@ -95,15 +107,15 @@ namespace Diploma
 
             TaskController.KilometerCost = KilometerCost;
 
-            switch (checkedListBox_AlgorithmType.SelectedIndex)
+            switch (algorithm)
             {
-                case 0:                 //  Bees VRP -> TSP
+                case AlgorithmType.BEES_VRP_TSP:                //  Bees VRP -> TSP
                     TaskController.StartBeesAlgorithm(BeesColony.ProblemType.VRP_TSP, ClustersCount, 5, 3, 1, 2, 3);
                     break;
-                case 1:                 //  Bees CLUSTERING
+                case AlgorithmType.BEES_CLUST:                  //  Bees CLUSTERING
                     TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_VRP, ClustersCount, 5, 3, 1, 2, 3);
                     break;
-                case 2:                 //  Bees CLUST w/ LIMIT
+                case AlgorithmType.BEES_CLUST_LIMIT:            //  Bees CLUST w/ LIMIT
                     if (ClusterCapacityLimit < TaskController.MaxVolume)
                     {
                         MessageBox.Show(string.Format("Max volume: {0}. Capacity: {1}", TaskController.MaxVolume, ClusterCapacityLimit), "Too few clusters",
@@ -113,10 +125,10 @@ namespace Diploma
 
                     TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_CVRP, ClustersCount, 7, 3, 2, 2, 5, ClusterCapacityLimit);
                     break;
-                case 3:                 //  K-means CLUSTERING
+                case AlgorithmType.K_MEANS_CLUST:               //  K-means CLUSTERING
                     TaskController.StartKMeansAlgorithm(ClustersCount);
                     break;
-                case 4:                 //  NearNeighChain
+                case AlgorithmType.NNC_CLUST:                   //  NearNeighChain
                     if (ClusterCapacityLimit < TaskController.MaxVolume)
                     {
                         MessageBox.Show(string.Format("Max volume: {0}. Capacity: {1}", TaskController.MaxVolume, ClusterCapacityLimit), "Too few clusters",
@@ -126,15 +138,18 @@ namespace Diploma
 
                     TaskController.StartNearestNeighbourChainAlgorithm(ClusterCapacityLimit);
                     break;
-                case 5:                 //  Bees CLUST CVRPP
+                case AlgorithmType.BEES_CLUST_CVRPP:            //  Bees CLUST CVRPP
                     TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_CVRPP, ClustersCount, 7, 3, 2, 2, 5, ClusterCapacityLimit, KilometerCost);
                     break;
-                case 6:                 //  Bees CLUST CVRPP NNC
+                case AlgorithmType.BEES_CLUST_CVRPP_NNC:        //  Bees CLUST CVRPP NNC
                     TaskController.StartBeesAlgorithm(BeesColony.ProblemType.CLUSTERING_CVRPP_NNC, ClustersCount, 7, 3, 2, 2, 5, ClusterCapacityLimit, KilometerCost);
                     break;
             }
 
-            TaskController.Algorithm.LogFileName = textBox_LogFileName.Text;
+            TaskController.Algorithm.LogFileName = "";
+
+            TaskController.Algorithm.IterateToStop();
+            CalculateTsp();
 
             return true;
         }
@@ -152,47 +167,6 @@ namespace Diploma
             numericUpDown_ClusterCapacityLimit.Enabled = !_lock;
             label_KilometerCost.Enabled = !_lock;
             numericUpDown_KilometerCost.Enabled = !_lock;
-            label_Algorithm.Enabled = !_lock;
-            checkedListBox_AlgorithmType.Enabled = !_lock;
-        }
-
-        private void LockIterationsOptions(bool _lock)
-        {
-            button_Iteration.Enabled = !_lock;
-            button_Iterate.Enabled = !_lock;
-            button_IterateToStop.Enabled = !_lock;
-            button_CalculateTsp.Enabled = !_lock;
-            numericUpDown_IterationsCount.Enabled = !_lock;
-        }
-
-        private void button_Iteration_Click(object sender, EventArgs e)
-        {
-            TaskController.Algorithm.Iterations();
-            TaskController.Algorithm.DrawNodes();
-
-            SetStatus(string.Format("Iteration {0} completed. Value: {1:0.00}. Last changed at iteration: {2}. {3}",
-                                    TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value,
-                                    TaskController.Algorithm.LastChangedIteration, TaskController.Algorithm.Info()));
-        }
-
-        private void button_Iterate_Click(object sender, EventArgs e)
-        {
-            DateTime stTime = DateTime.Now;
-
-            TaskController.Algorithm.IsCalcLastChange = checkBox_LastChangedIteration.Checked;
-
-            TaskController.Algorithm.Iterations(Convert.ToInt32(numericUpDown_IterationsCount.Value));
-
-            TimeSpan calcTime = DateTime.Now - stTime;
-
-            TaskController.Algorithm.DrawNodes();
-
-            SetStatus(
-                string.Format(
-                    "Iteration {0} completed. Value: {1:0.00}. Last changed at iteration: {2}. Time: {3:0.00} s. {4}",
-                    TaskController.Algorithm.IterationNumber, TaskController.Algorithm.Value,
-                    TaskController.Algorithm.LastChangedIteration, calcTime.TotalMilliseconds/1000.0,
-                    TaskController.Algorithm.Info()));
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -258,17 +232,11 @@ namespace Diploma
             }
         }
 
-        private void LockConsumerVolumeSettings(bool _lock)
-        {
-            label_Volume.Enabled = !_lock;
-            numericUpDown_Volume.Enabled = !_lock;
-        }
-
         private double IterateToStop()
         {
             DateTime stTime = DateTime.Now;
 
-            TaskController.Algorithm.IsCalcLastChange = checkBox_LastChangedIteration.Checked;
+            TaskController.Algorithm.IsCalcLastChange = true;
 
             TaskController.Algorithm.IterateToStop();
 
@@ -344,14 +312,6 @@ namespace Diploma
             TaskController.DrawNodes(TaskController.Nodes);
         }
 
-        private void button_Generate_Click(object sender, EventArgs e)
-        {
-            GenerateNodes(Convert.ToInt32(numericUpDown_GeneratingCount.Value),
-                Convert.ToInt32(numericUpDown_GeneratingVolumeFrom.Value),
-                Convert.ToInt32(numericUpDown_GeneratingVolumeTo.Value),
-                checkBox_WithDepot.Checked);
-        }
-
         private void listBox_Statuses_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
@@ -364,156 +324,31 @@ namespace Diploma
             }
         }
 
-        private string GetAlgorithmName(int index)
+        private void generateReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            return checkedListBox_AlgorithmType.Items[index].ToString();
+            using (ReportForm reportForm = new ReportForm())
+            {
+                reportForm.ShowDialog();
+            }
         }
 
-        private void button_StartSeries_Click(object sender, EventArgs e)
+        private void checkBox_VehiclesCountUnlimited_CheckedChanged(object sender, EventArgs e)
         {
-            int consumersFrom = Convert.ToInt32(numericUpDown_ConsumersCountFrom.Value);
-            int consumersTo = Convert.ToInt32(numericUpDown_ConsumersCountTo.Value);
-            int consumersStep = Convert.ToInt32(numericUpDown_ConsumersCountStep.Value);
+            numericUpDown_ClustersCount.Enabled = !checkBox_VehiclesCountUnlimited.Checked;
 
-            int volumeFrom = Convert.ToInt32(numericUpDown_GeneratingVolumeFrom.Value);
-            int volumeTo = Convert.ToInt32(numericUpDown_GeneratingVolumeTo.Value);
-
-            int startsCount = Convert.ToInt32(numericUpDown_StartsInSeriesCount.Value);
-            int modelsCount = Convert.ToInt32(numericUpDown_ModelsCount.Value);
-
-            bool currentModel = checkBox_CurrentModel.Checked;
-
-            int algorithmsCount = checkedListBox_AlgorithmType.CheckedIndices.Count;
-
-            int seriesCount = currentModel ? 1 : (consumersTo - consumersFrom) / consumersStep + 1;
-
-            string logFileName = textBox_LogFileName.Text;
-
-            if (currentModel)
+            if (checkBox_VehiclesCountUnlimited.Checked && checkBox_CapacityUnlimited.Checked)
             {
-                modelsCount = 1;
+                checkBox_CapacityUnlimited.Checked = false;
             }
-
-            QuickAppendToFile(logFileName,
-                              string.Format(
-                                  "\n\n\n----- Series start. Clusters limit: {0}. Capacity limit: {1}. " +
-                                  "Starts in each series: {2}. Models count: {3}. " +
-                                  "Current model: {4}. Kilometer cost: {5:0.000}. Consumers count: {6}. Time: {7}",
-                                  Convert.ToInt32(numericUpDown_ClustersCount.Value),
-                                  Convert.ToInt32(numericUpDown_ClusterCapacityLimit.Value),
-                                  startsCount, modelsCount, currentModel,
-                                  KilometerCost,
-                                  TaskController.ConsumersCount, 
-                                  DateTime.Now));
-
-            for (int i = 0; i != seriesCount; i++)
-            {
-                int consumersCount = consumersFrom + i * consumersStep;
-
-                if (!currentModel)
-                {
-                    QuickAppendToFile(logFileName,
-                                      string.Format(
-                                          "--- Series #{0} start. New models generate. Consumers count: {1}. Time: {2}",
-                                          i,
-                                          consumersCount,
-                                          DateTime.Now));
-                }
-                else
-                {
-                    QuickAppendToFile(logFileName, string.Format("--- Series start. Time: {0}", DateTime.Now));
-                }
-
-                double[] valuesAvr = new double[algorithmsCount];
-                double[] timesAvr = new double[algorithmsCount];
-
-                for (int k = 0; k != algorithmsCount; k++)
-                {
-                    valuesAvr[k] = 0;
-                    timesAvr[k] = 0;
-                }
-
-                for (int j = 0; j != modelsCount; j++)
-                {
-                    if (!currentModel)
-                    {
-                        TaskController.CreateNewModel();
-                        GenerateNodes(consumersCount, volumeFrom, volumeTo, true);
-                    }
-
-                    for (int k = 0; k != algorithmsCount; k++)
-                    {
-                        checkedListBox_AlgorithmType.SelectedIndex = checkedListBox_AlgorithmType.CheckedIndices[k];
-
-                        //QuickAppendToFile(logFileName,
-                        //                  string.Format("Starting model series for algorithm {0}. Time: {1}",
-                        //                                GetAlgorithmName(k),
-                        //                                DateTime.Now));
-
-                        List<double> values = new List<double>();
-                        List<double> times = new List<double>();
-
-                        for (int l = 0; l != startsCount; l++)
-                        {
-                            StartAlgorithm();
-                            TaskController.Algorithm.LogFileName = "";
-
-                            double time = IterateToStop() + CalculateTsp();
-
-                            values.Add(TaskController.Algorithm.Value);
-                            times.Add(time);
-
-                            //QuickAppendToFile(logFileName,
-                            //                  string.Format(
-                            //                      "Start #{0} completed. Result: {1:0.00}. During the: {2:0.00} s. Time: {3}",
-                            //                      l,
-                            //                      values[l],
-                            //                      times[l],
-                            //                      DateTime.Now));
-                        }
-
-
-                        valuesAvr[k] += values.Average();
-                        timesAvr[k] += times.Average();
-
-                        //QuickAppendToFile(logFileName,
-                        //                  string.Format(
-                        //                      "Model series completed. Avr result: {0:0.00}. Avr time: {1:0.00} s. Time: {2}",
-                        //                      values.Average(), times.Average(), DateTime.Now));
-                    }
-                }
-
-                for (int k = 0; k != algorithmsCount; k++)
-                {
-                    valuesAvr[k] /= modelsCount;
-                    timesAvr[k] /= modelsCount;
-
-                    QuickAppendToFile(logFileName,
-                                      string.Format("Algorithm {0}. Avr result: {1:0.00}. Avr time: {2:0.00} s",
-                                                    GetAlgorithmName(checkedListBox_AlgorithmType.CheckedIndices[k]), 
-                                                    valuesAvr[k], 
-                                                    timesAvr[k]));
-                }
-
-                QuickAppendToFile(logFileName, string.Format("--- Series #{0} completed. Time: {1}", i, DateTime.Now));
-            }
-
-            QuickAppendToFile(logFileName,
-                              string.Format(
-                                  "----- All series completed. Time: {0}", DateTime.Now));
         }
 
-        private void QuickAppendToFile(string fileName, string line)
+        private void checkBox_CapacityLimit_CheckedChanged(object sender, EventArgs e)
         {
-            if (File.Exists(fileName))
+            numericUpDown_ClusterCapacityLimit.Enabled = !checkBox_CapacityUnlimited.Checked;
+
+            if (checkBox_VehiclesCountUnlimited.Checked && checkBox_CapacityUnlimited.Checked)
             {
-                StreamWriter writer = new StreamWriter(fileName, true);
-                writer.WriteLine(line);
-                writer.Close();
-            }
-            else
-            {
-                throw new Exception("No file!");
+                checkBox_VehiclesCountUnlimited.Checked = false;
             }
         }
     }
