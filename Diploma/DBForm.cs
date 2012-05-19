@@ -18,7 +18,18 @@ namespace Diploma
             InitializeComponent();
 
             toXmdlForm = new ToXmdlForm {Visible = false};
+
+            if ((new LoginForm()).ShowDialog() == DialogResult.OK)
+            {
+                CloseMe = false;
+            }
+            else
+            {
+                CloseMe = true;
+            }
         }
+
+        public bool CloseMe { get; private set; }
 
         private void exportToXMDLToolStripMenuItem_Click(object sender, EventArgs e)
         {

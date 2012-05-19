@@ -15,7 +15,15 @@ namespace Diploma
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GraphForm());
+
+            DBForm dbForm = new DBForm();
+
+            if (dbForm.CloseMe)
+            {
+                return;
+            }
+
+            Application.Run(dbForm);
         }
     }
 }
