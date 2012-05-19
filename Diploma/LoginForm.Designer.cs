@@ -35,7 +35,7 @@
             this.label_Login = new System.Windows.Forms.Label();
             this.textBox_Login = new System.Windows.Forms.TextBox();
             this.label_Password = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox_Password = new System.Windows.Forms.MaskedTextBox();
             this.checkBox_NewUser = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel_Main.SuspendLayout();
             this.flowLayoutPanel_Buttons.SuspendLayout();
@@ -49,7 +49,7 @@
             this.tableLayoutPanel_Main.Controls.Add(this.label_Login, 0, 0);
             this.tableLayoutPanel_Main.Controls.Add(this.textBox_Login, 0, 1);
             this.tableLayoutPanel_Main.Controls.Add(this.label_Password, 0, 2);
-            this.tableLayoutPanel_Main.Controls.Add(this.maskedTextBox1, 0, 3);
+            this.tableLayoutPanel_Main.Controls.Add(this.maskedTextBox_Password, 0, 3);
             this.tableLayoutPanel_Main.Controls.Add(this.checkBox_NewUser, 0, 4);
             this.tableLayoutPanel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_Main.Location = new System.Drawing.Point(0, 0);
@@ -60,9 +60,9 @@
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(228, 166);
+            this.tableLayoutPanel_Main.Size = new System.Drawing.Size(228, 155);
             this.tableLayoutPanel_Main.TabIndex = 0;
             // 
             // flowLayoutPanel_Buttons
@@ -71,9 +71,9 @@
             this.flowLayoutPanel_Buttons.Controls.Add(this.button_Ok);
             this.flowLayoutPanel_Buttons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Buttons.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel_Buttons.Location = new System.Drawing.Point(3, 133);
+            this.flowLayoutPanel_Buttons.Location = new System.Drawing.Point(3, 123);
             this.flowLayoutPanel_Buttons.Name = "flowLayoutPanel_Buttons";
-            this.flowLayoutPanel_Buttons.Size = new System.Drawing.Size(222, 30);
+            this.flowLayoutPanel_Buttons.Size = new System.Drawing.Size(222, 29);
             this.flowLayoutPanel_Buttons.TabIndex = 0;
             // 
             // button_Cancel
@@ -108,7 +108,7 @@
             // 
             // textBox_Login
             // 
-            this.textBox_Login.Location = new System.Drawing.Point(3, 29);
+            this.textBox_Login.Location = new System.Drawing.Point(3, 27);
             this.textBox_Login.Name = "textBox_Login";
             this.textBox_Login.Size = new System.Drawing.Size(213, 20);
             this.textBox_Login.TabIndex = 2;
@@ -116,24 +116,25 @@
             // label_Password
             // 
             this.label_Password.AutoSize = true;
-            this.label_Password.Location = new System.Drawing.Point(3, 52);
+            this.label_Password.Location = new System.Drawing.Point(3, 48);
             this.label_Password.Name = "label_Password";
             this.label_Password.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
             this.label_Password.Size = new System.Drawing.Size(53, 20);
             this.label_Password.TabIndex = 3;
             this.label_Password.Text = "Password";
             // 
-            // maskedTextBox1
+            // maskedTextBox_Password
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(3, 81);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(213, 20);
-            this.maskedTextBox1.TabIndex = 4;
+            this.maskedTextBox_Password.Location = new System.Drawing.Point(3, 75);
+            this.maskedTextBox_Password.Name = "maskedTextBox_Password";
+            this.maskedTextBox_Password.PasswordChar = '*';
+            this.maskedTextBox_Password.Size = new System.Drawing.Size(213, 20);
+            this.maskedTextBox_Password.TabIndex = 4;
             // 
             // checkBox_NewUser
             // 
             this.checkBox_NewUser.AutoSize = true;
-            this.checkBox_NewUser.Location = new System.Drawing.Point(3, 107);
+            this.checkBox_NewUser.Location = new System.Drawing.Point(3, 99);
             this.checkBox_NewUser.Name = "checkBox_NewUser";
             this.checkBox_NewUser.Size = new System.Drawing.Size(71, 17);
             this.checkBox_NewUser.TabIndex = 5;
@@ -144,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(228, 166);
+            this.ClientSize = new System.Drawing.Size(228, 155);
             this.Controls.Add(this.tableLayoutPanel_Main);
             this.Name = "LoginForm";
             this.Text = "Login";
@@ -164,7 +165,7 @@
         private System.Windows.Forms.Label label_Login;
         private System.Windows.Forms.TextBox textBox_Login;
         private System.Windows.Forms.Label label_Password;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox_Password;
         private System.Windows.Forms.CheckBox checkBox_NewUser;
     }
 }
