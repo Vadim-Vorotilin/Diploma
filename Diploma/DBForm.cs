@@ -81,6 +81,7 @@ namespace Diploma
         {
             if (toXmdlForm.ShowDialog() == DialogResult.OK)
             {
+                (new GraphForm()).ShowDialog();
             }
         }
     }

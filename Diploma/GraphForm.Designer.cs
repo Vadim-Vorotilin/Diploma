@@ -33,10 +33,6 @@
             this.listBox_Statuses = new System.Windows.Forms.ListBox();
             this.menuStrip_MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.saveModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveModelAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,10 +114,6 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newModelToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.saveModelToolStripMenuItem,
-            this.saveModelAsToolStripMenuItem,
             this.loadModelToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
@@ -129,42 +121,12 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // newModelToolStripMenuItem
-            // 
-            this.newModelToolStripMenuItem.Name = "newModelToolStripMenuItem";
-            this.newModelToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newModelToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.newModelToolStripMenuItem.Text = "New model";
-            this.newModelToolStripMenuItem.Click += new System.EventHandler(this.newModelToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(220, 6);
-            // 
-            // saveModelToolStripMenuItem
-            // 
-            this.saveModelToolStripMenuItem.Name = "saveModelToolStripMenuItem";
-            this.saveModelToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveModelToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.saveModelToolStripMenuItem.Text = "Save model";
-            this.saveModelToolStripMenuItem.Click += new System.EventHandler(this.saveModelToolStripMenuItem_Click);
-            // 
-            // saveModelAsToolStripMenuItem
-            // 
-            this.saveModelAsToolStripMenuItem.Name = "saveModelAsToolStripMenuItem";
-            this.saveModelAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt)
-                        | System.Windows.Forms.Keys.S)));
-            this.saveModelAsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.saveModelAsToolStripMenuItem.Text = "Save model As...";
-            this.saveModelAsToolStripMenuItem.Click += new System.EventHandler(this.saveModelAsToolStripMenuItem_Click);
-            // 
             // loadModelToolStripMenuItem
             // 
             this.loadModelToolStripMenuItem.Name = "loadModelToolStripMenuItem";
             this.loadModelToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.loadModelToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.loadModelToolStripMenuItem.Text = "Load model...";
+            this.loadModelToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.loadModelToolStripMenuItem.Text = "Load data...";
             this.loadModelToolStripMenuItem.Click += new System.EventHandler(this.loadModelToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
@@ -359,7 +321,7 @@
             this.Controls.Add(this.tableLayoutPanel_Main);
             this.Controls.Add(this.menuStrip_MainMenu);
             this.Name = "GraphForm";
-            this.Text = "Graph";
+            this.Text = "Math";
             this.Load += new System.EventHandler(this.GraphForm_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GraphForm_MouseClick);
             this.tableLayoutPanel_Main.ResumeLayout(false);
@@ -384,10 +346,6 @@
         private System.Windows.Forms.Panel panel_Drawing;
         private System.Windows.Forms.MenuStrip menuStrip_MainMenu;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newModelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem saveModelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveModelAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadModelToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;

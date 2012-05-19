@@ -215,7 +215,7 @@ namespace Diploma
         {
             if (!TaskController.SaveModel())
             {
-                saveModelAsToolStripMenuItem.PerformClick();
+                //saveModelAsToolStripMenuItem.PerformClick();
             }
         }
 

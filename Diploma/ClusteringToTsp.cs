@@ -102,11 +102,6 @@ namespace Diploma
         {
             List<Node> drawingNodes = new List<Node>();
 
-            foreach (Cluster cluster in clusters)
-            {
-                drawingNodes.AddRange(cluster.GetDrawingNodes(Color.LightGray));
-            }
-
             for (int i = 0; i != colonies.Count; i++)
             {
                 drawingNodes.AddRange(colonies[i].BestSite.PrepareToDraw(TaskController.GetDrawingColor(i)));
