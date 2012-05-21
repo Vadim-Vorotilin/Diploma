@@ -953,3 +953,151 @@ Algorithm Bees CLUST CVRPP. Avr result: 506,57. Avr time: 56,85 s
 Algorithm Bees CLUST CVRPP NNC. Avr result: 501,43. Avr time: 16,01 s
 --- Series #4 completed. Time: 17.05.2012 15:02:56
 --- Series #5 start. New models generate. Consumers count: 125. Time: 17.05.2012 15:02:56
+Algorithm Bees CLUST CVRPP. Avr result: 564,09. Avr time: 33,88 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 550,71. Avr time: 44,96 s
+--- Series #5 completed. Time: 17.05.2012 15:14:50
+--- Series #6 start. New models generate. Consumers count: 130. Time: 17.05.2012 15:14:50
+Algorithm Bees CLUST CVRPP. Avr result: 650,43. Avr time: 71,86 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 653,04. Avr time: 14,50 s
+--- Series #6 completed. Time: 17.05.2012 15:27:53
+--- Series #7 start. New models generate. Consumers count: 135. Time: 17.05.2012 15:27:53
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 250. Starts in each series: 3. Models count: 3. Current model: False. Kilometer cost: 0,500. Consumers count: 0. Time: 17.05.2012 20:03:12
+--- Series #0 start. New models generate. Consumers count: 125. Time: 17.05.2012 20:03:12
+Algorithm Bees CLUST CVRPP. Avr result: 648,03. Avr time: 68,58 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 653,56. Avr time: 16,54 s
+--- Series #0 completed. Time: 17.05.2012 20:16:03
+--- Series #1 start. New models generate. Consumers count: 130. Time: 17.05.2012 20:16:03
+Algorithm Bees CLUST CVRPP. Avr result: 634,58. Avr time: 82,53 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 633,01. Avr time: 27,66 s
+--- Series #1 completed. Time: 17.05.2012 20:32:40
+--- Series #2 start. New models generate. Consumers count: 135. Time: 17.05.2012 20:32:40
+Algorithm Bees CLUST CVRPP. Avr result: 688,07. Avr time: 83,45 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 695,15. Avr time: 21,73 s
+--- Series #2 completed. Time: 17.05.2012 20:48:32
+--- Series #3 start. New models generate. Consumers count: 140. Time: 17.05.2012 20:48:32
+Algorithm Bees CLUST CVRPP. Avr result: 737,59. Avr time: 145,46 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 730,35. Avr time: 58,58 s
+--- Series #3 completed. Time: 17.05.2012 21:19:13
+--- Series #4 start. New models generate. Consumers count: 145. Time: 17.05.2012 21:19:13
+Algorithm Bees CLUST CVRPP. Avr result: 806,79. Avr time: 93,56 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 806,47. Avr time: 14,61 s
+--- Series #4 completed. Time: 17.05.2012 21:35:32
+--- Series #5 start. New models generate. Consumers count: 150. Time: 17.05.2012 21:35:32
+Algorithm Bees CLUST CVRPP. Avr result: 820,01. Avr time: 152,84 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 816,53. Avr time: 58,83 s
+--- Series #5 completed. Time: 17.05.2012 22:07:22
+----- All series completed. Time: 17.05.2012 22:07:22
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 300. Starts in each series: 3. Models count: 3. Current model: False. Kilometer cost: 0,500. Consumers count: 150. Time: 17.05.2012 22:43:43
+--- Series #0 start. New models generate. Consumers count: 130. Time: 17.05.2012 22:43:43
+Algorithm Bees CLUST CVRPP. Avr result: 423,64. Avr time: 74,52 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 419,11. Avr time: 14,96 s
+--- Series #0 completed. Time: 17.05.2012 22:57:14
+--- Series #1 start. New models generate. Consumers count: 135. Time: 17.05.2012 22:57:14
+Algorithm Bees CLUST CVRPP. Avr result: 524,19. Avr time: 108,52 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 536,46. Avr time: 23,37 s
+--- Series #1 completed. Time: 17.05.2012 23:17:06
+--- Series #2 start. New models generate. Consumers count: 140. Time: 17.05.2012 23:17:06
+Algorithm Bees CLUST CVRPP. Avr result: 574,76. Avr time: 112,67 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 587,56. Avr time: 17,99 s
+--- Series #2 completed. Time: 17.05.2012 23:36:48
+--- Series #3 start. New models generate. Consumers count: 145. Time: 17.05.2012 23:36:48
+Algorithm Bees CLUST CVRPP. Avr result: 674,20. Avr time: 138,56 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 678,40. Avr time: 25,39 s
+--- Series #3 completed. Time: 18.05.2012 0:01:29
+--- Series #4 start. New models generate. Consumers count: 150. Time: 18.05.2012 0:01:29
+Algorithm Bees CLUST CVRPP. Avr result: 687,38. Avr time: 138,72 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 691,20. Avr time: 60,53 s
+--- Series #4 completed. Time: 18.05.2012 0:31:28
+--- Series #5 start. New models generate. Consumers count: 155. Time: 18.05.2012 0:31:28
+Algorithm Bees CLUST CVRPP. Avr result: 715,75. Avr time: 178,19 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 712,65. Avr time: 51,32 s
+--- Series #5 completed. Time: 18.05.2012 1:05:59
+--- Series #6 start. New models generate. Consumers count: 160. Time: 18.05.2012 1:05:59
+Algorithm Bees CLUST CVRPP. Avr result: 766,91. Avr time: 157,60 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 755,90. Avr time: 84,93 s
+--- Series #6 completed. Time: 18.05.2012 1:42:27
+--- Series #7 start. New models generate. Consumers count: 165. Time: 18.05.2012 1:42:27
+Algorithm Bees CLUST CVRPP. Avr result: 861,10. Avr time: 167,20 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 849,29. Avr time: 73,32 s
+--- Series #7 completed. Time: 18.05.2012 2:18:38
+--- Series #8 start. New models generate. Consumers count: 170. Time: 18.05.2012 2:18:38
+Algorithm Bees CLUST CVRPP. Avr result: 867,94. Avr time: 270,21 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 875,92. Avr time: 119,49 s
+--- Series #8 completed. Time: 18.05.2012 3:17:11
+--- Series #9 start. New models generate. Consumers count: 175. Time: 18.05.2012 3:17:11
+Algorithm Bees CLUST CVRPP. Avr result: 919,81. Avr time: 276,93 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 920,24. Avr time: 105,04 s
+--- Series #9 completed. Time: 18.05.2012 4:14:34
+--- Series #10 start. New models generate. Consumers count: 180. Time: 18.05.2012 4:14:34
+Algorithm Bees CLUST CVRPP. Avr result: 901,17. Avr time: 187,43 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 901,48. Avr time: 111,63 s
+--- Series #10 completed. Time: 18.05.2012 4:59:32
+--- Series #11 start. New models generate. Consumers count: 185. Time: 18.05.2012 4:59:32
+Algorithm Bees CLUST CVRPP. Avr result: 1036,15. Avr time: 328,99 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 1041,64. Avr time: 74,75 s
+--- Series #11 completed. Time: 18.05.2012 6:00:11
+--- Series #12 start. New models generate. Consumers count: 190. Time: 18.05.2012 6:00:11
+Algorithm Bees CLUST CVRPP. Avr result: 1097,87. Avr time: 251,53 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 1100,32. Avr time: 66,56 s
+--- Series #12 completed. Time: 18.05.2012 6:48:00
+--- Series #13 start. New models generate. Consumers count: 195. Time: 18.05.2012 6:48:00
+Algorithm Bees CLUST CVRPP. Avr result: 1111,74. Avr time: 399,00 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 1136,01. Avr time: 36,24 s
+--- Series #13 completed. Time: 18.05.2012 7:53:23
+--- Series #14 start. New models generate. Consumers count: 200. Time: 18.05.2012 7:53:23
+Algorithm Bees CLUST CVRPP. Avr result: 1051,42. Avr time: 250,49 s
+Algorithm Bees CLUST CVRPP NNC. Avr result: 1063,84. Avr time: 72,09 s
+--- Series #14 completed. Time: 18.05.2012 8:41:52
+----- All series completed. Time: 18.05.2012 8:41:52
+
+
+
+----- Series start. Clusters limit: 3. Capacity limit: 50. Starts in each series: 2. Models count: 2. Current model: False. Kilometer cost: 1,000. Consumers count: 0. Time: 19.05.2012 21:16:57
+--- Series #0 start. New models generate. Consumers count: 100. Time: 19.05.2012 21:16:57
+
+
+
+----- Series start. Clusters limit: 4. Capacity limit: 300. Starts in each series: 2. Models count: 2. Current model: False. Kilometer cost: 1,000. Consumers count: 0. Time: 19.05.2012 21:18:10
+--- Series #0 start. New models generate. Consumers count: 100. Time: 19.05.2012 21:18:10
+Algorithm Bees CLUSTERING. Avr result: 568,56. Avr time: 3,09 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 578,23. Avr time: 5,68 s
+--- Series #0 completed. Time: 19.05.2012 21:18:48
+--- Series #1 start. New models generate. Consumers count: 120. Time: 19.05.2012 21:18:48
+Algorithm Bees CLUSTERING. Avr result: 592,38. Avr time: 5,65 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 645,00. Avr time: 15,27 s
+--- Series #1 completed. Time: 19.05.2012 21:20:14
+--- Series #2 start. New models generate. Consumers count: 140. Time: 19.05.2012 21:20:14
+Algorithm Bees CLUSTERING. Avr result: 633,57. Avr time: 10,01 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 697,63. Avr time: 28,79 s
+--- Series #2 completed. Time: 19.05.2012 21:22:52
+--- Series #3 start. New models generate. Consumers count: 160. Time: 19.05.2012 21:22:52
+Algorithm Bees CLUSTERING. Avr result: 706,95. Avr time: 25,92 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 843,66. Avr time: 27,94 s
+--- Series #3 completed. Time: 19.05.2012 21:26:30
+--- Series #4 start. New models generate. Consumers count: 180. Time: 19.05.2012 21:26:30
+Algorithm Bees CLUSTERING. Avr result: 729,09. Avr time: 22,43 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 831,79. Avr time: 141,21 s
+--- Series #4 completed. Time: 19.05.2012 21:37:28
+--- Series #5 start. New models generate. Consumers count: 200. Time: 19.05.2012 21:37:28
+Algorithm Bees CLUSTERING. Avr result: 811,57. Avr time: 49,17 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 1018,12. Avr time: 100,48 s
+--- Series #5 completed. Time: 19.05.2012 21:47:31
+--- Series #6 start. New models generate. Consumers count: 220. Time: 19.05.2012 21:47:31
+Algorithm Bees CLUSTERING. Avr result: 766,39. Avr time: 81,27 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 970,89. Avr time: 212,17 s
+--- Series #6 completed. Time: 19.05.2012 22:07:09
+--- Series #7 start. New models generate. Consumers count: 240. Time: 19.05.2012 22:07:09
+Algorithm Bees CLUSTERING. Avr result: 836,49. Avr time: 116,99 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 1106,14. Avr time: 756,64 s
+--- Series #7 completed. Time: 19.05.2012 23:05:28
+--- Series #8 start. New models generate. Consumers count: 260. Time: 19.05.2012 23:05:28
+Algorithm Bees CLUSTERING. Avr result: 905,65. Avr time: 118,16 s
+Algorithm Bees CLUST w/ LIMIT. Avr result: 1283,60. Avr time: 737,41 s
+--- Series #8 completed. Time: 20.05.2012 0:02:34
+----- All series completed. Time: 20.05.2012 0:02:34
