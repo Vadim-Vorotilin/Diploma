@@ -120,13 +120,28 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <EmbeddedResource Include="DBForm.en.resx">
+      <DependentUpon>DBForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DBForm.resx">
+      <DependentUpon>DBForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DBForm.uk-UA.resx">
+      <DependentUpon>DBForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DBForm.uk.resx">
       <DependentUpon>DBForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GraphForm.resx">
       <DependentUpon>GraphForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GraphForm.uk.resx">
+      <DependentUpon>GraphForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.uk.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -141,7 +156,13 @@
     <EmbeddedResource Include="ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm.uk.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ToXmdlForm.resx">
+      <DependentUpon>ToXmdlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToXmdlForm.uk.resx">
       <DependentUpon>ToXmdlForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />

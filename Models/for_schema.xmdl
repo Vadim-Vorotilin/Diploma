@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SerializationData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Nodes>
+    <Node>
+      <ScreenPosition>
+        <x>510</x>
+        <y>257</y>
+      </ScreenPosition>
+      <RealPosition>
+        <x>510.5</x>
+        <y>257.1</y>
+      </RealPosition>
+      <Type>Depot</Type>
+      <Fine>0</Fine>
+      <Volume>0</Volume>
+      <Id>10</Id>
+	  <Name>NoName</Name>
+    </Node>
+  </Nodes>
+  <Distances>
+	<Distance>
+	  <Id1>1</Id1>
+	  <Id2>3</Id2>
+	  <Value>25.5</Value>
+	</Distance>
+  </Distances>
+</SerializationData>

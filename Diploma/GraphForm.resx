@@ -117,11 +117,524 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;numericUpDown_ClustersCount.Name" xml:space="preserve">
+    <value>numericUpDown_ClustersCount</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="reportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="&gt;&gt;statusStrip_Main.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="loadModelToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+O</value>
+  </data>
+  <data name="&gt;&gt;checkBox_CapacityUnlimited.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tableLayoutPanel_Main.RowCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;generateReportToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="listBox_Statuses.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="toolStripStatusLabel_Main.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 17</value>
+  </data>
+  <data name="&gt;&gt;label_KilometerCost.Name" xml:space="preserve">
+    <value>label_KilometerCost</value>
+  </data>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
+  </data>
+  <data name="&gt;&gt;fileToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip_MainMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_ClustersCount.Name" xml:space="preserve">
+    <value>label_ClustersCount</value>
+  </data>
+  <data name="&gt;&gt;panel_Drawing.Name" xml:space="preserve">
+    <value>panel_Drawing</value>
+  </data>
+  <data name="flowLayoutPanel_Algorithm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 5, 0, 0</value>
+  </data>
+  <data name="label_ClusterCapacityLimit.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;checkBox_VehiclesCountUnlimited.Name" xml:space="preserve">
+    <value>checkBox_VehiclesCountUnlimited</value>
+  </data>
+  <data name="&gt;&gt;button_StartAlgorithm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label_ClustersCount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 13</value>
+  </data>
+  <data name="&gt;&gt;loadModelToolStripMenuItem.Name" xml:space="preserve">
+    <value>loadModelToolStripMenuItem</value>
+  </data>
+  <data name="loadModelToolStripMenuItem.Text" xml:space="preserve">
+    <value>Load data...</value>
+  </data>
+  <data name="label_ClustersCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 5</value>
+  </data>
+  <data name="panel_Drawing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>840, 480</value>
+  </data>
+  <data name="label_KilometerCost.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 129</value>
+  </data>
+  <data name="&gt;&gt;statusStrip_Main.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="groupBox_Algorithm.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;panel_Drawing.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;numericUpDown_ClusterCapacityLimit.Name" xml:space="preserve">
+    <value>numericUpDown_ClusterCapacityLimit</value>
+  </data>
+  <data name="button_StartAlgorithm.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Math</value>
+  </data>
+  <data name="menuStrip_MainMenu.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="checkBox_VehiclesCountUnlimited.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 17</value>
+  </data>
+  <data name="&gt;&gt;checkBox_CapacityUnlimited.Parent" xml:space="preserve">
+    <value>flowLayoutPanel_Algorithm</value>
+  </data>
+  <data name="&gt;&gt;button_StartAlgorithm.Name" xml:space="preserve">
+    <value>button_StartAlgorithm</value>
+  </data>
+  <data name="groupBox_Algorithm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 220</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel_Main.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox_Algorithm.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;listBox_Statuses.Parent" xml:space="preserve">
+    <value>tableLayoutPanel_Main</value>
+  </data>
+  <data name="&gt;&gt;numericUpDown_ClustersCount.Parent" xml:space="preserve">
+    <value>flowLayoutPanel_Algorithm</value>
+  </data>
+  <data name="numericUpDown_ClusterCapacityLimit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 20</value>
+  </data>
+  <data name="exitToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+Q</value>
+  </data>
+  <data name="&gt;&gt;generateReportToolStripMenuItem.Name" xml:space="preserve">
+    <value>generateReportToolStripMenuItem</value>
+  </data>
+  <data name="statusStrip_Main.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="listBox_Statuses.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="statusStrip_Main.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;numericUpDown_ClusterCapacityLimit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="numericUpDown_KilometerCost.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 145</value>
+  </data>
+  <data name="generateReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 22</value>
+  </data>
+  <data name="&gt;&gt;numericUpDown_ClustersCount.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;loadModelToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="button_StartAlgorithm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 171</value>
+  </data>
+  <data name="&gt;&gt;exitToolStripMenuItem.Name" xml:space="preserve">
+    <value>exitToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;checkBox_CapacityUnlimited.Name" xml:space="preserve">
+    <value>checkBox_CapacityUnlimited</value>
+  </data>
+  <data name="flowLayoutPanel_Algorithm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel_Main.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label_ClusterCapacityLimit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 13</value>
+  </data>
+  <data name="&gt;&gt;statusStrip_Main.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel_Main.Name" xml:space="preserve">
+    <value>tableLayoutPanel_Main</value>
+  </data>
+  <data name="checkBox_CapacityUnlimited.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 17</value>
+  </data>
+  <data name="&gt;&gt;checkBox_VehiclesCountUnlimited.Parent" xml:space="preserve">
+    <value>flowLayoutPanel_Algorithm</value>
+  </data>
+  <data name="checkBox_VehiclesCountUnlimited.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="panel_Drawing.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel_Algorithm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="reportToolStripMenuItem.Text" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="flowLayoutPanel_Algorithm.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>TopDown</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>GraphForm</value>
+  </data>
+  <data name="label_ClusterCapacityLimit.Text" xml:space="preserve">
+    <value>Capacity</value>
+  </data>
+  <data name="tableLayoutPanel_Main.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel_Algorithm.Parent" xml:space="preserve">
+    <value>groupBox_Algorithm</value>
+  </data>
+  <data name="&gt;&gt;menuStrip_MainMenu.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;fileToolStripMenuItem.Name" xml:space="preserve">
+    <value>fileToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;toolStripStatusLabel_Main.Name" xml:space="preserve">
+    <value>toolStripStatusLabel_Main</value>
+  </data>
+  <data name="label_ClusterCapacityLimit.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel_Main.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;numericUpDown_KilometerCost.Parent" xml:space="preserve">
+    <value>flowLayoutPanel_Algorithm</value>
+  </data>
+  <data name="numericUpDown_KilometerCost.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 20</value>
+  </data>
+  <data name="checkBox_VehiclesCountUnlimited.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="button_StartAlgorithm.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="statusStrip_Main.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1006, 22</value>
+  </data>
+  <data name="numericUpDown_ClustersCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 21</value>
+  </data>
+  <data name="flowLayoutPanel_Algorithm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="numericUpDown_ClusterCapacityLimit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 83</value>
+  </data>
+  <data name="&gt;&gt;groupBox_Algorithm.Name" xml:space="preserve">
+    <value>groupBox_Algorithm</value>
+  </data>
+  <data name="numericUpDown_KilometerCost.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;reportToolStripMenuItem.Name" xml:space="preserve">
+    <value>reportToolStripMenuItem</value>
+  </data>
+  <data name="checkBox_CapacityUnlimited.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 109</value>
+  </data>
+  <data name="label_ClustersCount.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;label_ClusterCapacityLimit.Name" xml:space="preserve">
+    <value>label_ClusterCapacityLimit</value>
+  </data>
+  <data name="&gt;&gt;groupBox_Algorithm.Parent" xml:space="preserve">
+    <value>tableLayoutPanel_Main</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel_Algorithm.Name" xml:space="preserve">
+    <value>flowLayoutPanel_Algorithm</value>
+  </data>
+  <data name="&gt;&gt;numericUpDown_KilometerCost.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="generateReportToolStripMenuItem.Text" xml:space="preserve">
+    <value>Generate report ...</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel_Main.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;reportToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox_Algorithm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="generateReportToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+R</value>
+  </data>
+  <data name="&gt;&gt;exitToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkBox_CapacityUnlimited.Text" xml:space="preserve">
+    <value>Capacity unlimited</value>
+  </data>
+  <data name="&gt;&gt;label_ClustersCount.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;numericUpDown_ClustersCount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBox_VehiclesCountUnlimited.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numericUpDown_ClusterCapacityLimit.Parent" xml:space="preserve">
+    <value>flowLayoutPanel_Algorithm</value>
+  </data>
+  <data name="tableLayoutPanel_Main.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1006, 640</value>
+  </data>
+  <data name="&gt;&gt;label_KilometerCost.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listBox_Statuses.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;checkBox_VehiclesCountUnlimited.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="&gt;&gt;label_ClustersCount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button_StartAlgorithm.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="tableLayoutPanel_Main.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
+  </data>
+  <data name="menuStrip_MainMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1006, 24</value>
+  </data>
+  <data name="loadModelToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 22</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel_Algorithm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 6</value>
+  </data>
+  <data name="panel_Drawing.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="groupBox_Algorithm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>849, 3</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_KilometerCost.Parent" xml:space="preserve">
+    <value>flowLayoutPanel_Algorithm</value>
+  </data>
+  <data name="&gt;&gt;label_ClusterCapacityLimit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label_ClustersCount.Text" xml:space="preserve">
+    <value>Vehicles count</value>
+  </data>
+  <data name="&gt;&gt;menuStrip_MainMenu.Name" xml:space="preserve">
+    <value>menuStrip_MainMenu</value>
+  </data>
+  <data name="&gt;&gt;label_ClustersCount.Parent" xml:space="preserve">
+    <value>flowLayoutPanel_Algorithm</value>
+  </data>
+  <data name="&gt;&gt;checkBox_CapacityUnlimited.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;listBox_Statuses.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="numericUpDown_ClustersCount.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;label_ClusterCapacityLimit.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="numericUpDown_ClusterCapacityLimit.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;panel_Drawing.Parent" xml:space="preserve">
+    <value>tableLayoutPanel_Main</value>
+  </data>
+  <data name="&gt;&gt;button_StartAlgorithm.Parent" xml:space="preserve">
+    <value>flowLayoutPanel_Algorithm</value>
+  </data>
+  <data name="&gt;&gt;panel_Drawing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label_ClusterCapacityLimit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 67</value>
+  </data>
+  <data name="flowLayoutPanel_Algorithm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 201</value>
+  </data>
+  <data name="checkBox_CapacityUnlimited.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;listBox_Statuses.Name" xml:space="preserve">
+    <value>listBox_Statuses</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="label_KilometerCost.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="menuStrip_MainMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="menuStrip_MainMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="numericUpDown_ClustersCount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 20</value>
+  </data>
+  <data name="listBox_Statuses.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 489</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1006, 664</value>
+  </data>
+  <data name="flowLayoutPanel_Algorithm.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="label_KilometerCost.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 13</value>
+  </data>
+  <data name="&gt;&gt;label_KilometerCost.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="statusStrip_Main.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 642</value>
+  </data>
+  <data name="label_KilometerCost.Text" xml:space="preserve">
+    <value>Kilometer cost</value>
+  </data>
+  <data name="checkBox_CapacityUnlimited.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;numericUpDown_KilometerCost.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 22</value>
+  </data>
+  <data name="panel_Drawing.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="button_StartAlgorithm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 23</value>
+  </data>
+  <data name="&gt;&gt;menuStrip_MainMenu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="tableLayoutPanel_Main.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;numericUpDown_ClusterCapacityLimit.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="checkBox_VehiclesCountUnlimited.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 47</value>
+  </data>
+  <data name="&gt;&gt;statusStrip_Main.Name" xml:space="preserve">
+    <value>statusStrip_Main</value>
+  </data>
+  <data name="tableLayoutPanel_Main.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel_Main.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panel_Drawing" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="listBox_Statuses" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBox_Algorithm" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,160" /&gt;&lt;Rows Styles="Percent,100,Absolute,130,Absolute,24" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;numericUpDown_KilometerCost.Name" xml:space="preserve">
+    <value>numericUpDown_KilometerCost</value>
+  </data>
+  <data name="listBox_Statuses.Size" type="System.Drawing.Size, System.Drawing">
+    <value>840, 124</value>
+  </data>
+  <data name="checkBox_VehiclesCountUnlimited.Text" xml:space="preserve">
+    <value>Vehicles count unlimited</value>
+  </data>
+  <data name="label_KilometerCost.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;label_ClusterCapacityLimit.Parent" xml:space="preserve">
+    <value>flowLayoutPanel_Algorithm</value>
+  </data>
+  <data name="label_ClustersCount.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <metadata name="statusStrip_Main.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>189, 17</value>
+  </metadata>
   <metadata name="menuStrip_MainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="statusStrip_Main.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>189, 17</value>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>uk</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>52</value>

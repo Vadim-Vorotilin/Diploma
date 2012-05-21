@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Diploma
@@ -83,6 +85,39 @@ namespace Diploma
             {
                 (new GraphForm()).ShowDialog();
             }
+        }
+
+        private void ChangeLanguage(string lang)
+        {
+            foreach (Control c in this.Controls)
+            {
+                ComponentResourceManager resources = new ComponentResourceManager(typeof(DBForm));
+                resources.ApplyResources(c, c.Name, new CultureInfo(lang));
+            }
+        }
+
+        private void UncheckLanguages()
+        {
+            englishToolStripMenuItem.Checked = false;
+            ukrainianToolStripMenuItem.Checked = false;
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckLanguages();
+            englishToolStripMenuItem.Checked = true;
+
+            ChangeLanguage("en");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en");
+        }
+
+        private void ukrainianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckLanguages();
+            ukrainianToolStripMenuItem.Checked = true;
+
+            ChangeLanguage("uk");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("uk");
         }
     }
 }
