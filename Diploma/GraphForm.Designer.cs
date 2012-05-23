@@ -256,6 +256,7 @@
             this.Controls.Add(this.menuStrip_MainMenu);
             this.Name = "GraphForm";
             this.Load += new System.EventHandler(this.GraphForm_Load);
+            this.ResizeEnd += new System.EventHandler(this.GraphForm_ResizeEnd);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GraphForm_MouseClick);
             this.tableLayoutPanel_Main.ResumeLayout(false);
             this.groupBox_Algorithm.ResumeLayout(false);

@@ -78,10 +78,6 @@
             this.solveTheProblemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ukrainianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dEPOTTableAdapter = new Diploma.VRP_Accounting_DB_DataSetTableAdapters.DEPOTTableAdapter();
             this.cONSUMERTableAdapter = new Diploma.VRP_Accounting_DB_DataSetTableAdapters.CONSUMERTableAdapter();
             this.vEHICLETableAdapter = new Diploma.VRP_Accounting_DB_DataSetTableAdapters.VEHICLETableAdapter();
@@ -428,8 +424,7 @@
             // 
             resources.ApplyResources(this.menuStrip_Main, "menuStrip_Main");
             this.menuStrip_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.optionsToolStripMenuItem});
+            this.fileToolStripMenuItem});
             this.menuStrip_Main.Name = "menuStrip_Main";
             // 
             // fileToolStripMenuItem
@@ -464,35 +459,6 @@
             resources.ApplyResources(this.exitToolStripMenuItem, "exitToolStripMenuItem");
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // optionsToolStripMenuItem
-            // 
-            resources.ApplyResources(this.optionsToolStripMenuItem, "optionsToolStripMenuItem");
-            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.languageToolStripMenuItem});
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            // 
-            // languageToolStripMenuItem
-            // 
-            resources.ApplyResources(this.languageToolStripMenuItem, "languageToolStripMenuItem");
-            this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.englishToolStripMenuItem,
-            this.ukrainianToolStripMenuItem});
-            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            // 
-            // englishToolStripMenuItem
-            // 
-            resources.ApplyResources(this.englishToolStripMenuItem, "englishToolStripMenuItem");
-            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
-            // 
-            // ukrainianToolStripMenuItem
-            // 
-            resources.ApplyResources(this.ukrainianToolStripMenuItem, "ukrainianToolStripMenuItem");
-            this.ukrainianToolStripMenuItem.Checked = true;
-            this.ukrainianToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ukrainianToolStripMenuItem.Name = "ukrainianToolStripMenuItem";
-            this.ukrainianToolStripMenuItem.Click += new System.EventHandler(this.ukrainianToolStripMenuItem_Click);
             // 
             // dEPOTTableAdapter
             // 
@@ -602,9 +568,5 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn iDDEPOTFROMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn iDCONSUMERTODataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dISTANCEDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ukrainianToolStripMenuItem;
     }
 }

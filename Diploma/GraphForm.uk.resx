@@ -151,12 +151,6 @@
   <data name="button_StartAlgorithm.Text" xml:space="preserve">
     <value>Старт</value>
   </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 20</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>Файл</value>
-  </data>
   <data name="loadModelToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>222, 22</value>
   </data>
@@ -172,17 +166,23 @@
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Вихід</value>
   </data>
-  <data name="reportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 20</value>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 20</value>
   </data>
-  <data name="reportToolStripMenuItem.Text" xml:space="preserve">
-    <value>Звіт</value>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>Файл</value>
   </data>
   <data name="generateReportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>214, 22</value>
   </data>
   <data name="generateReportToolStripMenuItem.Text" xml:space="preserve">
     <value>Згенерувати звіт...</value>
+  </data>
+  <data name="reportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 20</value>
+  </data>
+  <data name="reportToolStripMenuItem.Text" xml:space="preserve">
+    <value>Звіт</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Математична обробка інформації</value>

@@ -137,8 +137,11 @@
   <data name="cOORDINATESNDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>Coordinates N</value>
   </data>
-  <data name="&gt;&gt;tabPage_DistanceConsumers.Name" xml:space="preserve">
-    <value>tabPage_DistanceConsumers</value>
+  <data name="&gt;&gt;ukrainianToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="COORDINATES_N.HeaderText" xml:space="preserve">
+    <value>Coordinates N</value>
   </data>
   <data name="aMOUNTDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
     <value>70</value>
@@ -173,17 +176,20 @@
   <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 20</value>
   </data>
-  <data name="&gt;&gt;menuStrip_Main.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;dataGridView_DistanceConsumers.Parent" xml:space="preserve">
     <value>tabPage_DistanceConsumers</value>
   </data>
   <data name="&gt;&gt;tabPage_Depots.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;cONSUMERBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;vRP_Accounting_DB_DataSet.Name" xml:space="preserve">
+    <value>vRP_Accounting_DB_DataSet</value>
   </data>
   <data name="dataGridView_Vehicles.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -195,8 +201,11 @@
   <data name="&gt;&gt;vRP_Accounting_DB_DataSet.Type" xml:space="preserve">
     <value>Diploma.VRP_Accounting_DB_DataSet, VRP_Accounting_DB_DataSet.Designer.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;VOLUME.Name" xml:space="preserve">
-    <value>VOLUME</value>
+  <data name="&gt;&gt;exportToXMDLToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="nAMEDataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="dataGridView_Depots.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -216,7 +225,7 @@
   <data name="COORDINATES_E.Width" type="System.Int32, mscorlib">
     <value>120</value>
   </data>
-  <data name="dataGridView_Depots.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;dataGridView_Consumers.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="COORDINATES_N.Width" type="System.Int32, mscorlib">
@@ -228,6 +237,9 @@
   <data name="&gt;&gt;dISTANCEDataGridViewTextBoxColumn.Name" xml:space="preserve">
     <value>dISTANCEDataGridViewTextBoxColumn</value>
   </data>
+  <data name="&gt;&gt;vOLUMEDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>vOLUMEDataGridViewTextBoxColumn</value>
+  </data>
   <data name="tabPage_Depots.Size" type="System.Drawing.Size, System.Drawing">
     <value>729, 356</value>
   </data>
@@ -236,9 +248,6 @@
   </data>
   <data name="&gt;&gt;tabPage_Depots.Parent" xml:space="preserve">
     <value>tabControl_Main</value>
-  </data>
-  <data name="&gt;&gt;optionsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Accounting</value>
@@ -282,9 +291,6 @@
   <data name="&gt;&gt;tabPage_DistanceDepotConsumer.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="menuStrip_Main.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
   <data name="&gt;&gt;cOORDINATESEDataGridViewTextBoxColumn.Name" xml:space="preserve">
     <value>cOORDINATESEDataGridViewTextBoxColumn</value>
   </data>
@@ -303,14 +309,8 @@
   <data name="&gt;&gt;dISTANCE_CONSUMERSTableAdapter.Name" xml:space="preserve">
     <value>dISTANCE_CONSUMERSTableAdapter</value>
   </data>
-  <data name="&gt;&gt;dEPOTBindingSource.Name" xml:space="preserve">
-    <value>dEPOTBindingSource</value>
-  </data>
   <data name="vOLUMEDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
     <value>70</value>
-  </data>
-  <data name="&gt;&gt;tabControl_Main.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;iDCONSUMERTODataGridViewTextBoxColumn1.Name" xml:space="preserve">
     <value>iDCONSUMERTODataGridViewTextBoxColumn1</value>
@@ -320,6 +320,9 @@
   </data>
   <data name="&gt;&gt;aMOUNTDataGridViewTextBoxColumn.Name" xml:space="preserve">
     <value>aMOUNTDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="vOLUMEDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Volume</value>
   </data>
   <data name="українськаToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 22</value>
@@ -333,8 +336,8 @@
   <data name="iDCONSUMERTODataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
     <value>Consumer to</value>
   </data>
-  <data name="&gt;&gt;vOLUMEDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>vOLUMEDataGridViewTextBoxColumn</value>
+  <data name="tabPage_Vehicles.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;cOORDINATESEDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -354,8 +357,8 @@
   <data name="&gt;&gt;tabPage_Depots.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;vOLUMEDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="languageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
   <data name="tabPage_DistanceConsumers.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -366,8 +369,14 @@
   <data name="tabPage_Vehicles.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 30</value>
   </data>
+  <data name="iDDataGridViewTextBoxColumn3.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="iDDataGridViewTextBoxColumn3.HeaderText" xml:space="preserve">
     <value>ID</value>
+  </data>
+  <data name="iDCONSUMERTODataGridViewTextBoxColumn1.Width" type="System.Int32, mscorlib">
+    <value>250</value>
   </data>
   <data name="iDDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
     <value>50</value>
@@ -380,6 +389,9 @@
   </data>
   <data name="&gt;&gt;dISTANCECONSUMERSBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
   </data>
   <data name="&gt;&gt;tabControl_Main.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -402,8 +414,8 @@
   <data name="dataGridView_Consumers.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="tabPage_Vehicles.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="dataGridView_Vehicles.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;fileToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -411,17 +423,11 @@
   <data name="&gt;&gt;dISTANCE_DEPOT_CONSUMERTableAdapter.Type" xml:space="preserve">
     <value>Diploma.VRP_Accounting_DB_DataSetTableAdapters.DISTANCE_DEPOT_CONSUMERTableAdapter, VRP_Accounting_DB_DataSet.Designer.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;tabPage_DistanceConsumers.Parent" xml:space="preserve">
-    <value>tabControl_Main</value>
+  <data name="dataGridView_Depots.Size" type="System.Drawing.Size, System.Drawing">
+    <value>723, 350</value>
   </data>
   <data name="&gt;&gt;iDCONSUMERTODataGridViewTextBoxColumn.Name" xml:space="preserve">
     <value>iDCONSUMERTODataGridViewTextBoxColumn</value>
-  </data>
-  <data name="ukrainianToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="&gt;&gt;cOORDINATESNDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>cOORDINATESNDataGridViewTextBoxColumn</value>
   </data>
   <data name="tabPage_DistanceDepotConsumer.Size" type="System.Drawing.Size, System.Drawing">
     <value>729, 356</value>
@@ -438,9 +444,6 @@
   <data name="dataGridView_Vehicles.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;menuStrip_Main.Name" xml:space="preserve">
-    <value>menuStrip_Main</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>DBForm</value>
   </data>
@@ -449,9 +452,6 @@
   </data>
   <data name="&gt;&gt;tabPage_DistanceDepotConsumer.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="&gt;&gt;COORDINATES_N.Name" xml:space="preserve">
-    <value>COORDINATES_N</value>
   </data>
   <data name="&gt;&gt;dataGridView_Depots.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -467,9 +467,6 @@
   </data>
   <data name="&gt;&gt;tabPage_DistanceConsumers.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;iDDataGridViewTextBoxColumn3.Name" xml:space="preserve">
-    <value>iDDataGridViewTextBoxColumn3</value>
   </data>
   <data name="&gt;&gt;cOUNTDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -492,6 +489,9 @@
   <data name="&gt;&gt;cONSUMERTableAdapter.Type" xml:space="preserve">
     <value>Diploma.VRP_Accounting_DB_DataSetTableAdapters.CONSUMERTableAdapter, VRP_Accounting_DB_DataSet.Designer.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="&gt;&gt;tabPage_Consumers.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="&gt;&gt;aMOUNTDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -507,9 +507,6 @@
   <data name="&gt;&gt;tabControl_Main.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="iDCONSUMERFROMDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Consumer from</value>
-  </data>
   <data name="tabControl_Main.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 24</value>
   </data>
@@ -518,9 +515,6 @@
   </data>
   <data name="&gt;&gt;tabPage_DistanceConsumers.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dISTANCE_DEPOT_CONSUMERTableAdapter.Name" xml:space="preserve">
-    <value>dISTANCE_DEPOT_CONSUMERTableAdapter</value>
   </data>
   <data name="&gt;&gt;optionsToolStripMenuItem.Name" xml:space="preserve">
     <value>optionsToolStripMenuItem</value>
@@ -540,20 +534,20 @@
   <data name="&gt;&gt;aMOUNTDataGridViewTextBoxColumn1.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="dataGridView_DistanceConsumers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
   <data name="cOORDINATESEDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>Coordinates E</value>
   </data>
-  <data name="&gt;&gt;dataGridView_DistanceDepotConsumer.Name" xml:space="preserve">
-    <value>dataGridView_DistanceDepotConsumer</value>
-  </data>
-  <data name="&gt;&gt;dataGridView_Vehicles.Parent" xml:space="preserve">
-    <value>tabPage_Vehicles</value>
+  <data name="&gt;&gt;dataGridView_DistanceConsumers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tabPage_Depots.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;englishToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;vEHICLEBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="dISTANCEDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>Distance</value>
@@ -561,20 +555,17 @@
   <data name="iDDEPOTFROMDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>Depot from</value>
   </data>
-  <data name="&gt;&gt;dataGridView_DistanceDepotConsumer.Parent" xml:space="preserve">
-    <value>tabPage_DistanceDepotConsumer</value>
-  </data>
-  <data name="&gt;&gt;cONSUMERBindingSource.Name" xml:space="preserve">
-    <value>cONSUMERBindingSource</value>
+  <data name="&gt;&gt;menuStrip_Main.Name" xml:space="preserve">
+    <value>menuStrip_Main</value>
   </data>
   <data name="menuStrip_Main.Size" type="System.Drawing.Size, System.Drawing">
     <value>737, 24</value>
   </data>
+  <data name="tabPage_Consumers.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
   <data name="&gt;&gt;dataGridView_Consumers.Name" xml:space="preserve">
     <value>dataGridView_Consumers</value>
-  </data>
-  <data name="tabPage_DistanceDepotConsumer.Text" xml:space="preserve">
-    <value>Depot-Consumer</value>
   </data>
   <data name="&gt;&gt;menuStrip_Main.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -591,9 +582,6 @@
   <data name="nAMEDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="&gt;&gt;exitToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;dataGridView_Vehicles.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -603,14 +591,17 @@
   <data name="&gt;&gt;dataGridView_Consumers.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dataGridView_Consumers.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;COORDINATES_N.Name" xml:space="preserve">
+    <value>COORDINATES_N</value>
   </data>
-  <data name="&gt;&gt;tabPage_Consumers.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;dISTANCEDataGridViewTextBoxColumn1.Name" xml:space="preserve">
+    <value>dISTANCEDataGridViewTextBoxColumn1</value>
   </data>
-  <data name="COORDINATES_N.HeaderText" xml:space="preserve">
-    <value>Coordinates N</value>
+  <data name="&gt;&gt;tabPage_DistanceConsumers.Name" xml:space="preserve">
+    <value>tabPage_DistanceConsumers</value>
+  </data>
+  <data name="menuStrip_Main.Text" xml:space="preserve">
+    <value>menuStrip1</value>
   </data>
   <data name="cONSUMPTIONDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
     <value>120</value>
@@ -627,8 +618,8 @@
   <data name="&gt;&gt;iDCONSUMERFROMDataGridViewTextBoxColumn.Name" xml:space="preserve">
     <value>iDCONSUMERFROMDataGridViewTextBoxColumn</value>
   </data>
-  <data name="dataGridView_Consumers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>723, 350</value>
+  <data name="nAMEDataGridViewTextBoxColumn1.Width" type="System.Int32, mscorlib">
+    <value>250</value>
   </data>
   <data name="&gt;&gt;iDDEPOTFROMDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -636,20 +627,26 @@
   <data name="tabPage_Consumers.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 30</value>
   </data>
-  <data name="dataGridView_DistanceConsumers.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="iDCONSUMERFROMDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Consumer from</value>
   </data>
   <data name="FINE.HeaderText" xml:space="preserve">
     <value>Fine</value>
   </data>
-  <data name="iDDataGridViewTextBoxColumn3.Visible" type="System.Boolean, mscorlib">
+  <data name="dISTANCEDataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
+    <value>Distance</value>
+  </data>
+  <data name="&gt;&gt;iDDataGridViewTextBoxColumn3.Name" xml:space="preserve">
+    <value>iDDataGridViewTextBoxColumn3</value>
+  </data>
+  <data name="iDDataGridViewTextBoxColumn.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="&gt;&gt;iDDataGridViewTextBoxColumn3.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dataGridView_DistanceConsumers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cONSUMERBindingSource.Name" xml:space="preserve">
+    <value>cONSUMERBindingSource</value>
   </data>
   <data name="&gt;&gt;solveTheProblemToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -657,14 +654,11 @@
   <data name="&gt;&gt;dataGridView_Vehicles.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dEPOTTableAdapter.Type" xml:space="preserve">
-    <value>Diploma.VRP_Accounting_DB_DataSetTableAdapters.DEPOTTableAdapter, VRP_Accounting_DB_DataSet.Designer.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="&gt;&gt;cOORDINATESNDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="languageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+  <data name="&gt;&gt;menuStrip_Main.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>File</value>
@@ -675,8 +669,8 @@
   <data name="tabPage_DistanceDepotConsumer.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="tabPage_Depots.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="&gt;&gt;dataGridView_DistanceDepotConsumer.Name" xml:space="preserve">
+    <value>dataGridView_DistanceDepotConsumer</value>
   </data>
   <data name="&gt;&gt;dEPOTTableAdapter.Name" xml:space="preserve">
     <value>dEPOTTableAdapter</value>
@@ -690,14 +684,14 @@
   <data name="dataGridView_Depots.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="dataGridView_Vehicles.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="tabPage_DistanceDepotConsumer.Text" xml:space="preserve">
+    <value>Depot-Consumer</value>
   </data>
   <data name="&gt;&gt;українськаToolStripMenuItem.Name" xml:space="preserve">
     <value>українськаToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ukrainianToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 6</value>
@@ -714,8 +708,8 @@
   <data name="&gt;&gt;dISTANCEDEPOTCONSUMERBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;vRP_Accounting_DB_DataSet.Name" xml:space="preserve">
-    <value>vRP_Accounting_DB_DataSet</value>
+  <data name="&gt;&gt;optionsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="aMOUNTDataGridViewTextBoxColumn1.Width" type="System.Int32, mscorlib">
     <value>70</value>
@@ -723,11 +717,11 @@
   <data name="&gt;&gt;VOLUME.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="vOLUMEDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Volume</value>
+  <data name="dataGridView_Depots.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="tabPage_Consumers.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="&gt;&gt;cOORDINATESNDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>cOORDINATESNDataGridViewTextBoxColumn</value>
   </data>
   <data name="&gt;&gt;languageToolStripMenuItem.Name" xml:space="preserve">
     <value>languageToolStripMenuItem</value>
@@ -735,8 +729,11 @@
   <data name="&gt;&gt;exportToXMDLToolStripMenuItem.Name" xml:space="preserve">
     <value>exportToXMDLToolStripMenuItem</value>
   </data>
-  <data name="nAMEDataGridViewTextBoxColumn1.Width" type="System.Int32, mscorlib">
-    <value>250</value>
+  <data name="&gt;&gt;englishToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabControl_Main.Padding" type="System.Drawing.Point, System.Drawing">
+    <value>30, 7</value>
   </data>
   <data name="iDDataGridViewTextBoxColumn4.HeaderText" xml:space="preserve">
     <value>ID</value>
@@ -753,14 +750,17 @@
   <data name="iDDataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
     <value>ID</value>
   </data>
+  <data name="dataGridView_Consumers.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
   <data name="dataGridView_DistanceDepotConsumer.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
   <data name="nAMEDataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="&gt;&gt;ukrainianToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;vOLUMEDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nAMEDataGridViewTextBoxColumn2.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -786,11 +786,11 @@
   <data name="&gt;&gt;tabPage_Consumers.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
-    <value>toolStripSeparator1</value>
+  <data name="tabPage_Depots.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
-  <data name="&gt;&gt;dataGridView_DistanceConsumers.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="dataGridView_DistanceConsumers.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="tabPage_Consumers.Text" xml:space="preserve">
     <value>Consumers</value>
@@ -804,14 +804,14 @@
   <data name="&gt;&gt;tabPage_Vehicles.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;exportToXMDLToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;VOLUME.Name" xml:space="preserve">
+    <value>VOLUME</value>
+  </data>
+  <data name="&gt;&gt;dataGridView_Vehicles.Parent" xml:space="preserve">
+    <value>tabPage_Vehicles</value>
+  </data>
+  <data name="&gt;&gt;exitToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;aMOUNTDataGridViewTextBoxColumn1.Name" xml:space="preserve">
-    <value>aMOUNTDataGridViewTextBoxColumn1</value>
-  </data>
-  <data name="&gt;&gt;dISTANCEDataGridViewTextBoxColumn1.Name" xml:space="preserve">
-    <value>dISTANCEDataGridViewTextBoxColumn1</value>
   </data>
   <data name="&gt;&gt;tabPage_Consumers.Parent" xml:space="preserve">
     <value>tabControl_Main</value>
@@ -822,8 +822,8 @@
   <data name="&gt;&gt;dataGridView_Depots.Parent" xml:space="preserve">
     <value>tabPage_Depots</value>
   </data>
-  <data name="iDCONSUMERTODataGridViewTextBoxColumn1.Width" type="System.Int32, mscorlib">
-    <value>250</value>
+  <data name="dataGridView_Consumers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>723, 350</value>
   </data>
   <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>182, 22</value>
@@ -843,14 +843,14 @@
   <data name="tabPage_Vehicles.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="dataGridView_Consumers.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;tabControl_Main.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="dataGridView_DistanceConsumers.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="tabPage_DistanceDepotConsumer.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;dISTANCE_DEPOT_CONSUMERTableAdapter.Name" xml:space="preserve">
+    <value>dISTANCE_DEPOT_CONSUMERTableAdapter</value>
   </data>
   <data name="&gt;&gt;fileToolStripMenuItem.Name" xml:space="preserve">
     <value>fileToolStripMenuItem</value>
@@ -864,11 +864,8 @@
   <data name="&gt;&gt;tabPage_Consumers.Name" xml:space="preserve">
     <value>tabPage_Consumers</value>
   </data>
-  <data name="solveTheProblemToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 22</value>
-  </data>
-  <data name="dataGridView_Depots.Size" type="System.Drawing.Size, System.Drawing">
-    <value>723, 350</value>
+  <data name="&gt;&gt;aMOUNTDataGridViewTextBoxColumn1.Name" xml:space="preserve">
+    <value>aMOUNTDataGridViewTextBoxColumn1</value>
   </data>
   <data name="iDDataGridViewTextBoxColumn1.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -885,11 +882,11 @@
   <data name="iDDataGridViewTextBoxColumn2.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="dataGridView_DistanceConsumers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="&gt;&gt;dEPOTBindingSource.Name" xml:space="preserve">
+    <value>dEPOTBindingSource</value>
   </data>
-  <data name="dISTANCEDataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
-    <value>Distance</value>
+  <data name="&gt;&gt;dataGridView_DistanceDepotConsumer.Parent" xml:space="preserve">
+    <value>tabPage_DistanceDepotConsumer</value>
   </data>
   <data name="&gt;&gt;languageToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -897,23 +894,26 @@
   <data name="&gt;&gt;tabControl_Main.Name" xml:space="preserve">
     <value>tabControl_Main</value>
   </data>
-  <data name="tabControl_Main.Padding" type="System.Drawing.Point, System.Drawing">
-    <value>30, 7</value>
+  <data name="&gt;&gt;dataGridView_DistanceConsumers.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="iDDataGridViewTextBoxColumn.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;dEPOTTableAdapter.Type" xml:space="preserve">
+    <value>Diploma.VRP_Accounting_DB_DataSetTableAdapters.DEPOTTableAdapter, VRP_Accounting_DB_DataSet.Designer.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="solveTheProblemToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
   </data>
   <data name="exportToXMDLToolStripMenuItem.Text" xml:space="preserve">
     <value>Export to XMDL ...</value>
   </data>
-  <data name="nAMEDataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
-    <value>Name</value>
+  <data name="&gt;&gt;tabPage_DistanceConsumers.Parent" xml:space="preserve">
+    <value>tabControl_Main</value>
   </data>
   <data name="tabPage_Vehicles.Text" xml:space="preserve">
     <value>Vehicles</value>
   </data>
-  <data name="&gt;&gt;vEHICLEBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tabPage_DistanceDepotConsumer.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <metadata name="menuStrip_Main.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1031, 17</value>
