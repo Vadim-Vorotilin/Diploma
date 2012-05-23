@@ -351,5 +351,10 @@ namespace Diploma
                 checkBox_VehiclesCountUnlimited.Checked = false;
             }
         }
+
+        private void GraphForm_ResizeEnd(object sender, EventArgs e)
+        {
+            TaskController.GraphicsForDraw = panel_Drawing.CreateGraphics();
+        }
     }
 }
