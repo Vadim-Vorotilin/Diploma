@@ -1028,6 +1028,7 @@
             this.Controls.Add(this.statusStrip_Main);
             this.Controls.Add(this.tableLayoutPanel_Main);
             this.Controls.Add(this.menuStrip_MainMenu);
+            this.MaximumSize = new System.Drawing.Size(2000, 1500);
             this.Name = "GraphForm";
             this.Text = "Graph";
             this.Load += new System.EventHandler(this.GraphForm_Load);
