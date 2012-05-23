@@ -7,8 +7,8 @@ namespace Diploma
 {
     public class SiteClusteringCvrp : SiteClusteringVrp
     {
-        private readonly int capacityLimit;
-        private Node depot;
+        protected readonly int CapacityLimit;
+        protected Node Depot;
 
         protected List<Node> RemainingNodes; 
             
@@ -16,7 +16,7 @@ namespace Diploma
             : base(nodes)
         {
             Clusters = new List<Cluster>();
-            this.capacityLimit = capacityLimit;
+            this.CapacityLimit = capacityLimit;
             this.ClustersCount = clustersCount;
 
             RemainingNodes = GenerateClusters();
@@ -25,7 +25,7 @@ namespace Diploma
         protected SiteClusteringCvrp (SiteClusteringCvrp site)
             : base(site)
         {
-            this.capacityLimit = site.capacityLimit;
+            this.CapacityLimit = site.CapacityLimit;
         }
 
         private int UnderLimitClustersCount { get; set; }
@@ -59,15 +59,15 @@ namespace Diploma
         private void AddCluster()
         {
             Cluster newCluster = new Cluster();
-            newCluster.Depot = depot;
-            newCluster.CapacityLimit = capacityLimit;
+            newCluster.Depot = Depot;
+            newCluster.CapacityLimit = CapacityLimit;
 
             Clusters.Add(newCluster);
         }
 
         protected override List<Node> GenerateClusters(List<Node> nodesForClusters, Node _depot)
         {
-            this.depot = _depot;
+            this.Depot = _depot;
 
             while (nodesForClusters.Count != 0)
             {
