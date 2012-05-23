@@ -510,5 +510,10 @@ namespace Diploma
                 throw new Exception("No file!");
             }
         }
+
+        private void GraphForm_ResizeEnd(object sender, EventArgs e)
+        {
+            TaskController.GraphicsForDraw = panel_Drawing.CreateGraphics();
+        }
     }
 }
