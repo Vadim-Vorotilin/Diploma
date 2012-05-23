@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Diploma
@@ -280,9 +281,20 @@ namespace Diploma
 
             TaskController.Algorithm.DrawNodes();
 
+            string formatString = "Value: {0:0.00}. Time: {1:0.00} s. {2}";
+
+            if (Thread.CurrentThread.CurrentUICulture.Name == "en")
+            {
+                formatString = "Value: {0:0.00}. Time: {1:0.00} s. {2}";
+            }
+            else if (Thread.CurrentThread.CurrentUICulture.Name == "uk")
+            {
+                formatString = "Значення: {0:0.00}. Час: {1:0.00} с. {2}";
+            }
+
             SetStatus(
                 string.Format(
-                    "Value: {0:0.00}. Time: {1:0.00} s. {2}",
+                    formatString,
                     TaskController.Algorithm.Value, time,
                     TaskController.Algorithm.Info()));
 
